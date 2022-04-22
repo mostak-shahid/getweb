@@ -65,9 +65,9 @@ export default class BannerComponents extends Component {
             }
         }
         console.log('objBannerData');
-        console.log(objBannerData.meta.banner_button_title);
+        console.log(objBannerData.meta);
         console.log('bannerData');
-        console.log(bannerData.meta.banner_button_title);
+        console.log(bannerData.meta);
 
         // console.log(banner_button_title);
         //console.log(meta['banner_button_title']);
