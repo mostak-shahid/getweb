@@ -1,0 +1,36 @@
+.servicesItems{
+    background: linear-gradient(180deg, #191A1D 0%, rgba(25, 26, 29, 0) 100%);
+    border: 1px solid #202124;
+    transition: all 0.2s linear;
+    &:hover{
+        background: #202124;
+        .serTitle{
+            a{
+                color: var(--clr-green) !important;
+            }
+        }
+        .readMoreBtn{
+            a{
+                color: var(--clr-green);
+                span{
+                    margin-right: 7px;
+                }
+                svg *{
+                    stroke: var(--clr-green);
+                }
+            }
+        }
+    }
+    .serTitle a{
+        transition: all 0.2s linear;
+    }
+    .readMoreBtn a{
+        transition: all 0.1s linear;
+    }
+    .readMoreBtn a svg{
+        transition: all 0.2s linear;
+    }
+    .readMoreBtn a span{
+        transition: all 0.1s linear;
+    }
+}

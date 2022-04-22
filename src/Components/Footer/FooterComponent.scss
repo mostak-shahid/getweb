@@ -1,0 +1,50 @@
+.footer{
+    background-image: url(../../assets/images/footer-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .contacts{
+        a{
+            transition: all 0.2s linear;
+            &:hover{
+                text-decoration: underline !important;
+                color: var(--clr-green);
+            }
+        }
+    }
+    .footerWidgetArea{
+        .widgetMenu{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            justify-content: space-between;
+            .widgetList{
+                li{
+                    a{
+                     transition: all 0.2s linear;
+                     &:hover{
+                         color: var(--clr-green) !important;
+                     }
+                    }
+                }
+             }
+        }
+    }
+    .social{
+        ul{
+            li{
+                a{
+                    svg{
+                        transition: all 0.2s linear;
+                    }
+                    &:hover{
+                        svg *{
+                            fill: var(--clr-green) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

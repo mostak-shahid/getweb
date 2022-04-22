@@ -1,0 +1,60 @@
+.singleTechnology {
+    border: 2px solid rgba(76, 77, 84, 0.2);
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgba(32, 33, 36, 0) 0%, #202124 100%);
+    border-left: 5px solid var(--clr-yellow);
+    position: relative;
+    transition: all 0.2s linear;
+
+    &:hover{
+         border-left: 5px solid #fff !important;
+    }
+
+    &.blueShape {
+        border-left: 5px solid var(--clr-blue);
+    }
+    &.pinkShape {
+        border-left: 5px solid var(--clr-pink);
+    }
+    &.greenShape {
+        border-left: 5px solid var(--clr-green);
+    }
+    &.purpleShape {
+        border-left: 5px solid var(--clr-purple);
+    }
+    &.skyShape {
+        border-left: 5px solid var(--clr-sky);
+    }
+
+    // &::after {
+    //     width: 5px;
+    //     height: 100%;
+    //     background-color: var(--clr-yellow);
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     content: "";
+    //     border-radius: 3px 0px 0px 3px;
+    // }
+
+    .singleTechLogo {
+        border-left: 2px solid rgba(76, 77, 84, 0.2);
+    }
+    .techLogos {
+        text-align: center;
+        .icons {
+            transition: all 0.2s linear;
+            img {
+                transition: all 0.2s linear;
+            }
+        }
+        &:hover {
+            .icons {
+                margin-bottom: 0 !important;
+                img {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+}

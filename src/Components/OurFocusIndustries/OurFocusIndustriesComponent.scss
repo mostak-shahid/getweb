@@ -1,0 +1,77 @@
+.topWrap {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+    &::after {
+        height: 1px;
+        width: 100%;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 48.44%, rgba(255, 255, 255, 0) 100%);
+        opacity: 0.2;
+    }
+    .topItem {
+        position: relative;
+        overflow: hidden;
+        &::after {
+            height: 200%;
+            width: 1px;
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: linear-gradient(91deg, rgba(255, 255, 255, 0) 0%, #ffffff 48.44%, rgba(255, 255, 255, 0) 100%);
+            opacity: 0.2;
+        }
+        &:last-child {
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+.bottomWrap {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+    .bottomItem {
+        position: relative;
+        overflow: hidden;
+        &::after {
+            height: 200%;
+            width: 1px;
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(91deg, rgba(255, 255, 255, 0) 0%, #ffffff 48.44%, rgba(255, 255, 255, 0) 100%);
+            opacity: 0.2;
+        }
+        &:last-child {
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+.industriesItem {
+    .icon {
+        transition: all 0.2s linear;
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        img {
+            transition: all 0.2s linear;
+        }
+    }
+    &:hover {
+        .icon {
+            margin-bottom: 10px !important;
+            img {
+                transform: scale(0.8);
+            }
+        }
+    }
+}

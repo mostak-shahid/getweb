@@ -1,0 +1,74 @@
+.portSliderItem,
+.slick-slide {
+    width: auto !important;
+}
+.portSliderItem {
+    .portSliderImg {
+        margin: 4px 7.5px;
+        &:hover {
+            .goArrow,
+            .portTitle {
+                visibility: 1;
+                opacity: 1;
+            }
+            .overLay {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        .overLay {
+            position: absolute;
+            background: linear-gradient(180deg, rgba(18, 19, 22, 0) 0%, rgba(18, 19, 22, 0.7) 100%);
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s linear;
+            z-index: 100;
+        }
+    }
+    .goArrow,
+    .portTitle {
+        visibility: 0;
+        opacity: 0;
+        z-index: 110;
+    }
+    .goArrow {
+        &.bottom-50 {
+            bottom: 43% !important;
+        }
+        &.start-50 {
+            left: 46% !important;
+        }
+    }
+}
+
+.gw-btn {
+    .btn {
+        background-color: var(--clr-green);
+        max-width: 282px;
+        width: 100%;
+        svg {
+            transition: all 0.2s linear;
+        }
+        &:hover {
+            background-color: #00e190;
+            svg {
+                &.end-0 {
+                    right: 20px !important;
+                }
+            }
+        }
+        svg {
+            &.top-0 {
+                top: 15px !important;
+            }
+            &.end-0 {
+                right: 27px !important;
+            }
+        }
+    }
+}
