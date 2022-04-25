@@ -1,32 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import BannerComponents from "./Components/Banner/BannerComponents";
-import BlogUpdateComponent from "./Components/BlogUpdate/BlogUpdateComponent";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
-import OurFocusIndustriesComponent from "./Components/OurFocusIndustries/OurFocusIndustriesComponent";
-import OurServicesComponent from "./Components/OurServices/OurServicesComponent";
-import PortfolioComponent from "./Components/Portfolio/PortfolioComponent";
-import ReadyToMoveComponent from "./Components/ReadyToMove/ReadyToMoveComponent";
-import TechnologiesComponent from "./Components/Technologies/TechnologiesComponent";
-import TestimonialsComponent from "./Components/Testimonials/TestimonialsComponent";
-import WhyChooseUsComponent from "./Components/WhyChooseUs/WhyChooseUsComponent";
 import "./index.scss";
 import Header from "./Page/Header";
+import Home from "./Page/Home/Home";
+import NotFound from "./Page/NotFound/NotFound";
 
 function App() {
     return (
         <div className="App">
-            <Header />
-            <BannerComponents />
-            <OurServicesComponent />
-            <WhyChooseUsComponent />
-            <OurFocusIndustriesComponent />
-            <TechnologiesComponent />
-            <PortfolioComponent />
-            <TestimonialsComponent />
-            <BlogUpdateComponent />
-            <ReadyToMoveComponent />
-            <FooterComponent />
+            <Router>
+                <Header/>
+                <Routes>          
+                    <Route exact path="/" element={<Home/>} />
+                    {/* <Route path="/about" element={<About/>}/> */}
+                    <Route path="*" element={<NotFound/>}/>
+                </Routes>
+                <FooterComponent/>
+            </Router>
         </div>
     );
 }

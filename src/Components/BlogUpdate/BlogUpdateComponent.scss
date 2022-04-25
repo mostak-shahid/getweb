@@ -1,3 +1,15 @@
 .blogs {
     background: linear-gradient(180deg, #202124 0%, rgba(32, 33, 36, 0) 100%);
 }
+.allInsightBtn{
+    .btn{
+        transition: all 0.2s linear;
+        color: #6B6E78;
+        &:hover{
+            color: var(--clr-green) !important;
+            svg *{
+                stroke: var(--clr-green) !important;
+            }
+        }
+    }
+}

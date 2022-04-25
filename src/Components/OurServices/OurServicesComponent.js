@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
 import ServiceIcon1 from '../../assets/images/service-icon1.svg';
 import ServiceIcon2 from '../../assets/images/service-icon2.svg';
@@ -9,10 +9,14 @@ import ServiceIcon6 from '../../assets/images/service-icon6.svg';
 import ServiceIcon7 from '../../assets/images/service-icon7.svg';
 import ServiceIcon8 from '../../assets/images/service-icon8.svg';
 import ServiceIcon9 from '../../assets/images/service-icon9.svg';
-import './OurServicesComponent.scss'
+import './OurServicesComponent.scss';
 
-const OurServicesComponent = () => {
-
+//const OurServicesComponent = ({data}) => {
+export default class OurServicesComponent extends Component {  
+    
+    render() {
+        const data = this.props;
+    console.log(data);
     const servicesItems = [
         {
             img: ServiceIcon1,
@@ -65,18 +69,10 @@ const OurServicesComponent = () => {
         <section className='ourServices secPadding'>
             <div className='container'>
                 <div className='sectionHeader text-center mb-5'>
-                    <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block'>
-                        Our Services
-                    </span>
-                    <h2 className='secTitle fw-normal fs-48 text-white mb-3'>
-                        What <strong className='fwBlack'>services</strong> do we offer
-                    </h2>
+                    <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML = {{__html: data._mosacademy_page_group_sub_titles[0]}}></span>
+                    <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: data._mosacademy_page_group_title_text}}></div>
                     <div className='secIntro textClrGray fs-6 fw-normal mb-2'>
-                        <p className='mb-0'>
-                            Building software solutions can be challenging. Opting for Cinnamon means
-                            receiving guidance <br />  from experts who cover the entire product lifecycle,
-                            from ideation to deployment.
-                        </p>
+                        <div className='mb-0' dangerouslySetInnerHTML = {{__html: data._mosacademy_page_group_title_description}}></div>
                     </div>
                     <div className='lineShape'>
                         <img src={SecLineShape} alt='lineShape' />
@@ -124,6 +120,7 @@ const OurServicesComponent = () => {
             </div>
         </section>
     );
+                }
 };
 
-export default OurServicesComponent;
+//export default OurServicesComponent;

@@ -1,5 +1,101 @@
 .header {
     z-index: 100;
+    .megaMenu {
+        position: static;
+        &:hover{
+            .dropdown-menu{
+                display: block !important;
+            }
+        }
+        .shape, .shape2 {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: "";
+                left: 163px;
+                top: -46px;
+                width: 27px;
+                height: 12px;
+                background-color: var(--clr-green);
+                -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                border-radius: 0;
+            }
+        }
+        .shape2{
+            &::after{
+                left: 400px;
+            }
+        }
+    }
+    .navbar-nav {
+        .dropdown-menu {
+            max-width: 1110px;
+            width: 100%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 16px;
+            background: #202124;
+            padding: 30px 20px;
+            border-top: 5px solid var(--clr-green);
+            .menuWidget {
+                position: relative;
+                &:last-child {
+                    &::after {
+                        display: none !important;
+                    }
+                }
+                &.borderBgNone {
+                    &::after {
+                        display: none !important;
+                    }
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 300%;
+                    height: 1px;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(255, 255, 255, 0) 0%,
+                        #ffffff 48.44%,
+                        rgba(255, 255, 255, 0) 100%
+                    );
+                    opacity: 0.2;
+                }
+
+                a,
+                .menuText {
+                    color: #aaadb7;
+                    font-size: 13px;
+                    transition: all 0.2s linear;
+                    .icons {
+                        img {
+                            transition: all 0.2s linear;
+                            visibility: hidden;
+                            opacity: 0;
+                        }
+                    }
+                    &:hover {
+                        background-color: transparent;
+                        color: var(--clr-green);
+                        .menuText {
+                            margin-left: 5px;
+                        }
+                        .icons {
+                            img {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .navbar-nav {
@@ -34,7 +130,7 @@
             width: 16px;
             height: 16px;
             position: absolute;
-            top: 10px;
+            top: 40px;
         }
     }
     &.active {

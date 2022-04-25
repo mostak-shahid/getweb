@@ -3,6 +3,7 @@
     width: auto !important;
 }
 .portSliderItem {
+    cursor: pointer;
     .portSliderImg {
         margin: 4px 7.5px;
         &:hover {
@@ -46,7 +47,7 @@
     }
 }
 
-.gw-btn {
+.gw-btn-green {
     .btn {
         background-color: var(--clr-green);
         max-width: 282px;
@@ -55,7 +56,7 @@
             transition: all 0.2s linear;
         }
         &:hover {
-            background-color: #00e190;
+            background-color: #00e190 !important;
             svg {
                 &.end-0 {
                     right: 20px !important;

@@ -1,10 +1,11 @@
 import React from "react";
 import SecLineShape from "../../assets/images/secLineShape.svg";
+import MultipleItems from '../TestimonialsSlider/TestimonialsSlider';
 
 const TestimonialsComponent = () => {
     return (
         <section className="testimonials secPadding">
-            <div className="container">
+            <div className="container-fluid">
                 <div className="sectionHeader text-center mb-5">
                     <span className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block">Testimonials</span>
                     <h2 className="secTitle fw-normal fs-48 text-white mb-3">
@@ -19,6 +20,7 @@ const TestimonialsComponent = () => {
                         <img src={SecLineShape} alt="lineShape" />
                     </div>
                 </div>
+                <MultipleItems />
             </div>
         </section>
     );

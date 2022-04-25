@@ -106,7 +106,7 @@ export default class MultipleRows extends Component {
                         </div>
                     ))}
                 </Slider>
-                <div className="gw-btn d-flex justify-content-center mt-5">
+                <div className="gw-btn gw-btn-green d-flex justify-content-center mt-5">
                     <button type="button" className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
                         <span className="me-4">Discover our more project</span>
                         <svg className="position-absolute end-0 top-0" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">

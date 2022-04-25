@@ -1,8 +1,8 @@
 import React from 'react';
 import SecLineShape from '../../assets/images/secLineShape.svg';
-import './WhyChooseUsComponent.scss'
+import './WhyChooseUsComponent.scss';
 
-const WhyChooseUsComponent = () => {
+const WhyChooseUsComponent = ({data}) => {
 
     const whyChooseItems = [
         {
@@ -31,16 +31,10 @@ const WhyChooseUsComponent = () => {
         <section className='whyChooseUs secPadding bgClrDarkLight'>
             <div className='container'>
                 <div className='sectionHeader text-center mb-5'>
-                    <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block'>
-                        Why Choose Us
-                    </span>
-                    <h2 className='secTitle fw-normal fs-48 text-white mb-3'>
-                        We are an agile product <span className='fw-bold'> design <br /> & development </span> agency.
-                    </h2>
+                    <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML = {{__html: data._mosacademy_page_group_sub_titles[0]}}></span>
+                    <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: data._mosacademy_page_group_title_text}}></div>                    
                     <div className='secIntro textClrGray fs-6 fw-normal mb-2'>
-                        <p className='mb-0'>
-                            Building software solutions can be challenging cinnamon
-                        </p>
+                        <div className='mb-0' dangerouslySetInnerHTML = {{__html: data._mosacademy_page_group_title_description}}></div>
                     </div>
                     <div className='lineShape'>
                         <img src={SecLineShape} alt='lineShape' />

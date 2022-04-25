@@ -2,4 +2,22 @@
     background-image: url(../../assets/images/newslatter-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    .sectionHeader{
+        .gw-btn-green {
+            .btn {
+                svg{
+                    &.end-0{
+                        right: 20px !important;
+                    }
+                }
+                &:hover{
+                    svg{
+                        &.end-0{
+                            right: 13px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

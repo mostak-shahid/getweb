@@ -15,6 +15,7 @@
     .topItem {
         position: relative;
         overflow: hidden;
+        cursor: pointer;
         &::after {
             height: 200%;
             width: 1px;
@@ -39,6 +40,7 @@
     .bottomItem {
         position: relative;
         overflow: hidden;
+        cursor: pointer;
         &::after {
             height: 200%;
             width: 1px;
