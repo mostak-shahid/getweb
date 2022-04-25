@@ -1,4 +1,7 @@
 {
   "SITE_TITLE": "Sample React App",
-  "SITE_DOMAIN": "http://localhost:3000/"
+  "SITE_DOMAIN": "http://localhost:3000/",
+  "HOME_ID": 17,
+  "HOME_BANNER_ID": 11,
+  "ABOUT_ID": ""
 }

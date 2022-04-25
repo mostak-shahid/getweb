@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import Config from "../../Config.json";
 import "../Banner/BannerComponents.scss";
 
 export default class BannerComponents extends Component {    
@@ -12,7 +13,7 @@ export default class BannerComponents extends Component {
     
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/banner/35";
+        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/banner/" + Config.HOME_BANNER_ID;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 

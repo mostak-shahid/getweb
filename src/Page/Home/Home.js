@@ -8,6 +8,7 @@ import ReadyToMoveComponent from "../../Components/ReadyToMove/ReadyToMoveCompon
 import TechnologiesComponent from "../../Components/Technologies/TechnologiesComponent";
 import TestimonialsComponent from "../../Components/Testimonials/TestimonialsComponent";
 import WhyChooseUsComponent from "../../Components/WhyChooseUs/WhyChooseUsComponent";
+import Config from "../../Config.json";
 import './Home.scss';
 
 
@@ -19,14 +20,14 @@ export default class Home extends Component {
     
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/post/82";
+        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/post/" + Config.HOME_ID;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 
             pageData: data, 
             loading: false,
         });
-        //console.log(data.meta.page_group_details_group[0]._mosacademy_page_group_title_text);
+        //console.log(data.meta.page_group_details_group[0]);
     }
     render() {
         if (this.state.loading) {
