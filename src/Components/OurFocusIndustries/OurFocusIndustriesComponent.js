@@ -60,26 +60,30 @@ export default class OurFocusIndustriesComponent extends Component {
                     <div className='industriesWrapper'>
                         <div className='topWrap'>
                             {
-                            industryDataOne.map((item, index) => (
-                                <div className='industriesItem px-3 py-2 text-center' key={item.id}>
-                                    <div className='icon mb-4'>
-                                        {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
-                                    </div>
-                                    <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
-                                </div>                             
-                            ))
+                                (industryDataOne.length)?
+                                industryDataOne.map((item, index) => (
+                                    <div className='industriesItem px-3 py-2 text-center' key={item.id}>
+                                        <div className='icon mb-4'>
+                                            {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
+                                        </div>
+                                        <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
+                                    </div>                             
+                                )):
+                                ''
                             }
                         </div>
                         <div className='bottomWrap'>
                             {
-                            industryDataTwo.map((item, index) => (
-                                <div className='industriesItem px-3 py-2 text-center' key={item.id}>
-                                    <div className='icon mb-4'>
-                                        {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
-                                    </div>
-                                    <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
-                                </div>                             
-                            ))
+                                (industryDataTwo.length)?
+                                industryDataTwo.map((item, index) => (
+                                    <div className='industriesItem px-3 py-2 text-center' key={item.id}>
+                                        <div className='icon mb-4'>
+                                            {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
+                                        </div>
+                                        <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
+                                    </div>                             
+                                )):
+                                ''
                             }
                         </div>
                     </div>

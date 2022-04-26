@@ -55,6 +55,7 @@ export default class WhyChooseUsComponent extends Component {
                         {/* whyChooseItems init */}
 
                         {
+                            (whyChooseItems.length)?
                             whyChooseItems.map((item, index) => (
                                 
                                 <div className='col-xl-3 col-lg-4 col-sm-6' key={item.id}>
@@ -83,7 +84,8 @@ export default class WhyChooseUsComponent extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))
+                            )):
+                            ''
                         }
                     </div>
                 </div>

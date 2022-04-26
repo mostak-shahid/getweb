@@ -59,6 +59,7 @@ export default class OurServicesComponent extends Component {
                         {/* servicesItems init */}
                         
                         {
+                            (servicesItems.length)?
                             servicesItems.map((item) => (
                                 <div className='col-xl-4 col-md-6 mb-4' key={item.id + '-' + Math.random()}>
                                     <div className='servicesItems p-4 isRadius16 h-100 d-flex flex-column justify-content-between'>
@@ -89,7 +90,8 @@ export default class OurServicesComponent extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            ))
+                            )):''
+
                         }
                     </div>
                 </div>
