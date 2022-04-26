@@ -27,6 +27,7 @@ export default class OurServicesComponent extends Component {
     
     render() {
         const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        const {servicesItems = []} = this.state;
         //const data = this.props;
         //console.log(this.props);
         //const {servicesItems} = this.state;
@@ -58,7 +59,7 @@ export default class OurServicesComponent extends Component {
                         {/* servicesItems init */}
                         
                         {
-                            this.state.servicesItems.map((item) => (
+                            servicesItems.map((item) => (
                                 <div className='col-xl-4 col-md-6 mb-4' key={item.id + '-' + Math.random()}>
                                     <div className='servicesItems p-4 isRadius16 h-100 d-flex flex-column justify-content-between'>
                                         <div className='serHeader'>

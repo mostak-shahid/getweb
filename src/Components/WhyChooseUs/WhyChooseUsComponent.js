@@ -27,6 +27,7 @@ export default class WhyChooseUsComponent extends Component {
     
     render() {
         const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        const {whyChooseItems = []} = this.state
         if (this.state.loading) {
             return <div>loading...</div>;
         }
@@ -54,7 +55,7 @@ export default class WhyChooseUsComponent extends Component {
                         {/* whyChooseItems init */}
 
                         {
-                            this.state.whyChooseItems.map((item, index) => (
+                            whyChooseItems.map((item, index) => (
                                 
                                 <div className='col-xl-3 col-lg-4 col-sm-6' key={item.id}>
                                     <div className='whyChooseItem p-2'>
