@@ -20,14 +20,14 @@ export default class Home extends Component {
     
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/post/" + Config.HOME_ID;
+        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-single/" + Config.HOME_ID;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 
             pageData: data, 
             loading: false,
         });
-        //console.log(data.meta.page_group_details_group[0]);
+        //console.log(data);
     }
     render() {
         if (this.state.loading) {
@@ -40,9 +40,9 @@ export default class Home extends Component {
         return (
             <>            
                 <BannerComponents />
-                <OurServicesComponent data={this.state.pageData.meta.page_group_details_group[0]}/>
-                <WhyChooseUsComponent data={this.state.pageData.meta.page_group_details_group[1]} />
-                <OurFocusIndustriesComponent />
+                <OurServicesComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[0]}/>
+                <WhyChooseUsComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[1]} />
+                <OurFocusIndustriesComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[2]} />
                 <TechnologiesComponent />
                 <PortfolioComponent />
                 <TestimonialsComponent />

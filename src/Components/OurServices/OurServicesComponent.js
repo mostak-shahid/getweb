@@ -1,84 +1,52 @@
 import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
-import ServiceIcon1 from '../../assets/images/service-icon1.svg';
-import ServiceIcon2 from '../../assets/images/service-icon2.svg';
-import ServiceIcon3 from '../../assets/images/service-icon3.svg';
-import ServiceIcon4 from '../../assets/images/service-icon4.svg';
-import ServiceIcon5 from '../../assets/images/service-icon5.svg';
-import ServiceIcon6 from '../../assets/images/service-icon6.svg';
-import ServiceIcon7 from '../../assets/images/service-icon7.svg';
-import ServiceIcon8 from '../../assets/images/service-icon8.svg';
-import ServiceIcon9 from '../../assets/images/service-icon9.svg';
 import './OurServicesComponent.scss';
 
 //const OurServicesComponent = ({data}) => {
 export default class OurServicesComponent extends Component {  
+    state = {
+        loading: true,
+        serviceData: null,
+    };
+    
+    async componentDidMount() {        
+        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/service/0/0/9";
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({ 
+            servicesItems: data, 
+            loading: false,
+        });
+        //console.log(this.state.servicesItems);
+    }
+
     constructor(props) {
         super(props);
         //console.log(props);
     }
     
     render() {
-        const {_mosacademy_page_group_title_text} = this.props.data;
+        const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         //const data = this.props;
         //console.log(this.props);
-        const servicesItems = [
-            {
-                img: ServiceIcon1,
-                title: "Ideation and Evaluation",
-                desc: "Give your product idea a shape. Plan and evaluate the essential features of your product to accomplish your business goals and eliminate possible mistakes.",
-            },
-            {
-                img: ServiceIcon2,
-                title: "Product Design",
-                desc: "Producing, prototyping and testing sketches, high-fidelity wireframes and the final UI is a process that results with intuitive and impactful design easy on the eye.",
-            },
-            {
-                img: ServiceIcon3,
-                title: "Front-end development",
-                desc: "We turn your designs into web standards compliant code. We create code according to W3C standards, and our markup is displayed correctly in all popular modern browsers.",
-            },
-            {
-                img: ServiceIcon4,
-                title: "Web Development",
-                desc: "Full-stack web development by top-notch tech & experts covered from the beginning to the end.",
-            },
-            {
-                img: ServiceIcon5,
-                title: "Mobile App Development",
-                desc: "Build well-designed and optimized custom mobile applications with a delightful UX for both iOS and Android.",
-            },
-            {
-                img: ServiceIcon6,
-                title: "Software Development",
-                desc: "We work with startups, SMBs & world leading enterprises to build customized software solutions.",
-            },
-            {
-                img: ServiceIcon7,
-                title: "eCommerce & CMS Development",
-                desc: "Our tailor-made enterprise e-commerce solutions comprise a range of products and IT services that gives a dynamic boost to your business.",
-            },
-            {
-                img: ServiceIcon8,
-                title: "Quality Assurance",
-                desc: "Our QA engineering team makes your product bug-free, bulletproof and performance-driven throughout both automatic and manual testing.",
-            },
-            {
-                img: ServiceIcon9,
-                title: "Cloud Solution",
-                desc: "We provide scalable, secure and cost-efficient cloud infrastructure with AWS & Google Cloud.",
-            },
-        ]
+        //const {servicesItems} = this.state;
+        //console.log("New", servicesItems);
+        if (this.state.loading) {
+            return <div>loading...</div>;
+        }
 
+        if (!this.state.servicesItems) {
+            return <div>didn't get the Services</div>;
+        }
         return (
 
             <section className='ourServices secPadding'>
                 <div className='container'>
                     <div className='sectionHeader text-center mb-5'>
-                        <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML ={{__html: this.props.data._mosacademy_page_group_sub_titles[0]}}></span>
-                        <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: this.props.data._mosacademy_page_group_title_text}}></div>
+                        <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML ={{__html: _mosacademy_page_group_sub_titles[0]}}></span>
+                        <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_text}}></div>
                         <div className='secIntro textClrGray fs-6 fw-normal mb-2'>
-                            <div className='mb-0' dangerouslySetInnerHTML = {{__html: this.props.data._mosacademy_page_group_title_description}}></div>
+                            <div className='mb-0' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_description}}></div>
                         </div> 
                         <div className='lineShape'>
                             <img src={SecLineShape} alt='lineShape' />
@@ -90,12 +58,12 @@ export default class OurServicesComponent extends Component {
                         {/* servicesItems init */}
                         
                         {
-                            servicesItems.map((item) => (
-                                <div className='col-xl-4 col-md-6 mb-4' key={item.img}>
+                            this.state.servicesItems.map((item) => (
+                                <div className='col-xl-4 col-md-6 mb-4' key={item.id + '-' + Math.random()}>
                                     <div className='servicesItems p-4 isRadius16 h-100 d-flex flex-column justify-content-between'>
                                         <div className='serHeader'>
                                             <div className='servicesIcon mb-4'>
-                                                <img src={item.img} alt='icon' />
+                                                {(item.featured_image.full)?<img src={item.featured_image.full} alt='icon' />:''}
                                             </div>
                                             <h3 className='serTitle fw-bold fs-5 mb-4'>
                                                 <a href='#' className='text-white text-decoration-none'>
@@ -104,7 +72,7 @@ export default class OurServicesComponent extends Component {
                                             </h3>
                                             <div className='serviceIntro fs-6 fw-normal textClrGray mb-4'>
                                                 <p className='mb-0'>
-                                                    {item.desc}
+                                                    {item.excerpt}
                                                 </p>
                                             </div>
                                         </div>
