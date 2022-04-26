@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BannerComponents from "../../Components/Banner/BannerComponents";
 import BlogUpdateComponent from "../../Components/BlogUpdate/BlogUpdateComponent";
+//import MainComponent from "../../Components/MainComponent/MainComponent";
 import OurFocusIndustriesComponent from "../../Components/OurFocusIndustries/OurFocusIndustriesComponent";
 import OurServicesComponent from "../../Components/OurServices/OurServicesComponent";
 import PortfolioComponent from "../../Components/Portfolio/PortfolioComponent";
@@ -43,6 +44,13 @@ export default class Home extends Component {
                 <OurServicesComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[0]}/>
                 <WhyChooseUsComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[1]} />
                 <OurFocusIndustriesComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[2]} />
+
+                {/*
+                    this.state.pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
+                        <MainComponent data={item} />                        
+                    ))
+                */}
+
                 <TechnologiesComponent />
                 <PortfolioComponent />
                 <TestimonialsComponent />
