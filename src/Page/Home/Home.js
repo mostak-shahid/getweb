@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import BannerComponents from "../../Components/Banner/BannerComponents";
-import BlogUpdateComponent from "../../Components/BlogUpdate/BlogUpdateComponent";
-//import MainComponent from "../../Components/MainComponent/MainComponent";
-import OurFocusIndustriesComponent from "../../Components/OurFocusIndustries/OurFocusIndustriesComponent";
-import OurServicesComponent from "../../Components/OurServices/OurServicesComponent";
-import PortfolioComponent from "../../Components/Portfolio/PortfolioComponent";
-import ReadyToMoveComponent from "../../Components/ReadyToMove/ReadyToMoveComponent";
-import TechnologiesComponent from "../../Components/Technologies/TechnologiesComponent";
-import TestimonialsComponent from "../../Components/Testimonials/TestimonialsComponent";
-import WhyChooseUsComponent from "../../Components/WhyChooseUs/WhyChooseUsComponent";
+import MainComponent from "../../Components/MainComponent/MainComponent";
 import Config from "../../Config.json";
 import './Home.scss';
 
@@ -31,6 +23,7 @@ export default class Home extends Component {
         //console.log(data);
     }
     render() {
+        
         if (this.state.loading) {
             return <div>loading...</div>;
         }
@@ -41,21 +34,11 @@ export default class Home extends Component {
         return (
             <>            
                 <BannerComponents />
-                <OurServicesComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[0]}/>
-                <WhyChooseUsComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[1]} />
-                <OurFocusIndustriesComponent data={this.state.pageData.meta._mosacademy_page_group_details_group[2]} />
-
-                {/*
+                {
                     this.state.pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
-                        <MainComponent data={item} />                        
+                        <MainComponent data={item} key={index} />                        
                     ))
-                */}
-
-                <TechnologiesComponent />
-                <PortfolioComponent />
-                <TestimonialsComponent />
-                <BlogUpdateComponent />
-                <ReadyToMoveComponent />
+                }
             </>
         );
     }

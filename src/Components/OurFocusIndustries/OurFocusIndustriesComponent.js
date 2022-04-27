@@ -42,54 +42,44 @@ export default class OurFocusIndustriesComponent extends Component {
         if (!this.state.industryDataOne) {
             return <div>didn't get the Industries</div>;
         }
-        return (
-            <section className='ourFocus secPadding'>
-                <div className='container'>
-                    
-                    <div className='sectionHeader text-center mb-5'>
-                        <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_sub_titles[0]}}></span>
-                        <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_text}}></div>                    
-                        <div className='secIntro textClrGray fs-6 fw-normal mb-2'>
-                            <div className='mb-0' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_description}}></div>
-                        </div>
-                        <div className='lineShape'>
-                            <img src={SecLineShape} alt='lineShape' />
-                        </div>
-                    </div>
-
-                    <div className='industriesWrapper'>
-                        <div className='topWrap'>
-                            {
-                                (industryDataOne.length)?
-                                industryDataOne.map((item, index) => (
-                                    <div className='industriesItem px-3 py-2 text-center' key={item.id}>
-                                        <div className='icon mb-4'>
-                                            {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
-                                        </div>
-                                        <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
-                                    </div>                             
-                                )):
-                                ''
-                            }
-                        </div>
-                        <div className='bottomWrap'>
-                            {
-                                (industryDataTwo.length)?
-                                industryDataTwo.map((item, index) => (
-                                    <div className='industriesItem px-3 py-2 text-center' key={item.id}>
-                                        <div className='icon mb-4'>
-                                            {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
-                                        </div>
-                                        <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
-                                    </div>                             
-                                )):
-                                ''
-                            }
-                        </div>
-                    </div>
-
+        return (            
+            <div className='container'>
+                <div className='lineShape text-center mb-5'>
+                    <img src={SecLineShape} alt='lineShape' />
                 </div>
-            </section>
+
+                <div className='industriesWrapper'>
+                    <div className='topWrap'>
+                        {
+                            (industryDataOne.length)?
+                            industryDataOne.map((item, index) => (
+                                <div className='industriesItem px-3 py-2 text-center' key={item.id}>
+                                    <div className='icon mb-4'>
+                                        {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
+                                    </div>
+                                    <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
+                                </div>                             
+                            )):
+                            ''
+                        }
+                    </div>
+                    <div className='bottomWrap'>
+                        {
+                            (industryDataTwo.length)?
+                            industryDataTwo.map((item, index) => (
+                                <div className='industriesItem px-3 py-2 text-center' key={item.id}>
+                                    <div className='icon mb-4'>
+                                        {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
+                                    </div>
+                                    <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
+                                </div>                             
+                            )):
+                            ''
+                        }
+                    </div>
+                </div>
+
+            </div>
         );
     }
 }

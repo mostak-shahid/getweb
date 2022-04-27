@@ -1,22 +1,49 @@
 import React, { Component } from "react";
-import "slick-carousel/slick/slick.css";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
-
-import testmonialslogo1 from "../../assets/images/testmonials-logo1.svg";
-import testmonialslogo2 from "../../assets/images/testmonials-logo2.svg";
-import testmonialslogo3 from "../../assets/images/testmonials-logo3.svg";
-import testmonialslogo4 from "../../assets/images/testmonials-logo4.svg";
-
+import "slick-carousel/slick/slick.css";
 import reviewer1 from "../../assets/images/reviewer1.svg";
 import reviewer2 from "../../assets/images/reviewer2.svg";
 import reviewer3 from "../../assets/images/reviewer3.svg";
 import reviewer4 from "../../assets/images/reviewer4.svg";
-
+import testmonialslogo1 from "../../assets/images/testmonials-logo1.svg";
+import testmonialslogo2 from "../../assets/images/testmonials-logo2.svg";
+import testmonialslogo3 from "../../assets/images/testmonials-logo3.svg";
+import testmonialslogo4 from "../../assets/images/testmonials-logo4.svg";
 import "./TestimonialsSlider.scss";
 
-import Slider from "react-slick";
+
+
+
 export default class MultipleItems extends Component {
+  state = {
+      loading: true,
+      testimonialData: null,
+  };
+  
+  async componentDidMount() {
+
+      const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/testimonial/0/0/12";
+      const response = await fetch(url);
+      const testimonialResponse = await response.json();
+      this.setState({ 
+          testimonialData: testimonialResponse,
+          loading: false,
+      });
+      //console.log(this.state.testimonialData);
+  }
+
+  constructor(props) {
+      super(props);
+      //console.log(props);
+  }
   render() {
+    if (this.state.loading) {
+        return <div>loading...</div>;
+    }
+    if (!this.state.testimonialData) {
+        return <div>Didn't get data from API</div>;
+    }
     const settings = {
       dots: false,
       infinite: true,
@@ -85,32 +112,34 @@ export default class MultipleItems extends Component {
         designation: "Ux Designer",
       },
     ];
+    const {testimonialData} = this.state; 
 
     return (
       <div className="TestimonialsSlider">
         <Slider {...settings}>
           {
-            testmonialsItems.map((items) => (
+            (testimonialData.length)?
+            testimonialData.map((items) => (
               <div className="singleFeedback isRadius16 p-4 bgClrDarkLight" key={items.logo}>
                 <div className="logos mb-4">
-                  <img src={items.logo} alt="slider logo" />
+                  <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
                 </div>
                 <div className="feedbackText textClrGray fw-normal fs-6 mb-5">
                   <p className="mb-0" style={{ maxWidth: "350px", width: "100%" }}>
-                    {items.desc}
+                    {items.content}
                   </p>
                 </div>
                 <div className="reviewerInfo d-flex align-items-center justify-content-between">
                   <div className="d-flex align-items-center gap-3">
                     <div className="pic">
-                      <img src={items.img} alt="pic" />
+                      <img src={items.image} alt="pic" />
                     </div>
                     <a href="#" className="info text-decoration-none">
                       <p className="fs-14 fw-bold text-white mb-1">
-                        {items.name}
+                        {items.meta._mosacademy_testimonial_name}
                       </p>
                       <p className="fs-12 fw-medium textClrGray mb-0">
-                        {items.designation}
+                        {items.meta._mosacademy_testimonial_designation}
                       </p>
                     </a>
                   </div>
@@ -121,7 +150,7 @@ export default class MultipleItems extends Component {
                   </div>
                 </div>
               </div>
-            ))
+            )):''
           }
         </Slider>
       </div>

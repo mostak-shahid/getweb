@@ -1,54 +1,55 @@
-.technologies{
-    background-image: url(../../assets/images/technologies-shape-l.svg), url(../../assets/images/technologies-shape-r.svg);
-    background-repeat: no-repeat;
-    background-position: 0 80%, right 5%;
+.technologies {
+  background-image: url(../../assets/images/technologies-shape-l.svg),
+    url(../../assets/images/technologies-shape-r.svg);
+  background-repeat: no-repeat;
+  background-position: 0 80%, right 5%;
 }
 .singleTechnology {
-    border: 2px solid rgba(76, 77, 84, 0.2);
-    border-radius: 5px;
-    background: linear-gradient(180deg, rgba(32, 33, 36, 0) 0%, #202124 100%);
-    border-left: 5px solid var(--clr-yellow);
-    position: relative;
-    transition: all 0.2s linear;
+  border: 2px solid rgba(76, 77, 84, 0.2);
+  border-radius: 5px;
+  background: linear-gradient(180deg, rgba(32, 33, 36, 0) 0%, #202124 100%);
+  border-left: 5px solid var(--clr-yellow);
+  position: relative;
+  transition: all 0.2s linear;
 
-    &:hover{
-         border-left: 5px solid #fff !important;
-    }
+  &:hover {
+    border-left: 5px solid #fff !important;
+  }
 
-    &.blueShape {
-        border-left: 5px solid var(--clr-blue);
+  &:nth-child(2n) {
+    border-left: 5px solid var(--clr-blue);
+  }
+  &:nth-child(3n) {
+    border-left: 5px solid var(--clr-pink);
+  }
+  &:nth-child(4n) {
+    border-left: 5px solid var(--clr-green);
+  }
+  &:nth-child(5n) {
+    border-left: 5px solid var(--clr-purple);
+  }
+  &:nth-child(6n) {
+    border-left: 5px solid var(--clr-sky);
+  }
+  .singleTechLogo {
+    border-left: 2px solid rgba(76, 77, 84, 0.2);
+    cursor: pointer;
+  }
+  .techLogos {
+    text-align: center;
+    .icons {
+      transition: all 0.2s linear;
+      img {
+        transition: all 0.2s linear;
+      }
     }
-    &.pinkShape {
-        border-left: 5px solid var(--clr-pink);
-    }
-    &.greenShape {
-        border-left: 5px solid var(--clr-green);
-    }
-    &.purpleShape {
-        border-left: 5px solid var(--clr-purple);
-    }
-    &.skyShape {
-        border-left: 5px solid var(--clr-sky);
-    }
-    .singleTechLogo {
-        border-left: 2px solid rgba(76, 77, 84, 0.2);
-        cursor: pointer;
-    }
-    .techLogos {
-        text-align: center;
-        .icons {
-            transition: all 0.2s linear;
-            img {
-                transition: all 0.2s linear;
-            }
+    &:hover {
+      .icons {
+        margin-bottom: 0 !important;
+        img {
+          transform: scale(0.9);
         }
-        &:hover {
-            .icons {
-                margin-bottom: 0 !important;
-                img {
-                    transform: scale(0.9);
-                }
-            }
-        }
+      }
     }
+  }
 }
