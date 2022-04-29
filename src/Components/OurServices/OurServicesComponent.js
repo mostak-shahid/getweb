@@ -56,9 +56,7 @@ export default class OurServicesComponent extends Component {
                                             {(item.featured_image.full)?<img src={item.featured_image.full} alt='icon' />:''}
                                         </div>
                                         <h3 className='serTitle fw-bold fs-5 mb-4'>
-                                            <a href='#' className='text-white text-decoration-none'>
-                                                {item.title}
-                                            </a>
+                                            <a href='#' className='text-white text-decoration-none' dangerouslySetInnerHTML={{__html: item.title}}></a>
                                         </h3>
                                         <div className='serviceIntro fs-6 fw-normal textClrGray mb-4'>
                                             <p className='mb-0'>

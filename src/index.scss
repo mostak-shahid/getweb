@@ -4,6 +4,7 @@
 body {
   font-family: "Biennale" !important;
   background-color: var(--clr-theme-dark) !important;
+  color: #ffffff;
 }
 
 :root {
@@ -23,10 +24,6 @@ body {
 @media (min-width: 1200px) {
   .container {
     max-width: 1134px !important;
-    width: 100% !important;
-  }
-  .container-fluid {
-    max-width: 1744px !important;
     width: 100% !important;
   }
 }

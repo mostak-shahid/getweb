@@ -1,58 +1,67 @@
-.footer{
-    background-image: url(../../assets/images/footer-bg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.footer {
+  background-image: url(../../assets/images/footer-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
-    .contacts{
-        a{
+  .contacts {
+    a {
+      transition: all 0.2s linear;
+      &:hover {
+        text-decoration: underline !important;
+        color: var(--clr-green);
+      }
+    }
+  }
+  .footerWidgetArea {
+    .widgetMenu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-between;
+      @media (min-width: 576px) {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .widgetList {
+        li {
+          a {
             transition: all 0.2s linear;
-            &:hover{
-                text-decoration: underline !important;
-                color: var(--clr-green);
+            &:hover {
+              color: var(--clr-green) !important;
             }
+          }
         }
+      }
     }
-    .footerWidgetArea{
-        .widgetMenu{
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            justify-content: space-between;
-            .widgetList{
-                li{
-                    a{
-                     transition: all 0.2s linear;
-                     &:hover{
-                         color: var(--clr-green) !important;
-                     }
-                    }
-                }
-             }
-        }
-    }
-    .social{
-        ul{
-            li{
-                a{
-                    svg{
-                        transition: all 0.2s linear;
-                    }
-                    &:hover{
-                        svg *{
-                            fill: var(--clr-green) !important;
-                        }
-                    }
-                }
+  }
+  .social {
+    ul {
+      li {
+        a {
+          color: var(--clr-grayDark);
+          i {
+            &:before {
+              font-size: 20px;
+              line-height: 20px;
             }
-        }
-    }
-    .Careers{
-        a{
-            transition: all 0.3s linear;
-            &:hover{
-                background-color: #f4216d !important;
+          }
+          svg {
+            transition: all 0.2s linear;
+          }
+          &:hover {
+            svg * {
+              fill: var(--clr-green) !important;
             }
+          }
         }
+      }
     }
+  }
+  .Careers {
+    a {
+      transition: all 0.3s linear;
+      &:hover {
+        background-color: #f4216d !important;
+      }
+    }
+  }
 }
-

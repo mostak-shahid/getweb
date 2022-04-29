@@ -1,39 +1,72 @@
-
-.blogSlider{
-    .singleBlog{
-        border: 1px solid #202124;
+.blogSlider {
+  .owl-theme .owl-nav {
+    margin: 0;
+    @media (max-width: 991px) {
+      margin-top: 30px;
+    }
+  }
+  .owl-theme .owl-nav [class*="owl-"] {
+    text-align: center;
+    width: 40px;
+    line-height: 40px;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #2e2f32;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &:hover {
+      color: var(--clr-theme-dark);
+      background-color: var(--clr-green);
+    }
+    @media (max-width: 991px) {
+      position: initial;
+      transform: translateY(0);
+    }
+  }
+  .owl-theme .owl-nav .owl-prev {
+    left: -60px;
+  }
+  .owl-theme .owl-nav .owl-next {
+    right: -60px;
+  }
+  .singleBlog {
+    border: 1px solid #202124;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    overflow: hidden;
+    .blogImage {
+      max-width: 100%;
+      overflow: hidden;
+      img {
         transition: all 0.3s linear;
-        cursor: pointer;
-        .blogImage{
-            max-width: 100%;
-            overflow: hidden;
-            img{
-                transition: all 0.3s linear;
-            }
-        }
-        .readMore{
-            transition: all 0.3s linear;
-            svg{
-                transition: all 0.3s linear;
-            }
-        }
-        &:hover{
-            background-color: #202124;
-            border-color: transparent;
-            .readMore{
-                color: var(--clr-green);
-                svg *{
-                    stroke: var(--clr-green);
-                }
-            }
-            .blogImage{
-                img{
-                    transform: scale(1.1) rotate(1deg);
-                }
-            }
-        }
+      }
     }
-    .slick-slide {
-        margin: 0 9px;
+    .readMore {
+      transition: all 0.3s linear;
+      svg {
+        transition: all 0.3s linear;
+      }
     }
+    &:hover {
+      background-color: #202124;
+      border-color: transparent;
+      .readMore {
+        color: var(--clr-green);
+        svg * {
+          stroke: var(--clr-green);
+        }
+      }
+      .blogImage {
+        img {
+          transform: scale(1.1) rotate(1deg);
+          width: 100%;
+        }
+      }
+    }
+  }
+  .slick-slide {
+    margin: 0 9px;
+  }
 }

@@ -1,18 +1,10 @@
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 import React, { Component } from "react";
-import Slider from "react-slick";
+import OwlCarousel from 'react-owl-carousel';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import reviewer1 from "../../assets/images/reviewer1.svg";
-import reviewer2 from "../../assets/images/reviewer2.svg";
-import reviewer3 from "../../assets/images/reviewer3.svg";
-import reviewer4 from "../../assets/images/reviewer4.svg";
-import testmonialslogo1 from "../../assets/images/testmonials-logo1.svg";
-import testmonialslogo2 from "../../assets/images/testmonials-logo2.svg";
-import testmonialslogo3 from "../../assets/images/testmonials-logo3.svg";
-import testmonialslogo4 from "../../assets/images/testmonials-logo4.svg";
 import "./TestimonialsSlider.scss";
-
-
 
 
 export default class MultipleItems extends Component {
@@ -45,87 +37,51 @@ export default class MultipleItems extends Component {
         return <div>Didn't get data from API</div>;
     }
     const settings = {
+      loop: true,
+      margin: 30,
+      nav: true,
       dots: false,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      smartSpeed:3000,
+      responsive:{
+          0:{
+              items:1,
+          },
+          992:{
+              items:2,
+          },
+          1024:{
+              items:3,
+          },
+          1200:{
+              items:4,
+          }
+      }
+
+      /*dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 2500,
+      autoplaySpeed: 2500,*/
     };
-
-    const testmonialsItems = [
-      {
-        logo: testmonialslogo1,
-        desc: "Aliquam porta nisl dolor, molestie pellentesque elit molestie in. Morbi metus neque, elementum ullamcorper hendrerit eget, tincidunt et nisi. Sed magna nunc, consequat vel aliquam vitae, porta ac mi. Integer commodo sapien lacus, nec interdum nisi vehicula aliquam.",
-        img: reviewer1,
-        name: "Cameron Williamson",
-        designation: "Finance",
-      },
-      {
-        logo: testmonialslogo2,
-        desc: "Aliquam pulvinar vestibulum blandit. Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. Pellentesque vulputate quam a quam volutpat, sed ullamcorper erat commodo. Vestibulum sit amet ipsum vitae mauris mattis vulputate lacinia nec neque. Aenean quis consectetur.",
-        img: reviewer2,
-        name: "Eleanor Pena",
-        designation: "Chief Executive Officer",
-      },
-      {
-        logo: testmonialslogo3,
-        desc: "Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. Proin porta est convallis lacus blandit pretium sed non enim. Maecenas lacinia non orci at aliquam. Donec finibus, urna bibendum ultricies laoreet, augue eros luctus sapien, ut euismod leo tortor ac enim. In hac habitasse platea",
-        img: reviewer3,
-        name: "Darlene Robertson",
-        designation: "Asistant Backend Developer",
-      },
-      {
-        logo: testmonialslogo4,
-        desc: "Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. Morbi in orci risus. Donec pretium fringilla blandit. Etiam ut accumsan leo. Aliquam id mi quam. Vivamus dictum ut erat nec congue. Etiam facilisis lacus ut arcu vulputate, non pellentesque sem convallis. Proin tempus",
-        img: reviewer4,
-        name: "Annette Black",
-        designation: "Ux Designer",
-      },
-      {
-        logo: testmonialslogo1,
-        desc: "Aliquam porta nisl dolor, molestie pellentesque elit molestie in. Morbi metus neque, elementum ullamcorper hendrerit eget, tincidunt et nisi. Sed magna nunc, consequat vel aliquam vitae, porta ac mi. Integer commodo sapien lacus, nec interdum nisi vehicula aliquam.",
-        img: reviewer1,
-        name: "Cameron Williamson",
-        designation: "Finance",
-      },
-      {
-        logo: testmonialslogo2,
-        desc: "Aliquam pulvinar vestibulum blandit. Donec sed nisl libero. Fusce dignissim luctus sem eu dapibus. Pellentesque vulputate quam a quam volutpat, sed ullamcorper erat commodo. Vestibulum sit amet ipsum vitae mauris mattis vulputate lacinia nec neque. Aenean quis consectetur.",
-        img: reviewer2,
-        name: "Eleanor Pena",
-        designation: "Chief Executive Officer",
-      },
-      {
-        logo: testmonialslogo3,
-        desc: "Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. Proin porta est convallis lacus blandit pretium sed non enim. Maecenas lacinia non orci at aliquam. Donec finibus, urna bibendum ultricies laoreet, augue eros luctus sapien, ut euismod leo tortor ac enim. In hac habitasse platea",
-        img: reviewer3,
-        name: "Darlene Robertson",
-        designation: "Asistant Backend Developer",
-      },
-      {
-        logo: testmonialslogo4,
-        desc: "Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. Morbi in orci risus. Donec pretium fringilla blandit. Etiam ut accumsan leo. Aliquam id mi quam. Vivamus dictum ut erat nec congue. Etiam facilisis lacus ut arcu vulputate, non pellentesque sem convallis. Proin tempus",
-        img: reviewer4,
-        name: "Annette Black",
-        designation: "Ux Designer",
-      },
-    ];
     const {testimonialData} = this.state; 
 
     return (
       <div className="TestimonialsSlider">
-        <Slider {...settings}>
+        <OwlCarousel className='owl-theme' {...settings}>
           {
             (testimonialData.length)?
-            testimonialData.map((items) => (
-              <div className="singleFeedback isRadius16 p-4 bgClrDarkLight" key={items.logo}>
+            testimonialData.map((items, index) => (
+              <div className="singleFeedback isRadius16 p-4 bgClrDarkLight" key={++index}>
                 <div className="logos mb-4">
                   <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
                 </div>
                 <div className="feedbackText textClrGray fw-normal fs-6 mb-5">
-                  <p className="mb-0" style={{ maxWidth: "350px", width: "100%" }}>
+                  <p className="mb-0" style={{ width: "100%" }}>
                     {items.content}
                   </p>
                 </div>
@@ -152,7 +108,7 @@ export default class MultipleItems extends Component {
               </div>
             )):''
           }
-        </Slider>
+        </OwlCarousel>
       </div>
     );
   }

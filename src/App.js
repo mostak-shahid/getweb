@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
 import "./index.scss";
+import Blog from "./Page/Blog/Blog";
 import Header from "./Page/Header";
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
+import Post from "./Page/Post/Post";
 
 function App() {
     return (
@@ -14,7 +16,8 @@ function App() {
                 <Header/>
                 <Routes>          
                     <Route exact path="/" element={<Home/>} />
-                    {/* <Route path="/about" element={<About/>}/> */}
+                    <Route path="/blogs" element={<Blog/>}/>
+                    <Route path="/blog/:slug" element={<Post />} />
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>
