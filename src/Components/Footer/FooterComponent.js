@@ -114,21 +114,36 @@ export default class FooterComponent extends Component {
                             </div>
                             <div className='col-xl-8'>
                                 <div className='widgetMenu'>
+                                    {
+                                    Config.WIDGET_MENU_1?
                                     <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>
-                                        <Navigation id="12" title="Company"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
-                                    </div>
+                                        <Navigation id={Config.WIDGET_MENU_1} title="Company"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
+                                    </div>:''
+                                    }
+                                    {
+                                    Config.WIDGET_MENU_2?
                                     <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>
-                                        <Navigation id="13" title="Product Design"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
-                                    </div>
-                                    <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>                                        
-                                        <Navigation id="14" title="Frontend"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
-                                    </div>
-                                    <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>                    
-                                        <Navigation id="15" title="Wep App"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-15 fw-medium textClrGray text-decoration-none d-block" />
-                                    </div>
-                                    <div className='m-widget ps-xl-4'>
-                                        <Navigation id="16" title="Mobile App"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-15 fw-medium textClrGray text-decoration-none d-block" />
-                                    </div>
+                                        <Navigation id={Config.WIDGET_MENU_2} title="Product Design"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
+                                    </div>:''
+                                    }
+                                    {
+                                    Config.WIDGET_MENU_3?
+                                    <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>
+                                        <Navigation id={Config.WIDGET_MENU_3} title="Frontend"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
+                                    </div>:''
+                                    }
+                                    {
+                                    Config.WIDGET_MENU_4?
+                                    <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>
+                                        <Navigation id={Config.WIDGET_MENU_4} title="Wep App"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
+                                    </div>:''
+                                    }
+                                    {
+                                    Config.WIDGET_MENU_5?
+                                    <div className='m-widget mb-4 mb-xl-0 ps-xl-4'>
+                                        <Navigation id={Config.WIDGET_MENU_5} title="Mobile App"  titleCls="widgetTitle fs-14 fw-bold text-white mb-4 pb-2" listCls="widgetList list-unstyled mb-0" itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block" />
+                                    </div>:''
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -147,43 +162,15 @@ export default class FooterComponent extends Component {
                                             <ul className='footer-social-list list-inline text-sm-end text-center p-0 m-0'>
                                                 {                                                    
                                                     optionData['contact-social'].map((item, index) => (
-                                                        <>
-                                                        {(item.match(/facebook/gi))?
                                                         <li className="list-inline-item" key={Math.random}>
                                                             <a href={item} target="_blank" rel="noreferrer">
-                                                                <i className="fa fa-facebook-official"></i>
+                                                                {item.match(/facebook/gi)?<i className="fa fa-facebook-official"></i>:null}
+                                                                {item.match(/twitter/gi)?<i className="fa fa-twitter"></i>:null}
+                                                                {item.match(/dribbble/gi)?<i className="fa fa-dribbble"></i>:null}
+                                                                {item.match(/behance/gi)?<i className="fa fa-behance-square"></i>:null}
+                                                                {item.match(/linkedin/gi)?<i className="fa fa-linkedin-square"></i>:null}
                                                             </a>
                                                         </li>
-                                                        :null}
-                                                        {(item.match(/twitter/gi))?
-                                                        <li className="list-inline-item" key={Math.random}>                                                            
-                                                            <a href={item} target="_blank" rel="noreferrer">                                                                
-                                                                <i className="fa fa-twitter"></i>
-                                                            </a>
-                                                        </li>
-                                                        :null}
-                                                        {(item.match(/dribbble/gi))?
-                                                        <li className="list-inline-item" key={Math.random}>                                                            
-                                                            <a href={item} target="_blank" rel="noreferrer">                                                                
-                                                                <i className="fa fa-dribbble"></i>
-                                                            </a>
-                                                        </li>
-                                                        :null}
-                                                        {(item.match(/behance/gi))?
-                                                        <li className="list-inline-item" key={Math.random}>                                                            
-                                                            <a href={item} target="_blank" rel="noreferrer">                                                                
-                                                                <i className="fa fa-behance-square"></i>
-                                                            </a>
-                                                        </li>
-                                                        :null}
-                                                        {(item.match(/linkedin/gi))?
-                                                        <li className="list-inline-item" key={Math.random}>                                                            
-                                                            <a href={item} target="_blank" rel="noreferrer">                                                                
-                                                                <i className="fa fa-linkedin-square"></i>
-                                                            </a>
-                                                        </li>
-                                                        :null}
-                                                        </>
                                                     ))
                                                 }
                                             </ul>

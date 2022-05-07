@@ -66,7 +66,7 @@ export default class MultipleItems extends Component {
                     {
                         (postData.length)?
                         postData.map((item, index) => (
-                            <div className="singleBlog isRadius16 bgClrDarkLight" key={index}>
+                            <div className="singleBlog isRadius16 bgClrDarkLight" key={item.id}>
                                 {
                                     (item.image)?
                                     <div className="blogImage">

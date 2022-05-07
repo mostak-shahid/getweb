@@ -52,7 +52,7 @@ export default class TechnologiesComponent extends Component {
                         (taxonomiesData.length)?
                             taxonomiesData.map((item, index) => ( 
                                 (item.count!="0")?
-                                <TechnologiesBar data={item} key={index} />:''
+                                <TechnologiesBar data={item} key={item.term_id} />:''
                                 
                             )
                         ):''

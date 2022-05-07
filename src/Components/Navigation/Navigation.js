@@ -19,7 +19,7 @@ export default class Navigation extends Component {
             menuData: data, 
             loading: false,
         });
-        //console.log(this.state.menuData);
+        //console.log(Object.values(this.state.menuData));
     }
     render() {
         if (this.state.loading) {
@@ -31,16 +31,18 @@ export default class Navigation extends Component {
         }
         const {title} = this.props;
         const {menuData} = this.state;
+        const items = (!Array.isArray(menuData))?Object.values(menuData):menuData;
         return (
             <>  
                 {
                     (title) ? <h4 className={['mos-menu-title', this.props.titleCls].join(' ')}>{title}</h4> : ''
                 }        
                 {
-                    (menuData.length)?
+                    
+                    (items.length)?
                         <ul className={[this.props.listCls, 'mos-menu-list'].join(' ')}>
-                        {menuData.map((item, index) => (
-                            <li className={[item.class.join(' '), 'mos-menu-item'].join(' ')} key={item.term_id + Math.floor(Math.random() * 100)}>
+                        {items.map((item, index) => (
+                            <li className={[item.class.join(' '), 'mos-menu-item'].join(' ')} key={item.term_id}>
                                 <a href={item.url} className={[this.props.itemCls, 'mos-menu-link'].join(' ')}>{item.title}</a>
                             </li>
                         ))}

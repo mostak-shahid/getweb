@@ -45,7 +45,7 @@ export default class TechnologiesBar extends Component {
                             {
                                 (technologiesData.length)?
                                 technologiesData.map((logo, index) => (
-                                    <Technology data={logo} key={index} />
+                                    <Technology data={logo} key={logo.id} />
                                 )):''
                             }
 

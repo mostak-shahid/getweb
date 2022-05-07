@@ -76,7 +76,7 @@ export default class MultipleItems extends Component {
           {
             (testimonialData.length)?
             testimonialData.map((items, index) => (
-              <div className="singleFeedback isRadius16 p-4 bgClrDarkLight" key={++index}>
+              <div className="singleFeedback isRadius16 p-4 bgClrDarkLight" key={items.id}>
                 <div className="logos mb-4">
                   <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
                 </div>
