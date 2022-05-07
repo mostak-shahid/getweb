@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
+import Config from '../../Config.json';
 import './OurServicesComponent.scss';
-
 //const OurServicesComponent = ({data}) => {
 export default class OurServicesComponent extends Component {  
     state = {
@@ -10,7 +10,7 @@ export default class OurServicesComponent extends Component {
     };
     
     async componentDidMount() {        
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/service/0/0/9";
+        const url = Config.API_BASE + "data-list/service/0/0/9";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 

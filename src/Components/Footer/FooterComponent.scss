@@ -24,6 +24,7 @@
       .widgetList {
         li {
           a {
+            margin-bottom: 1rem;
             transition: all 0.2s linear;
             &:hover {
               color: var(--clr-green) !important;
@@ -52,6 +53,19 @@
               fill: var(--clr-green) !important;
             }
           }
+        }
+      }
+    }
+  }
+  .copyright {
+    .copyrightText {
+      p {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        span {
+          display: inline-block;
+          padding-left: 20px;
         }
       }
     }

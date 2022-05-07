@@ -8,7 +8,7 @@ import dropmenuicon3 from '../../assets/images/drop-menu-icon3.svg';
 import dropmenuicon4 from '../../assets/images/drop-menu-icon4.svg';
 import dropmenuicon5 from '../../assets/images/drop-menu-icon5.svg';
 import dropmenuicon6 from '../../assets/images/drop-menu-icon6.svg';
-
+import Config from '../../Config.json';
 
 
 
@@ -20,7 +20,7 @@ export default class HeaderComponent extends Component {
     };
     
     async componentDidMount() {
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/options";
+        const url = Config.API_BASE + "options";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 

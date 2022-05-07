@@ -1,7 +1,13 @@
 {
   "SITE_TITLE": "Sample React App",
   "SITE_DOMAIN": "http://localhost:3000/",
-  "HOME_ID": 17,
-  "HOME_BANNER_ID": 11,
-  "ABOUT_ID": ""
+  "API_BASE": "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/",
+  "HOME_ID": "",
+  "HOME_BANNER_ID": "",
+  "ABOUT_ID": "",
+  "MAIN_MENU": "",
+  "WIDGET_MENU_1": "",
+  "WIDGET_MENU_2": "",
+  "WIDGET_MENU_3": "",
+  "WIDGET_MENU_4": ""
 }
