@@ -10,6 +10,7 @@ body {
 :root {
   --clr-theme-dark: #121316;
   --clr-dark-light: #191a1d;
+  --clr-dark-2: #8d8f98;
   --clr-gray: #aaadb7;
   --clr-grayDark: #6b6e78;
   --clr-grayDeep: #4c4d54;
@@ -19,6 +20,10 @@ body {
   --clr-blue: #4991ff;
   --clr-purple: #7879f1;
   --clr-sky: #4cffff;
+  --clr-white: #ffffff;
+  --clr-menu-light: #202124;
+  --clr-menu-dark: #27282b;
+  --clr-solitude: #f2f3f7;
 }
 
 @media (min-width: 1200px) {
@@ -73,6 +78,9 @@ body {
 .textClrGrayDeep {
   color: var(--clr-grayDeep);
 }
+.textClrThemeDark {
+  color: var(--clr-theme-dark);
+}
 .bgClrDark {
   background-color: var(--clr-theme-dark);
 }
@@ -82,7 +90,12 @@ body {
 .bgClrPink {
   background-color: var(--clr-pink) !important;
 }
-
+.bgClrSolitude {
+  background-color: var(--clr-solitude);
+}
+.bgClrGreen {
+  background-color: var(--clr-green);
+}
 .fw-medium {
   font-weight: 500;
 }
@@ -104,6 +117,9 @@ body {
 }
 .pt-120 {
   padding-top: 120px;
+}
+.isRadius12 {
+  border-radius: 12px;
 }
 .isRadius16 {
   border-radius: 16px;
