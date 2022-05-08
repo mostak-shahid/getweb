@@ -29,7 +29,7 @@ export default class Home extends Component {
         }
 
         if (!this.state.pageData) {
-            return <div>didn't get the page data</div>;
+            return <div>Didn't get data from API</div>;
         }
         return (
             <>            

@@ -34,7 +34,7 @@ export default class WhyChooseUsComponent extends Component {
         }
 
         if (!this.state.whyChooseItems) {
-            return <div>didn't get the Services</div>;
+            return <div>Didn't get data from API</div>;
         }
 
         return (

@@ -37,7 +37,7 @@ export default class OurServicesComponent extends Component {
         }
 
         if (!this.state.servicesItems) {
-            return <div>didn't get the Services</div>;
+            return <div>Didn't get data from API</div>;
         }
         return (
             <div className="container">

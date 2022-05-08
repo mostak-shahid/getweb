@@ -41,7 +41,7 @@ export default class OurFocusIndustriesComponent extends Component {
         }
 
         if (!this.state.industryDataOne) {
-            return <div>didn't get the Industries</div>;
+            return <div>Didn't get data from API</div>;
         }
         return (            
             <div className='container'>

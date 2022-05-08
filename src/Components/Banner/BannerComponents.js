@@ -28,7 +28,7 @@ export default class BannerComponents extends Component {
         }
 
         if (!this.state.bannerData) {
-            return <div>didn't get the banner</div>;
+            return <div>Didn't get data from API</div>;
         }
         return (
             <section className="banner">
