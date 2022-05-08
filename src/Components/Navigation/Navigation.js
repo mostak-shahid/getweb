@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Config from '../../Config.json';
+import MenuItems from '../Navbar/MenuItems';
 
 export default class Navigation extends Component {
     constructor(props) {
@@ -40,12 +41,19 @@ export default class Navigation extends Component {
                 {
                     
                     (items.length)?
-                        <ul className={[this.props.listCls, 'mos-menu-list'].join(' ')}>
-                        {items.map((item, index) => (
+                        <ul className={[this.props.listCls, 'mos-menu-list'].join(' ')}>                            
+                            {
+                                items.map((menu, index) => {
+                                    const depthLevel=0;
+                                    return <MenuItems items={menu} key={index} depthLevel={depthLevel}/>;
+                                })
+                            } 
+
+                        {/*items.map((item, index) => (
                             <li className={[item.class.join(' '), 'mos-menu-item'].join(' ')} key={item.term_id}>
-                                <a href={item.url} className={[this.props.itemCls, 'mos-menu-link'].join(' ')}>{item.title}</a>
+                                <NavLink to={item.url} className={[this.props.itemCls, 'mos-menu-link'].join(' ')}>{item.title}</NavLink>
                             </li>
-                        ))}
+                        ))*/}
                         </ul>                   
                     :''
                 }

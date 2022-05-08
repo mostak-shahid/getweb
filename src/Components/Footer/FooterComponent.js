@@ -87,7 +87,7 @@ export default class FooterComponent extends Component {
                                     <div className='footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4'>
                                         {Object.values(optionData['sections-footer-gallery']).map(( value , index) => {
                                             return (
-                                                <img src={value} key={value} alt="footerSubLogo" />
+                                                <img src={value} key={index} alt="footerSubLogo" />
                                             )
                                         })} 
                                     </div>
@@ -162,7 +162,7 @@ export default class FooterComponent extends Component {
                                             <ul className='footer-social-list list-inline text-sm-end text-center p-0 m-0'>
                                                 {                                                    
                                                     optionData['contact-social'].map((item, index) => (
-                                                        <li className="list-inline-item" key={Math.random}>
+                                                        <li className="list-inline-item" key={index}>
                                                             <a href={item} target="_blank" rel="noreferrer">
                                                                 {item.match(/facebook/gi)?<i className="fa fa-facebook-official"></i>:null}
                                                                 {item.match(/twitter/gi)?<i className="fa fa-twitter"></i>:null}

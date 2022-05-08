@@ -5,6 +5,7 @@ import OwlCarousel from 'react-owl-carousel';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./TestimonialsSlider.scss";
+import Config from '../../Config.json';
 
 
 export default class MultipleItems extends Component {
@@ -15,7 +16,7 @@ export default class MultipleItems extends Component {
   
   async componentDidMount() {
 
-      const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/testimonial/0/0/12";
+      const url = Config.API_BASE + "data-list/testimonial/0/0/12";
       const response = await fetch(url);
       const testimonialResponse = await response.json();
       this.setState({ 

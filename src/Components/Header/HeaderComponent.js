@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import arrowgreen from '../../assets/images/arrow-right-green.svg';
 import dropmenuicon1 from '../../assets/images/drop-menu-icon1.svg';
 import dropmenuicon2 from '../../assets/images/drop-menu-icon2.svg';
@@ -44,7 +44,7 @@ export default class HeaderComponent extends Component {
             <Navbar className="header position-absolute top-0 start-0 w-100 py-4" expand="xl">
                 <Container fluid>
                     <Navbar.Brand href="#home">
-                    <Link to="/"><img src={optionData.logo.url} alt="logo" /></Link>
+                    <NavLink to="/"><img src={optionData.logo.url} alt="logo" /></NavLink>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -846,9 +846,9 @@ export default class HeaderComponent extends Component {
                             <Nav.Link className="fs-15 fw-bold mx-4" href="#careers">
                                 Careers
                             </Nav.Link>
-                            <Nav.Link className="fs-15 fw-bold mx-4" href="/blogs">
+                            <NavLink className="fs-15 fw-bold mx-4" to="/blogs">
                                 Blog
-                            </Nav.Link>
+                            </NavLink>
                             <Nav.Link className="fs-15 fw-bold mx-4" href="#contact">
                                 Contact
                             </Nav.Link>

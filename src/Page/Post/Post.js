@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { useParams } from "react-router-dom";
+import Config from '../../Config.json';
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()} />;
@@ -20,7 +21,7 @@ class Post extends Component {
         const {slug} = this.props.params;
         //console.log(slug);
 
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-single/" + slug;
+        const url = Config.API_BASE + "data-single/" + slug;
         const response = await fetch(url);
         const postResponse = await response.json();
         this.setState({ 

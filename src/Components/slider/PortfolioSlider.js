@@ -7,6 +7,7 @@ import OwlCarousel from 'react-owl-carousel';
 // import "slick-carousel/slick/slick.css";
 import goArrow from "../../assets/images/goArrow-iocn.svg";
 import "./PortfolioSlider.scss";
+import Config from '../../Config.json';
 
 
 export default class MultipleRows extends Component {
@@ -17,7 +18,7 @@ export default class MultipleRows extends Component {
     
     async componentDidMount() {
 
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/project/0/0/12";
+        const url = Config.API_BASE + "data-list/project/0/0/12";
         const response = await fetch(url);
         const portfolioResponse = await response.json();
 

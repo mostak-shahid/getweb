@@ -13,7 +13,7 @@ export default class Home extends Component {
     
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-single/" + Config.HOME_ID;
+        const url = Config.API_BASE + "data-single/" + Config.HOME_ID;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 

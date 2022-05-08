@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
 import './OurFocusIndustriesComponent.scss';
+import Config from '../../Config.json';
 
 
 //const OurFocusIndustriesComponent = () => {
@@ -12,11 +13,11 @@ export default class OurFocusIndustriesComponent extends Component {
     };
     
     async componentDidMount() {
-        const url1 = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/industry/0/0/6";
+        const url1 = Config.API_BASE + "data-list/industry/0/0/6";
         const response1 = await fetch(url1);
         const data1 = await response1.json();
         
-        const url2 = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/industry/0/6/6";
+        const url2 = Config.API_BASE + "data-list/industry/0/6/6";
         const response2 = await fetch(url2);
         const data2 = await response2.json();
         this.setState({ 

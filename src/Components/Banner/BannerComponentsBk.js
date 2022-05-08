@@ -1,5 +1,5 @@
 // import SimpleSlider from './BrandCarousel';
-
+import Config from '../../Config.json';
 import React, {
     Component
 } from "react";
@@ -18,8 +18,7 @@ export default class BannerComponents extends Component {
       };*/
 
     componentDidMount() {
-        //fetch('http://api.getweb.localhost/wp-json/mos-getweb-api/v1/posts/hello-world')
-        fetch("http://api.getweb.localhost/wp-json/mos-getweb-api/v1/banner/35")
+        fetch(Config.API_BASE + "banner/35")
             .then((response) => response.json())
             .then((data) => {
                 //console.log(data.meta.banner_button_title);

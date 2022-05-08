@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
 import './WhyChooseUsComponent.scss';
+import Config from "../../Config.json";
 
 //const WhyChooseUsComponent = ({data}) => {
 export default class WhyChooseUsComponent extends Component { 
@@ -10,7 +11,7 @@ export default class WhyChooseUsComponent extends Component {
     };
     
     async componentDidMount() {
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/step/0/0/4";
+        const url = Config.API_BASE + "data-list/step/0/0/4";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 

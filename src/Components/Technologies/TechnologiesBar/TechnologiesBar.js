@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Config from '../../../Config.json';
 import Technology from './Technology/Technology';
 
 export default class TechnologiesBar extends Component {
@@ -11,7 +12,7 @@ export default class TechnologiesBar extends Component {
         technologiesData: null,
     };
     async componentDidMount() {        
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/technology/"+ this.props.data.term_id + "/0/10";
+        const url = Config.API_BASE + "data-list/technology/"+ this.props.data.term_id + "/0/10";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 

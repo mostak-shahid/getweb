@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import SecLineShape from "../../assets/images/secLineShape.svg";
 import TechnologiesBar from "./TechnologiesBar/TechnologiesBar";
 import "./TechnologiesComponent.scss";
-
-
+import Config from '../../Config.json';
 
 
 
@@ -18,7 +17,7 @@ export default class TechnologiesComponent extends Component {
     
     async componentDidMount() {
 
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-taxonomies/technology_catagory";
+        const url = Config.API_BASE + "data-taxonomies/technology_catagory";
         const response = await fetch(url);
         const taxonomiesResponse = await response.json();
         //console.log(taxonomiesResponse);

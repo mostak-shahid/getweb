@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import blog1 from "../../assets/images/blog-img1.png";
 import blog2 from "../../assets/images/blog-img2.png";
 import blog3 from "../../assets/images/blog-img3.png";
-
+import Config from "../../Config.json";
 export default class Blog extends Component {
     state = {
         loading: true,
@@ -11,7 +11,7 @@ export default class Blog extends Component {
     
     async componentDidMount() {
 
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/post/0/0/6";
+        const url = Config.API_BASE + "data-list/post/0/0/6";
         const response = await fetch(url);
         const postResponse = await response.json();
         this.setState({ 

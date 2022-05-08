@@ -7,18 +7,19 @@ import OwlCarousel from 'react-owl-carousel';
 // import "slick-carousel/slick/slick.css";
 import { Link } from "react-router-dom";
 import "./BlogSlider.scss";
+import Config from '../../Config.json';
 
 
 
 export default class MultipleItems extends Component {
-    //http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/post/0/0/6
+    //Config.API_BASE + "data-list/post/0/0/6
     state = {
         loading: true,
         postData: null,
     };    
     async componentDidMount() {
 
-        const url = "http://api.getweb.localhost/wp-json/mos-getweb-api/v1/data-list/post/0/0/6";
+        const url = Config.API_BASE + "data-list/post/0/0/6";
         const response = await fetch(url);
         const postResponse = await response.json();
         this.setState({ 
