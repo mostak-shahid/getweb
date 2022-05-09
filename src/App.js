@@ -13,7 +13,8 @@ import NotFound from "./Page/NotFound/NotFound";
 function App() {
     return (
         <div className="App">
-            <Router basename="/getweb-react">
+            {/* <Router basename="/getweb-react"> */}
+            <Router>
                 <Header/>
                 <Routes>          
                     <Route exact path="/" element={<Home/>} />
