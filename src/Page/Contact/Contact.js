@@ -1,15 +1,15 @@
 import React from "react";
-import { Button, FloatingLabel, Form } from "react-bootstrap";
-import lineShape from "../../assets/images/secLineShape.svg";
-import locationIcon from "../../assets/images/location-icon.svg";
-import phoneIcon from "../../assets/images/phone.svg";
-import skypeIcon from "../../assets/images/ms_skype.svg";
+import { Button, Form } from "react-bootstrap";
 import clockIcon from "../../assets/images/clock.svg";
+import locationIcon from "../../assets/images/location-icon.svg";
+import skypeIcon from "../../assets/images/ms_skype.svg";
+import phoneIcon from "../../assets/images/phone.svg";
+import lineShape from "../../assets/images/secLineShape.svg";
 import "./Contact.scss";
 
 const Contact = () => {
     return (
-        <section className="contacts">
+        <section className="contactDetails">
             <div className="container">
                 <div className="contactInfo d-flex align-items-center">
                     <div className="row">

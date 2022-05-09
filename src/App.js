@@ -13,7 +13,7 @@ import Post from "./Page/Post/Post";
 function App() {
     return (
         <div className="App">
-            <Router>
+            <Router basename="/getweb-react">
                 <Header/>
                 <Routes>          
                     <Route exact path="/" element={<Home/>} />

@@ -30,23 +30,25 @@ const MenuItems = ({items,depthLevel}) => {
     };*/
     // console.log(items);
     // console.count();
-    //console.log(items.submenu);
+    console.log(items.image);
     return ( 
         /*<li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >*/
         <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref}>
-        {
-            
-            items.submenu && (items.submenu.length || Object.values(items.submenu).length) ? ( 
-                <>
-                    <NavLink className="menu-item-link" to={items.url} aria-haspopup="menu" aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)} >
-                    {items.title}
-                    {" "}
-                    {depthLevel > 0 ? <span> &raquo; </span> : <span className="arrow" / >}
-                    </NavLink>
-                    <Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} /> 
-                </>
-            ) : (<NavLink className="menu-item-link" to={items.url} > {items.title} </NavLink>)
-        } </li>
+            {items.image? <img src={items.image} className="menu-image" /> :''}
+            {   
+                items.submenu && (items.submenu.length || Object.values(items.submenu).length) ? ( 
+                    <>
+                        <NavLink className="menu-item-link" to={items.url} aria-haspopup="menu" aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)} >{items.title}</NavLink>
+                        {depthLevel > 0 ? <span className="right-arrow"></span> : <span className="down-arrow"></span>}
+                        <div className="dropdown-container"><Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} /></div> 
+                    </>
+                ) : (
+                    <>
+                        <NavLink className="menu-item-link" to={items.url} activeClassName="active"> {items.title} </NavLink>
+                    </>
+                )
+            } 
+        </li>
     );
 };
 
