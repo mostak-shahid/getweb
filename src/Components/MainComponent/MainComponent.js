@@ -7,6 +7,7 @@ import ReadyToMoveComponent from "../../Components/ReadyToMove/ReadyToMoveCompon
 import TechnologiesComponent from "../../Components/Technologies/TechnologiesComponent";
 import TestimonialsComponent from "../../Components/Testimonials/TestimonialsComponent";
 import WhyChooseUsComponent from "../../Components/WhyChooseUs/WhyChooseUsComponent";
+import ContactPageForm from '../ContactPageForm/ContactPageForm';
 import "./MainComponent.scss";
 export default class MainComponent extends Component {
 
@@ -30,28 +31,31 @@ export default class MainComponent extends Component {
                 </div>
                 
                 {
-                    (_mosacademy_page_group_component_name == 'OurServicesComponent')?<OurServicesComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'OurServicesComponent') && <OurServicesComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'WhyChooseUsComponent')?<WhyChooseUsComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'WhyChooseUsComponent') && <WhyChooseUsComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'OurFocusIndustriesComponent')?<OurFocusIndustriesComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'OurFocusIndustriesComponent') && <OurFocusIndustriesComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'TechnologiesComponent')?<TechnologiesComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'TechnologiesComponent') && <TechnologiesComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'PortfolioComponent')?<PortfolioComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'PortfolioComponent') && <PortfolioComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'TestimonialsComponent')?<TestimonialsComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'TestimonialsComponent') && <TestimonialsComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'BlogUpdateComponent')?<BlogUpdateComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'BlogUpdateComponent') && <BlogUpdateComponent data={this.props.data} />
                 }
                 {
-                    (_mosacademy_page_group_component_name == 'ReadyToMoveComponent')?<ReadyToMoveComponent data={this.props.data} />:''
+                    (_mosacademy_page_group_component_name == 'ReadyToMoveComponent') && <ReadyToMoveComponent data={this.props.data} />
+                }
+                {
+                    (_mosacademy_page_group_component_name == 'ContactPageForm') && <ContactPageForm data={this.props.data} />
                 }
             </section>
         )

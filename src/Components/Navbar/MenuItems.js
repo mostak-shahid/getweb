@@ -30,7 +30,7 @@ const MenuItems = ({items,depthLevel}) => {
     };*/
     // console.log(items);
     // console.count();
-    console.log(items.image);
+    //console.log(items.image);
     return ( 
         /*<li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >*/
         <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref}>
@@ -44,7 +44,7 @@ const MenuItems = ({items,depthLevel}) => {
                     </>
                 ) : (
                     <>
-                        <NavLink className="menu-item-link" to={items.url} activeClassName="active"> {items.title} </NavLink>
+                        <NavLink className="menu-item-link" to={items.url} activeclassname="active"> {items.title} </NavLink>
                     </>
                 )
             } 
