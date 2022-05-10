@@ -15,7 +15,7 @@ const FormValidation = () => {
     {
       id: 1,
       name: "username",
-      type: "text",
+      type: "textarea",
       placeholder: "Username",
       errorMessage:
         "Username should be 3-16 characters and shouldn't include any special character!",
