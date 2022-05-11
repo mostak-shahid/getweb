@@ -21,7 +21,7 @@ export default class MainComponent extends Component {
         return (
             <section className={['secPadding', _mosacademy_page_group_css].join(' ')}>
                 <div className='container'>
-                    <div className='sectionHeader text-center'>
+                    <div className='sectionHeader text-center top-content-part'>
                         <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML ={{__html: _mosacademy_page_group_sub_titles[0]}}></span>
                         <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_text}}></div>
                         <div className='secIntro textClrGray fs-6 fw-normal mb-2'>

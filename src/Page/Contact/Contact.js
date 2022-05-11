@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import FormApi from "../../Components/Form/FormApi";
-import FormValidation from "../../Components/Form/FormValidation";
+// import FormApi from "../../Components/Form/FormApi";
+// import FormValidation from "../../Components/Form/FormValidation";
 import MainComponent from "../../Components/MainComponent/MainComponent";
 import Config from "../../Config.json";
 import "./Contact.scss";
@@ -13,7 +13,7 @@ const Contact = () => {
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setPageData(resp))//setting response to state posts
         .then(setLoading(false))
-    })
+    },[])
     //console.log(pageData?.meta?._mosacademy_page_group_details_group);
     //console.log(loading);
     return (
@@ -22,16 +22,10 @@ const Contact = () => {
             loading?
             <div className="textClrGreen">loading...</div>:
             pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-                <MainComponent data={item} key={index} />                        
+                <MainComponent data={item} key={index} />    
+                //<div key={index}>{item._mosacademy_page_group_title_text}</div>                    
             ))
-        }
-        {/*
-            !loading && pageData?.meta?._mosacademy_page_group_details_group && (pageData?.meta?._mosacademy_page_group_details_group).length?
-            <div className="textClrGreen">Loaded</div>:''
-    */}
-    <FormValidation />
-    <FormApi/>
-        
+        }        
         </>
     );
 };

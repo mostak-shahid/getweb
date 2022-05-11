@@ -15,7 +15,7 @@ const FormValidation = () => {
     {
       id: 1,
       name: "username",
-      type: "textarea",
+      type: "text",
       placeholder: "Username",
       errorMessage:
         "Username should be 3-16 characters and shouldn't include any special character!",
@@ -59,6 +59,34 @@ const FormValidation = () => {
       label: "Confirm Password",
       pattern: values.password,
       required: true,
+    },
+    {
+      id: 6,
+      name: "color",
+      type: "color",
+      placeholder: "Color",
+      label: "Color",
+    },
+    {
+      id: 7,
+      name: "datetimeLocal",
+      type: "datetime-local",
+      placeholder: "Datetime Local",
+      label: "Datetime Local",
+    },
+    {
+      id: 8,
+      name: "file",
+      type: "file",
+      placeholder: "File",
+      label: "File",
+    },
+    {
+      id: 9,
+      name: "image",
+      type: "image",
+      placeholder: "Image",
+      label: "Image",
     },
   ];
 

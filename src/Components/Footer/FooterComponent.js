@@ -66,7 +66,7 @@ export default class FooterComponent extends Component {
                                         Want to visit us?
                                     </p>
                                     <p className='fs-22 fwSemiBold text-white mb-0'>
-                                        {optionData['contact-address'][0]}
+                                        {optionData?.contactAddress[0]}
                                     </p>
                                 </div>
                             </div>
