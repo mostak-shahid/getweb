@@ -2,18 +2,29 @@ import React, { useEffect, useState } from 'react';
 
 
 function Functional(props) {
-    const [posts,setPosts]=useState([])
+    const [dataOptions,setDataOptions]=useState([])
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(()=>{
-        const url='https://jsonplaceholder.typicode.com/posts';//api url
+        const url='http://mdshahalam.design/getwebapi/wp-json/mos-getweb-api/v1/options';//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
-        .then(resp=>setPosts(resp))//setting response to state posts
-    },[])
+        .then(resp=>setDataOptions(resp))//setting response to state posts
+    },[]);
+    useEffect(() => {
+        if (dataOptions.length !== 0) {
+          setIsLoading(false);
+        }
+        console.log(dataOptions);
+      }, [dataOptions]);
     return (
         <div className="App">
             <h1 align="center">React-App</h1>
             {/* lopping through each object and dispaying id and title of posts */}
             {
-                posts.map(post=><div key={post.id}><p>{`${post.id}. ${post.title}`}</p></div>)
+                isLoading ? (
+                    <h1>Loading...</h1>
+                ) : (
+                    dataOptions.contactAddress[2]
+                )
             }
         </div>
     );

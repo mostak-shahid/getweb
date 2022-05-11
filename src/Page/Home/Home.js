@@ -32,7 +32,7 @@ export default class Home extends Component {
             return <div>Didn't get data from API</div>;
         }
         return (
-            <>            
+            <>          
                 <BannerComponents />
                 {
                     this.state.pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
