@@ -12,9 +12,9 @@
   position: relative;
   transition: all 0.2s linear;
 
-  &:hover {
-    border-left: 5px solid #fff !important;
-  }
+  // &:hover {
+  //   border-left: 5px solid #fff !important;
+  // }
 
   &:nth-child(2n) {
     border-left: 5px solid var(--clr-blue);

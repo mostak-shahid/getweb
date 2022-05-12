@@ -37,7 +37,7 @@ export default class FooterComponent extends Component {
         return (
 
             <div className='footer'>
-                <div className='contactUs isBgBorder pt-120 pb-5'>
+                <div className='contactUs isBgBorder pt-120 pb-72'>
                     <div className='container'>
                         <div className='row'>
                             <div className='col-lg-4 col-sm-6 text-center text-sm-start'>
@@ -152,14 +152,14 @@ export default class FooterComponent extends Component {
                 <div className='copyright py-5'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-xl-6'>
-                                <div className='copyrightText' dangerouslySetInnerHTML={{__html:optionData['sections-footer-copyright']}}></div>
+                            <div className='col-md-8'>
+                                <div className='copyrightText text-center text-md-start d-block d-md-flex align-items-md-center' dangerouslySetInnerHTML={{__html:optionData['sections-footer-copyright']}}></div>
                             </div>
-                            <div className='col-xl-6'>
+                            <div className='col-md-4'>
                                 {
                                     (optionData['contact-social'].length)? 
                                         <div className='social'>
-                                            <ul className='footer-social-list list-inline text-sm-end text-center p-0 m-0'>
+                                            <ul className='footer-social-list list-inline text-md-end text-center p-0 m-3 m-md-0'>
                                                 {                                                    
                                                     optionData['contact-social'].map((item, index) => (
                                                         <li className="list-inline-item" key={index}>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
-import './OurFocusIndustriesComponent.scss';
 import Config from '../../Config.json';
+import './OurFocusIndustriesComponent.scss';
 
 
 //const OurFocusIndustriesComponent = () => {
@@ -54,7 +54,7 @@ export default class OurFocusIndustriesComponent extends Component {
                         {
                             (industryDataOne.length)?
                             industryDataOne.map((item, index) => (
-                                <div className='industriesItem px-3 py-2 text-center' key={item.id}>
+                                <div className='industriesItem px-3 py-3 text-center' key={item.id}>
                                     <div className='icon mb-4'>
                                         {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
                                     </div>
@@ -68,7 +68,7 @@ export default class OurFocusIndustriesComponent extends Component {
                         {
                             (industryDataTwo.length)?
                             industryDataTwo.map((item, index) => (
-                                <div className='industriesItem px-3 py-2 text-center' key={item.id}>
+                                <div className='industriesItem px-3 py-3 text-center' key={item.id}>
                                     <div className='icon mb-4'>
                                         {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
                                     </div>

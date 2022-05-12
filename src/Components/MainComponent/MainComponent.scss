@@ -1,5 +1,28 @@
+.wrapper-section {
+  .owl-carousel {
+    .owl-stage {
+      display: flex;
+    }
+    .owl-item {
+      .item-wrapper,
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}
+
 .contactDetails {
   .top-content-part {
     display: none;
+  }
+}
+.newslatter {
+  .sectionHeader {
+    max-width: unset;
+    .secTitle,
+    .secIntro {
+      margin-bottom: 30px !important;
+    }
   }
 }

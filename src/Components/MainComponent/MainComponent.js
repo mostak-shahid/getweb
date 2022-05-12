@@ -19,7 +19,7 @@ export default class MainComponent extends Component {
     render() {
         const {_mosacademy_page_group_css='',_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='', _mosacademy_page_group_component_name} = this.props.data;
         return (
-            <section className={['secPadding', _mosacademy_page_group_css].join(' ')}>
+            <section className={['wrapper-section', 'secPadding', _mosacademy_page_group_css].join(' ')}>
                 <div className='container'>
                     <div className='sectionHeader text-center top-content-part'>
                         <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML ={{__html: _mosacademy_page_group_sub_titles[0]}}></span>

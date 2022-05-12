@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Navbar } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import Config from '../../Config.json';
 import Navigation from '../Navigation/Navigation';
-
 
 
 //const HeaderComponent = () => {
@@ -42,14 +42,19 @@ export default class HeaderComponent extends Component {
         const {optionData} = this.state;
         return (
             <header className='main-header position-absolute top-0 start-0 w-100 zindex-fixed'>
-                <div className="wrapper d-flex justify-content-between py-4 align-items-center">
+                <div className="wrapper d-flex justify-content-between align-items-center">
                     <div className="logo-area">
                         <NavLink to="/"><img src={optionData.logo.url} alt="logo" /></NavLink>
                     </div>
-                    <div className="menu-area position-relative">
-                        {Config.MAIN_MENU?<Navigation id={Config.MAIN_MENU} />:''}
+                    <div className="menu-area position-static position-xl-relative">
+                        <Navbar expand="xl" className='position-static position-xl-relative'>
+                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <Navbar.Collapse id="basic-navbar-nav">
+                                {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} />}
+                            </Navbar.Collapse>
+                        </Navbar>                        
                     </div>
-                    <div className="button-area">
+                    <div className="button-area d-none d-xl-block">
                         <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">Request a Quote</NavLink>
                     </div>
                 </div>

@@ -101,7 +101,7 @@ export default class Blog extends Component {
                                         }
                                         <div className="card-body">
                                             <h5 className="card-title text-dark">{item.title}</h5>
-                                            <p className="card-text text-dark">{item.excerpt}</p>
+                                            <p className="card-text text-dark">{item.excerpt.small}</p>
                                             <a href={['/blog', item.slug].join('/')} className="btn btn-primary">Read More</a>
                                         </div>
                                     </div>

@@ -34,6 +34,24 @@ body {
 }
 
 /* ==== custom classes ==== */
+.fs-5 {
+  font-size: 16px !important;
+  @media (min-width: 768px) {
+    font-size: 20px !important;
+  }
+  @media (min-width: 1200px) {
+  }
+}
+.fs-6 {
+  font-size: 14px !important;
+  line-height: 22px;
+  @media (min-width: 768px) {
+    font-size: 1rem !important;
+    line-height: 26px;
+  }
+  @media (min-width: 1200px) {
+  }
+}
 .fs-12 {
   font-size: 12px;
 }
@@ -41,29 +59,53 @@ body {
   font-size: 13px;
 }
 .fs-14 {
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 20px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  @media (min-width: 1200px) {
+  }
 }
 .fs-15 {
   font-size: 15px;
-}
-.fs-6 {
-  line-height: 26px;
 }
 .fs-18 {
   font-size: 18px;
   line-height: 30px;
 }
 .fs-22 {
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  @media (min-width: 768px) {
+    font-size: 22px;
+    line-height: 32px;
+  }
+  @media (min-width: 1200px) {
+  }
 }
 .fs-48 {
-  font-size: 48px;
-  line-height: 56px;
+  font-size: 30px !important;
+  line-height: 40px !important;
+  @media (min-width: 768px) {
+    font-size: 48px !important;
+    line-height: 56px !important;
+  }
+  @media (min-width: 1200px) {
+  }
 }
 .fs-72 {
-  font-size: 72px;
-  line-height: 90px;
+  font-size: 42px;
+  line-height: 48px;
+  @media (min-width: 768px) {
+    font-size: 56px;
+    line-height: 66px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 72px;
+    line-height: 90px;
+  }
 }
 
 .textClrGray {
@@ -113,10 +155,31 @@ body {
 }
 
 .secPadding {
-  padding: 120px 0;
+  padding: 60px 0;
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
+  @media (min-width: 1200px) {
+    padding: 120px 0;
+  }
 }
 .pt-120 {
-  padding-top: 120px;
+  padding-top: 60px;
+  @media (min-width: 768px) {
+    padding-top: 80px;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 120px;
+  }
+}
+.pb-72 {
+  padding-bottom: 30px;
+  @media (min-width: 768px) {
+    padding-bottom: 40px;
+  }
+  @media (min-width: 1200px) {
+    padding-bottom: 72px;
+  }
 }
 .isRadius12 {
   border-radius: 12px;

@@ -6,8 +6,8 @@ import OwlCarousel from 'react-owl-carousel';
 // import "slick-carousel/slick/slick-theme.css";
 // import "slick-carousel/slick/slick.css";
 import { Link } from "react-router-dom";
-import "./BlogSlider.scss";
 import Config from '../../Config.json';
+import "./BlogSlider.scss";
 
 
 
@@ -67,7 +67,8 @@ export default class MultipleItems extends Component {
                     {
                         (postData.length)?
                         postData.map((item, index) => (
-                            <div className="singleBlog isRadius16 bgClrDarkLight" key={item.id}>
+                            <div className="item-wrapper singleBlog isRadius16 bgClrDarkLight d-flex flex-column justify-content-between" key={item.id}>
+                                <div className="content-part">
                                 {
                                     (item.image)?
                                     <div className="blogImage">
@@ -78,15 +79,18 @@ export default class MultipleItems extends Component {
                                     null                             
                                 }
 
-                                <div className="blogInfo p-4">
+                                <div className="blogInfo p-4 pb-0">
                                     <h3 className="blogTitle fs-6 fw-bold mb-2" style={{ maxWidth: "300px", width: "100%" }}>
                                         <Link to={['/blog',item.slug].join('/')}  className="text-decoration-none text-white">
                                             {item.title}
                                         </Link>
                                     </h3>
                                     <div className="blogDesc textClrGray fw-normal fs-14 mb-5" style={{ maxWidth: "300px", width: "100%" }}>
-                                        <p className="mb-0" dangerouslySetInnerHTML = {{__html: item.excerpt}}></p>
+                                        <p className="mb-0" dangerouslySetInnerHTML = {{__html: item.excerpt.small}}></p>
                                     </div>
+                                </div>
+                                </div>
+                                <div className='link-part p-4 pt-0'>
                                     <Link to={['/blog',item.slug].join('/')} className="readMore d-flex justify-content-between align-items-center textClrGrayDark fs-14 fwSemiBold text-decoration-none">
                                         <span>
                                             Read More

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Techonology.scss';
 
 export default class Technology extends Component {
     constructor(props) {
@@ -8,7 +9,7 @@ export default class Technology extends Component {
     render() {
         const {image='', title=''} = this.props.data;
         return (
-            <div className="techLogos px-3">
+            <div className="techLogos">
                 <div className="icons mb-2">
                     <img src={image} alt="tech logo" />
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SecLineShape from '../../assets/images/secLineShape.svg';
-import './WhyChooseUsComponent.scss';
 import Config from "../../Config.json";
+import './WhyChooseUsComponent.scss';
 
 //const WhyChooseUsComponent = ({data}) => {
 export default class WhyChooseUsComponent extends Component { 
@@ -51,7 +51,7 @@ export default class WhyChooseUsComponent extends Component {
                         (whyChooseItems.length)?
                         whyChooseItems.map((item, index) => (
                             
-                            <div className='col-lg-3 col-6' key={item.id}>
+                            <div className='col-xl-3 col-sm-6' key={item.id}>
                                 <div className='whyChooseItem p-2'>
                                     <p className='mb-4 ms-2 ms-xl-3'>
                                         <span className='itemsNumber textClrGrayDeep fs-48 fwBlack'>
@@ -68,11 +68,7 @@ export default class WhyChooseUsComponent extends Component {
                                             <h3 className='itemTitle fs-18 fwSemiBold text-white mb-3'>
                                                 {item.title}
                                             </h3>
-                                            <div className='itemIntro fs-6 textClrGray fw-normal'>
-                                                <p className='mb-0'>
-                                                    {item.excerpt}
-                                                </p>
-                                            </div>
+                                            <div className='itemIntro fs-6 textClrGray fw-normal' dangerouslySetInnerHTML={{__html: item.content}}></div>
                                         </div>
                                     </div>
                                 </div>

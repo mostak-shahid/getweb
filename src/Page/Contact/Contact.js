@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 // import FormApi from "../../Components/Form/FormApi";
 // import FormValidation from "../../Components/Form/FormValidation";
 import MainComponent from "../../Components/MainComponent/MainComponent";
@@ -6,6 +7,8 @@ import Config from "../../Config.json";
 import "./Contact.scss";
 
 const Contact = () => {
+    const location = useLocation();
+    console.log(location);
     const [pageData,setPageData]=useState([]);
     const [loading,setLoading]=useState(true);
     useEffect(()=>{

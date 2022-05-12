@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import OwlCarousel from 'react-owl-carousel';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import "./TestimonialsSlider.scss";
 import Config from '../../Config.json';
+import "./TestimonialsSlider.scss";
 
 
 export default class MultipleItems extends Component {
@@ -77,7 +77,7 @@ export default class MultipleItems extends Component {
           {
             (testimonialData.length)?
             testimonialData.map((items, index) => (
-              <div className="singleFeedback isRadius16 p-4 bgClrDarkLight" key={items.id}>
+              <div className="item-wrapper singleFeedback isRadius16 p-4 bgClrDarkLight" key={items.id}>
                 <div className="logos mb-4">
                   <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
                 </div>

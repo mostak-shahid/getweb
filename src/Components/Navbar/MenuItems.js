@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
@@ -31,6 +31,10 @@ const MenuItems = ({items,depthLevel}) => {
     // console.log(items);
     // console.count();
     //console.log(items.image);
+    const handleClick = useCallback((e) => {
+        //e.target.parentElement.classList.add('open-menu-below');
+        e.target.parentElement.classList.toggle('open-menu-below');
+      }, []);
     return ( 
         /*<li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >*/
         <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref}>
@@ -39,7 +43,7 @@ const MenuItems = ({items,depthLevel}) => {
                 items.submenu && (items.submenu.length || Object.values(items.submenu).length) ? ( 
                     <>
                         <NavLink className="menu-item-link" to={items.url} aria-haspopup="menu" aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)} >{items.title}</NavLink>
-                        {depthLevel > 0 ? <span className="right-arrow"></span> : <span className="down-arrow"></span>}
+                        <span className={depthLevel > 0 ? "right-arrow" : "down-arrow" } onClick={handleClick}></span>
                         <div className="dropdown-container"><Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} /></div> 
                     </>
                 ) : (

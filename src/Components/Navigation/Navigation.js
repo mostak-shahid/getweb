@@ -36,11 +36,11 @@ export default class Navigation extends Component {
         return (
             <>  
                 {
-                    (title) ? <h4 className={['mos-menu-title', this.props.titleCls].join(' ')}>{title}</h4> : ''
+                    (title) &&  <h4 className={['mos-menu-title', this.props.titleCls].join(' ')}>{title}</h4>
                 }        
                 {
                     
-                    (items.length)?
+                    (items.length) &&
                         <ul className={[this.props.listCls, 'mos-menu-list'].join(' ')}>                            
                             {
                                 items.map((menu, index) => {
@@ -55,7 +55,7 @@ export default class Navigation extends Component {
                             </li>
                         ))*/}
                         </ul>                   
-                    :''
+                    
                 }
                 
             </>

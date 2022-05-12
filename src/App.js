@@ -8,9 +8,9 @@ import Contact from './Page/Contact/Contact';
 import Header from "./Page/Header";
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
-//import Post from "./Page/Post/Post";
 
 function App() {
+    
     return (
         <div className="App">
             {/* <Router basename="/getweb-react"> */}

@@ -59,9 +59,7 @@ export default class OurServicesComponent extends Component {
                                             <a href='#' className='text-white text-decoration-none' dangerouslySetInnerHTML={{__html: item.title}}></a>
                                         </h3>
                                         <div className='serviceIntro fs-6 fw-normal textClrGray mb-4'>
-                                            <p className='mb-0'>
-                                                {item.excerpt}
-                                            </p>
+                                            <div className='mb-0' dangerouslySetInnerHTML={{__html:item.content}}></div>
                                         </div>
                                     </div>
                                     <div className='readMoreBtn'>

@@ -36,12 +36,12 @@ export default class TechnologiesBar extends Component {
         return (
             <div className={['singleTechnology','p-2','mb-4', slug].join(' ')}>
                 <div className="row align-items-center">
-                    <div className="col-lg-3">
+                    <div className="col-xl-3">
                         <div className="p-3">
                             <h4 className="tech-title fs-18 fwSemiBold text-white mb-0">{name}</h4>
                         </div>
                     </div>
-                    <div className="col-lg-9">
+                    <div className="col-xl-9">
                         <div className="singleTechLogo d-flex align-items-center flex-wrap gap-2">
                             {
                                 (technologiesData.length)?
