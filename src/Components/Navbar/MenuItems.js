@@ -42,7 +42,7 @@ const MenuItems = ({items,depthLevel}) => {
             {   
                 items.submenu && (items.submenu.length || Object.values(items.submenu).length) ? ( 
                     <>
-                        <NavLink className="menu-item-link" to={items.url} aria-haspopup="menu" aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)} >{items.title}</NavLink>
+                        <NavLink className="menu-item-link" to={items.url} aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)} >{items.title}x{dropdown}</NavLink>
                         <span className={depthLevel > 0 ? "right-arrow" : "down-arrow" } onClick={handleClick}></span>
                         <div className="dropdown-container"><Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} /></div> 
                     </>
