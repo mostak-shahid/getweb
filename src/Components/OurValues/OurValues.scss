@@ -1,0 +1,10 @@
+.singleValues {
+    background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+    border: 1px solid var(--clr-black);
+    transition: all 0.3s linear;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--clr-black);
+        border-color: transparent;
+    }
+}

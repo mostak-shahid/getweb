@@ -1,0 +1,23 @@
+.BlogSingleContentArea {
+    .blogInnerContent {
+        .blogInnerDescription {
+            p {
+                line-height: 26px;
+                color: #8d8f98;
+                b {
+                    color: #fff;
+                }
+                a {
+                    color: var(--clr-green);
+                }
+            }
+        }
+        .quoteText {
+            background: linear-gradient(93.48deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+            border-radius: 0px 12px 12px 0px;
+            .quoteTitle {
+                line-height: 40px;
+            }
+        }
+    }
+}

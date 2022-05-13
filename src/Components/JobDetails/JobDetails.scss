@@ -1,0 +1,28 @@
+.JobBannerContent {
+    min-height: 500px;
+}
+.textGrayLight {
+    color: rgba(141, 143, 152, 1);
+}
+.jobSideBar {
+    padding: 35px;
+    .gw-btn-green {
+        .btn {
+            svg {
+                &.end-0 {
+                    right: 50px !important;
+                }
+                &.top-0 {
+                    top: 11px !important;
+                }
+            }
+            &:hover {
+                svg {
+                    &.end-0 {
+                        right: 40px !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -2,9 +2,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
-const MenuItems = ({items,depthLevel}) => {
+const MenuItems = ({items,depthLevel, menuOpen, menuOpenToggle}) => {
     const [dropdown, setDropdown] = useState(false);
     let ref = useRef();
+    //const menuOpen = useRef(0);
+
 
     useEffect(() => {
         const handler = (event) => {
@@ -34,15 +36,20 @@ const MenuItems = ({items,depthLevel}) => {
     const handleClick = useCallback((e) => {
         //e.target.parentElement.classList.add('open-menu-below');
         e.target.parentElement.classList.toggle('open-menu-below');
-      }, []);
+    }, []);
+    const linkClick = useCallback((e) => {
+        e.target.closest(".navbar").querySelector(".navbar-collapse").classList.toggle("show");
+        e.target.closest(".navbar").querySelector(".navbar-toggler").classList.toggle("collapsed");
+    }, []);
+
     return ( 
         /*<li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >*/
-        <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref}>
+        <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref} onClick={(event)=>menuOpenToggle(!menuOpen)}>
             {items.image? <img src={items.image} className="menu-image" /> :''}
             {   
                 items.submenu && (items.submenu.length || Object.values(items.submenu).length) ? ( 
                     <>
-                        <NavLink className="menu-item-link" to={items.url} aria-expanded={dropdown ? "true" : "false"} onClick={() => setDropdown((prev) => !prev)} >{items.title}x{dropdown}</NavLink>
+                        <NavLink className="menu-item-link" to={items.url} >{items.title}</NavLink>
                         <span className={depthLevel > 0 ? "right-arrow" : "down-arrow" } onClick={handleClick}></span>
                         <div className="dropdown-container"><Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} /></div> 
                     </>

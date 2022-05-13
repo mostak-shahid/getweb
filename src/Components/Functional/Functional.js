@@ -14,7 +14,7 @@ function Functional(props) {
           setIsLoading(false);
         }
         console.log(dataOptions);
-      }, [dataOptions]);
+    }, [dataOptions]);
     return (
         <div className="App">
             <h1 align="center">React-App</h1>

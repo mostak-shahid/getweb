@@ -80,7 +80,7 @@
           }
         }
         @media (min-width: 1200px) {
-          margin-top: -63px;
+          margin-top: -58px;
           margin-right: 0;
         }
         @media (min-width: 1440px) {
@@ -352,10 +352,11 @@
               width: 55px;
               height: 12px;
               background-image: url(../../assets/images/menu-icon.png);
-              display: none;
+              display: block;
+              opacity: 0;
             }
             &:hover:after {
-              display: block;
+              opacity: 1;
             }
           }
         }

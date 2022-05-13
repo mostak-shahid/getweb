@@ -3,14 +3,14 @@ import { Navbar } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import Config from '../../Config.json';
 import Navigation from '../Navigation/Navigation';
-
-
 //const HeaderComponent = () => {
 export default class HeaderComponent extends Component { 
     state = {
         loading: true,
         optionData: null,
         menuData: null,
+        menuOpen: false,
+        name: 'Mostak'
     };
     
     async componentDidMount() {
@@ -27,9 +27,10 @@ export default class HeaderComponent extends Component {
             menuData: dataMenu,
             loading: false,
         });
-        //console.log(this.state.optionData.logo.url);
+
     }
-    
+ 
+ 
     render() {
         if (this.state.loading) {
             return <div>loading...</div>;
@@ -39,18 +40,22 @@ export default class HeaderComponent extends Component {
             return <div>Didn't get data from API</div>;
         }
         //const CANONICAL = Config.SITE_DOMAIN;
-        const {optionData} = this.state;
+        const {optionData, menuOpen} = this.state;
+        const menuAlter = () => {
+            return this.setState({menuOpen: !menuOpen})
+        }
         return (
             <header className='main-header position-absolute top-0 start-0 w-100 zindex-fixed'>
                 <div className="wrapper d-flex justify-content-between align-items-center">
                     <div className="logo-area">
-                        <NavLink to="/"><img src={optionData.logo.url} alt="logo" /></NavLink>
+                        <NavLink to="/" onClick={() => this.setState({menuOpen:false})}><img src={optionData.logo.url} alt="logo" /></NavLink>
                     </div>
                     <div className="menu-area position-static position-xl-relative">
                         <Navbar expand="xl" className='position-static position-xl-relative'>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} />}
+                            {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+                            <button type="button" className={['navbar-toggler', !this.state.menuOpen?'collapsed':''].join(' ')} onClick={menuAlter}><span className="navbar-toggler-icon"></span></button>
+                            <Navbar.Collapse id="basic-navbar-nav" className={this.state.menuOpen && 'show'}>
+                                {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} menuOpen={menuOpen} menuOpenToggle={(value) => this.setState({menuOpen:value})} />}
                             </Navbar.Collapse>
                         </Navbar>                        
                     </div>
@@ -58,6 +63,7 @@ export default class HeaderComponent extends Component {
                         <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">Request a Quote</NavLink>
                     </div>
                 </div>
+                {/* <ChildComponent menuOpen={(value) =>this.setState({name:value})}/> */}
             </header>
         );
     }

@@ -30,9 +30,10 @@ export default class Navigation extends Component {
         if (!this.state.menuData) {
             return <div>Didn't get data from API</div>;
         }
-        const {title} = this.props;
+        const {title,menuOpen,menuOpenToggle} = this.props;
         const {menuData} = this.state;
         const items = (!Array.isArray(menuData))?Object.values(menuData):menuData;
+        //console.log(menuOpen);
         return (
             <>  
                 {
@@ -45,7 +46,7 @@ export default class Navigation extends Component {
                             {
                                 items.map((menu, index) => {
                                     const depthLevel=0;
-                                    return <MenuItems items={menu} key={index} depthLevel={depthLevel}/>;
+                                    return <MenuItems items={menu} key={index} depthLevel={depthLevel} menuOpen={menuOpen} menuOpenToggle={menuOpenToggle}/>;
                                 })
                             } 
 

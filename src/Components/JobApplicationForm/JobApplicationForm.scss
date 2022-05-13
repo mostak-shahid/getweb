@@ -1,0 +1,54 @@
+.css-1s2u09g-control,
+.css-1pahdxg-control {
+    border-radius: 30px !important;
+    padding: 0 10px !important;
+    min-height: 42px !important;
+    border-color: rgba(170, 173, 183, 0.4) !important;
+    &:hover,
+    &:focus {
+        border-color: rgba(170, 173, 183, 0.4) !important;
+    }
+}
+.css-6j8wv5-Input {
+    &::placeholder {
+        font-size: 13px !important;
+        color: #8d8f98 !important;
+    }
+}
+.css-1okebmr-indicatorSeparator {
+    background-color: transparent !important;
+}
+.css-2613qy-menu {
+    color: #000 !important;
+    background-color: #000 !important;
+}
+.ApplicationForm {
+    .form-select {
+        &:focus {
+            box-shadow: none !important;
+        }
+        font-size: 13px;
+        color: #8d8f98;
+    }
+    .field {
+        .form-control {
+            font-size: 13px;
+            color: #8d8f98;
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+    .fileBody{
+        border: 1px dashed #AAADB7;
+    }
+    .sbm-btn{
+        .btn{
+            &:hover, &:focus{
+                background-color: #00e190;
+                color: #121316;
+                box-shadow: none !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+.career-hero-area {
+  .text-area {
+    .gw-btn {
+      .btn {
+        transition: all 0.2s linear;
+        max-width: 200px;
+        width: 100%;
+        background-color: var(--clr-green) !important;
+        svg,
+        span {
+          transition: all 0.2s linear;
+        }
+        svg {
+          &.end-0 {
+            right: 30px !important;
+          }
+          &.top-0 {
+            top: 16px !important;
+          }
+        }
+        &:hover {
+          background-color: #00e190 !important;
+          color: #121316 !important;
+
+          svg {
+            &.end-0 {
+              right: 23px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.company-benefits {
+  .benifit-item {
+    background-color: #202124;
+    // max-width: 350px;
+    height: 244px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0;
+    background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+    border: 1px solid #202124;
+    border-radius: 16px;
+    transition: linear 0.3s all;
+
+    &:hover {
+      background: #202124;
+      border: 1px solid #202124;
+    }
+    h6 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 34px;
+      color: #fff;
+      margin-top: 30px;
+    }
+  }
+}
+
+.job-opening {
+  background: linear-gradient(180deg, #202124 0%, rgba(32, 33, 36, 0) 100%);
+  .more-btn {
+    .gw-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btn {
+        transition: all 0.2s linear;
+        max-width: 156px;
+        width: 100%;
+        background-color: var(--clr-green) !important;
+
+        &:hover {
+          background-color: #00e190 !important;
+          color: #121316 !important;
+        }
+      }
+    }
+  }
+}

@@ -117,7 +117,7 @@ function ContactPageForm(props) {
         })();
     }
     // console.log(loading);
-    console.log(optionData);
+    // console.log(optionData);
     return ( 
         <div className="container">
             <div className="contactInfo d-flex align-items-center">
