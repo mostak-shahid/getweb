@@ -1,6 +1,6 @@
 import React from "react";
-import "./WhoWeAre.scss";
 import LineShape from "../../assets/images/secLineShape.svg";
+import "./WhoWeAre.scss";
 
 const WhoWeAre = () => {
     return (
@@ -8,8 +8,8 @@ const WhoWeAre = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-xl-6">
-                        <div class="activity-grid-container">
-                            <div class="item2 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
+                        <div className="activity-grid-container">
+                            <div className="item2 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
                                 <div className="icon mb-3">
                                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect opacity="0.05" width="100" height="100" rx="16" fill="#4991FF" />
@@ -26,7 +26,7 @@ const WhoWeAre = () => {
                                 <p className="fs-14 fw-medium textClrGrayDark mb-0">Happy Client</p>
                                 <p className="count fs-30 fw-medium textClrGrayDark mb-0">1280</p>
                             </div>
-                            <div class="item3 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
+                            <div className="item3 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
                                 <div className="icon mb-3">
                                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect opacity="0.05" width="100" height="100" rx="16" fill="#FFB156" />
@@ -51,7 +51,7 @@ const WhoWeAre = () => {
                                 <p className="fs-14 fw-medium textClrGrayDark mb-0">Award-win</p>
                                 <p className="count fs-30 fw-medium textClrGrayDark mb-0">08</p>
                             </div>
-                            <div class="item4 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
+                            <div className="item4 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
                                 <div className="icon mb-3">
                                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect opacity="0.05" width="100" height="100" rx="16" fill="#FF317B" />
@@ -71,19 +71,19 @@ const WhoWeAre = () => {
                         </div>
                     </div>
                     <div className="col-xl-6">
-                        <div class="sectionHeader">
-                            <span class="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block">Who we are</span>
-                            <div class="secTitle fw-normal fs-48 text-white mb-3">
+                        <div className="sectionHeader">
+                            <span className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block">Who we are</span>
+                            <div className="secTitle fw-normal fs-48 text-white mb-3">
                                 Award-winning product <strong>design and software develop</strong> agency
                             </div>
-                            <div class="lineShape mb-4">
+                            <div className="lineShape mb-4">
                                 <img src={LineShape} alt="LineShape" />
                             </div>
-                            <div class="secIntro textClrGray fs-6 fw-normal mb-4 pb-2">
-                                <p class="mb-0">We are one of the older web development companies on the Polish market. We have been in business since 2008.</p>
+                            <div className="secIntro textClrGray fs-6 fw-normal mb-4 pb-2">
+                                <p className="mb-0">We are one of the older web development companies on the Polish market. We have been in business since 2008.</p>
                             </div>
-                            <div class="secIntro textClrGray fs-6 fw-normal mb-0">
-                                <p class="mb-0">At GOGOmedia, we have specialists professionally dealing with creating dedicated web apps who constantly improve their competencies and knowledge.</p>
+                            <div className="secIntro textClrGray fs-6 fw-normal mb-0">
+                                <p className="mb-0">At GOGOmedia, we have specialists professionally dealing with creating dedicated web apps who constantly improve their competencies and knowledge.</p>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import LineShape from "../../assets/images/secLineShape.svg";
 import valuesIcon1 from "../../assets/images/lovely.svg";
+import LineShape from "../../assets/images/secLineShape.svg";
 import valuesIcon2 from "../../assets/images/valuesIcon2.svg";
 import valuesIcon3 from "../../assets/images/valuesIcon3.svg";
 import valuesIcon4 from "../../assets/images/valuesIcon4.svg";
@@ -44,17 +44,17 @@ const OurValues = () => {
     return (
         <section className="OurValues secPadding">
             <div className="container">
-                <div class="sectionHeader text-center mb-5">
-                    <div class="secTitle fw-normal fs-48 text-white">
+                <div className="sectionHeader text-center mb-5">
+                    <div className="secTitle fw-normal fs-48 text-white">
                         Our <strong>values</strong>
                     </div>
-                    <div class="lineShape mb-4">
+                    <div className="lineShape mb-4">
                         <img src={LineShape} alt="LineShape" />
                     </div>
                 </div>
                 <div className="row">
-                    {OurValueItems.map((item) => (
-                        <div className="col-xl-4 col-sm-6 mb-4">
+                    {OurValueItems.map((item, index) => (
+                        <div className="col-xl-4 col-sm-6 mb-4" key={index}>
                             <div className="singleValues isRadius16 p-4 h-100">
                                 <div className="icon mb-4">
                                     <img src={item.icon} alt="icon" />

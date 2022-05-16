@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import SecLineShape from "../../assets/images/secLineShape.svg";
+import Config from '../../Config.json';
 import TechnologiesBar from "./TechnologiesBar/TechnologiesBar";
 import "./TechnologiesComponent.scss";
-import Config from '../../Config.json';
 
 
 
@@ -41,21 +41,43 @@ export default class TechnologiesComponent extends Component {
             return <div>Didn't get data from API</div>;
         }
         const {taxonomiesData} = this.state;
-        return (
-            <div className="container">
-                <div className="lineShape text-center mb-5">
-                    <img src={SecLineShape} alt="lineShape" />
+        const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+        const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
+        return (                
+            <div className="row">
+                <div className={[widthClass, orderClass].join(' ')}>
+                    <div className="part-one">                        
+                        {
+                            _mosacademy_page_group_sub_titles[0] &&
+                            <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                        }
+                        {
+                            _mosacademy_page_group_title_text &&
+                            <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
+                        }
+                        {
+                            _mosacademy_page_group_title_description &&
+                            <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                        }
+                        <div className="lineShape">
+                            <img src={SecLineShape} alt="lineShape" />
+                        </div>
+                    </div>
                 </div>
-                <div className="singleTechnologyBar">
-                    {
-                        (taxonomiesData.length)?
-                            taxonomiesData.map((item, index) => ( 
-                                (item.count!="0")?
-                                <TechnologiesBar data={item} key={item.term_id} />:''
-                                
-                            )
-                        ):''
-                    }
+                <div className={[widthClass].join(' ')}>
+                    <div className="part-two">                 
+                        <div className="singleTechnologyBar">
+                            {
+                                (taxonomiesData.length) && 
+                                    taxonomiesData.map((item, index) => ( 
+                                        (item.count!=="0") && <TechnologiesBar data={item} key={index} />                                
+                                    )
+                                )
+                            }
+                        </div>
+
+                    </div>
                 </div>
             </div>
         );

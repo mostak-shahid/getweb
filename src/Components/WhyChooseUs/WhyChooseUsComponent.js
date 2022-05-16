@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SecLineShape from '../../assets/images/secLineShape.svg';
+import lineShape from "../../assets/images/secLineShape.svg";
 import Config from "../../Config.json";
+import MediaBlock from "../MediaBlock/MediaBlock";
 import './WhyChooseUsComponent.scss';
-
 //const WhyChooseUsComponent = ({data}) => {
 export default class WhyChooseUsComponent extends Component { 
     state = {
@@ -11,7 +11,8 @@ export default class WhyChooseUsComponent extends Component {
     };
     
     async componentDidMount() {
-        const url = Config.API_BASE + "data-list/step/0/0/4";
+        //const url = Config.API_BASE + "data-list/step/0/0/4";
+        const url = Config.API_BASE + "data-list/block/20/0/4";
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 
@@ -27,7 +28,6 @@ export default class WhyChooseUsComponent extends Component {
     }
     
     render() {
-        const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         const {whyChooseItems = []} = this.state
         if (this.state.loading) {
             return <div>loading...</div>;
@@ -36,48 +36,48 @@ export default class WhyChooseUsComponent extends Component {
         if (!this.state.whyChooseItems) {
             return <div>Didn't get data from API</div>;
         }
+        const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+        const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
 
         return (
-            <div className='container'>
-                <div className='lineShape text-center mb-5'>
-                    <img src={SecLineShape} alt='lineShape' />
+            <div className="row">
+                <div className={[widthClass, orderClass].join(' ')}>
+                    <div className="part-one">                        
+                        {
+                            _mosacademy_page_group_sub_titles[0] &&
+                            <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                        }
+                        {
+                            _mosacademy_page_group_title_text &&
+                            <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
+                        }
+                        {
+                            _mosacademy_page_group_title_description &&
+                            <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                        }
+                        <div className="lineShape">
+                            <img src={lineShape} alt="lineShape" />
+                        </div>
+                    </div>
                 </div>
-
-                <div className='row'>
-
-                    {/* whyChooseItems init */}
-
-                    {
-                        (whyChooseItems.length)?
-                        whyChooseItems.map((item, index) => (
-                            
-                            <div className='col-xl-3 col-sm-6' key={item.id}>
-                                <div className='whyChooseItem p-2'>
-                                    <p className='mb-4 ms-2 ms-xl-3'>
-                                        <span className='itemsNumber textClrGrayDeep fs-48 fwBlack'>
-                                            {'0' + ++index + '.'}
-                                        </span>
-                                    </p>
-                                    <div className='d-flex align-items-start gap-3'>
-                                        <span className='lineShape mb-0'>
-                                            <svg className='' width="1" height="15" viewBox="0 0 1 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="1" height="15" fill="#00FFA3" />
-                                            </svg>
-                                        </span>
-                                        <div className='itemInfo'>
-                                            <h3 className='itemTitle fs-18 fwSemiBold text-white mb-3'>
-                                                {item.title}
-                                            </h3>
-                                            <div className='itemIntro fs-6 textClrGray fw-normal' dangerouslySetInnerHTML={{__html: item.content}}></div>
-                                        </div>
+                <div className={[widthClass].join(' ')}>
+                    <div className="part-two">                 
+                        {/* servicesItems init */}                    
+                        {
+                            whyChooseItems.length &&
+                            <div className="row">
+                                {whyChooseItems.map((item, index) => (
+                                    <div className='col-xl-3 col-sm-6' key={index}>
+                                        <MediaBlock data={item}  cls="whyChooseItem p-2"/>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        )):
-                        ''
-                    }
+                        }
+
+                    </div>
                 </div>
-            </div>
+            </div>            
         );
     }
 };

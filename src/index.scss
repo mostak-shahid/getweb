@@ -25,7 +25,9 @@ body {
   --clr-menu-dark: #27282b;
   --clr-solitude: #f2f3f7;
 }
-
+a {
+  text-decoration: none;
+}
 @media (min-width: 1200px) {
   .container {
     max-width: 1134px !important;
@@ -163,6 +165,12 @@ body {
     padding: 120px 0;
   }
 }
+.p-30 {
+  padding: 30px;
+}
+.pb-30 {
+  padding-bottom: 30px;
+}
 .pt-120 {
   padding-top: 60px;
   @media (min-width: 768px) {
@@ -180,6 +188,9 @@ body {
   @media (min-width: 1200px) {
     padding-bottom: 72px;
   }
+}
+.mb-30 {
+  margin-bottom: 30px;
 }
 .isRadius12 {
   border-radius: 12px;

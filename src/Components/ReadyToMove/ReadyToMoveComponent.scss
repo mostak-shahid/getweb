@@ -1,23 +1,27 @@
-.newslatter{
-    background-image: url(../../assets/images/newslatter-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    .sectionHeader{
-        .gw-btn-green {
-            .btn {
-                svg{
-                    &.end-0{
-                        right: 20px !important;
-                    }
-                }
-                &:hover{
-                    svg{
-                        &.end-0{
-                            right: 13px !important;
-                        }
-                    }
-                }
-            }
+.newslatter {
+  background-image: url(../../assets/images/newslatter-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  .part-one {
+    max-width: unset !important;
+    margin-bottom: 30px !important;
+  }
+  .sectionHeader {
+    .gw-btn-green {
+      .btn {
+        svg {
+          &.end-0 {
+            right: 20px !important;
+          }
         }
+        &:hover {
+          svg {
+            &.end-0 {
+              right: 13px !important;
+            }
+          }
+        }
+      }
     }
+  }
 }

@@ -6,9 +6,9 @@ const Pagination = () => {
     return (
         <div className="pagination-box">
             <nav>
-                <ul class="pagination justify-content-center gap-3 mb-0 py-5 ">
-                    <li class="page-item">
-                        <Link to="/" class="page-link bg-transparent" aria-label="Previous">
+                <ul className="pagination justify-content-center gap-3 mb-0 py-5 ">
+                    <li className="page-item">
+                        <Link to="/" className="page-link bg-transparent" aria-label="Previous">
                             <span aria-hidden="true">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -23,28 +23,28 @@ const Pagination = () => {
                             </span>
                         </Link>
                     </li>
-                    <li class="page-item">
-                        <Link to="/" class="page-link bg-transparent active">
+                    <li className="page-item">
+                        <Link to="/" className="page-link bg-transparent active">
                             1
                         </Link>
                     </li>
-                    <li class="page-item">
-                        <Link to="/" class="page-link bg-transparent">
+                    <li className="page-item">
+                        <Link to="/" className="page-link bg-transparent">
                             2
                         </Link>
                     </li>
-                    <li class="page-item">
-                        <Link to="/" class="page-link bg-transparent">
+                    <li className="page-item">
+                        <Link to="/" className="page-link bg-transparent">
                             3
                         </Link>
                     </li>
-                    <li class="page-item">
-                        <Link to="/" class="page-link bg-transparent">
+                    <li className="page-item">
+                        <Link to="/" className="page-link bg-transparent">
                             4
                         </Link>
                     </li>
-                    <li class="page-item">
-                        <Link to="/" class="page-link bg-transparent" aria-label="Next">
+                    <li className="page-item">
+                        <Link to="/" className="page-link bg-transparent" aria-label="Next">
                             <span aria-hidden="true">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path

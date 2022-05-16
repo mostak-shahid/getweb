@@ -1,0 +1,37 @@
+.media-block {
+  transition: all 0.2s linear;
+  .block-part-one {
+    .block-title {
+      a {
+        transition: all 0.2s linear;
+        color: var(--clr-white);
+      }
+    }
+  }
+  .block-part-two {
+    a {
+      transition: all 0.1s linear;
+      svg {
+        transition: all 0.2s linear;
+      }
+      span {
+        transition: all 0.1s linear;
+      }
+      i {
+        font-size: 19px;
+        width: 19px;
+        text-align: center;
+      }
+    }
+  }
+  &.gradient-bg {
+    background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+    border: 1px solid #202124;
+    &:hover {
+      background: #202124;
+    }
+  }
+  &.with-radius {
+    border-radius: 16px;
+  }
+}

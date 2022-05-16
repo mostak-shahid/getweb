@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import checkCircle from "../../assets/images/checkCircle.svg";
-import { designJob, developmentJob, jobs } from "../../data";
+import { jobs } from "../../data";
 import ReadyToMove from "../ReadyToMove/ReadyToMove";
 import "./JobDetails.scss";
 
@@ -108,7 +108,7 @@ const JobDetails = () => {
                                     <h4 className="workPlace fw-medium fs-5 text-white mb-4">Remote Position</h4>
                                 </div>
                                 <div className="gw-btn gw-btn-green mt-5">
-                                    <Link to="/JobApplicationForm" class="btn text-dark border-0 px-4 rounded-pill fwSemiBold fs-15 py-0">
+                                    <Link to="/JobApplicationForm" className="btn text-dark border-0 px-4 rounded-pill fwSemiBold fs-15 py-0">
                                         <span className="text position-relative d-flex align-items-center justify-content-center h-42">
                                             Apply Now
                                             <svg className="position-absolute end-0 top-0" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">

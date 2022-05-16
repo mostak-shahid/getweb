@@ -34,7 +34,7 @@ export default class OurFocusIndustriesComponent extends Component {
     }
     
     render() {
-        const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        //const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         const {industryDataOne, industryDataTwo} = this.state;
         if (this.state.loading) {
             return <div>loading...</div>;
@@ -43,46 +43,53 @@ export default class OurFocusIndustriesComponent extends Component {
         if (!this.state.industryDataOne) {
             return <div>Didn't get data from API</div>;
         }
-        return (            
-            <div className='container'>
-                <div className='lineShape text-center mb-5'>
-                    <img src={SecLineShape} alt='lineShape' />
-                </div>
-
-                <div className='industriesWrapper'>
-                    <div className='row position-relative g-0'>
+        const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+        const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
+        return (   
+            <div className="row">
+                <div className={[widthClass, orderClass].join(' ')}>
+                    <div className="part-one">                        
                         {
-                            (industryDataOne.length)?
-                            industryDataOne.map((item, index) => (
-                                <div className='col-4 col-md-3 col-xl-2 industriesItem text-end' key={item.id}>
-                                    <div className='icon px-3 py-3 text-center'>
-                                        {(item.featured_image.full)?<img className="d-inline-block mb-4" src={item.featured_image.full} alt={item.title} />:''}
-                                        <div className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></div>
-                                    </div>
-                                </div>                             
-                            )):
-                            ''
+                            _mosacademy_page_group_sub_titles[0] &&
+                            <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
                         }
-                        <div className="industries-border industries-border-1"></div>
-                        <div className="industries-border industries-border-2"></div>
-                        <div className="industries-border industries-border-3"></div>
+                        {
+                            _mosacademy_page_group_title_text &&
+                            <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
+                        }
+                        {
+                            _mosacademy_page_group_title_description &&
+                            <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                        }
+                        <div className="lineShape">
+                            <img src={SecLineShape} alt="lineShape" />
+                        </div>
                     </div>
-                    {/* <div className='bottomWrap'>
-                        {
-                            (industryDataTwo.length)?
-                            industryDataTwo.map((item, index) => (
-                                <div className='industriesItem px-3 py-3 text-center' key={item.id}>
-                                    <div className='icon mb-4'>
-                                        {(item.featured_image.full)?<img src={item.featured_image.full} alt={item.title} />:''}
-                                    </div>
-                                    <span className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></span>
-                                </div>                             
-                            )):
-                            ''
-                        }
-                    </div> */}
                 </div>
+                <div className={[widthClass].join(' ')}>
+                    <div className="part-two">                 
+                        <div className='industriesWrapper'>
+                            <div className='row position-relative g-0'>
+                                {
+                                    (industryDataOne.length) && 
+                                    industryDataOne.map((item, index) => (
+                                        <div className='col-4 col-md-3 col-xl-2 industriesItem text-end' key={item.id}>
+                                            <div className='icon px-3 py-3 text-center'>
+                                                {(item.featured_image.full)?<img className="d-inline-block mb-4" src={item.featured_image.full} alt={item.title} />:''}
+                                                <div className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></div>
+                                            </div>
+                                        </div>                             
+                                    ))
+                                }
+                                <div className="industries-border industries-border-1"></div>
+                                <div className="industries-border industries-border-2"></div>
+                                <div className="industries-border industries-border-3"></div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
             </div>
         );
     }
