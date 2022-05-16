@@ -11,9 +11,7 @@ const SubPageBanner = ({ tagline, boldTile, title, intro, bgImg }) => {
                         <div className="bannerContent d-flex align-items-center">
                             <div className="bannerInfo">
                                 <h6 className="textClrGreen fs-6 mb-3">{tagline}</h6>
-                                <h3 className="fs-48 fw-normal w-75 mb-4">
-                                    <span className="fw-bold">{boldTile}</span> {title}
-                                </h3>
+                                <div className="fs-48 fw-normal w-75 mb-4" dangerouslySetInnerHTML={{__html:title}}></div>
                                 <p className="w-50 fs-18 mb-5 fw-normal">{intro}</p>
                                 <NavLink to="/" className="gw-btn text-decoration-none px-0">
                                     <button className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
