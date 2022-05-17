@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Config from '../../Config.json';
 import { menuItems } from "../menuItems";
 import MenuItems from "./MenuItems";
-import Config from '../../Config.json';
 //const Navbar = () => {
 export default class Navbar extends Component {
     state = {
@@ -34,7 +34,7 @@ export default class Navbar extends Component {
         const {menuData} = this.state;
         //const data = Array.isArray(menuData)?menuData:Object.values(menuData);
         const data = Array.isArray(menuItems)?menuItems:Object.values(menuItems);
-//        console.log(menuItems);
+        //console.log(menuItems);
         return ( 
             <nav>
                 <ul className="menus" > 

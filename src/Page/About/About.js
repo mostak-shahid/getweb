@@ -28,8 +28,7 @@ const About = () => {
         <>
         {
             loading?
-            <div className="textClrGreen">loading...</div>:
-            
+            <div className="textClrGreen">loading...</div>:            
             <>
             <SubPageBanner tagline={pageData?.meta?._mosacademy_page_group_tagline} boldTile={pageData?.meta?._mosacademy_page_group_title} title={pageData?.meta?._mosacademy_page_group_title} intro={pageData?.meta?._mosacademy_page_group_intro} bgImg={pageData?.meta?._mosacademy_page_group_image} />
             

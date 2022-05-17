@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../BlogUpdate/BlogSingle";
+import "./SingleBlogItem.scss"
 
 const SingleBlogItems = (props) => {
-    console.log(props);
+    //console.log(props);
     return (
         <div className="singleBlog isRadius16 bgClrDarkLight">
             <div className="blogImage">
                 <a href="#" className=" text-decoration-none">
-                    <img src={props?.data.image} alt="blog image" className="img-fluid w-100" />
+                    <img src={props?.data?.featured_image?.medium} alt="blog image" className="img-fluid w-100" />
                 </a>
             </div>
             <div className="blogInfo p-4">

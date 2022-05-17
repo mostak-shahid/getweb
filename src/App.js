@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import BlogSingle from "./Components/BlogUpdate/BlogSingle";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
 import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
@@ -7,14 +8,13 @@ import JobDetails from "./Components/JobDetails/JobDetails";
 import "./index.scss";
 import About from "./Page/About/About";
 import Blog from "./Page/Blog/Blog";
-//import BlogSingle from "./Components/BlogUpdate/BlogSingle";
 import Career from './Page/Career/Career';
 import Contact from './Page/Contact/Contact';
 import Header from "./Page/Header";
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
 import Portfolio from './Page/Portfolio/Portfolio';
-import Post from "./Page/Post/Post";
+//import Post from "./Page/Post/Post";
 
 
 function App() {
@@ -34,7 +34,8 @@ function App() {
                     <Route path="/jobDetails/:id" element={<JobDetails />} />
                     <Route path="/JobApplicationForm" element={<JobApplicationForm />} />
                     <Route path="/blogs" element={<Blog/>}/>
-                    <Route path="/blog/:slug" element={<Post />} />
+                    <Route path="/blog/:slug" element={<BlogSingle />} />
+                    {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
 

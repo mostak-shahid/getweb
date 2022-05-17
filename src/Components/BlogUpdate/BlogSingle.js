@@ -1,116 +1,160 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import AuthorImage from "../../assets/images/authoreImg.svg";
+import React, { useEffect, useState } from 'react';
+import Moment from 'react-moment';
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import clock1 from "../../assets/images/clock1.svg";
-import FeatheredImg from "../../assets/images/feathured-img.png";
-import quoteIcon from "../../assets/images/quoteIcon.svg";
-import VerticalGreenLine from "../../assets/images/vertical-greeb-line.svg";
+import facebook from "../../assets/images/Facebook.svg";
+import linkdin from "../../assets/images/linkedinLink.svg";
+import linkedinProfile from "../../assets/images/linkedinProfile.svg";
+import twitterLink from "../../assets/images/TwitterLink.svg";
+import Config from "../../Config.json";
+import MainComponent from '../MainComponent/MainComponent';
 import "./BlogSingle.scss";
+import RecentPost from './RecentPost';
 
-const BlogSingle = () => {
+
+
+const BlogSingle = (props) => {
+    const location = useLocation();
+    const params = useParams();
+    //console.log(params);
+    const [pageData,setPageData]=useState([]);
+    const [blogPageData,setBlogPageData]=useState([]);
+    const [postsData,setPostsData]=useState([]);
+    const [loading,setLoading]=useState(true);
+    useEffect(()=>{
+        const url = Config.API_BASE + "data-single/" + params.slug;//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setPageData(resp))//setting response to state posts
+    },[]);
+    useEffect(()=>{
+        const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setBlogPageData(resp))//setting response to state posts
+    },[]);
+    useEffect(()=>{
+        const url = Config.API_BASE + "data-list/post/0/0/3";;//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setPostsData(resp))//setting response to state posts
+    },[]);
+    useEffect(() => {
+        if (pageData.length !== 0) {
+            setLoading(false);
+        }
+        //console.log(pageData);
+    }, [pageData, blogPageData, postsData]);
+    const blogUpdateComponentData = {
+        _mosacademy_page_group_content_width : "container", 
+        _mosacademy_page_group_css:'blogs', 
+        _mosacademy_page_group_component_name:'BlogUpdateComponent',
+        _mosacademy_page_group_content_layout : "con-top",
+        _mosacademy_page_group_sub_titles : ['Related blog'],
+        _mosacademy_page_group_title_text : 'Read more on our blog',
+        _mosacademy_page_group_title_description: 'Check out the knowledge base collected and distilled by experienced professionals.'
+
+    };
     return (
-        <section className="BlogSingleWrapper secPadding mt-5">
-            <div className="container">
-                <div className="blogFeathered">
-                    <div className="BlogsSingleHeader mb-5 pb-2">
-                        <p className="blogSingleTag textClrGreen fs-15 fwSemiBold">Technology</p>
-                        <h2 className="fs-48 fw-bold text-white mb-4 pb-2">Custom ERP software development - ultimate solution for business process automation</h2>
-                        <div className="meta d-flex gap-4 align-items-center mb-5 pb-2">
-                            <NavLink to="#" className="text-decoration-none text-white fs-14 fw-bold d-flex align-items-center gap-3">
-                                <div className="adminImg flex-shrink-0">
-                                    <img src={AuthorImage} alt="Author Img" />
+        <>
+        {
+            loading?
+            <div className="textClrGreen">loading...</div>:            
+            <>
+                <section className="BlogSingleWrapper secPadding mt-5">
+                    <div className="container">
+                        <div className="blogFeathered">
+                            <div className="BlogsSingleHeader mb-5 pb-2">
+                                <p className="blogSingleTag textClrGreen fs-15 fwSemiBold">{pageData.taxonomy.category[0].name}</p>
+                                <h2 className="fs-48 fw-bold text-white mb-4 pb-2">{pageData.title}</h2>
+                                <div className="meta d-flex gap-4 align-items-center mb-5 pb-2">
+                                    <NavLink to={['/user', pageData.author.slug].join('/')} className="text-decoration-none text-white fs-14 fw-bold d-flex align-items-center gap-3">
+                                        <div className="adminImg flex-shrink-0">
+                                            <img className='author-image' src={pageData.author.image[22]} alt="Author Img" width="22" height="22" />
+                                        </div>
+                                        <span className="AuthorName">{pageData.author.name}</span>
+                                    </NavLink>
+                                    <span className="text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center gap-3">
+                                        <div className="CalenderIcon flex-shrink-0">
+                                            <img src={clock1} alt="Author Img" />
+                                        </div>
+                                        <span className="PostDate">
+                                            <Moment format="MMM DD, YYYY">{pageData.date}</Moment>
+                                        </span>
+                                    </span>
                                 </div>
-                                <span className="AuthorName">Leslie Alexander</span>
-                            </NavLink>
-                            <NavLink to="#" className="text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center gap-3">
-                                <div className="CalenderIcon flex-shrink-0">
-                                    <img src={clock1} alt="Author Img" />
-                                </div>
-                                <span className="PostDate">Jan 26, 2022</span>
-                            </NavLink>
-                        </div>
-                        <div className="BlogSingFeatheredImg">
-                            <img src={FeatheredImg} alt="FeatheredImg" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="BlogSingleContentArea">
-                    <div className="row">
-                        <div className="col-xl-8">
-                            <div className="SingleContents">
-                                <div className="blogInnerContent mb-4 pb-2">
-                                    <h3 className="innerTitle fs-4 fw-bold text-white mb-4">ERP software's benefits go beyond improving</h3>
-                                    <div className="blogInnerDescription fs-6 fw-normal textClrGray">
-                                        <p className="mb-4 pb-2">
-                                            In the dynamic world of business applications, one fixed solution for the constantly changing environment rarely works. Why buy monolithic ERP software and
-                                            then spend years, ransom funds, and a fortune customizing it?
-                                        </p>
-                                        <p className="mb-4 pb-2">
-                                            It is because tailor-made <b>CRM centralizes the business process</b> for you to manage it effectively from anywhere you want. The range of its functions
-                                            includes inventory management, order processing, delivery management, production management, warehouse management, payroll management,
-                                            <NavLink to="#"> business resources</NavLink> monitoring, providing accurate reports on revenue, expenses, staff, clients, and much more.
-                                        </p>
-                                        <p className="mb-4 pb-2">
-                                            ERP software's benefits go beyond improving a company's and business's everyday operations. Here we will discuss a series of reasons why this transformative
-                                            technology in the software development industry is quintessential for start-ups and established enterprises.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="blogInnerContent mb-5 pb-2">
-                                    <h3 className="innerTitle fs-4 fw-bold text-white mb-4">
-                                        <span className="Number">1.</span> Standardize business operations
-                                    </h3>
-                                    <div className="blogInnerDescription fs-6 fw-normal textClrGray">
-                                        <p className="mb-5 pb-2">
-                                            Custom ERP solutions can streamline repetitive business processes with automation. Leveraging custom-made automated technology at the company's internal
-                                            processes puts the tedious processes on autopilot like order processing, delivery management, employee management, masters of clients database,
-                                            auto-reminders for repeat orders, etc.
-                                        </p>
-                                    </div>
-                                    <div className="quoteText px-4 px-xl-5 py-4 position-relative">
-                                        <h3 className="quoteTitle fs-30 position-relative">
-                                            To facilitate these processes, we have a workflow that helps us analyze ideas and ask the right questions.
-                                            <div className="">
-                                                <img src={quoteIcon} alt="quoteIcon" className="position-absolute end-0 bottom-0" />
-                                            </div>
-                                        </h3>
-                                        <img src={VerticalGreenLine} alt="green line" className="position-absolute start-0 top-0 h-100" />
-                                    </div>
-                                </div>
-                                <div className="blogInnerContent mb-4 pb-2">
-                                    <h3 className="innerTitle fs-4 fw-bold text-white mb-4">
-                                        <span className="Number">2.</span> Data-oriented decisions
-                                    </h3>
-                                    <div className="blogInnerDescription fs-6 fw-normal textClrGray">
-                                        <p className="mb-4 pb-2">
-                                            ERP takes care of end-to-end business processes, including customer ordering details, billing details, daily/monthly/yearly sales data, stock loss, employee
-                                            attendance rate, and many more. ERP processes real-time data and provides accurate reports to assist in future decisions. For instance, it is viable for
-                                            your staff to give a specific lead analysis feature to take balanced decisions more quickly.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="blogInnerContent mb-4 pb-2">
-                                    <h3 className="innerTitle fs-4 fw-bold text-white mb-4">
-                                        <span className="Number">3.</span> Organized cross-department coordination
-                                    </h3>
-                                    <div className="blogInnerDescription fs-6 fw-normal textClrGray">
-                                        <p className="mb-5 pb-2">
-                                            The company consists of multi departments. The more closely activities and centralized databases are synchronized across divisions, the less they can
-                                            trade-off between coordination and adoption. Staff members can coordinate work between departments and access all the critical company data more
-                                            efficiently.
-                                        </p>
-                                    </div>
+                                <div className="BlogSingFeatheredImg">
+                                    <img src={pageData.image} alt="FeatheredImg" />
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-4">
-                            <div className="SingleSidebar">SingleSidebar</div>
+
+                        <div className="BlogSingleContentArea">
+                            <div className="row">
+                                <div className="col-xl-8">
+                                    <div className="SingleContents" dangerouslySetInnerHTML={{__html:pageData.content}} />
+                                </div>
+                                <div className="col-xl-4">
+                            <div className="SingleSidebar">
+                                <p className="fs-16 fwSemiBold">Search</p>
+                                <div className="searchInput pb-4">
+                                    <input type="text" className="form-control" placeholder="Search" />
+                                </div>
+                                <p className="fs-16 fwSemiBold mt-4">Recent Post</p>
+                                {postsData.length && 
+                                    postsData.map((item, index) => (
+                                        <RecentPost data={item} key={index} />
+                                    ))
+                                }
+
+                                <div className="gradientBorder2 mt-5 mb-4"></div>
+                                <div className="d-flex align-items-center gap-3 borderBottom pb-3">
+                                    <img  className='author-image' src={pageData.author.image[47]} width="47" height="47" alt={[pageData.author.name, 'Image'].join('-')} />
+                                    <div>
+                                        <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData.author.name}</h5>
+                                        <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData.author.designation}</p>
+                                    </div>
+                                </div>
+                                <div className="fs-14 fw-normal textClrGray mt-3" dangerouslySetInnerHTML={{__html:pageData.author.description}} />
+                                {
+                                    pageData?.author?.linkedin && 
+                                    <a href={pageData?.author?.linkedin} className="linkedinProfileLink mt-4" target="_blank" rel="noreferrer">
+                                        <img src={linkedinProfile} className="img-fluid" alt="" />
+                                        <span>Linkedin</span>
+                                    </a>
+                                }
+                                <ul className="socialLink m-0 p-0 list-unstyled d-flex align-items-center gap-3 bgClrBlack mt-4 rounded px-4 py-3">
+                                    <li>
+                                        <p className="mb-0 fs-14 fw-bold text-white pe-2">Share</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src={facebook} alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src={twitterLink} alt="" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src={linkdin} alt="" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>  
+                <MainComponent data={blogUpdateComponentData} />
+                {
+                    blogPageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
+                        <MainComponent data={item} key={index} />                        
+                    ))
+                }          
+            </>
+        }        
+        </>
     );
 };
 

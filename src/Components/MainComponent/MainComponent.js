@@ -13,7 +13,7 @@ export default class MainComponent extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
+        //console.log(props);
     }
 
     render() {
@@ -21,20 +21,6 @@ export default class MainComponent extends Component {
         return (
             <section className={['wrapper-section', 'secPadding', _mosacademy_page_group_css].join(' ')}>
                 <div className={_mosacademy_page_group_content_width}>
-                    {/* <div className="row">
-                        <div className={[widthClass, orderClass].join(' ')}>
-                            <div className="part-one"></div>
-                        </div>
-                        <div className={[widthClass].join(' ')}>
-                            <div className="part-two"></div>
-                        </div>
-                    </div>
-                    <div className='sectionHeader text-center top-content-part'>
-                        <span className='secTagLine fs-6 fw-bold textClrGreen mb-3 d-block' dangerouslySetInnerHTML ={{__html: _mosacademy_page_group_sub_titles[0]}}/>
-                        <div className='secTitle fw-normal fs-48 text-white mb-3' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_text}}/>
-                        <div className='secIntro textClrGray fs-6 fw-normal mb-2' dangerouslySetInnerHTML = {{__html: _mosacademy_page_group_title_description}}/>
-                    </div> */}                    
-                
                     {(_mosacademy_page_group_component_name === 'OurServicesComponent') && <OurServicesComponent data={this.props.data} />}
                     {(_mosacademy_page_group_component_name === 'WhyChooseUsComponent') && <WhyChooseUsComponent data={this.props.data} />}
                     {(_mosacademy_page_group_component_name === 'OurFocusIndustriesComponent') && <OurFocusIndustriesComponent data={this.props.data} />}

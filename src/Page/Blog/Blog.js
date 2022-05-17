@@ -1,114 +1,100 @@
 import React, { Component } from "react";
-import blog1 from "../../assets/images/blog-img1.png";
-import blog2 from "../../assets/images/blog-img2.png";
-import blog3 from "../../assets/images/blog-img3.png";
-import Config from "../../Config.json";
-import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
-import BlogBannerBg from "../../assets/images/blogBg.png";
 import { Form } from "react-bootstrap";
-import "./Blog.scss";
-import Pagination from "../../Components/Pagination/Pagination";
 import SingleBlogItems from "../../Components/BlogUpdate/SingleBlogItems";
-import ReadyToMove from "../../Components/ReadyToMove/ReadyToMove";
+import MainComponent from "../../Components/MainComponent/MainComponent";
+import Pagination from "../../Components/Pagination/Pagination";
+import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
+import Config from "../../Config.json";
+import "./Blog.scss";
 
 export default class Blog extends Component {
     state = {
         loading: true,
         postData: null,
+        postCountData: 0,
+        pageData: null,
+        categoriesData: null,
+        dataList: 'data-list',
+        categoryId: 0,
+        startFrom: 0,
     };
 
     async componentDidMount() {
-        const url = Config.API_BASE + "data-list/post/0/0/6";
-        const response = await fetch(url);
-        const postResponse = await response.json();
+        const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/6";
+        const responsePost = await fetch(urlPost);
+        const postResponse = await responsePost.json();
+
+        const urlPostCount = Config.API_BASE+"data-nop/post/" + this.state.categoryId;
+        const responsePostCount = await fetch(urlPostCount);
+        const postCountResponse = await responsePostCount.json();
+
+        const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
+        const responsePage = await fetch(urlPage);
+        const pageResponse = await responsePage.json();
+
+        const urlCategories = Config.API_BASE + "data-taxonomies/category";
+        const responseCategories = await fetch(urlCategories);
+        const categoriesResponse = await responseCategories.json();
         this.setState({
             postData: postResponse,
+            postCountData: postCountResponse,
+            pageData: pageResponse,
+            categoriesData: categoriesResponse,
             loading: false,
         });
-        //console.log(this.state.postData);
+        console.log(this.state.postData);
+        console.count();
     }
+    async componentDidUpdate() {        
+        const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/6";
+        const responsePost = await fetch(urlPost);
+        const postResponse = await responsePost.json();
 
+        const urlPostCount = Config.API_BASE+"data-nop/post/" + this.state.categoryId;
+        const responsePostCount = await fetch(urlPostCount);
+        const postCountResponse = await responsePostCount.json();
+
+        this.setState({
+            postData: postResponse,   
+            postCountData: postCountResponse,        
+            loading: false,
+        });
+        //console.log(postCountResponse);
+    }
     constructor(props) {
         super(props);
         //console.log(props);
-    }
+    };
     render() {
+        
+        //console.log("Categories: ", this.state.categoriesData)
         if (this.state.loading) {
             return <div>loading...</div>;
         }
-        if (!this.state.postData) {
+        if (!this.state.postData || !this.state.pageData ) {
             return <div>Didn't get data from API</div>;
         }
-        const blogitems = [
-            {
-                id: 1,
-                image: blog1,
-                title: "Salesforce - Leading Player in the Game of Healthcare Management",
-                excerpt: "In the healthcare sector, a cyclone of technology is impacting thousands of lives...",
-                slug: "post-1",
-            },
-            {
-                id: 2,
-                image: blog2,
-                title: "Salesforce - Leading Player in the Game of Healthcare Management",
-                excerpt: "In the healthcare sector, a cyclone of technology is impacting thousands of lives...",
-                slug: "post-2",
-            },
-            {
-                id: 3,
-                image: blog3,
-                title: "Salesforce - Leading Player in the Game of Healthcare Management",
-                excerpt: "In the healthcare sector, a cyclone of technology is impacting thousands of lives...",
-                slug: "post-3",
-            },
-            {
-                id: 4,
-                image: blog1,
-                title: "Salesforce - Leading Player in the Game of Healthcare Management",
-                excerpt: "In the healthcare sector, a cyclone of technology is impacting thousands of lives...",
-                slug: "post-4",
-            },
-            {
-                id: 5,
-                image: blog2,
-                title: "Salesforce - Leading Player in the Game of Healthcare Management",
-                excerpt: "In the healthcare sector, a cyclone of technology is impacting thousands of lives...",
-                slug: "post-5",
-            },
-            {
-                id: 6,
-                image: blog3,
-                title: "Salesforce - Leading Player in the Game of Healthcare Management",
-                excerpt: "In the healthcare sector, a cyclone of technology is impacting thousands of lives...",
-                slug: "post-6",
-            },
-        ];
-        const { postData } = this.state;
-
-        const tagline = "Blog Update";
-        const boldTile = "Get practical insights ";
-        const title = "and news on the latest technologies";
-        const intro = "Opinions, tips, and latest news on software, technology, design and business for innovators like you.";
-        const bgImg = BlogBannerBg;
-
+        const { postData, postCountData, pageData, categoriesData, startFrom } = this.state;
         return (
             <>
-                <SubPageBanner tagline={tagline} boldTile={boldTile} title={title} intro={intro} bgImg={bgImg} />
+                <SubPageBanner tagline={pageData?.meta?._mosacademy_page_group_tagline} boldTile={pageData?.meta?._mosacademy_page_group_title} title={pageData?.meta?._mosacademy_page_group_title} intro={pageData?.meta?._mosacademy_page_group_intro} bgImg={pageData?.meta?._mosacademy_page_group_image} btn={pageData?.meta?._mosacademy_page_group_button} />
                 <section className="blogWrapper secPadding">
                     <div className="filterArea py-5 isBgBorder mb-5">
                         <div className="container">
                             <h2 className="text-white fs-30 fw-normal mb-5">
-                                All <span className="fw-bold">Resources</span>
+                                All <span className="fw-bold">Resources</span> {startFrom}
                             </h2>
                             <div className="row">
                                 <div className="col-xl-6">
                                     <div className="filterLeft">
                                         <div className="singleFilter">
-                                            <Form.Select className="bg-transparent h-52 rounded-pill px-4">
-                                                <option>All Categories</option>
-                                                <option value="1">Blog</option>
-                                                <option value="2">UI/UX</option>
-                                                <option value="3">Development</option>
+                                            <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
+                                                <option value='0'>All Categories</option>
+                                                {
+                                                    categoriesData.length && categoriesData.map((item, index) => (
+                                                        <option value={item.term_id} key={index}>{item.name}</option>
+                                                    ))
+                                                }
                                             </Form.Select>
                                         </div>
                                         <div className="singleFilter">
@@ -133,19 +119,23 @@ export default class Blog extends Component {
                     <div className="wrapper isBgBorder pb-5">
                         <div className="container">
                             <div className="row">
-                                {postData.length
-                                    ? postData.map((item) => (
-                                          <div className="col-lg-4 mb-4" key={item.id}>
+                                {postData.length && 
+                                    postData.map((item, index) => (
+                                          <div className="col-lg-4 mb-4" key={index}>
                                               <SingleBlogItems data={item} />
                                           </div>
                                       ))
-                                    : ""}
+                                    }
                             </div>
                         </div>
                     </div>
-                    <Pagination />
-                </section>
-                <ReadyToMove />
+                    <Pagination data={Math.ceil(postCountData / 6)} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} />
+                </section>           
+                {
+                    pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
+                        <MainComponent data={item} key={index} />                        
+                    ))
+                }
             </>
         );
     }
