@@ -82,7 +82,7 @@ export default class Blog extends Component {
                     <div className="filterArea py-5 isBgBorder mb-5">
                         <div className="container">
                             <h2 className="text-white fs-30 fw-normal mb-5">
-                                All <span className="fw-bold">Resources</span> {startFrom}
+                                All <span className="fw-bold">Resources</span>
                             </h2>
                             <div className="row">
                                 <div className="col-xl-6">
