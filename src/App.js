@@ -31,9 +31,9 @@ function App() {
                     <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/careers" element={<Career />} />
-                    <Route path="/jobDetails" element={<JobDetails />} />
-                    <Route path="/jobDetails/:id" element={<JobDetails />} />
-                    <Route path="/JobApplicationForm" element={<JobApplicationForm />} />
+                    {/* <Route path="/jobDetails" element={<JobDetails />} /> */}
+                    <Route path="/job/:slug" element={<JobDetails />} />
+                    <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
                     <Route path="/blogs" element={<Blog/>}/>
                     <Route path="/blog/:slug" element={<BlogSingle />} />
                     <Route path="/search/:search" element={<BlogSingle />} />

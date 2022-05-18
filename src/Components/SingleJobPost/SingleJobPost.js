@@ -12,7 +12,7 @@ const SingleJobPost = ({ id, title, tag1, tag2 }) => {
                     <p>{tag2}</p>
                 </div>
             </div>
-            <NavLink to={`/JobDetails/${id}`} className="gw-btn text-decoration-none">
+            <NavLink to={`/job/ui-developer-ux-researcher`} className="gw-btn text-decoration-none">
                 <button className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
                     <span className="me-2">View Position</span>
                     <svg className="position-absolute end-0 top-0" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
