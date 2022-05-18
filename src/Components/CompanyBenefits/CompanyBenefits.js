@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import SecLineShape from "../../assets/images/secLineShape.svg";
+import React, { useEffect, useState } from 'react';
 import Config from "../../Config.json";
-import "./OurAward.scss";
 
-const OurAward = (props) => {    
+const CompanyBenefits = (props) => {
     const [sectionData,setSectionData]=useState([])
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
-        const url = Config.API_BASE + "data-list/block/26/0/8";//api url
+        const url = Config.API_BASE + "data-list/block/28/0/6";//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setSectionData(resp))//setting response to state posts
         //.then(setLoading(false))
@@ -22,8 +20,12 @@ const OurAward = (props) => {
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='',_mosacademy_page_group_button} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
+    console.log(props)
     return (
         <div className="row">
+            {
+                console.log(props)
+            }
             <div className={[widthClass, orderClass].join(' ')}>
                 <div className="sectionHeader text-center mb-5">
                     {
@@ -38,9 +40,6 @@ const OurAward = (props) => {
                         _mosacademy_page_group_title_description &&
                         <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                     }
-                    <div className="lineShape">
-                        <img src={SecLineShape} alt="lineShape" />
-                    </div>
                 </div>
 
             </div>
@@ -48,22 +47,22 @@ const OurAward = (props) => {
                 {
                     loading
                     ?<div className="textClrGreen">loading...</div>
-                    :<div className="OurAwardWrapper">
+                    :<div className="row">
                         {sectionData.map((item, index) => (
-                            <div className="OurAwardItem px-3 py-3 text-center" key={index}>
-                                {item.image && 
-                                <div className="icon mb-3">
-                                    <img src={item.image} alt="OurAwardLogo" /> 
+                            <div className="col-md-4" key={item.id}>
+                                <div className="benifit-item">
+                                    {item.image && 
+                                        <img src={item.image} alt="icon" /> 
+                                    }
+                                    <h6 dangerouslySetInnerHTML={{__html:item.title}}/>
                                 </div>
-                                }
-                                <h4 className="title fs-14 fw-bold text-white" dangerouslySetInnerHTML={{__html: item.title}} />
                             </div>
                         ))}
                     </div>
                 }                
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default OurAward;
+export default CompanyBenefits

@@ -6,11 +6,11 @@ const Pagination = (props) => {
     const list = [];
     var cls;
     for (let i = 0; i < props.data; i++) {
-        if (i === props.startFrom) cls = "active";
+        if (i === props.startFrom/6) cls = "active";
         else cls = "";
         list.push(
             <li className="page-item" key={i}>
-                <span className={["page-link", "bg-transparent", cls].join(" ")} onClick={() => props.startFromChange(i)}>
+                <span className={["page-link", "bg-transparent", cls].join(" ")} onClick={() => props.startFromChange(i * 6)}>
                     {i + 1}
                 </span>
             </li>

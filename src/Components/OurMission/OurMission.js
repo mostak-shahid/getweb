@@ -1,39 +1,44 @@
 import React from "react";
-import OurMissionImg from "../../assets/images/OurMissionImg.png";
 import LineShape from "../../assets/images/secLineShape.svg";
 import "./OurMission.scss";
 
-const OurMission = () => {
+const OurMission = (props) => {
+    const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='',_mosacademy_page_group_button, _mosacademy_page_group_freature_image} = props.data;
+    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
+    //console.log(props);
     return (
-        <section className="OurMission secPadding bgClrDarkLight">
-            <div className="container">
+
                 <div className="row align-items-center">
-                    <div className="col-lg-6">
+                    <div className={[widthClass, orderClass].join(' ')}>
                         <div className="sectionHeader">
-                            <span className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block">Our mission</span>
-                            <div className="secTitle fw-normal fs-48 text-white mb-3">
-                                <strong>Our mission </strong>
-                                is to help customers achieve stunning results
-                            </div>
+                            {
+                                _mosacademy_page_group_sub_titles[0] &&
+                                <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                            }
+                            {
+                                _mosacademy_page_group_title_text &&
+                                <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
+                            }
                             <div className="lineShape mb-4">
                                 <img src={LineShape} alt="LineShape" />
                             </div>
-                            <div className="secIntro textClrGray fs-6 fw-normal mb-4 pb-2">
-                                <p className="mb-0">We are one of the older web development companies on the Polish market. We have been in business since 2008.</p>
-                            </div>
-                            <div className="secIntro textClrGray fs-6 fw-normal mb-0">
-                                <p className="mb-0">At GOGOmedia, we have specialists professionally dealing with creating dedicated web apps who constantly improve their competencies and knowledge.</p>
-                            </div>
+                            {
+                                _mosacademy_page_group_title_description &&
+                                <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                            }
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className={[widthClass].join(' ')}>
                         <div className="OurMissionImg">
-                            <img src={OurMissionImg} alt="OurMissionImg" />
+                            {
+                                _mosacademy_page_group_freature_image && 
+                                <img className="img-fluid" src={_mosacademy_page_group_freature_image} alt={_mosacademy_page_group_title_text} />
+                            }                            
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+
     );
 };
 

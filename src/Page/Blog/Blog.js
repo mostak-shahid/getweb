@@ -77,12 +77,12 @@ export default class Blog extends Component {
         const { postData, postCountData, pageData, categoriesData, startFrom } = this.state;
         return (
             <>
-                <SubPageBanner tagline={pageData?.meta?._mosacademy_page_group_tagline} boldTile={pageData?.meta?._mosacademy_page_group_title} title={pageData?.meta?._mosacademy_page_group_title} intro={pageData?.meta?._mosacademy_page_group_intro} bgImg={pageData?.meta?._mosacademy_page_group_image} btn={pageData?.meta?._mosacademy_page_group_button} />
+                <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_group_button} />
                 <section className="blogWrapper secPadding">
                     <div className="filterArea py-5 isBgBorder mb-5">
                         <div className="container">
                             <h2 className="text-white fs-30 fw-normal mb-5">
-                                All <span className="fw-bold">Resources</span>
+                                All <span className="fw-bold">Resources</span> {startFrom}
                             </h2>
                             <div className="row">
                                 <div className="col-xl-6">
@@ -129,7 +129,10 @@ export default class Blog extends Component {
                             </div>
                         </div>
                     </div>
-                    <Pagination data={Math.ceil(postCountData / 6)} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} />
+                    {
+                        Math.ceil(postCountData / 6) > 1 &&
+                        <Pagination data={Math.ceil(postCountData / 6)} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} />
+                    }
                 </section>           
                 {
                     pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (

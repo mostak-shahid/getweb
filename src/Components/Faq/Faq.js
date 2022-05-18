@@ -1,75 +1,107 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import SecLineShape from "../../assets/images/secLineShape.svg";
+import Config from "../../Config.json";
 import "./Faq.scss";
 
-const Faq = () => {
+const Faq = (props) => {
+    const [sectionData,setSectionData]=useState([]);
+    const [sectionDataTwo,setSectionDataTwo]=useState([]);
+    const [loading,setLoading]=useState(true);
+    useEffect(()=>{
+        const url = Config.API_BASE + "data-list/block/27/0/3";//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setSectionData(resp))//setting response to state posts
+        //.then(setLoading(false))
+    },[]);
+
+    useEffect(()=>{
+        const url = Config.API_BASE + "data-list/block/27/3/3";//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setSectionDataTwo(resp))//setting response to state posts
+        //.then(setLoading(false))
+    },[]);
+    
+    useEffect(() => {
+        if (sectionData.length !== 0 || sectionDataTwo.length !== 0) {
+            setLoading(false);
+        }
+        //console.log(pageData);
+    }, [sectionData,sectionDataTwo]);
+    const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='',_mosacademy_page_group_button} = props.data;
+    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
+
+
+    
     return (
-        <section className="Faq secPadding">
-            <div className="container">
+        <div className="row">
+            {
+                //console.log('FAQs: ', sectionData)
+            }
+            <div className={[widthClass, orderClass].join(' ')}>
                 <div className="sectionHeader text-center mb-5">
-                    <span className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block">Faq</span>
-                    <h2 className="secTitle fw-normal fs-48 text-white mb-3">
-                        <span className="fw-bold"> Frequently </span> asked questions
-                    </h2>
+                    {
+                        _mosacademy_page_group_sub_titles[0] &&
+                        <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                    }
+                    {
+                        _mosacademy_page_group_title_text &&
+                        <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
+                    }
+                    {
+                        _mosacademy_page_group_title_description &&
+                        <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                    }
                     <div className="lineShape">
                         <img src={SecLineShape} alt="lineShape" />
                     </div>
                 </div>
+            </div>
+            <div className={[widthClass].join(' ')}>
                 <div className="faqList">
                     <Accordion defaultActiveKey="0" flush>
                         <div className="row">
-                            <div className="col-xl-6">
-                                <Accordion.Item eventKey="0" className="mb-3 isRadius16 overflow-hidden">
-                                    <Accordion.Header className="fs-6 fw-bold">Why should I trust your team for my software needs?</Accordion.Header>
-                                    <Accordion.Body className="fw-normal fs-6">
-                                        HyperSense has been developing software solutions since 2003. We have worked with over 100 clients worldwide, and the reputable D.C.-based research firm
-                                        Clutch.co has rated us a top app development provider.
-                                    </Accordion.Body>
-                                </Accordion.Item>
-                                <Accordion.Item eventKey="1" className="mb-3 isRadius16 overflow-hidden">
-                                    <Accordion.Header className="fs-6 fw-bold">Can I visit your office and meet with the team?</Accordion.Header>
-                                    <Accordion.Body className="fw-normal fs-6">
-                                        HyperSense has been developing software solutions since 2003. We have worked with over 100 clients worldwide, and the reputable D.C.-based research firm
-                                        Clutch.co has rated us a top app development provider.
-                                    </Accordion.Body>
-                                </Accordion.Item>
-                                <Accordion.Item eventKey="2" className="mb-3 isRadius16 overflow-hidden">
-                                    <Accordion.Header className="fs-6 fw-bold">Are you willing to sign an NDA?</Accordion.Header>
-                                    <Accordion.Body className="fw-normal fs-6">
-                                        HyperSense has been developing software solutions since 2003. We have worked with over 100 clients worldwide, and the reputable D.C.-based research firm
-                                        Clutch.co has rated us a top app development provider.
-                                    </Accordion.Body>
-                                </Accordion.Item>
+                            {
+                                // dataOutput.map((item, index)=>(
+                                //     <div className="output" key={index}>{index}. {item[0].title}</div>
+                                // ))
+                            }
+                            <div className="col-xl-6">                                
+                                {
+                                    loading
+                                    ?<div className="textClrGreen">loading...</div>
+                                    :
+                                        sectionData.map((item, index) => (
+                                            <Accordion.Item eventKey={index} className="mb-3 isRadius16 overflow-hidden" key={index}>                                            
+                                            <Accordion.Header className="fs-6 fw-bold">{item.title}</Accordion.Header>
+                                            <Accordion.Body className="fw-normal fs-6" dangerouslySetInnerHTML={{__html:item.content}} />
+                                        </Accordion.Item>
+                                        ))
+                                    
+                                } 
                             </div>
                             <div className="col-xl-6">
-                                <Accordion.Item eventKey="4" className="mb-3 isRadius16 overflow-hidden">
-                                    <Accordion.Header className="fs-6 fw-bold">What are your main areas of expertise?</Accordion.Header>
-                                    <Accordion.Body className="fw-normal fs-6">
-                                        HyperSense has been developing software solutions since 2003. We have worked with over 100 clients worldwide, and the reputable D.C.-based research firm
-                                        Clutch.co has rated us a top app development provider.
-                                    </Accordion.Body>
-                                </Accordion.Item>
-                                <Accordion.Item eventKey="5" className="mb-3 isRadius16 overflow-hidden">
-                                    <Accordion.Header className="fs-6 fw-bold">What pricing models do you work with, and what payment types do you accept?</Accordion.Header>
-                                    <Accordion.Body className="fw-normal fs-6">
-                                        HyperSense has been developing software solutions since 2003. We have worked with over 100 clients worldwide, and the reputable D.C.-based research firm
-                                        Clutch.co has rated us a top app development provider.
-                                    </Accordion.Body>
-                                </Accordion.Item>
-                                <Accordion.Item eventKey="6" className="mb-3 isRadius16 overflow-hidden">
-                                    <Accordion.Header className="fs-6 fw-bold">Will we own all of the source files for any software you build for us?</Accordion.Header>
-                                    <Accordion.Body className="fw-normal fs-6">
-                                        HyperSense has been developing software solutions since 2003. We have worked with over 100 clients worldwide, and the reputable D.C.-based research firm
-                                        Clutch.co has rated us a top app development provider.
-                                    </Accordion.Body>
-                                </Accordion.Item>
+                                                      
+                            {
+                                    loading
+                                    ?<div className="textClrGreen">loading...</div>
+                                    :
+                                        sectionDataTwo.map((item, index) => (
+                                            <Accordion.Item eventKey={index} className="mb-3 isRadius16 overflow-hidden" key={index}>
+                                            <Accordion.Header className="fs-6 fw-bold">{item.title}</Accordion.Header>
+                                            <Accordion.Body className="fw-normal fs-6" dangerouslySetInnerHTML={{__html:item.content}} />
+                                        </Accordion.Item>
+                                        ))
+                                    
+                                } 
                             </div>
                         </div>
                     </Accordion>
                 </div>
             </div>
-        </section>
+        </div>
+
     );
 };
 export default Faq;

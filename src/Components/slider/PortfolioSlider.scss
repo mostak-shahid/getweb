@@ -52,11 +52,19 @@
     background-color: var(--clr-green);
     max-width: 282px;
     width: 100%;
-    svg {
+    i {
+      position: absolute;
+      right: 27px;
+    }
+    svg,
+    i {
       transition: all 0.2s linear;
     }
     &:hover {
       background-color: #00e190 !important;
+      i {
+        right: 20px;
+      }
       svg {
         &.end-0 {
           right: 20px !important;

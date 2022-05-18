@@ -6,12 +6,18 @@
   .bannerContent {
     min-height: 800px;
   }
-  // &.aboutBg {
-  //   background-image: url("../../assets/images/about-banner-bg.png");
-  // }
-  // &.blogBg {
-  //   background-image: url("../../assets/images/blogBg.png");
-  // }
+  .btn {
+    i {
+      position: relative;
+      right: 10px;
+      transition: all 0.2s linear;
+    }
+    &:hover {
+      i {
+        right: 0;
+      }
+    }
+  }
   &::after {
     position: absolute;
     content: "";
