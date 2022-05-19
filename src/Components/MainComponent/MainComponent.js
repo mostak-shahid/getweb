@@ -52,7 +52,7 @@ const MainComponent = (props) => {
     const {_mosacademy_page_group_content_width = "container", _mosacademy_page_group_css='', _mosacademy_page_group_component_name} = props.data;
     return (
         <section className={['wrapper-section', 'secPadding', _mosacademy_page_group_css].join(' ')}>
-            {console.log(_mosacademy_page_group_component_name)}
+            {/* {console.log(_mosacademy_page_group_component_name)} */}
             <div className={_mosacademy_page_group_content_width}>
                 {(_mosacademy_page_group_component_name === 'OurServicesComponent') && <OurServicesComponent data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'WhyChooseUsComponent') && <WhyChooseUsComponent data={props.data} />}

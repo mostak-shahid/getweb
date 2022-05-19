@@ -94,7 +94,7 @@ export default class MultipleRows extends Component {
         };
 
         const {portfolioData} = this.state;        
-        const {_mosacademy_page_group_button} = this.props.data;
+        const {_mosacademy_page_banner_button} = this.props.data;
         return (
             <div className="slider-wrapper">
                 <OwlCarousel className='owl-theme'  {...settings}>
@@ -131,10 +131,10 @@ export default class MultipleRows extends Component {
                     }
                 </OwlCarousel>
                 {
-                    _mosacademy_page_group_button?.url &&
+                    _mosacademy_page_banner_button?.url &&
                         <div className="gw-btn gw-btn-green d-flex justify-content-center mt-5">
-                            <a href={_mosacademy_page_group_button?.url} className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
-                                <span>{_mosacademy_page_group_button?.title}</span>
+                            <a href={_mosacademy_page_banner_button?.url} className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
+                                <span>{_mosacademy_page_banner_button?.title}</span>
                                 <i className="fa-solid fa-arrow-right-long"></i>
                             </a>
                         </div>

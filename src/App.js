@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogSingle from "./Components/BlogUpdate/BlogSingle";
+import FileUploadForm from "./Components/FileUploadForm/FileUploadForm";
+import FileUploadFunction from "./Components/FileUploadForm/FileUploadFunction";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
 import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
@@ -32,11 +34,17 @@ function App() {
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/careers" element={<Career />} />
                     {/* <Route path="/jobDetails" element={<JobDetails />} /> */}
-                    <Route path="/job/:slug" element={<JobDetails />} />
+                    <Route path="/job/:slug" >
+                        <Route index element={<JobDetails />} />
+                        <Route path="apply" element={<JobApplicationForm />} />
+                    </Route> 
                     <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
                     <Route path="/blogs" element={<Blog/>}/>
                     <Route path="/blog/:slug" element={<BlogSingle />} />
                     <Route path="/search/:search" element={<BlogSingle />} />
+
+                    <Route path="/form-upload" element={<FileUploadForm />} />
+                    <Route path="/form-upload-function" element={<FileUploadFunction />} />
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}

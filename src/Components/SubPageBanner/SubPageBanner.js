@@ -3,17 +3,19 @@ import { NavLink } from "react-router-dom";
 import "./SubPageBanner.scss";
 
 
-const SubPageBanner = ({ tagline, boldTile, title, intro, bgImg, btn }) => {
+const SubPageBanner = (props) => {
+    const { tagline, title, intro, bgImg, btn } = props;
     return (
         <div className="subPageBanner position-relative" style={{ backgroundImage: `url(${bgImg})` }}>
+            {/*console.log(props)*/}
             <div className="container">
                 <div className="row">
                     <div className="col-12">
                         <div className="bannerContent d-flex align-items-center">
-                            <div className="bannerInfo">
-                                <h6 className="textClrGreen fs-6 mb-3">{tagline}</h6>
-                                <div className="fs-48 fw-normal w-75 mb-4" dangerouslySetInnerHTML={{__html:title}}></div>
-                                <p className="w-50 fs-18 mb-5 fw-normal">{intro}</p>
+                            <div className="bannerInfo w-75">
+                                <h6 className="banner-tag-line textClrGreen fs-6 mb-3">{tagline}</h6>
+                                <div className="banner-heading fs-48 fw-normal mb-4" dangerouslySetInnerHTML={{__html:title}}></div>
+                                <div className="banner-desc w-50 fs-18 mb-5 fw-normal">{intro}</div>
                                 {
                                     btn?.url &&
                                     <div className="gw-btn text-decoration-none px-0">

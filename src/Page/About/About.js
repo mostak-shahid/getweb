@@ -23,7 +23,7 @@ const About = (props) => {
         loading
         ?<div className="textClrGreen">loading...</div>
         :<>
-            <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_group_button} />            
+            <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />            
             {
                 pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
                     <MainComponent data={item} key={index} />                        

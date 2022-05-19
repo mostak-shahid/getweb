@@ -59,7 +59,6 @@ function ContactPageForm(props) {
         },
     };    
     const handlerChange = (element) => {
-        //console.log(element.target.value);
         setValues({ ...values, [element.target.name]: element.target.value });
     };
     const handlerBlur = (element) => {

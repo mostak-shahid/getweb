@@ -77,12 +77,12 @@ export default class Blog extends Component {
         const { postData, postCountData, pageData, categoriesData, startFrom } = this.state;
         return (
             <>
-                <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_group_button} />
+                <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} />
                 <section className="blogWrapper secPadding">
                     <div className="filterArea py-5 isBgBorder mb-5">
                         <div className="container">
                             <h2 className="text-white fs-30 fw-normal mb-5">
-                                All <span className="fw-bold">Resources</span> {startFrom}
+                                All <span className="fw-bold">Resources</span>
                             </h2>
                             <div className="row">
                                 <div className="col-xl-6">

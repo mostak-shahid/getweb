@@ -5,6 +5,14 @@
   background-repeat: no-repeat;
   .bannerContent {
     min-height: 800px;
+    .banner-desc,
+    .banner-heading {
+      & > p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
   .btn {
     i {

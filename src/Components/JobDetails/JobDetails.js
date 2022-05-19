@@ -71,21 +71,67 @@ const JobDetails = () => {
                                         <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_employment_basis}} />
                                     </div>
                                 }
+                                {
+                                    pageData?.meta?._mosacademy_job_vacancy && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Vacancy</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_vacancy}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_employment_status && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Employment Status</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_employment_status}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_experience && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Experience</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_experience}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_gender && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Gender</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_gender}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_age && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Age</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_age}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_location && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Job Location</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_location}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_salary && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Salary</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_salary}} />
+                                    </div>
+                                }
+                                {
+                                    pageData?.meta?._mosacademy_job_application_deadline && 
+                                    <div className="widget mb-5">
+                                        <p className="EmploymentBasis fs-6 textClrGrayDark fw-bold">Application Deadline</p>
+                                        <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_application_deadline}} />
+                                    </div>
+                                }
                                 <div className="gw-btn gw-btn-green mt-5">
-                                    <Link to={['/apply-job', pageData.slug].join('/')} className="btn text-dark border-0 px-4 rounded-pill fwSemiBold fs-15 py-0">
+                                    <Link to='apply' className="btn text-dark border-0 px-4 rounded-pill fwSemiBold fs-15 py-0">
                                         <span className="text position-relative d-flex align-items-center justify-content-center h-42">
                                             Apply Now
-                                            <svg className="position-absolute end-0 top-0" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12.6265 5.18872L17.9377 10.5L12.6265 15.8112"
-                                                    stroke="#121316"
-                                                    stroke-width="1.5"
-                                                    stroke-miterlimit="10"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                ></path>
-                                                <path d="M3.0625 10.5H17.7887" stroke="#121316" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
+                                            <i class="fa-solid fa-arrow-right-long"></i>                                            
                                         </span>
                                     </Link>
                                 </div>
