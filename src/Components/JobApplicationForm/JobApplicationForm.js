@@ -6,7 +6,6 @@ import Config from "../../Config.json";
 import ReadyToMove from "../ReadyToMove/ReadyToMove";
 import SuccessfulModal from "../SuccessfulModal/SuccessfulModal";
 import "./JobApplicationForm.scss";
-// import Select from "react-select";
 
 const JobApplicationForm = (props) => {
     const location = useLocation();

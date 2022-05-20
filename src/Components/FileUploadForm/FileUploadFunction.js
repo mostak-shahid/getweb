@@ -23,7 +23,7 @@ const FileUploadFunction = () => {
     }
 
     return (
-        <div className="d-flex align-items-center justify-content-center">
+        <div className="d-flex align-items-center justify-content-center h-100vh">
             <form onSubmit={onSubmit}>
                 <h1> React File Upload Example</h1>
                 <input type="file" onChange={ onChange } />

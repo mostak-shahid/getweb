@@ -5,6 +5,7 @@ import FileUploadForm from "./Components/FileUploadForm/FileUploadForm";
 import FileUploadFunction from "./Components/FileUploadForm/FileUploadFunction";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
+import JobApplication from "./Components/JobApplication/JobApplication";
 import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
 import JobDetails from "./Components/JobDetails/JobDetails";
 import "./index.scss";
@@ -36,7 +37,8 @@ function App() {
                     {/* <Route path="/jobDetails" element={<JobDetails />} /> */}
                     <Route path="/job/:slug" >
                         <Route index element={<JobDetails />} />
-                        <Route path="apply" element={<JobApplicationForm />} />
+                        {/* <Route path="apply" element={<JobApplicationForm />} /> */}
+                        <Route path="apply" element={<JobApplication />} />
                     </Route> 
                     <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
                     <Route path="/blogs" element={<Blog/>}/>
