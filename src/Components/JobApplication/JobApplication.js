@@ -4,8 +4,10 @@ import { useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
 import Config from '../../Config.json';
 import ReadyToMove from '../ReadyToMove/ReadyToMove';
+import SuccessfulModal from '../SuccessfulModal/SuccessfulModal';
 import "./JobApplication.scss";
 //import axios from 'axios';
+//import Config from '../../Config.json';
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()} />;
@@ -13,23 +15,32 @@ function withParams(Component) {
 
 class JobApplication extends Component {    
     UPLOAD_ENDPOINT = 'http://mdshahalam.design/getwebapi/wp-json/mos-getweb-api/v1/job-apply';
+    //UPLOAD_ENDPOINT = Config + 'job-apply';
     //UPLOAD_ENDPOINT = 'http://api.getweb.localhost/api-uploads.php';
     constructor(props) {
         super(props);
         this.state ={
             file:null,
             jobs: null,            
-            job_id: '',
+            job_id: 0,
             first_name: "",
             last_name: "",
             email: "",
-            country: "",
-            loading: true 
+            country: 0,
+            loading: true,
+            showModal: false,
+            errors: {                    
+                first_name: "",
+                last_name: "",
+                email: "",
+                cv:""
+            } 
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.onChange = this.onChange.bind(this)
         this.onChangeFile = this.onChangeFile.bind(this)
         this.uploadFile = this.uploadFile.bind(this)
+        this.onBlur = this.onBlur.bind(this)
     }
     
     async componentDidMount() {
@@ -48,18 +59,41 @@ class JobApplication extends Component {
         })
     }
     async onSubmit(e){
-        e.preventDefault() 
-        let res = await this.uploadFile(this.state.file);
-        console.log(res.data);
-        this.setState({
-            file:null,
-            jobs: null,            
-            job_id: '',
-            first_name: "",
-            last_name: "",
-            email: "",
-            country: "",
-        })
+        e.preventDefault();        
+        //const {slug} = this.props.params; 
+        if (this.file?.name){
+            let res = await this.uploadFile(this.state.file);
+            if(res.data.req.data.status){
+                this.setState({
+                    file:null,
+                    // jobs: null,            
+                    // job_id: slug,
+                    first_name: "",
+                    last_name: "",
+                    email: "",
+                    country: 0,
+                    showModal:true,
+                    errors: {                    
+                        first_name: "",
+                        last_name: "",
+                        email: "",
+                        cv:""
+                    },
+                    errCount : 0
+                });
+            } else {
+                alert('You have already allpied for this job.');
+            }
+            //console.log(res.data.req.data.status);
+        } else {
+            this.setState({
+                errors: {
+                    cv: "CV is required"
+                },
+                errCount : 1
+            })
+        }
+
     }
     onChangeFile(e) {
         this.setState({file:e.target.files[0]})
@@ -81,6 +115,47 @@ class JobApplication extends Component {
             }
         });
     }  
+    onBlur(e) {        
+        const elementRequired = e.target.required;      
+        const elementPattern = e.target.pattern;  
+        console.log(e.target.name);  
+        console.log(elementRequired);
+        console.log(elementPattern);
+        var errors = { ...this.state.errors }  
+        //var {...errors} = this.state.errors
+        if(elementPattern && !e.target.value.match(elementPattern)) {
+            errors[e.target.name] = this.errorMessages[e.target.name].pattern
+            if(!elementRequired && !e.target.value) errors[e.target.name] = ''
+            else if (elementRequired && !e.target.value) errors[e.target.name] = this.errorMessages[e.target.name].required
+        } else {
+            if (elementRequired && !e.target.value) errors[e.target.name] = this.errorMessages[e.target.name].required
+        }
+        
+        /*(elementRequired && !e.target.value)
+            ?errors[e.target.name] = this.errorMessages[e.target.name].required
+            :(elementPattern && !e.target.value.match(elementPattern)) 
+                ?errors[e.target.name] = this.errorMessages[e.target.name].pattern
+                :''*/
+
+        this.setState({ errors })
+        console.log(errors)
+    }
+    handleClose = () => this.setState({showModal:false});
+    //handleShow = () => this.setState({showModal:true});    
+    errorMessages = {
+        first_name: {
+            required:"First Name is required",
+            pattern: "First Name validation Error",
+        },
+        last_name: {
+            required:"Last Name is required",
+            pattern: "Last Name validation Error",
+        },
+        email: {
+            required:"Email is required",
+            pattern: "Email validation Error",
+        }
+    };
     render() {
         // console.log('State: ',this.state);
         // console.log('Props: ', this.props);
@@ -93,8 +168,8 @@ class JobApplication extends Component {
             return <div>Didn't get data from API</div>;
         }
         return (
-            <section className="JobDetails">            
-                <div className="JobDetailsBanner bgClrDark5">
+            <>            
+                <section className="JobDetailsBanner bgClrDark5">
                     <div className="container">
                         <div className="JobBannerContent d-flex align-items-center">
                             <div className="content">
@@ -108,8 +183,8 @@ class JobApplication extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="JobApplicationForm secPadding">                
+                </section>
+                <section className="JobApplicationForm secPadding">                
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 offset-lg-3">
@@ -122,7 +197,7 @@ class JobApplication extends Component {
                                         <div className="selectJobTitle mb-3">
                                             <label htmlFor="job_id" className="textClrThemeDark fs-13 fwSemiBold">Job Title</label>
                                             <select name="job_id" id="job_id" className="form-select rounded-pill h-42 px-4" defaultValue={this.state.job_id} disabled>
-                                                <option value="">Position applying for</option>
+                                                <option value="0">Position applying for</option>
                                                 {
                                                     this.state.jobs.map((item, index) => (
                                                         <option value={item.slug} key={index} dangerouslySetInnerHTML={{__html: item.title}} />
@@ -135,13 +210,15 @@ class JobApplication extends Component {
                                             <div className="col-lg-6">
                                                 <div className="field mb-4">
                                                     <label htmlFor="first_name" className="textClrThemeDark fs-13 fwSemiBold">First Name</label>
-                                                    <input name="first_name" id="first_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your first name" value={this.state.first_name}  onChange={ this.onChange } />
+                                                    <input name="first_name" id="first_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your first name" value={this.state.first_name} autoFocus onChange={ this.onChange } onBlur={this.onBlur} required pattern="^[A-Za-z .]+$" />
+                                                    {this.state?.errors?.first_name && <div className="text-danger mt-1">{this.state.errors.first_name}</div>}
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="field mb-4">
                                                     <label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Last Name</label>
-                                                    <input name="last_name" id="last_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your last name" value={this.state.last_name} onChange={ this.onChange } />
+                                                    <input name="last_name" id="last_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your last name" value={this.state.last_name} onChange={ this.onChange } onBlur={this.onBlur} pattern="^[A-Za-z .]+$"/>
+                                                    {this.state?.errors?.last_name && <div className="text-danger mt-1">{this.state.errors.last_name}</div>}
                                                 </div>
                                             </div>
                                         </div>
@@ -149,14 +226,15 @@ class JobApplication extends Component {
                                             <div className="col-lg-6">
                                                 <div className="field mb-4">
                                                     <label htmlFor="email" className="textClrThemeDark fs-13 fwSemiBold">Email</label>
-                                                    <input name="email" id="email" type="email" className="form-control rounded-pill h-42 px-4" placeholder="Enter your email" value={this.state.email} onChange={ this.onChange } />
+                                                    <input name="email" id="email" type="email" className="form-control rounded-pill h-42 px-4" placeholder="Enter your email" value={this.state.email} onChange={ this.onChange } onBlur={this.onBlur} required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$" />
+                                                    {this.state?.errors?.email && <div className="text-danger mt-1">{this.state.errors.email}</div>}
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="field mb-4">
                                                     <label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Country</label>
                                                     <select name="country" id="country" className="form-select rounded-pill h-42 px-4" defaultValue={this.state.country} onChange={ this.onChange }>
-                                                        <option value="">Select your country</option>
+                                                        <option value="0">Select your country</option>
                                                         <option>Bangladesh</option>
                                                         <option>India</option>
                                                     </select>
@@ -164,29 +242,30 @@ class JobApplication extends Component {
                                             </div>
                                         </div>
                                         <div className="mb-3">
-                                            <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block">
+                                            <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
                                                 <p className="mb-2">Upload CV</p>
-                                                <input name='cv' id='cv' type="file" className="d-none" onChange={ this.onChangeFile } />
+                                                <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9" onChange={ this.onChangeFile } required/>
                                                 <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center gap-3 gap-xl-4">
                                                     <img src={FileIcon} alt="icon" />
                                                     <p className="fs-14 fw-medium textClrGray mb-0">{this.state.file?.name?this.state.file.name:'Upload your CV'}</p>
                                                 </div>
-                                            </label>
+                                            </label>                                            
+                                            {this.state?.errors?.cv && <div className="text-danger mt-1">{this.state.errors.cv}</div>}
                                         </div>
                                         <div className="sbm-btn text-end">
                                             <button type="submit" className="btn bgClrGreen w-100 h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill">
                                                 Submit Application
                                             </button>
                                         </div>
-
+                                        <SuccessfulModal show={this.state.showModal} handleClose={this.handleClose} />
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>            
+                </section>            
                 <ReadyToMove />
-            </section>
+            </>
         )
     }
 }

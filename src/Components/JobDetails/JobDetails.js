@@ -131,7 +131,7 @@ const JobDetails = () => {
                                     <Link to='apply' className="btn text-dark border-0 px-4 rounded-pill fwSemiBold fs-15 py-0">
                                         <span className="text position-relative d-flex align-items-center justify-content-center h-42">
                                             Apply Now
-                                            <i class="fa-solid fa-arrow-right-long"></i>                                            
+                                            <i className="fa-solid fa-arrow-right-long"></i>                                            
                                         </span>
                                     </Link>
                                 </div>
