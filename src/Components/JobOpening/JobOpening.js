@@ -7,13 +7,13 @@ const JobOpening = (props) => {
     const [jobCount,setJobCount]=useState(increament);
     const [jobTotal,setJobTotal]=useState(0);
     const [loading,setLoading]=useState(true);
-    console.log(jobCount);
+    //console.log(jobCount);
     useEffect(()=>{
         const url = Config.API_BASE + "data-list/job/0/0/" + jobCount;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setJobData(resp))//setting response to state posts
         //.then(setLoading(false))        
-        console.count();
+        //console.count();
     },[jobCount]);
 
     useEffect(()=>{
@@ -21,7 +21,7 @@ const JobOpening = (props) => {
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setJobTotal(resp))//setting response to state posts
         //.then(setLoading(false))        
-        console.count();
+        //console.count();
     },[]);
     
     useEffect(() => {
@@ -39,7 +39,7 @@ const JobOpening = (props) => {
             </div> 
             {
                 loading
-                ?<div className="textClrGreen">loading...</div>
+                ?<div className="textClrGreen text-center">loading...</div>
                 :<>                          
                     <div className="jobs mb-5">
                         <h6 className="mb-3">All Jobs</h6>

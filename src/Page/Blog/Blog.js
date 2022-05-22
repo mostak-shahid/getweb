@@ -69,7 +69,7 @@ export default class Blog extends Component {
         
         //console.log("Categories: ", this.state.categoriesData)
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
         if (!this.state.postData || !this.state.pageData ) {
             return <div>Didn't get data from API</div>;

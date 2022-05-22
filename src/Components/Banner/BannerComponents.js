@@ -24,7 +24,7 @@ export default class BannerComponents extends Component {
     
     render() {
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
 
         if (!this.state.bannerData) {

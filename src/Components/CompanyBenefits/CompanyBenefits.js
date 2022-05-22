@@ -44,7 +44,7 @@ const CompanyBenefits = (props) => {
             <div className={[widthClass].join(' ')}>
                 {
                     loading
-                    ?<div className="textClrGreen">loading...</div>
+                    ?<div className="textClrGreen text-center">loading...</div>
                     :<div className="row">
                         {sectionData.map((item, index) => (
                             <div className="col-md-4" key={item.id}>

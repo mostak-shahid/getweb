@@ -23,7 +23,7 @@ const Contact = () => {
         <>
         {
             loading?
-            <div className="textClrGreen">loading...</div>:
+            <div className="textClrGreen text-center">loading...</div>:
             pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
                 <MainComponent data={item} key={index} />    
                 //<div key={index}>{item._mosacademy_page_group_title_text}</div>                    

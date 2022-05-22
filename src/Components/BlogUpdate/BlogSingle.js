@@ -56,7 +56,7 @@ const BlogSingle = (props) => {
         <>
         {
             loading?
-            <div className="textClrGreen">loading...</div>:            
+            <div className="textClrGreen text-center">loading...</div>:            
             <>
                 <section className="BlogSingleWrapper secPadding mt-5">
                     <div className="container">

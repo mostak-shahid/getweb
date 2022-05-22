@@ -34,7 +34,7 @@ export default class Blog extends Component {
     }
     render() {
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
         if (!this.state.postData) {
             return <div>Didn't get data from API</div>;

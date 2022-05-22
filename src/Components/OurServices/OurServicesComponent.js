@@ -35,7 +35,7 @@ export default class OurServicesComponent extends Component {
         //const {servicesItems} = this.state;
         //console.log("New", servicesItems);
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
 
         if (!this.state.servicesItems) {

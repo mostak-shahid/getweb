@@ -37,7 +37,7 @@ export default class OurFocusIndustriesComponent extends Component {
         //const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         const {industryDataOne, industryDataTwo} = this.state;
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
 
         if (!this.state.industryDataOne) {

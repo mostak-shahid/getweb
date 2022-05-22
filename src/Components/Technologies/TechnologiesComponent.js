@@ -35,7 +35,7 @@ export default class TechnologiesComponent extends Component {
     }
     render() {
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
         if (!this.state.taxonomiesData) {
             return <div>Didn't get data from API</div>;

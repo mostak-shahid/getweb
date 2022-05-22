@@ -101,7 +101,7 @@ const JobApplicationForm = (props) => {
 
     return (
         loading
-        ?<div className="textClrGreen">loading...</div>
+        ?<div className="textClrGreen text-center">loading...</div>
         :<>
             <section className="JobDetails">
                 <div className="JobDetailsBanner bgClrDarkLight">

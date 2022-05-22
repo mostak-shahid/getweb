@@ -30,7 +30,7 @@ const JobDetails = () => {
 
     return (
         loading?
-        <div className="textClrGreen">loading...</div>:            
+        <div className="textClrGreen text-center">loading...</div>:            
         <>
         <div className="JobDetails">
             <div className="JobDetailsBanner bgClrDarkLight">

@@ -21,7 +21,7 @@ const About = (props) => {
     
     return (    
         loading
-        ?<div className="textClrGreen">loading...</div>
+        ?<div className="textClrGreen text-center">loading...</div>
         :<>
             <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />            
             {

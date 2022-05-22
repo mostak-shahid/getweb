@@ -123,13 +123,13 @@ class JobApplication extends Component {
         console.log(elementPattern);
         var errors = { ...this.state.errors }  
         //var {...errors} = this.state.errors
+        errors[e.target.name] = "";
         if(elementPattern && !e.target.value.match(elementPattern)) {
             errors[e.target.name] = this.errorMessages[e.target.name].pattern
-            if(!elementRequired && !e.target.value) errors[e.target.name] = ''
-            else if (elementRequired && !e.target.value) errors[e.target.name] = this.errorMessages[e.target.name].required
-        } else {
-            if (elementRequired && !e.target.value) errors[e.target.name] = this.errorMessages[e.target.name].required
+            if (!elementRequired && !e.target.value) 
+                errors[e.target.name] = ""
         }
+        if (elementRequired && !e.target.value) errors[e.target.name] = this.errorMessages[e.target.name].required
         
         /*(elementRequired && !e.target.value)
             ?errors[e.target.name] = this.errorMessages[e.target.name].required
@@ -162,7 +162,7 @@ class JobApplication extends Component {
         // console.log('Jobs: ', this.state.jobs);
         // console.log('Loading: ', this.state.loading);
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
         if (!this.state.jobs) {
             return <div>Didn't get data from API</div>;

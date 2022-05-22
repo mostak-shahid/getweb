@@ -30,7 +30,7 @@ export default class WhyChooseUsComponent extends Component {
     render() {
         const {whyChooseItems = []} = this.state
         if (this.state.loading) {
-            return <div>loading...</div>;
+            return <div className="textClrGreen text-center">loading...</div>;
         }
 
         if (!this.state.whyChooseItems) {
