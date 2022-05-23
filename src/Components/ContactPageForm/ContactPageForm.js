@@ -77,41 +77,43 @@ function ContactPageForm(props) {
         event.preventDefault();
         setFormPocessing(true);
         (async () => {
-        const rawResponse = await fetch(Config.API_BASE + 'contact-data', {
-            method: 'POST',
-            headers:{
-                'Accept': 'application/json',
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ name: values.name, email: values.email, code: values.code, phone: values.phone, message: values.message })
-        })
-        ;//.then(resp=>resp.json())//calling url by method GET
-        //.then(resp=>setFormResponseData(resp))//setting response to state posts
-        //.then(setFormResponse(true));
-        const content = await rawResponse.json();
-        console.log(content.req.data.status);
-        if(content.req.data.status) {
-            setFormPocessing(false);
-            setValues({
-                name: "",
-                email: "",
-                code: "",
-                phone: "",
-                message: "",
-            });
-            setErrors ({
-                name: "",
-                email: "",
-                code: "",
-                phone: "",
-                message: "",
+            const rawResponse = await fetch(Config.API_BASE + 'contact-data', {
+                method: 'POST',
+                headers:{
+                    'Accept': 'application/json',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ name: values.name, email: values.email, code: values.code, phone: values.phone, message: values.message })
+                
             })
-            setResMessage('Your form has beed submitted successfully.')
-        } else {
-            setFormPocessing(false);
-            setResMessage('Please try again.')
-        }
-        //console.count();
+            ;//.then(resp=>resp.json())//calling url by method GET
+            //.then(resp=>setFormResponseData(resp))//setting response to state posts
+            //.then(setFormResponse(true));
+            const content = await rawResponse.json();
+            console.log(content.req.data.status);
+            if(content.req.data.status) {
+                setFormPocessing(false);
+                setValues({
+                    name: "",
+                    email: "",
+                    code: "",
+                    phone: "",
+                    message: "",
+                });
+                setErrors ({
+                    name: "",
+                    email: "",
+                    code: "",
+                    phone: "",
+                    message: "",
+                })
+                setResMessage('Your form has beed submitted successfully.')
+            } else {
+                setFormPocessing(false);
+                setResMessage('Please try again.')
+            }
+            //console.count();
+            //const res = await this.uploadForm(this.state.file);
         })();
     }
     // console.log(loading);

@@ -38,11 +38,10 @@ const Pagination = (props) => {
                                 </span>
                             </span>
                         </li>
-                    }
-                    
+                    }                    
                     {list}
                     {
-                        (props.startFrom + 1) < props.data &&
+                        ((props.startFrom)/6 + 1) < props.data &&
                         <li className="page-item">
                             <span className="page-link bg-transparent" aria-label="Next" onClick={() => props.startFromChange(props.startFrom + 1)}>
                                 <span aria-hidden="true">

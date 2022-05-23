@@ -73,7 +73,7 @@ const Faq = (props) => {
                                     ?<div className="textClrGreen text-center">loading...</div>
                                     :
                                         sectionData.map((item, index) => (
-                                            <Accordion.Item eventKey={index} className="mb-3 isRadius16 overflow-hidden" key={index}>                                            
+                                            <Accordion.Item eventKey={[0, index].join('-')} className="mb-3 isRadius16 overflow-hidden" key={index}>                                            
                                             <Accordion.Header className="fs-6 fw-bold">{item.title}</Accordion.Header>
                                             <Accordion.Body className="fw-normal fs-6" dangerouslySetInnerHTML={{__html:item.content}} />
                                         </Accordion.Item>
@@ -88,7 +88,7 @@ const Faq = (props) => {
                                     ?<div className="textClrGreen text-center">loading...</div>
                                     :
                                         sectionDataTwo.map((item, index) => (
-                                            <Accordion.Item eventKey={index} className="mb-3 isRadius16 overflow-hidden" key={index}>
+                                            <Accordion.Item eventKey={[1, index].join('-')} className="mb-3 isRadius16 overflow-hidden" key={index}>
                                             <Accordion.Header className="fs-6 fw-bold">{item.title}</Accordion.Header>
                                             <Accordion.Body className="fw-normal fs-6" dangerouslySetInnerHTML={{__html:item.content}} />
                                         </Accordion.Item>

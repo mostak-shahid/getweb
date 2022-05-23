@@ -6,22 +6,4 @@
     max-width: unset !important;
     margin-bottom: 30px !important;
   }
-  .sectionHeader {
-    .gw-btn-green {
-      .btn {
-        svg {
-          &.end-0 {
-            right: 20px !important;
-          }
-        }
-        &:hover {
-          svg {
-            &.end-0 {
-              right: 13px !important;
-            }
-          }
-        }
-      }
-    }
-  }
 }

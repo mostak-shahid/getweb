@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
 import "./SubPageBanner.scss";
-
 
 const SubPageBanner = (props) => {
     const { tagline, title, intro, bgImg, btn } = props;
@@ -18,11 +17,8 @@ const SubPageBanner = (props) => {
                                 <div className="banner-desc w-50 fs-18 mb-5 fw-normal">{intro}</div>
                                 {
                                     btn?.url &&
-                                    <div className="gw-btn text-decoration-none px-0">
-                                        <NavLink to={btn.url} className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
-                                            <span className="me-3">{btn.title?btn.title:'Work with Us'}</span>
-                                            <i className="fa-solid fa-arrow-right-long"></i>
-                                        </NavLink>
+                                    <div className="">
+                                        <Button title={btn.title?btn.title:'Work with Us'} url={btn.url}/> 
                                     </div>
                                 }
                             </div>

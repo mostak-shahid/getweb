@@ -1,0 +1,32 @@
+.btn-wrapper {
+  display: inline-block;
+  .btn {
+    background-color: var(--clr-green);
+    padding: 16px 35px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: var(--clr-theme-dark);
+    i,
+    svg {
+      transition: all 0.2s linear;
+      position: absolute;
+      right: 27px;
+    }
+    &:hover {
+      background-color: #00e190;
+      i,
+      svg {
+        right: 20px;
+      }
+    }
+    &.btn-alt {
+      background-color: rgba(0, 255, 163, 0.1);
+      color: var(--clr-green);
+      &:hover {
+        background-color: var(--clr-green);
+        color: var(--clr-theme-dark);
+      }
+    }
+  }
+}

@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LineShape from "../../assets/images/secLineShape.svg";
+import Config from "../../Config.json";
 import "./WhoWeAre.scss";
 
 const WhoWeAre = (props) => {
+    const [sectionData,setSectionData]=useState([])
+    const [loading,setLoading]=useState(true);
+    useEffect(()=>{
+        const url = Config.API_BASE + "data-list/block/32/0/3";//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setSectionData(resp))//setting response to state posts
+        //.then(setLoading(false))
+    },[]);
+    
+    useEffect(() => {
+        if (sectionData.length !== 0) {
+            setLoading(false);
+        }
+        //console.log(pageData);
+    }, [sectionData]);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
@@ -30,25 +46,20 @@ const WhoWeAre = (props) => {
                 </div>
             </div>
             <div className={[widthClass].join(' ')}>
+            {
+                    loading
+                    ?<div className="textClrGreen text-center">loading...</div>
+                    :
                 <div className="activity-grid-container">
-                    <div className="item2 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
-                        <div className="icon mb-3">
-                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect opacity="0.05" width="100" height="100" rx="16" fill="#4991FF" />
-                                <path
-                                    d="M66.8273 43.4479H55.8148L58.2253 37.4229C58.5699 36.5645 58.6549 35.6238 58.4698 34.7176C58.2846 33.8113 57.8374 32.9793 57.1836 32.325C56.8159 31.9576 56.3726 31.6748 55.8846 31.4959C55.3966 31.3171 54.8755 31.2467 54.3575 31.2895C53.8395 31.3323 53.3371 31.4874 52.8851 31.7439C52.433 32.0004 52.0422 32.3523 51.7398 32.775L45.3003 41.7854C44.3391 43.1277 43.2703 44.3895 42.1044 45.5583L40.0419 47.6208C39.948 47.7146 39.8735 47.826 39.8228 47.9486C39.772 48.0712 39.746 48.2027 39.7461 48.3354V63.8375C39.7459 64.1061 39.8523 64.3638 40.0419 64.5541L42.3523 66.875C42.9409 67.4666 43.6409 67.9356 44.4119 68.255C45.1829 68.5743 46.0095 68.7376 46.844 68.7354H59.3982C60.3894 68.7346 61.3592 68.4467 62.1903 67.9066C63.0214 67.3664 63.6783 66.5971 64.0815 65.6916L70.2398 51.8354C70.6339 50.9517 70.8362 49.9946 70.8336 49.0271V47.4562C70.8325 46.3939 70.4101 45.3753 69.6591 44.6239C68.9081 43.8725 67.8897 43.4495 66.8273 43.4479Z"
-                                    fill="#4991FF"
-                                />
-                                <path
-                                    d="M32.8056 46.2645C31.8403 46.2645 30.9146 46.648 30.232 47.3305C29.5495 48.0131 29.166 48.9388 29.166 49.9041V63.5895C29.166 64.5548 29.5495 65.4805 30.232 66.1631C30.9146 66.8456 31.8403 67.2291 32.8056 67.2291C33.7709 67.2291 34.6966 66.8456 35.3792 66.1631C36.0617 65.4805 36.4452 64.5548 36.4452 63.5895V49.9041C36.4452 48.9388 36.0617 48.0131 35.3792 47.3305C34.6966 46.648 33.7709 46.2645 32.8056 46.2645Z"
-                                    fill="#4991FF"
-                                />
-                            </svg>
+                    {sectionData.map((item, index) => (
+                        <div className={["items p-4 item", (index + 2)].join('')} key={index}>
+                            <div className="icon mb-3" dangerouslySetInnerHTML={{__html:item.meta._mosacademy_custom_html}} />
+                            <div className="fs-14 fw-medium textClrGrayDark" dangerouslySetInnerHTML={{__html:item.title}}/>
+                            <div className="count fs-30 fw-medium textClrGrayDark" dangerouslySetInnerHTML={{__html:item.content}} />
                         </div>
-                        <p className="fs-14 fw-medium textClrGrayDark mb-0">Happy Client</p>
-                        <p className="count fs-30 fw-medium textClrGrayDark mb-0">1280</p>
-                    </div>
-                    <div className="item3 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
+                    ))}
+
+                    {/* <div className="item3 items p-4" data-wow-duration="1.5s" data-wow-delay="300ms">
                         <div className="icon mb-3">
                             <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect opacity="0.05" width="100" height="100" rx="16" fill="#FFB156" />
@@ -89,8 +100,9 @@ const WhoWeAre = (props) => {
                         </div>
                         <p className="fs-14 fw-medium textClrGrayDark mb-0">Completed Project</p>
                         <p className="count fs-30 fw-medium textClrGrayDark mb-0">4.8k+</p>
-                    </div>
+                    </div> */}
                 </div>
+            }
             </div>
         </div>
     );

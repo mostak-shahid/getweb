@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Config from "../../Config.json";
+import Button from "../Button/Button";
 import ReadyToMove from "../ReadyToMove/ReadyToMove";
+import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
 import "./JobDetails.scss";
 
 const JobDetails = () => {
@@ -33,23 +35,14 @@ const JobDetails = () => {
         <div className="textClrGreen text-center">loading...</div>:            
         <>
         <div className="JobDetails">
-            <div className="JobDetailsBanner bgClrDarkLight">
-                <div className="container">
-                    <div className="JobBannerContent d-flex align-items-center">
-                        <div className="content">
-                            <h2 className="jobTitle fs-48 fw-bold text-white mb-4" dangerouslySetInnerHTML={{__html:pageData.title}} />
-                            <div className="jobIntro fs-18 text-white fw-normal" dangerouslySetInnerHTML={{__html:pageData.excerpt}} />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <JobDetailsBanner title={pageData.title} content={pageData.excerpt}/>
             <div className="JobOverView secPadding">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="overViewContent">
-                                <div className="overViewTitle fs-6 fw-bold textClrGreen mb-5">
-                                    <p className="mb-0">Overview</p>
+                                <div className="overViewTitle">
+                                    <p className="fs-6 fw-bold textClrGreen">Overview</p>
                                 </div>
                                 <div className="jobDetails" dangerouslySetInnerHTML={{__html:pageData.content}} />
                             </div>
@@ -127,13 +120,8 @@ const JobDetails = () => {
                                         <h4 className="workPlace fw-medium fs-5 text-white mb-4" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_job_application_deadline}} />
                                     </div>
                                 }
-                                <div className="gw-btn gw-btn-green mt-5">
-                                    <Link to='apply' className="btn text-dark border-0 px-4 rounded-pill fwSemiBold fs-15 py-0">
-                                        <span className="text position-relative d-flex align-items-center justify-content-center h-42">
-                                            Apply Now
-                                            <i className="fa-solid fa-arrow-right-long"></i>                                            
-                                        </span>
-                                    </Link>
+                                <div className="mt-5">                                    
+                                    <Button url='apply' title='Apply Now'/>  
                                 </div>
                             </div>
                         </div>

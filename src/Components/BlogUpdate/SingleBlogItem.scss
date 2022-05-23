@@ -1,4 +1,13 @@
 .singleBlog {
   height: 100%;
   overflow: hidden;
+
+  a.readMore {
+    color: var(--clr-grayDark);
+  }
+  &:hover {
+    a.readMore {
+      color: var(--clr-green);
+    }
+  }
 }

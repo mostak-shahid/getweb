@@ -17,6 +17,7 @@ import Header from "./Page/Header";
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
 import Portfolio from './Page/Portfolio/Portfolio';
+import Search from "./Page/Search/Search";
 //import Post from "./Page/Post/Post";
 
 
@@ -43,10 +44,13 @@ function App() {
                     <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
                     <Route path="/blogs" element={<Blog/>}/>
                     <Route path="/blog/:slug" element={<BlogSingle />} />
-                    <Route path="/search/:search" element={<BlogSingle />} />
 
                     <Route path="/form-upload" element={<FileUploadForm />} />
                     <Route path="/form-upload-function" element={<FileUploadFunction />} />
+                    <Route path="/search" >
+                        <Route index element={<Search />} />
+                        <Route path=":keyword" element={<Search />} />
+                    </Route>
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./SingleJobPost.scss";
+import Button from "../Button/Button";
 
 const SingleJobPost = (props) => {
     return (
@@ -13,12 +14,8 @@ const SingleJobPost = (props) => {
                     <p>{props.data?.meta?._mosacademy_job_employment_basis}</p>
                 </div>
             </div>
-            <NavLink to={`/job/${props.data?.slug}`} className="gw-btn text-decoration-none">
-                <button className="btn position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center">
-                    <span className="me-2">View Position</span>                    
-                    <i className="fa-solid fa-arrow-right-long"></i>
-                </button>
-            </NavLink>
+            
+            <Button url={`/job/${props.data?.slug}`} title="View Position" alt={true} /> 
         </div>
     );
 };

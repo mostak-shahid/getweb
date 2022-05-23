@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
 import Config from '../../Config.json';
 import ReadyToMove from '../ReadyToMove/ReadyToMove';
+import JobDetailsBanner from '../SubPageBanner/JobDetailsBanner';
 import SuccessfulModal from '../SuccessfulModal/SuccessfulModal';
 import "./JobApplication.scss";
 //import axios from 'axios';
@@ -168,22 +169,9 @@ class JobApplication extends Component {
             return <div>Didn't get data from API</div>;
         }
         return (
-            <>            
-                <section className="JobDetailsBanner bgClrDark5">
-                    <div className="container">
-                        <div className="JobBannerContent d-flex align-items-center">
-                            <div className="content">
-                                <h2 className="jobTitle fs-48 fw-bold text-white mb-4">Job Application Form</h2>
-                                <div className="jobIntro fs-18 text-white fw-normal">
-                                    <p className="mb-0">
-                                        Working with our clients' point of contact to build low and high-fidelity website wireframes that utilize the most effective strategies and remain within the goals
-                                        of our client.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <>         
+                <JobDetailsBanner title="Job Application Form" content="Working with our clients' point of contact to build low and high-fidelity website wireframes that utilize the most effective strategies and remain within the goals
+                                        of our client."/>
                 <section className="JobApplicationForm secPadding">                
                     <div className="container">
                         <div className="row">

@@ -20,6 +20,7 @@ export default class Blog extends Component {
     };
 
     async componentDidMount() {
+
         const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/6";
         const responsePost = await fetch(urlPost);
         const postResponse = await responsePost.json();
@@ -42,8 +43,8 @@ export default class Blog extends Component {
             categoriesData: categoriesResponse,
             loading: false,
         });
-        console.log(this.state.postData);
-        console.count();
+        // console.log(this.state.postData);
+        // console.count();
     }
     async componentDidUpdate() {        
         const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/6";
@@ -65,6 +66,7 @@ export default class Blog extends Component {
         super(props);
         //console.log(props);
     };
+    
     render() {
         
         //console.log("Categories: ", this.state.categoriesData)
@@ -108,9 +110,11 @@ export default class Blog extends Component {
                                 </div>
                                 <div className="col-xl-6">
                                     <div className="searchFilter">
-                                        <Form.Group className="d-flex justify-content-end" controlId="exampleForm.ControlInputSearch">
-                                            <Form.Control type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill w-50" />
-                                        </Form.Group>
+                                        <form>
+                                            <Form.Group className="d-flex justify-content-end" controlId="exampleForm.ControlInputSearch">
+                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill w-50" />
+                                            </Form.Group>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -119,13 +123,14 @@ export default class Blog extends Component {
                     <div className="wrapper isBgBorder pb-5">
                         <div className="container">
                             <div className="row">
-                                {postData.length && 
+                                {postData.length ?
                                     postData.map((item, index) => (
-                                          <div className="col-lg-4 mb-4" key={index}>
-                                              <SingleBlogItems data={item} />
-                                          </div>
-                                      ))
-                                    }
+                                        <div className="col-lg-4 mb-4" key={index}>
+                                            <SingleBlogItems data={item} />
+                                        </div>
+                                    ))
+                                    : <div className="textClrGreen text-center">loading...</div>
+                                }
                             </div>
                         </div>
                     </div>

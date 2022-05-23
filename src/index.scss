@@ -117,7 +117,7 @@ a {
   color: var(--clr-grayDark);
 }
 .textClrGreen {
-  color: var(--clr-green);
+  color: var(--clr-green) !important;
 }
 .textClrGrayDeep {
   color: var(--clr-grayDeep);
@@ -288,4 +288,22 @@ img {
 }
 .z-index-9 {
   z-index: 9;
+}
+.searchInput {
+  .form-control {
+    border-radius: 100px;
+    background-color: transparent;
+    height: 52px;
+
+    border: 1px solid #4c4d54;
+    background-image: url("data:image/svg+xml,%3Csvg width='21' height='22' viewBox='0 0 21 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.1875 16.5356C12.8119 16.5356 15.75 13.5975 15.75 9.97314C15.75 6.34878 12.8119 3.41064 9.1875 3.41064C5.56313 3.41064 2.625 6.34878 2.625 9.97314C2.625 13.5975 5.56313 16.5356 9.1875 16.5356Z' stroke='%238D8F98' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18.375 19.1606L14 14.7856' stroke='%238D8F98' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-position: left 20px center;
+    background-repeat: no-repeat;
+    padding-left: 52px;
+    color: #fff;
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
 }
