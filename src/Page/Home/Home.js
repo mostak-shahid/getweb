@@ -1,15 +1,19 @@
 import React, { Component } from "react";
+import { Audio } from 'react-loader-spinner';
 import BannerComponents from "../../Components/Banner/BannerComponents";
+import Loading from "../../Components/Loading/Loading";
 import MainComponent from "../../Components/MainComponent/MainComponent";
 import Config from "../../Config.json";
 import './Home.scss';
 
-
 export default class Home extends Component {  
-    state = {
-        loading: true,
-        pageData: null,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            pageData: "",
+        };
+    }
     
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
@@ -25,11 +29,16 @@ export default class Home extends Component {
     render() {
         
         if (this.state.loading) {
-            return <div className="textClrGreen text-center">loading...</div>;
+            return <Audio
+            height="100"
+            width="100"
+            color='grey'
+            ariaLabel='loading'
+          />;
         }
 
         if (!this.state.pageData) {
-            return <div>Didn't get data from API</div>;
+            return <Loading />;
         }
         return (
             <>          
