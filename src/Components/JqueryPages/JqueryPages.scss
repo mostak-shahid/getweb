@@ -1,0 +1,79 @@
+.wrapper {
+  .holder {
+    margin: 15px 0;
+    a {
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      height: 42px;
+      width: 42px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50px !important;
+      line-height: 42px;
+      color: #6b6e78;
+      font-weight: 600;
+      &.jp-current {
+        color: #fff;
+        background-color: #202124;
+        border-color: #202124;
+        &:hover {
+          cursor: default;
+          color: #fff;
+          background-color: #202124;
+          border-color: #202124;
+        }
+      }
+      &.jp-disabled {
+        cursor: default;
+      }
+      &:hover {
+        background-color: #00ffa3;
+        color: #121316;
+      }
+    }
+    span {
+      height: 42px;
+      width: 42px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  /*.holder a:hover {
+    background-color: #222;
+    color: #fff;
+  }
+  .holder a.jp-previous {
+    margin-right: 15px;
+  }
+  .holder a.jp-next {
+    margin-left: 15px;
+  }
+  .holder a.jp-current,
+  a.jp-current:hover {
+    color: #ff4242;
+    font-weight: bold;
+  }
+  .holder a.jp-disabled,
+  a.jp-disabled:hover {
+    color: #bbb;
+  }
+  .holder a.jp-current,
+  a.jp-current:hover,
+  .holder a.jp-disabled,
+  a.jp-disabled:hover {
+    background: none;
+  }*/
+  #jPageContainer {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    li {
+      display: inline-block;
+      margin: 5px;
+      zoom: 1;
+    }
+  }
+}

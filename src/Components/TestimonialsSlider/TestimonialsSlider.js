@@ -2,8 +2,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import React, { Component } from "react";
 import OwlCarousel from 'react-owl-carousel';
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
+
 import Config from '../../Config.json';
 import "./TestimonialsSlider.scss";
 

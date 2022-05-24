@@ -59,7 +59,7 @@ const BlogSingle = (props) => {
     const handleSearchSubmit = (e) => {    
         e.preventDefault();            
         if (searchText) {
-            alert(searchText);
+            //alert(searchText);
             navigate('/search/' + searchText);
         }
     }
@@ -104,7 +104,7 @@ const BlogSingle = (props) => {
                                 </div>
                                 <div className="col-xl-4">
                             <div className="SingleSidebar">
-                                <p className="fs-16 fwSemiBold">Searchx</p>
+                                <p className="fs-16 fwSemiBold">Search</p>
                                 <div className="searchInput pb-4">
                                 <form onSubmit={handleSearchSubmit}>
                                     <input className="form-control" name="search" type="text" onChange={onChange} placeholder="Search here" value={searchText}/>

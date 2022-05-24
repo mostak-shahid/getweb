@@ -11,6 +11,7 @@ const Search = (props) => {
   const params = useParams();  
   const navigate = useNavigate();
   const [searchPageData,setSearchPageData]=useState([]);
+  const [postCountData,setPostCountData]=useState(0);
   const [searchText,setSearchText]=useState(params.keyword);
   //const [postsData,setPostsData]=useState([]);
   const [loading,setLoading]=useState(true);
@@ -77,17 +78,15 @@ const Search = (props) => {
       <section className="blogWrapper secPadding">
         <div className="container"> 
           <div className="filterArea py-5 isBgBorder mb-5">
-            <div className="row">
+            <div className="row align-items-center">
               <div className="col-lg-6">
-                <div className="searchInput">
-                          
-                  <form onSubmit={handleSearchSubmit}>
-                    <input className="bg-transparent h-52 rounded-pill w-50 form-control text-white" name="search" type="text" onChange={onChange} placeholder="Search here" value={searchText}/>
-                  </form>
-                </div> 
-
               </div>
-              <div className="col-lg-6">       
+              <div className="col-lg-6"> 
+                <div className="searchInput">                          
+                  <form onSubmit={handleSearchSubmit}>
+                    <input className="bg-transparent h-52 rounded-pill form-control text-white" name="search" type="text" onChange={onChange} placeholder="Search here" value={searchText}/>
+                  </form>
+                </div>       
               </div>
             </div>
           </div>         

@@ -61,6 +61,26 @@
     display: flex;
     justify-content: center;
   }
+  .portfolioMenu {
+    font-size: 16px;
+    font-weight: 600;
+
+    border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &.active {
+      color: #00ffa3;
+      border-bottom: 2px solid #00ffa3;
+      transition: all 0.5s;
+    }
+    &:hover {
+      color: #00ffa3;
+      border-bottom: 2px solid #00ffa3;
+    }
+  }
   .portfolio-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -145,5 +165,96 @@
         }
       }
     }
+  }
+}
+
+.portfolioModalWrapper {
+  .modal-header {
+    .btn-close {
+      position: absolute;
+      top: -82px;
+      right: -236px;
+      width: 24px;
+      height: 24px;
+
+      color: #000;
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L19 19' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.00001 19L19 5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      border: 0;
+      border-radius: 0.25rem;
+      opacity: 1;
+    }
+  }
+  .modal-dialog {
+    max-width: 1400px;
+    width: 100%;
+    margin: 5.75rem auto;
+
+    .modal-content {
+      border-radius: 0 !important;
+    }
+    .modal-body {
+      .modalTop {
+        position: absolute;
+        top: -68px;
+        left: 0;
+        .templateHeading {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 22px;
+          color: #ffffff;
+        }
+        .companyName {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 20px;
+          color: #ffffff;
+        }
+        .followLink {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 20px;
+          text-decoration-line: underline;
+          color: #00ffa3;
+        }
+      }
+      .modalRight {
+        max-width: 90px;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        right: -85px;
+        a {
+          text-decoration: none;
+          margin-bottom: 14px;
+          display: block;
+        }
+        .rightImageContent {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 20px;
+          text-align: center;
+          color: #8d8f98;
+          margin: 6px 0;
+        }
+      }
+    }
+
+    .modalFooter {
+      height: 195px;
+      width: 100%;
+      .modalFooterHeading {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 34px;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.modal-backdrop {
+  &.show {
+    opacity: 0.9 !important;
   }
 }

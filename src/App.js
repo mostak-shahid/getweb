@@ -8,6 +8,7 @@ import "./Components/Header/header.scss";
 import JobApplication from "./Components/JobApplication/JobApplication";
 import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
 import JobDetails from "./Components/JobDetails/JobDetails";
+import JqueryPages from "./Components/JqueryPages/JqueryPages";
 import "./index.scss";
 import About from "./Page/About/About";
 import Blog from "./Page/Blog/Blog";
@@ -54,7 +55,7 @@ function App() {
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
-
+                    <Route path="/jquery-pages" element={<JqueryPages/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>

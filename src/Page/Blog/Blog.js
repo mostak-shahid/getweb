@@ -17,6 +17,7 @@ export default class Blog extends Component {
         dataList: 'data-list',
         categoryId: 0,
         startFrom: 0,
+        postPerPage: 6,
     };
 
     async componentDidMount() {
@@ -76,7 +77,7 @@ export default class Blog extends Component {
         if (!this.state.postData || !this.state.pageData ) {
             return <div>Didn't get data from API</div>;
         }
-        const { postData, postCountData, pageData, categoriesData, startFrom } = this.state;
+        const { postData, postCountData, pageData, categoriesData, startFrom, postPerPage } = this.state;
         return (
             <>
                 <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} />
@@ -109,7 +110,7 @@ export default class Blog extends Component {
                                     </div>
                                 </div>
                                 <div className="col-xl-6">
-                                    <div className="searchFilter">
+                                    <div className="searchInput">
                                         <form>
                                             <Form.Group className="d-flex justify-content-end" controlId="exampleForm.ControlInputSearch">
                                                 <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill w-50" />
@@ -135,8 +136,8 @@ export default class Blog extends Component {
                         </div>
                     </div>
                     {
-                        Math.ceil(postCountData / 6) > 1 &&
-                        <Pagination data={Math.ceil(postCountData / 6)} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} />
+                        Math.ceil(postCountData / postPerPage) > 1 &&
+                        <Pagination data={Math.ceil(postCountData / postPerPage)} postPerPage={postPerPage} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} />
                     }
                 </section>           
                 {

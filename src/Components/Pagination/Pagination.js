@@ -6,11 +6,11 @@ const Pagination = (props) => {
     const list = [];
     var cls;
     for (let i = 0; i < props.data; i++) {
-        if (i === props.startFrom/6) cls = "active";
+        if (i === props.startFrom/props.postPerPage) cls = "active";
         else cls = "";
         list.push(
             <li className="page-item" key={i}>
-                <span className={["page-link", "bg-transparent", cls].join(" ")} onClick={() => props.startFromChange(i * 6)}>
+                <span className={["page-link", "bg-transparent", cls].join(" ")} onClick={() => props.startFromChange(i * props.postPerPage)}>
                     {i + 1}
                 </span>
             </li>
@@ -41,7 +41,7 @@ const Pagination = (props) => {
                     }                    
                     {list}
                     {
-                        ((props.startFrom)/6 + 1) < props.data &&
+                        ((props.startFrom)/props.postPerPage + 1) < props.data &&
                         <li className="page-item">
                             <span className="page-link bg-transparent" aria-label="Next" onClick={() => props.startFromChange(props.startFrom + 1)}>
                                 <span aria-hidden="true">
