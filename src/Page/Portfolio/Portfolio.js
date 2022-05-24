@@ -33,7 +33,6 @@ const Portfolio = () => {
   useEffect(()=>{
       axios.get(Config.API_BASE + "data-taxonomies/project_category")
       .then(function (response) {
-        //console.log('Console log: ', response);
         setCategories(response.data);
         setActiveCatID(response.data[0].term_id);
       })
@@ -46,21 +45,16 @@ const Portfolio = () => {
     async function fetchData() {
       await axios.get(Config.API_BASE + "data-list/project/" + activeCatID + '/' + startFrom + '/' + 4)
       .then(function (response) {
-        //console.log('Cat ID: ', activeCatID);
-        //console.log('Data: ', response.data);
         setProjects(response.data);
       });
     }
     activeCatID && fetchData();
-    //console.count();
   }, [activeCatID]);
 
   useEffect(() => {
     async function fetchData() {
       await axios.get(Config.API_BASE + "data-nop/project/" + activeCatID)
       .then(function (response) {
-        //console.log('Cat ID: ', activeCatID);
-        //console.log('Data: ', response.data);
         setPostCountData(response.data);
       })
     }
@@ -86,14 +80,8 @@ const Portfolio = () => {
   const handleShow = () => setShow(true);
   const onClick = (aCatID, start_From) => { 
     if (aCatID) {
-      console.log(aCatID);
-      console.log(start_From);
-      console.log("Active Cat ID", aCatID);
-      console.log("Start Form", startFrom);
       setActiveCatID(aCatID);
       setStartFrom(start_From);
-      console.log("Active Cat ID", aCatID);
-      console.log("Start Form", startFrom);
     }
     
   } 
