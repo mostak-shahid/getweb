@@ -2,11 +2,8 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import React, { Component } from "react";
 import OwlCarousel from 'react-owl-carousel';
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick-theme.css";
-// import "slick-carousel/slick/slick.css";
-import goArrow from "../../assets/images/goArrow-iocn.svg";
 import Config from '../../Config.json';
+import PortfolioUnit from '../../Page/Portfolio/PortfolioUnit/PortfolioUnit';
 import "./PortfolioSlider.scss";
 
 
@@ -79,18 +76,6 @@ export default class MultipleRows extends Component {
                     items:3,
                 }
             }
-
-            /*className: "center",
-            centerMode: true,
-            infinite: true,
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            // rows: 2,
-            dots: false,
-            arrows: false,
-            speed: 3000,
-            autoplay: true,
-            autoplaySpeed: 2500,*/
         };
 
         const {portfolioData} = this.state;        
@@ -99,35 +84,13 @@ export default class MultipleRows extends Component {
             <div className="slider-wrapper">
                 <OwlCarousel className='owl-theme'  {...settings}>
                     {
-                        (portfolioData.length)?
+                        (portfolioData.length) && 
                         portfolioData.map((item, index) => (
                             <div className="item item-wrapper" key={index}>
-                                <div className="portSliderItem" key={item[0].id}>
-                                    <div className="portSliderImg position-relative">
-                                        <div className="overLay"></div>
-                                        <img src={item[0].image} alt={item[0].title} />
-                                        <div className="afterHover">
-                                            <a href="#" className="goArrow position-absolute bottom-50 start-50">
-                                                <img src={goArrow} alt="go icon" />
-                                            </a>
-                                            <a href="#" className="portTitle fs-6 fw-bold text-white position-absolute bottom-0 start-0 p-4 mb-0 text-decoration-none"  dangerouslySetInnerHTML = {{__html: item[0].title}}></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="portSliderItem" key={item[1].id}>
-                                    <div className="portSliderImg position-relative">
-                                        <div className="overLay"></div>
-                                        <img src={item[1].image} alt={item[1].title} />
-                                        <div className="afterHover">
-                                            <a href="#" className="goArrow position-absolute bottom-50 start-50">
-                                                <img src={goArrow} alt="go icon" />
-                                            </a>
-                                            <a href="#" className="portTitle fs-6 fw-bold text-white position-absolute bottom-0 start-0 p-4 mb-0 text-decoration-none"  dangerouslySetInnerHTML = {{__html: item[1].title}}></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div className="portSliderItem"><div className="portSliderImg"><PortfolioUnit data={item[0]}/></div></div>
+                                <div className="portSliderItem"><div className="portSliderImg"><PortfolioUnit data={item[1]}/></div></div>                                
                             </div>
-                        )):''
+                        ))
                     }
                 </OwlCarousel>
                 {

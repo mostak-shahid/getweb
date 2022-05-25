@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 // import FormApi from "../../Components/Form/FormApi";
 // import FormValidation from "../../Components/Form/FormValidation";
 import MainComponent from "../../Components/MainComponent/MainComponent";
@@ -23,7 +24,7 @@ const Contact = () => {
         <>
         {
             loading?
-            <div className="textClrGreen text-center">loading...</div>:
+            <Loading />:
             pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
                 <MainComponent data={item} key={index} />    
                 //<div key={index}>{item._mosacademy_page_group_title_text}</div>                    

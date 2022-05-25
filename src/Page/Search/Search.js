@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import BlogBannerBg from '../../assets/images/blogBg.png';
 import SingleBlogItems from '../../Components/BlogUpdate/SingleBlogItems';
+import Loading from '../../Components/Loading/Loading';
 import SubPageBanner from '../../Components/SubPageBanner/SubPageBanner';
 import Config from "../../Config.json";
 const Search = (props) => {
@@ -72,7 +73,7 @@ const Search = (props) => {
   return (
     
       loading ? 
-      <div className="textClrGreen text-center">loading...</div> : 
+      <Loading /> : 
       <>
       <SubPageBanner tagline={tagline} title={title} intro={intro} bgImg={bgImg} /> 
       <section className="blogWrapper secPadding">

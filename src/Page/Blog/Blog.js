@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 import SingleBlogItems from "../../Components/BlogUpdate/SingleBlogItems";
+import Loading from "../../Components/Loading/Loading";
 import MainComponent from "../../Components/MainComponent/MainComponent";
 import Pagination from "../../Components/Pagination/Pagination";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
@@ -72,7 +73,7 @@ export default class Blog extends Component {
         
         //console.log("Categories: ", this.state.categoriesData)
         if (this.state.loading) {
-            return <div className="textClrGreen text-center">loading...</div>;
+            return <Loading />;
         }
         if (!this.state.postData || !this.state.pageData ) {
             return <div>Didn't get data from API</div>;

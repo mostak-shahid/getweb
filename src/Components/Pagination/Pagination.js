@@ -19,7 +19,7 @@ const Pagination = (props) => {
     return (
         <div className="pagination-box">
             <nav>
-                <ul className="pagination justify-content-center gap-3 mb-0 py-5 ">
+                <ul className="pagination justify-content-center gap-3">
                     {
                         props.startFrom!==0 &&
                         <li className="page-item">
