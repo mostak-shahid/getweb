@@ -99,12 +99,12 @@ const Portfolio = () => {
     //const res = await axios.get('https://checkip.amazonaws.com/')
     const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
     //const res = await axios.get("https://api.ipify.org");
-    console.log(res.data);
-    setIP(res.data.IPv4);
+    console.log(res);
+    //setIP(res.data.IPv4);
   };
   useEffect(() => {
     getIP();
-  }, [ip]);
+  }, []);
 
 
   //console.log(startFrom);
