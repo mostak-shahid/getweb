@@ -5,7 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import OwlCarousel from "react-owl-carousel";
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import appreciate from "../../assets/images/appriciate.svg";
 import companyLogo from "../../assets/images/companyLogo.svg";
@@ -104,7 +104,7 @@ const Portfolio = () => {
     await axios.get("https://api.ipify.org")
     .then(function (response) {
       setIP(response.data);
-      toast('Success');
+      toast.success('Success');
       console.log(response.data);
     })
     .catch(function (error) {
@@ -292,7 +292,7 @@ const Portfolio = () => {
             <MainComponent data={item} key={index} />                        
           ))
         }
-
+  <ToastContainer />
     </>
   );
 };
