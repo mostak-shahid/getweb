@@ -1,9 +1,6 @@
-import "animate.css/animate.css";
 import axios from "axios";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+import { Modal } from "bootstrap";
 import React, { useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
 import OwlCarousel from "react-owl-carousel";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,170 +9,158 @@ import companyLogo from "../../assets/images/companyLogo.svg";
 import companyRightLogo from "../../assets/images/getwebRightLogo.png";
 import like from "../../assets/images/like.svg";
 import preview from "../../assets/images/preview.svg";
-import Loading from "../../Components/Loading/Loading";
-import MainComponent from "../../Components/MainComponent/MainComponent";
-import Pagination from "../../Components/Pagination/Pagination";
-import PortfolioComponentModal from "../../Components/Portfolio/PortfolioComponentModal";
-import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
-import "./Portfolio.scss";
-import PortfolioUnit from "./PortfolioUnit/PortfolioUnit";
-const Portfolio = () => {
-  const [categories, setCategories] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [activeCatID, setActiveCatID] = useState(0);
-  const [startFrom, setStartFrom] = useState(0);
-  const [postCountData, setPostCountData] = useState(0);
-  //const [postPerPage, setPostPerPage] = useState(4);
-  const [ip, setIP] = useState("");
-  const [loading, setLoading] = useState(true);
-  const postPerPage = 8;
-  const [pageData,setPageData]=useState([]);
+import PortfolioUnit from "../../Page/Portfolio/PortfolioUnit/PortfolioUnit";
+import Loading from "../Loading/Loading";
+import Pagination from "../Pagination/Pagination";
+import PortfolioComponentModal from "./PortfolioComponentModal";
+const PortfolioTab = (props) => {
+    const [projects, setProjects] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [activeCatID, setActiveCatID] = useState(0);
+    const [startFrom, setStartFrom] = useState(0);
+    const [ip, setIP] = useState("");
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [postCountData, setPostCountData] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const postPerPage = 8;
 
-
-  useEffect(()=>{
-    const url = Config.API_BASE + "data-single/" + Config.PORTFOLIO_ID;//api url
-    fetch(url).then(resp=>resp.json())//calling url by method GET
-    .then(resp=>setPageData(resp))//setting response to state posts
-    //.then(setLoading(false))
-  },[]);
-
-  useEffect(() => {
-    axios
-      .get(Config.API_BASE + "data-taxonomies/project_category")
-      .then(function (response) {
-        setCategories(response.data);
-        setActiveCatID(response.data[0].term_id);
-      })
-      .catch(function (error) {
-        console.log("Error: ", error);
-      });
-  }, []);
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get(
-          Config.API_BASE +
-            "data-list/project/" +
-            activeCatID +
-            "/" +
-            startFrom +
-            "/" +
-            postPerPage
-        )
+    useEffect(() => {
+        axios
+        .get(Config.API_BASE + "data-taxonomies/project_category")
         .then(function (response) {
-          setProjects(response.data);
+            setCategories(response.data);
+            setActiveCatID(response.data[0].term_id);
+        })
+        .catch(function (error) {
+            console.log("Error: ", error);
+        });
+    }, []);
+    useEffect(() => {
+        async function fetchData() {
+            await axios
+            .get(
+                Config.API_BASE +
+                "data-list/project/" +
+                activeCatID +
+                "/" +
+                startFrom +
+                "/" +
+             postPerPage
+            )
+            .then(function (response) {
+                setProjects(response.data);
+            });
+        }
+        activeCatID && fetchData();
+    }, [activeCatID, startFrom]);
+
+    
+    useEffect(() => {
+        async function fetchData() {
+            await axios
+            .get(Config.API_BASE + "data-nop/project/" + activeCatID)
+            .then(function (response) {
+                setPostCountData(response.data);
+            });
+        }
+        activeCatID && fetchData();
+    }, [activeCatID]);
+  
+    useEffect(() => {
+        if (categories.length !== 0 && projects !== 0) {
+            setLoading(false);
+        }
+    }, [categories, projects]);
+
+    const onClick = (aCatID, start_From) => {
+        if (aCatID) {
+            setActiveCatID(aCatID);
+            setStartFrom(start_From);
+        }
+    };
+
+    const likeFunctionality = async (id) => {
+        await axios.get(Config.API_BASE + "post-like/" + ip + "/" + id)
+        .then(function (response) {
+            console.log(response.data.req.data.message);
+        })
+        .catch(function (error) {
+            console.log("Error: ", error);
         });
     }
-    activeCatID && fetchData();
-  }, [activeCatID, startFrom]);
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get(Config.API_BASE + "data-nop/project/" + activeCatID)
+
+    const getIP = async () => {
+        //const res = await axios.get('https://checkip.amazonaws.com/')
+        //const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
+        await axios.get("https://api.ipify.org")
         .then(function (response) {
-          setPostCountData(response.data);
+            setIP(response.data);
+            toast('Success');
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            toast.error(error);
+            console.log("Error: ", error);
         });
-    }
-    activeCatID && fetchData();
-  }, [activeCatID]);
+    };
+    useEffect(() => {
+        getIP();
+    }, []);
 
-  useEffect(() => {
-    if (pageData.length !== 0 && categories.length !== 0 && projects !== 0) {
-      setLoading(false);
-    }
-  }, [categories, projects, pageData]);
-
-
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const onClick = (aCatID, start_From) => {
-    if (aCatID) {
-      setActiveCatID(aCatID);
-      setStartFrom(start_From);
-    }
-  };
-  const getIP = async () => {
-    //const res = await axios.get('https://checkip.amazonaws.com/')
-    //const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
-    await axios.get("https://api.ipify.org")
-    .then(function (response) {
-      setIP(response.data);
-      toast('Success');
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      toast.error(error);
-    });
-  };
-  useEffect(() => {
-    getIP();
-  }, []);
-
-  const likeFunctionality = async (id) => {
-    await axios.get(Config.API_BASE + "post-like/" + ip + "/" + id)
-    .then(function (response) {
-      console.log(response.data.req.data.message);
-    })
-    .catch(function (error) {
-      console.log("Error: ", error);
-    });
-  }
-  const settings = {
-    loop: true,
-    margin: 30,
-    nav: true,
-    dots: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    smartSpeed: 2500,
-    items: 1,
-  };
-  return loading ? (
-    <Loading />
-  ) : (
-    <>
-        <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} /> 
-        <div className="portfolio secPadding">
-          <div className="container-fluid">
+    const settings = {
+        loop: true,
+        margin: 30,
+        nav: true,
+        dots: false,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        smartSpeed: 2500,
+        items: 1,
+    };
+    const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='',_mosacademy_page_banner_button} = props.data;
+    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
+    return loading ? 
+        <Loading /> : 
+        <>
             <div className="row">
-              <div className="col-12">
-                <h3 className="fs-48 fw-normal mb-3 text-center">
-                  Our <span className="fw-bold">portfolios</span>
-                </h3>
+                <div className={[widthClass, orderClass].join(' ')}>
+                <h3 className="fs-48 fw-normal mb-3 text-center"  dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}} /> 
+            </div>
+            <div className={[widthClass].join(' ')}>
                 <hr />
                 {categories.length && (
-                  <ul>
+                    <ul>
                     {categories.map((item, index) => (
-                      <li
+                        <li
                         className={[
                           "portfolioMenu",
                           item.term_id === activeCatID && "active",
                         ].join(" ")}
                         key={index}
                         onClick={() => onClick(item.term_id, 0)}
-                      >
+                        >
                         {item.name}
-                      </li>
+                        </li>
                     ))}
-                  </ul>
-                )}
+                    </ul>
+                )} 
                 <div className="portfolio-wrapper">
-                  {projects.map((item, index) => (
+                {projects.map((item, index) => (
                     <div
                       className="portfolio-item"
                       key={index}
                       onClick={handleShow}
                     >
-                      <PortfolioUnit data={item} />
+                        <PortfolioUnit data={item} />
                     </div>
-                  ))}
+                ))}
                 </div>
                 {Math.ceil(postCountData / postPerPage) > 1 && (
-                  <>
+                <>
                     <div className="bottom-border"></div>
                     <Pagination
                       data={Math.ceil(postCountData / postPerPage)}
@@ -183,7 +168,7 @@ const Portfolio = () => {
                       startFrom={startFrom}
                       startFromChange={(value) => onClick(activeCatID, value)}
                     />
-                  </>
+                </>
                 )}
               </div>
             </div>
@@ -284,17 +269,9 @@ const Portfolio = () => {
                 </OwlCarousel>
               </Modal.Body>
             </Modal>
-          </div>
           <PortfolioComponentModal />
-        </div>           
-        {
-          pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-            <MainComponent data={item} key={index} />                        
-          ))
-        }
+        </>   
+    
+}
 
-    </>
-  );
-};
-
-export default Portfolio;
+export default PortfolioTab

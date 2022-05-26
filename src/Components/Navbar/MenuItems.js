@@ -38,24 +38,27 @@ const MenuItems = ({items,depthLevel, menuOpen, menuOpenToggle}) => {
         e.target.parentElement.classList.toggle('open-menu-below');
     }, []);
     const linkClick = useCallback((e) => {
-        e.target.closest(".navbar").querySelector(".navbar-collapse").classList.toggle("show");
+        //console.log('clicked');
+        //button, navbar-toggler collapsed / navbar-toggler 
+        //navbar-collapse collapse / show navbar-collapse collapse
         e.target.closest(".navbar").querySelector(".navbar-toggler").classList.toggle("collapsed");
+        e.target.closest(".navbar").querySelector(".navbar-collapse").classList.toggle("show");
     }, []);
 
     return ( 
         /*<li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >*/
-        <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref} onClick={(event)=>menuOpenToggle(!menuOpen)}>
-            {items.image? <img src={items.image} className="menu-image" /> :''}
+        <li className={['menu-items', items.class.join(' ')].join(' ')} ref={ref}>
+            {items.image && <img src={items.image} className="menu-image" alt="" />}
             {   
                 items.submenu && (items.submenu.length || Object.values(items.submenu).length) ? ( 
                     <>
-                        <NavLink className="menu-item-link" to={items.url} >{items.title}</NavLink>
+                        <NavLink className="menu-item-link" to={items.url} /*onClick={linkClick}*/ onClick={(event)=>menuOpenToggle(!menuOpen)} >{items.title}</NavLink>
                         <span className={depthLevel > 0 ? "right-arrow" : "down-arrow" } onClick={handleClick}></span>
                         <div className="dropdown-container"><Dropdown depthLevel={depthLevel} submenus={items.submenu} dropdown={dropdown} /></div> 
                     </>
                 ) : (
                     <>
-                        <NavLink className="menu-item-link" to={items.url} activeclassname="active"> {items.title} </NavLink>
+                        <NavLink className="menu-item-link" to={items.url} activeclassname="active" onClick={(event)=>menuOpenToggle(!menuOpen)}> {items.title} </NavLink>
                     </>
                 )
             } 

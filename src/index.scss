@@ -311,3 +311,29 @@ img {
     }
   }
 }
+.owl-carousel {
+  .owl-nav {
+    margin-top: 0;
+    button.owl-prev {
+      background-image: url("./assets/images/arrow-left.png");
+      &:hover {
+        background-image: url("./assets/images/arrow-left-hover.png");
+      }
+    }
+    button.owl-next {
+      background-image: url("./assets/images/arrow-right.png");
+      &:hover {
+        background-image: url("./assets/images/arrow-right-hover.png");
+      }
+    }
+    button.owl-prev,
+    button.owl-next {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      text-indent: -9999px;
+      background-color: transparent;
+    }
+  }
+}

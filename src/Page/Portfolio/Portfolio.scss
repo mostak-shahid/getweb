@@ -118,32 +118,15 @@
         .owl-nav {
           margin-top: 0;
           button.owl-prev {
-            //left: 0;
             left: calc(calc((100% - 1200px) / 2) - 90px);
-            background-image: url("../../assets/images/arrow-left.png");
-            &:hover {
-              background-image: url("../../assets/images/arrow-left-hover.png");
-            }
           }
           button.owl-next {
-            //right: 0;
             right: calc(calc((100% - 1200px) / 2) - 90px);
-            background-image: url("../../assets/images/arrow-right.png");
-            &:hover {
-              background-image: url("../../assets/images/arrow-right-hover.png");
-            }
           }
           button.owl-prev,
           button.owl-next {
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
             position: fixed;
-            color: #ffffff;
             top: calc(100vh - 60px);
-            font-size: 30px;
-            line-height: 15px;
-            text-indent: -9999px;
           }
         }
       }

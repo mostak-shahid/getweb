@@ -3,19 +3,17 @@ import React, { Component } from 'react';
 import { useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
 import Config from '../../Config.json';
-import ReadyToMove from '../ReadyToMove/ReadyToMove';
+import MainComponent from '../MainComponent/MainComponent';
 import JobDetailsBanner from '../SubPageBanner/JobDetailsBanner';
 import SuccessfulModal from '../SuccessfulModal/SuccessfulModal';
 import "./JobApplication.scss";
-//import axios from 'axios';
-//import Config from '../../Config.json';
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()} />;
 }
 
 class JobApplication extends Component {    
-    UPLOAD_ENDPOINT = 'http://mdshahalam.design/getwebapi/wp-json/mos-getweb-api/v1/job-apply';
+    UPLOAD_ENDPOINT = Config.API_BASE + 'job-apply';
     //UPLOAD_ENDPOINT = Config + 'job-apply';
     //UPLOAD_ENDPOINT = 'http://api.getweb.localhost/api-uploads.php';
     constructor(props) {
@@ -49,15 +47,22 @@ class JobApplication extends Component {
         //console.log(slug);
         this.setState({ 
             job_id: slug,
+            pageData: [],
         });
         await axios.get(Config.API_BASE + "data-list/job/0")
         .then(res => {
             //const persons = res.data;
             this.setState({ 
-                jobs: res.data,
-                loading: false
+                jobs: res.data
             });
-        })
+        });        
+        const url = Config.API_BASE + "data-single/" + Config.JOB_APPLICATION_ID;
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({ 
+            pageData: data, 
+            loading: false,
+        });
     }
     async onSubmit(e){
         e.preventDefault();        
@@ -168,10 +173,10 @@ class JobApplication extends Component {
         if (!this.state.jobs) {
             return <div>Didn't get data from API</div>;
         }
+        console.log(this.state.pageData);
         return (
             <>         
-                <JobDetailsBanner title="Job Application Form" content="Working with our clients' point of contact to build low and high-fidelity website wireframes that utilize the most effective strategies and remain within the goals
-                                        of our client."/>
+                <JobDetailsBanner title={this.state.pageData.meta._mosacademy_page_banner_title} content={this.state.pageData.meta._mosacademy_page_banner_intro}/>
                 <section className="JobApplicationForm secPadding">                
                     <div className="container">
                         <div className="row">
@@ -251,8 +256,12 @@ class JobApplication extends Component {
                             </div>
                         </div>
                     </div>
-                </section>            
-                <ReadyToMove />
+                </section>                     
+            {
+            this.state.pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
+                <MainComponent data={item} key={index} />                        
+            ))
+            }
             </>
         )
     }

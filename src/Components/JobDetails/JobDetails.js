@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Config from "../../Config.json";
 import Button from "../Button/Button";
-import ReadyToMove from "../ReadyToMove/ReadyToMove";
+import MainComponent from "../MainComponent/MainComponent";
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
 import "./JobDetails.scss";
 
@@ -15,9 +15,9 @@ const JobDetails = () => {
         const url = Config.API_BASE + "data-single/" + params.slug;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setPageData(resp))//setting response to state posts
-    },[]); 
+    },[params.slug]); 
     useEffect(()=>{
-        const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
+        const url = Config.API_BASE + "data-single/" + Config.SINGLE_JOB_ID;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setJobPageData(resp))//setting response to state posts
     },[]);   
@@ -127,8 +127,12 @@ const JobDetails = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <ReadyToMove />
+            </div>            
+            {
+            jobPageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
+                <MainComponent data={item} key={index} />                        
+            ))
+            }
         </div>
         </>
     );

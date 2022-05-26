@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 import SingleBlogItems from "../../Components/BlogUpdate/SingleBlogItems";
 import Loading from "../../Components/Loading/Loading";
 import MainComponent from "../../Components/MainComponent/MainComponent";
@@ -7,19 +8,35 @@ import Pagination from "../../Components/Pagination/Pagination";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import "./Blog.scss";
+const withNavigateHook = (Component) => {
+    return (props) => {
+        const navigation = useNavigate();
 
-export default class Blog extends Component {
-    state = {
-        loading: true,
-        postData: null,
-        postCountData: 0,
-        pageData: null,
-        categoriesData: null,
-        dataList: 'data-list',
-        categoryId: 0,
-        startFrom: 0,
-        postPerPage: 6,
+        return <Component navigation={navigation} {...props} />
+    }
+}
+class Blog extends Component {       
+    //const navigate = useNavigate(); 
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            postData: null,
+            postCountData: 0,
+            pageData: null,
+            categoriesData: null,
+            dataList: 'data-list',
+            categoryId: 0,
+            startFrom: 0,
+            postPerPage: 6,
+            value:''
+        };
+        
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
+    
 
     async componentDidMount() {
 
@@ -63,12 +80,18 @@ export default class Blog extends Component {
             loading: false,
         });
         //console.log(postCountResponse);
+    }   
+
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }    
+    handleSubmit(event) {
+        /*alert('A name was submitted: ' + this.state.value);*/
+        event.preventDefault();
+        this.props.navigation('/search/' + this.state.value);
     }
-    constructor(props) {
-        super(props);
-        //console.log(props);
-    };
-    
+
     render() {
         
         //console.log("Categories: ", this.state.categoriesData)
@@ -102,19 +125,20 @@ export default class Blog extends Component {
                                             </Form.Select>
                                         </div>
                                         <div className="singleFilter">
-                                            <Form.Select className="bg-transparent h-52 rounded-pill px-4">
-                                                <option>Last 7 day’s</option>
-                                                <option value="1">Last Month</option>
-                                                <option value="2">Last year</option>
+                                            <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
+                                                <option value="0">Select One</option>
+                                                <option value="week">Last 7 day’s</option>
+                                                <option value="month">Last Month</option>
+                                                <option value="year">Last year</option>
                                             </Form.Select>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-xl-6">
                                     <div className="searchInput">
-                                        <form>
+                                        <form onSubmit={this.handleSubmit}>
                                             <Form.Group className="d-flex justify-content-end" controlId="exampleForm.ControlInputSearch">
-                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill w-50" />
+                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill w-50" onChange={this.handleChange} value={this.state.value} />
                                             </Form.Group>
                                         </form>
                                     </div>
@@ -131,7 +155,7 @@ export default class Blog extends Component {
                                             <SingleBlogItems data={item} />
                                         </div>
                                     ))
-                                    : <div className="textClrGreen text-center">loading...</div>
+                                    : <div className="textClrGreen text-center">No Post Found</div>
                                 }
                             </div>
                         </div>
@@ -150,3 +174,4 @@ export default class Blog extends Component {
         );
     }
 }
+export default withNavigateHook(Blog);

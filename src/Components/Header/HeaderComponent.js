@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
+//import { Navbar } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import Config from '../../Config.json';
 import Navigation from '../Navigation/Navigation';
@@ -9,8 +9,7 @@ export default class HeaderComponent extends Component {
         loading: true,
         optionData: null,
         menuData: null,
-        menuOpen: false,
-        name: 'Mostak'
+        menuOpen: false
     };
     
     async componentDidMount() {
@@ -44,6 +43,7 @@ export default class HeaderComponent extends Component {
         const menuAlter = () => {
             return this.setState({menuOpen: !menuOpen})
         }
+        //console.log(this.state.menuOpen);
         return (
             <header className='main-header position-absolute top-0 start-0 w-100 zindex-fixed'>
                 <div className="wrapper d-flex justify-content-between align-items-center">
@@ -51,13 +51,21 @@ export default class HeaderComponent extends Component {
                         <NavLink to="/" onClick={() => this.setState({menuOpen:false})}><img src={optionData.logo.url} alt="logo" /></NavLink>
                     </div>
                     <div className="menu-area position-static position-xl-relative">
-                        <Navbar expand="xl" className='position-static position-xl-relative'>
-                            {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
+                        <div className="position-static position-xl-relative navbar navbar-expand-xl navbar-light">
+                            <button className={['navbar-toggler', !this.state.menuOpen?'collapsed':''].join(' ')} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={menuAlter}>
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className={["collapse navbar-collapse", this.state.menuOpen && 'show'].join(' ')} id="navbarSupportedContent">
+                            {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} menuOpen={menuOpen} menuOpenToggle={(value) => this.setState({menuOpen:value})} />}
+                            </div>
+                        </div>
+                        {/*<Navbar expand="xl" className='position-static position-xl-relative'>
+                            {// <Navbar.Toggle aria-controls="basic-navbar-nav" /> }
                             <button type="button" className={['navbar-toggler', !this.state.menuOpen?'collapsed':''].join(' ')} onClick={menuAlter}><span className="navbar-toggler-icon"></span></button>
                             <Navbar.Collapse id="basic-navbar-nav" className={this.state.menuOpen && 'show'}>
                                 {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} menuOpen={menuOpen} menuOpenToggle={(value) => this.setState({menuOpen:value})} />}
                             </Navbar.Collapse>
-                        </Navbar>                        
+                        </Navbar>*/}                        
                     </div>
                     <div className="button-area d-none d-xl-block">
                         <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">Request a Quote</NavLink>

@@ -4,7 +4,7 @@ import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import Loading from "../../Components/Loading/Loading";
 const About = (props) => {    
-    const [pageData,setPageData]=useState([])
+    const [pageData,setPageData]=useState([]);
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
         const url = Config.API_BASE + "data-single/" + Config.ABOUT_ID;//api url

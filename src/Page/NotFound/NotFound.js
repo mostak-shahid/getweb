@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import BlogBannerBg from '../../assets/images/blogBg.png';
 import SubPageBanner from '../../Components/SubPageBanner/SubPageBanner';
 //import { Navigate } from 'react-router-dom'
 const NotFound = () => {
-  let navigate = useNavigate();
+  /*let navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
       navigate("/");
     }, 3000);
-  }, [navigate]);
+  }, [navigate]);*/
 
   const tagline = "Page Not Found";
   const title = "<strong>Oops!</strong> We're sorry,";

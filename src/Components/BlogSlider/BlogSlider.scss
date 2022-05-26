@@ -6,20 +6,8 @@
     }
   }
   .owl-theme .owl-nav [class*="owl-"] {
-    text-align: center;
-    width: 40px;
-    line-height: 40px;
-    font-size: 25px;
-    color: #ffffff;
-    background-color: #2e2f32;
-    border-radius: 20px;
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    &:hover {
-      color: var(--clr-theme-dark);
-      background-color: var(--clr-green);
-    }
     @media (max-width: 991px) {
       position: initial;
       transform: translateY(0);
