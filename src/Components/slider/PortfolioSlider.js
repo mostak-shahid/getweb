@@ -6,12 +6,17 @@ import Config from '../../Config.json';
 import PortfolioUnit from '../../Page/Portfolio/PortfolioUnit/PortfolioUnit';
 import "./PortfolioSlider.scss";
 
-
 export default class MultipleRows extends Component {
-    state = {
-        loading: true,
-        portfolioData: null,
-    };
+
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            portfolioData: null,
+        };
+    }
+    
     
     async componentDidMount() {
 
@@ -26,7 +31,7 @@ export default class MultipleRows extends Component {
         var n = 0;
         
         portfolioOutput = portfolioResponse.map((item, index) => {
-            if (n == 2){
+            if (n === 2){
                 newArr.push(tempArr);
                 n = 0;
                 m++;
@@ -42,11 +47,6 @@ export default class MultipleRows extends Component {
             loading: false,
         });
         //console.log(this.state.portfolioData);
-    }
-
-    constructor(props) {
-        super(props);
-        //console.log(props);
     }
     render() {
         if (this.state.loading) {

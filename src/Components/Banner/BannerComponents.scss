@@ -32,10 +32,10 @@
   }
 }
 .bannerContent {
-  min-height: calc(100vh - 68px);
+  padding-top: 130px;
+  padding-bottom: 110px;
   z-index: 20;
   .content {
-    padding-top: 5vw;
     padding-bottom: 30px;
   }
   .gw-btn {
@@ -67,6 +67,10 @@
         }
       }
     }
+  }
+  @media (min-width: 768px) {
+    padding-top: 15.625vw;
+    padding-bottom: 13vw;
   }
 }
 .trustedWrapper {

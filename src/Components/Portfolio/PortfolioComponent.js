@@ -4,11 +4,11 @@ import MultipleRows from "../slider/PortfolioSlider";
 
 //const PortfolioComponent = () => {
 export default class PortfolioComponent extends Component {
-    state = {
-        loading: false,
-    };
     constructor(props) {
         super(props);
+        this.state = {
+            loading: false,
+        };
         //console.log(props);
     }
     render() {

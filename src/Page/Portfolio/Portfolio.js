@@ -15,7 +15,6 @@ import preview from "../../assets/images/preview.svg";
 import Loading from "../../Components/Loading/Loading";
 import MainComponent from "../../Components/MainComponent/MainComponent";
 import Pagination from "../../Components/Pagination/Pagination";
-import PortfolioComponentModal from "../../Components/Portfolio/PortfolioComponentModal";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import "./Portfolio.scss";
@@ -31,7 +30,17 @@ const Portfolio = () => {
   const [loading, setLoading] = useState(true);
   const postPerPage = 8;
   const [pageData,setPageData]=useState([]);
-
+  const [settings, setSettings] = useState({
+    loop: true,
+    margin: 30,
+    nav: true,
+    dots: false,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    smartSpeed: 2500,
+    items: 1,
+    startPosition: 0
+  });
 
   useEffect(()=>{
     const url = Config.API_BASE + "data-single/" + Config.PORTFOLIO_ID;//api url
@@ -91,7 +100,21 @@ const Portfolio = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (index) => {
+    setSettings({
+      loop: true,
+      margin: 30,
+      nav: true,
+      dots: false,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      smartSpeed: 2500,
+      items: 1,
+      startPosition: index
+    });
+    setShow(true);
+
+  }
   const onClick = (aCatID, start_From) => {
     if (aCatID) {
       setActiveCatID(aCatID);
@@ -124,16 +147,7 @@ const Portfolio = () => {
       console.log("Error: ", error);
     });
   }
-  const settings = {
-    loop: true,
-    margin: 30,
-    nav: true,
-    dots: false,
-    autoplayTimeout: 4000,
-    autoplayHoverPause: true,
-    smartSpeed: 2500,
-    items: 1,
-  };
+
   return loading ? (
     <Loading />
   ) : (
@@ -168,7 +182,7 @@ const Portfolio = () => {
                     <div
                       className="portfolio-item"
                       key={index}
-                      onClick={handleShow}
+                      onClick={() => handleShow(index)}
                     >
                       <PortfolioUnit data={item} />
                     </div>
@@ -196,7 +210,7 @@ const Portfolio = () => {
               <Modal.Body className="p-0">
                 <OwlCarousel className="owl-theme" {...settings}>
                   {projects.map((item, index) => (
-                    <div className="item" key={index} onClick={handleShow}>
+                    <div className="item" key={index}>
                       <div className="modal-body-top d-flex align-items-center gap-3">
                         <img
                           src={companyLogo}
@@ -285,7 +299,6 @@ const Portfolio = () => {
               </Modal.Body>
             </Modal>
           </div>
-          <PortfolioComponentModal />
         </div>           
         {
           pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (

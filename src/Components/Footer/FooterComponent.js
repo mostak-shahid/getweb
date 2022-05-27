@@ -1,5 +1,6 @@
 import 'font-awesome/css/font-awesome.min.css';
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Config from '../../Config.json';
 import Navigation from '../Navigation/Navigation';
 import './FooterComponent.scss';
@@ -40,7 +41,7 @@ export default class FooterComponent extends Component {
                 <div className='contactUs isBgBorder pt-120 pb-72'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-lg-4 col-sm-6 text-center text-sm-start'>
+                            <div className='col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center text-sm-start'>
                                 <div className='contacts'>
                                     <p className='textClrGray fs-14 fw-medium mb-2'>
                                         Want to collaborate?
@@ -50,7 +51,7 @@ export default class FooterComponent extends Component {
                                     </a>
                                 </div>
                             </div>
-                            <div className='col-lg-4 col-sm-6 text-center text-sm-start'>
+                            <div className='col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center text-sm-start'>
                                 <div className='contacts'>
                                     <p className='textClrGray fs-14 fw-medium mb-2'>
                                         Want to join us?
@@ -77,14 +78,14 @@ export default class FooterComponent extends Component {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-xl-4 text-center text-sm-start mb-4'>
-                                <div className='widget'>
-                                    <div className='footerLogo mb-4'>
-                                        <a href='#'>
+                                <div className='widget row'>
+                                    <div className='footerLogo mb-4 col-12 col-md-12 col-lg-12'>
+                                        <NavLink to='/'>
                                             <img src={optionData.logo.url} alt="footerLogo" width="101" height="30" />
-                                        </a>
+                                        </NavLink>
                                     </div>
-                                    <div className='intro textClrGray fs-14 fw-normal mb-4' dangerouslySetInnerHTML={{__html:optionData['sections-footer-content']}}></div>
-                                    <div className='footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4'>
+                                    <div className='intro textClrGray fs-14 fw-normal mb-4 col-12 col-md-12 col-lg-12' dangerouslySetInnerHTML={{__html:optionData['sections-footer-content']}}></div>
+                                    <div className='footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4 col-12 col-md-6 col-lg-12'>
                                         {Object.values(optionData['sections-footer-gallery']).map(( value , index) => {
                                             return (
                                                 <img src={value} key={index} alt="footerSubLogo" />
@@ -93,7 +94,7 @@ export default class FooterComponent extends Component {
                                     </div>
                                     {
                                         (optionData['sections-footer-career'])?                                        
-                                            <div className='Careers'>
+                                            <div className='Careers col-12 col-md-6 col-lg-12 text-left text-md-end text-lg-left'>
                                                 <p className='text-white fs-14 fw-bold'>
                                                     Careers
                                                 </p>

@@ -11,7 +11,9 @@
     .block-part-one {
       padding-left: 1rem;
       .block-title {
-        font-size: 18px !important;
+        margin-bottom: 10px !important;
+        font-size: 14px !important;
+        line-height: 22px;
         position: relative;
         &:before {
           content: "";
@@ -21,6 +23,10 @@
           top: 4px;
           left: -1rem;
           background-color: var(--clr-green);
+        }
+        @media (min-width: 768px) {
+          font-size: 18px !important;
+          line-height: 30px;
         }
       }
     }

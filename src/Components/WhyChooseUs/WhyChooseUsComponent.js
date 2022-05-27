@@ -5,10 +5,16 @@ import MediaBlock from "../MediaBlock/MediaBlock";
 import './WhyChooseUsComponent.scss';
 //const WhyChooseUsComponent = ({data}) => {
 export default class WhyChooseUsComponent extends Component { 
-    state = {
-        loading: true,
-        whyChooseItems: null,
-    };
+
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            whyChooseItems: null,
+        };
+    }
+    
     
     async componentDidMount() {
         //const url = Config.API_BASE + "data-list/step/0/0/4";
@@ -20,11 +26,6 @@ export default class WhyChooseUsComponent extends Component {
             loading: false,
         });
         //console.log(this.state.servicesItems);
-    }
-
-    constructor(props) {
-        super(props);
-        //console.log(props);
     }
     
     render() {
@@ -68,7 +69,7 @@ export default class WhyChooseUsComponent extends Component {
                             whyChooseItems.length &&
                             <div className="row">
                                 {whyChooseItems.map((item, index) => (
-                                    <div className='col-xl-3 col-sm-6' key={index}>
+                                    <div className='col-xl-3 col-6' key={index}>
                                         <MediaBlock data={item}  cls="whyChooseItem p-2"/>
                                     </div>
                                 ))}
