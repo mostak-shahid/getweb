@@ -44,7 +44,7 @@ export default class OurFocusIndustriesComponent extends Component {
             return <div>Didn't get data from API</div>;
         }
         const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
-        const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-last':'';
+        const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
         const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
         return (   
             <div className="row">
@@ -76,7 +76,9 @@ export default class OurFocusIndustriesComponent extends Component {
                                     industryDataOne.map((item, index) => (
                                         <div className='col-4 col-md-3 col-xl-2 industriesItem text-end' key={item.id}>
                                             <div className='icon px-3 py-3 text-center'>
-                                                {(item.featured_image.full)?<img className="d-inline-block mb-4" src={item.featured_image.full} alt={item.title} />:''}
+                                                {(item.featured_image.full) && 
+                                                <div className="wrapper-img"><img className="d-inline-block mb-4" src={item.featured_image.full} alt={item.title} /></div>                                                
+                                                }
                                                 <div className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></div>
                                             </div>
                                         </div>                             

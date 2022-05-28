@@ -103,7 +103,10 @@
       max-width: 100%;
       width: 100%;
       overflow: hidden;
-      img {
+      .wrapper-img {
+        width: 100%;
+        max-width: 100px;
+        margin: 0 auto;
         transition: all 0.2s linear;
       }
     }
@@ -123,11 +126,8 @@
       display: none;
     }
     &:hover {
-      .icon {
-        margin-bottom: 10px !important;
-        img {
-          transform: scale(0.8);
-        }
+      .wrapper-img {
+        padding: 10px;
       }
     }
     @media (min-width: 768px) {
