@@ -33,7 +33,7 @@ const OurMission = (props) => {
                         <div className="OurMissionImg">
                             {
                                 _mosacademy_page_group_freature_image && 
-                                <img className="img-fluid" src={_mosacademy_page_group_freature_image} alt={_mosacademy_page_group_title_text} />
+                                <div className="text-center text-md-start mt-3 mt-md-0"><img className="img-fluid" src={_mosacademy_page_group_freature_image} alt={_mosacademy_page_group_title_text} /></div>
                             }                            
                         </div>
                     </div>
