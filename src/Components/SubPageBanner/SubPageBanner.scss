@@ -21,18 +21,6 @@
       padding: 12.5vw 0;
     }
   }
-  .btn {
-    i {
-      position: relative;
-      right: 10px;
-      transition: all 0.2s linear;
-    }
-    &:hover {
-      i {
-        right: 0;
-      }
-    }
-  }
   &::after {
     position: absolute;
     content: "";

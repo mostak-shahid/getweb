@@ -112,7 +112,7 @@ class Blog extends Component {
                                 All <span className="fw-bold">Resources</span>
                             </h2>
                             <div className="row">
-                                <div className="col-xl-6">
+                                <div className="col-xl-6 mb-4 mb-xl-0">
                                     <div className="filterLeft">
                                         <div className="singleFilter">
                                             <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
@@ -134,11 +134,12 @@ class Blog extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-xl-6">
+                                <div className="col-xl-3"></div>
+                                <div className="col-xl-3">
                                     <div className="searchInput">
                                         <form onSubmit={this.handleSubmit}>
-                                            <Form.Group className="d-flex justify-content-end" controlId="exampleForm.ControlInputSearch">
-                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill w-50" onChange={this.handleChange} value={this.state.value} />
+                                            <Form.Group className="d-flex justify-content-xl-end" controlId="exampleForm.ControlInputSearch">
+                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill" onChange={this.handleChange} value={this.state.value} />
                                             </Form.Group>
                                         </form>
                                     </div>
@@ -162,7 +163,7 @@ class Blog extends Component {
                     </div>
                     {
                         Math.ceil(postCountData / postPerPage) > 1 &&
-                        <Pagination data={Math.ceil(postCountData / postPerPage)} postPerPage={postPerPage} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} />
+                        <div className="mt-5"><Pagination data={Math.ceil(postCountData / postPerPage)} postPerPage={postPerPage} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} /></div>
                     }
                 </section>           
                 {

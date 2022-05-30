@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Config from "../../Config.json";
-
+import "./CompanyBenefits.scss";
 const CompanyBenefits = (props) => {
     const [sectionData,setSectionData]=useState([])
     const [loading,setLoading]=useState(true);
@@ -47,10 +47,10 @@ const CompanyBenefits = (props) => {
                     ?<div className="textClrGreen text-center">loading...</div>
                     :<div className="row">
                         {sectionData.map((item, index) => (
-                            <div className="col-md-4" key={item.id}>
-                                <div className="benifit-item">
+                            <div className="col-md-6 col-xl-4" key={item.id}>
+                                <div className="benifit-item text-center">
                                     {item.image && 
-                                        <img src={item.image} alt="icon" /> 
+                                        <div className="benifit-img"><img src={item.image} alt={item.title} className='img-fluid img-benifit' /></div> 
                                     }
                                     <h6 dangerouslySetInnerHTML={{__html:item.title}}/>
                                 </div>

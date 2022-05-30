@@ -1,7 +1,7 @@
 .filterLeft {
   display: grid;
-  grid-template-columns: 2fr 1fr;
   gap: 30px;
+  grid-template-columns: repeat(1, 1fr);
   .singleFilter {
     .form-select {
       border: 1px solid #4c4d54 !important;
@@ -14,23 +14,7 @@
       }
     }
   }
-}
-_mosacademy_page_banner_button {
-  .form-control {
-    border: 1px solid #4c4d54 !important;
-    font-weight: 500;
-    font-size: 16px;
-    background-repeat: no-repeat;
-    background-position: 20px center;
-    padding-left: 50px;
-    background-image: url("data:image/svg+xml,%3Csvg width='21' height='22' viewBox='0 0 21 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.1875 16.25C12.8119 16.25 15.75 13.3119 15.75 9.6875C15.75 6.06313 12.8119 3.125 9.1875 3.125C5.56313 3.125 2.625 6.06313 2.625 9.6875C2.625 13.3119 5.56313 16.25 9.1875 16.25Z' stroke='%238D8F98' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18.375 18.875L14 14.5' stroke='%238D8F98' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-    &::placeholder {
-      color: #8d8f98 !important;
-    }
-    &:focus {
-      box-shadow: none !important;
-      background-color: rgb(81, 82, 83) !important;
-      font-size: 14px;
-    }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

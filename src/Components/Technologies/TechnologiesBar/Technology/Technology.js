@@ -5,6 +5,7 @@ export default class Technology extends Component {
     constructor(props) {
         super(props);
         //console.log(props);
+        this.state = {};
     }
     render() {
         const {image='', title=''} = this.props.data;

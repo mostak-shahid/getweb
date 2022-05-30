@@ -2,16 +2,22 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import React, { Component } from "react";
 import OwlCarousel from 'react-owl-carousel';
-
 import Config from '../../Config.json';
 import "./TestimonialsSlider.scss";
 
 
+
 export default class MultipleItems extends Component {
-  state = {
-      loading: true,
-      testimonialData: null,
-  };
+
+  constructor(props) {
+      super(props);
+      //console.log(props);
+      this.state = {
+        loading: true,
+        testimonialData: null,
+    };
+  }
+  
   
   async componentDidMount() {
 
@@ -23,11 +29,6 @@ export default class MultipleItems extends Component {
           loading: false,
       });
       //console.log(this.state.testimonialData);
-  }
-
-  constructor(props) {
-      super(props);
-      //console.log(props);
   }
   render() {
     if (this.state.loading) {

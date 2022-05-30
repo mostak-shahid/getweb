@@ -6,11 +6,12 @@ export default class Navigation extends Component {
     constructor(props) {
         super(props);
         //console.log(props.id);
+        this.state = {
+            loading: true,
+            menuData: null,
+        };
     }
-    state = {
-        loading: true,
-        menuData: null,
-    };
+    
     
     async componentDidMount() {        
         const url = Config.API_BASE + "menu/" + this.props.id;

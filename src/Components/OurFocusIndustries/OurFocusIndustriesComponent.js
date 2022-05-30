@@ -6,11 +6,16 @@ import './OurFocusIndustriesComponent.scss';
 
 //const OurFocusIndustriesComponent = () => {
 export default class OurFocusIndustriesComponent extends Component { 
-    state = {
-        loading: true,
-        industryDataOne: null,
-        industryDataTwo: null,
-    };
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            industryDataOne: null,
+            industryDataTwo: null,
+        };
+    }
+    
     
     async componentDidMount() {
         const url1 = Config.API_BASE + "data-list/industry/0/0/12";
@@ -26,11 +31,6 @@ export default class OurFocusIndustriesComponent extends Component {
             loading: false,
         });
         //console.log(this.state.servicesItems);
-    }
-
-    constructor(props) {
-        super(props);
-        //console.log(props);
     }
     
     render() {

@@ -7,14 +7,13 @@ function withParams(Component) {
 }
 
 class Post extends Component {
-    state = {
-        loading: true,
-        postData: null,
-    };
-
     constructor(props) {
         super(props);
         //console.log(props);
+        this.state = {
+            loading: true,
+            postData: null,
+        };
     }
     async componentDidMount() {
 

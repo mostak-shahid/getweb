@@ -5,6 +5,10 @@ body {
   font-family: "Biennale" !important;
   background-color: var(--clr-theme-dark) !important;
   color: #ffffff;
+  font-size: 14px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 :root {
@@ -91,6 +95,15 @@ a {
   @media (min-width: 768px) {
     font-size: 22px;
     line-height: 32px;
+  }
+  @media (min-width: 1200px) {
+  }
+}
+.fs-30 {
+  font-size: 24px !important;
+  line-height: 34px !important;
+  @media (min-width: 768px) {
+    font-size: 30px !important;
   }
   @media (min-width: 1200px) {
   }
@@ -336,12 +349,16 @@ img {
     }
     button.owl-prev,
     button.owl-next {
-      position: absolute;
       width: 40px;
       height: 40px;
       border-radius: 20px;
       text-indent: -9999px;
       background-color: transparent;
     }
+  }
+}
+@media (min-width: 992px) {
+  .w-lg-75 {
+    width: 75% !important;
   }
 }

@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import "./SingleJobPost.scss";
 import Button from "../Button/Button";
+import "./SingleJobPost.scss";
 
 const SingleJobPost = (props) => {
     return (
@@ -10,8 +9,8 @@ const SingleJobPost = (props) => {
             <div className="content-box">
                 <h4 dangerouslySetInnerHTML={{__html: props.data.title}} />
                 <div className="tag">
-                    <p>{props.data?.taxonomy?.job_category[0]?.name}</p>
-                    <p>{props.data?.meta?._mosacademy_job_employment_basis}</p>
+                    <div className="tag-data tag-name">{props.data?.taxonomy?.job_category[0]?.name}</div>
+                    <div className="tag-data tag-position">{props.data?.meta?._mosacademy_job_employment_basis}</div>
                 </div>
             </div>
             

@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import clockIcon from "../../assets/images/clock.svg";
 import locationIcon from "../../assets/images/location-icon.svg";
-import skypeIcon from "../../assets/images/ms_skype.svg";
+import skypeIcon from "../../assets/images/ms_skype.png";
 import phoneIcon from "../../assets/images/phone.svg";
 import { default as secLineShape } from "../../assets/images/secLineShape.svg";
 import Config from "../../Config.json";
@@ -142,8 +142,7 @@ function ContactPageForm(props) {
                         <div className="lineShape">
                             <img src={secLineShape} alt="lineShape" />
                         </div>
-                    </div>
-                    
+                    </div>                    
                     <div className="getInTouch mb-5 mb-xl-0">
                         <div className="row isBgBorder pb-30 mb-30">
                             <div className="col-lg-6">
@@ -212,9 +211,9 @@ function ContactPageForm(props) {
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Skype</h4>
-                                        <div className="address textClrGray fs-14 fw-medium mb-0">                                                
-                                            {(typeof optionData['contact-social'] !== 'undefined') && optionData['contact-social'][3]}
-                                        </div>
+                                        <NavLink to={(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].title} className="address textClrGray fs-14 fw-medium mb-0">                                                
+                                            {(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].title}
+                                        </NavLink>
                                     </div>
                                 </div>
                             </div>

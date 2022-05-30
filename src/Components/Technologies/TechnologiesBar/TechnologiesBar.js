@@ -6,11 +6,11 @@ export default class TechnologiesBar extends Component {
     constructor(props) {
         super(props);
         //console.log(props);
+        this.state = {
+            loading: true,
+            technologiesData: null,
+        };
     }
-    state = {
-        loading: true,
-        technologiesData: null,
-    };
     async componentDidMount() {        
         const url = Config.API_BASE + "data-list/technology/"+ this.props.data.term_id + "/0/10";
         const response = await fetch(url);

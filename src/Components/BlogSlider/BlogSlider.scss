@@ -5,19 +5,27 @@
       margin-top: 30px;
     }
   }
-  .owl-theme .owl-nav [class*="owl-"] {
-    top: 50%;
-    transform: translateY(-50%);
-    @media (max-width: 991px) {
-      position: initial;
-      transform: translateY(0);
+  .owl-theme .owl-nav {
+    margin-top: 30px;
+    text-align: center;
+    .owl-prev {
+      @media (min-width: 1200px) {
+        left: -60px;
+      }
     }
-  }
-  .owl-theme .owl-nav .owl-prev {
-    left: -60px;
-  }
-  .owl-theme .owl-nav .owl-next {
-    right: -60px;
+    .owl-next {
+      @media (min-width: 1200px) {
+        right: -60px;
+      }
+    }
+    @media (min-width: 1200px) {
+      margin-top: 0;
+      [class*="owl-"] {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+    }
   }
   .singleBlog {
     border: 1px solid #202124;

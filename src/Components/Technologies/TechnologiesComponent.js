@@ -10,28 +10,24 @@ import "./TechnologiesComponent.scss";
 
 //const TechnologiesComponent = () => {
 export default class TechnologiesComponent extends Component { 
-    state = {
-        loading: true,
-        taxonomiesData: null,
-    };
-    
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            taxonomiesData: null,
+        };
+    }    
     async componentDidMount() {
-
         const url = Config.API_BASE + "data-taxonomies/technology_catagory";
         const response = await fetch(url);
         const taxonomiesResponse = await response.json();
         //console.log(taxonomiesResponse);
-
         this.setState({ 
             taxonomiesData: taxonomiesResponse,
             loading: false,
         });
         //console.log(this.state.servicesItems);
-    }
-
-    constructor(props) {
-        super(props);
-        //console.log(props);
     }
     render() {
         if (this.state.loading) {

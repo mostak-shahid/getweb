@@ -13,10 +13,15 @@ import "./BlogSlider.scss";
 
 export default class MultipleItems extends Component {
     //Config.API_BASE + "data-list/post/0/0/6
-    state = {
-        loading: true,
-        postData: null,
-    };    
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            postData: null,
+        }; 
+    }
+       
     async componentDidMount() {
 
         const url = Config.API_BASE + "data-list/post/0/0/6";
@@ -27,10 +32,6 @@ export default class MultipleItems extends Component {
             loading: false,
         });
         //console.log(this.state.postData);
-    }
-    constructor(props) {
-        super(props);
-        //console.log(props);
     }
     render() {
         if (this.state.loading) {
