@@ -1,6 +1,7 @@
 {
   "SITE_TITLE": "Sample React App",
   "SITE_DOMAIN": "http://localhost:3000/",
+  "API_BASE": "http://mdshahalam.design/getwebapi/wp-json/mos-getweb-api/v1/",
   "HOME_ID": 82,
   "ABOUT_ID": 358,
   "PORTFOLIO_ID": 493,
