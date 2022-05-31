@@ -1,4 +1,7 @@
 .section-wrapper {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   .part-one {
     .secTagLine {
       color: var(--clr-green);
@@ -18,22 +21,25 @@
         margin-bottom: 1rem;
         font-weight: 400;
         color: #fff;
+        line-height: 1.2;
       }
       h1 {
         font-size: 42px;
-        line-height: 48px;
       }
       h2 {
         font-size: 30px;
-        line-height: 40px;
       }
       h3 {
+        font-size: 26px;
       }
       h4 {
+        font-size: 22px;
       }
       h5 {
+        font-size: 20px;
       }
       h6 {
+        font-size: 18px;
       }
       p {
         color: var(--clr-gray);
@@ -54,23 +60,24 @@
       .secIntro {
         h1 {
           font-size: 56px;
-          line-height: 66px;
         }
         h2 {
           font-size: 48px;
-          line-height: 56px;
         }
         h3 {
+          font-size: 38px;
         }
         h4 {
+          font-size: 30px;
         }
         h5 {
+          font-size: 26px;
         }
         h6 {
+          font-size: 20px;
         }
         p {
           font-size: 1rem;
-          line-height: 26px;
         }
       }
     }
@@ -79,17 +86,14 @@
     .part-one {
       .secTagLine {
         font-size: 1rem;
-        line-height: 26px;
       }
       .secTitle,
       .secIntro {
         h1 {
           font-size: 72px;
-          line-height: 90px;
         }
         h2 {
           font-size: 48px;
-          line-height: 56px;
         }
         h3 {
         }
@@ -100,8 +104,6 @@
         h6 {
         }
         p {
-          font-size: 1rem;
-          line-height: 26px;
         }
       }
     }
