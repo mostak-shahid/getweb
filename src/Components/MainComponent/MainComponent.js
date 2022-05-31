@@ -1,20 +1,20 @@
 import React from 'react';
-import BlogUpdateComponent from "../../Components/BlogUpdate/BlogUpdateComponent";
-import CompanyBenefits from "../../Components/CompanyBenefits/CompanyBenefits";
-import Faq from "../../Components/Faq/Faq";
-import JobOpening from '../../Components/JobOpening/JobOpening';
-import OurAward from "../../Components/OurAward/OurAward";
-import OurFocusIndustriesComponent from "../../Components/OurFocusIndustries/OurFocusIndustriesComponent";
-import OurServicesComponent from "../../Components/OurServices/OurServicesComponent";
-import PortfolioComponent from "../../Components/Portfolio/PortfolioComponent";
-import ReadyToMoveComponent from "../../Components/ReadyToMove/ReadyToMoveComponent";
-import TechnologiesComponent from "../../Components/Technologies/TechnologiesComponent";
-import TestimonialsComponent from "../../Components/Testimonials/TestimonialsComponent";
-import WhoWeAre from "../../Components/WhoWeAre/WhoWeAre";
-import WhyChooseUsComponent from "../../Components/WhyChooseUs/WhyChooseUsComponent";
+import BlogUpdateComponent from "../BlogUpdate/BlogUpdateComponent";
+import CompanyBenefits from "../CompanyBenefits/CompanyBenefits";
 import ContactPageForm from '../ContactPageForm/ContactPageForm';
+import Faq from "../Faq/Faq";
+import JobOpening from '../JobOpening/JobOpening';
+import OurAward from "../OurAward/OurAward";
+import OurFocusIndustriesComponent from "../OurFocusIndustries/OurFocusIndustriesComponent";
 import OurMission from '../OurMission/OurMission';
+import OurServicesComponent from "../OurServices/OurServicesComponent";
 import OurValues from '../OurValues/OurValues';
+import PortfolioComponent from "../Portfolio/PortfolioComponent";
+import ReadyToMoveComponent from "../ReadyToMove/ReadyToMoveComponent";
+import TechnologiesComponent from "../Technologies/TechnologiesComponent";
+import TestimonialsComponent from "../Testimonials/TestimonialsComponent";
+import WhoWeAre from "../WhoWeAre/WhoWeAre";
+import WhyChooseUsComponent from "../WhyChooseUs/WhyChooseUsComponent";
 import "./MainComponent.scss";
 /*
 export default class MainComponent extends Component {

@@ -5,11 +5,14 @@ import MediaBlock from "../MediaBlock/MediaBlock";
 import './OurServicesComponent.scss';
 //const OurServicesComponent = ({data}) => {
 export default class OurServicesComponent extends Component {  
-    state = {
-        loading: true,
-        serviceData: null,
-    };
-    
+    constructor(props) {
+        super(props);
+        //console.log(props);
+        this.state = {
+            loading: true,
+            serviceData: null,
+        };
+    }    
     async componentDidMount() {        
         //const url = Config.API_BASE + "data-list/service/0/0/9";
         const url = Config.API_BASE + "data-list/block/19/0/9";
@@ -20,13 +23,7 @@ export default class OurServicesComponent extends Component {
             loading: false,
         });
         //console.log(this.state.servicesItems);
-    }
-
-    constructor(props) {
-        super(props);
-        //console.log(props);
-    }
-    
+    }    
     render() {
         //const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         const {servicesItems = []} = this.state;

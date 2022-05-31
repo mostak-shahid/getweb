@@ -8,9 +8,7 @@ import "./Components/Header/header.scss";
 import JobApplication from "./Components/JobApplication/JobApplication";
 import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
 import JobDetails from "./Components/JobDetails/JobDetails";
-import JqueryPages from "./Components/JqueryPages/JqueryPages";
 import "./index.scss";
-import About from "./Page/About/About";
 import Blog from "./Page/Blog/Blog";
 import Career from './Page/Career/Career';
 import Contact from './Page/Contact/Contact';
@@ -19,6 +17,7 @@ import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
 import Portfolio from './Page/Portfolio/Portfolio';
 import Search from "./Page/Search/Search";
+import Single from "./Page/Single/Single";
 //import Post from "./Page/Post/Post";
 
 
@@ -32,7 +31,7 @@ function App() {
                 <Routes>          
                     {/* <Route exact path="/" element={<Home/>} /> */}
                     <Route index element={<Home/>} />
-                    <Route path="/about" element={<About />} />
+                    <Route path="/about" element={<Single id="358" />} />
                     <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/careers" element={<Career />} />
@@ -55,7 +54,8 @@ function App() {
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
-                    <Route path="/jquery-pages" element={<JqueryPages/>}/>
+                    <Route path="/our-process" element={<Single id="566"/>}/>
+                    <Route path="/workshops" element={<Single id="569"/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>

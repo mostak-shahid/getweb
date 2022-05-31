@@ -29,6 +29,8 @@ function ContactPageForm(props) {
         email: "",
         code: "",
         phone: "",
+        interested: "",
+        budget: "",
         message: "",
     });
     const [errors, setErrors] = useState({    
@@ -36,6 +38,8 @@ function ContactPageForm(props) {
         email: "",
         code: "",
         phone: "",
+        interested: "",
+        budget: "",
         message: "",
     }); 
     const [resMessage, setResMessage] = useState(''); 
@@ -83,7 +87,7 @@ function ContactPageForm(props) {
                     'Accept': 'application/json',
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({ name: values.name, email: values.email, code: values.code, phone: values.phone, message: values.message })
+                body: JSON.stringify({ name: values.name, email: values.email, code: values.code, phone: values.phone,  interested: values.interested, budget: values.budget, message: values.message })
                 
             })
             ;//.then(resp=>resp.json())//calling url by method GET
@@ -191,7 +195,7 @@ function ContactPageForm(props) {
                             </div>
                         </div>
                         <div className="row isBgBorder pb-30 mb-30">
-                            <div className="col-lg-6 py-3">
+                            <div className="col-6 py-3">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <img src={phoneIcon} alt="lineShape" />
@@ -204,7 +208,7 @@ function ContactPageForm(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-6 py-3">
+                            <div className="col-6 py-3">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <img src={skypeIcon} alt="lineShape" />
@@ -277,6 +281,30 @@ function ContactPageForm(props) {
                                     </Form.Group>
                                     {errors.code && <div className="text-danger mt-1">{errors.code}</div>}
                                     {errors.phone && <div className="text-danger mt-1">{errors.phone}</div>}
+                                </div>                                
+                                <div className="col-lg-6 mb-4">
+                                    <Form.Group className="contactField" controlId="formBasicName">
+                                        <Form.Label className="textClrThemeDark fs-13 fwSemiBold">Interested In</Form.Label>                                        
+                                        <Form.Select className="rounded-pill px-4 form-control" name="interested" value={values.interested} onChange={handlerChange} onBlur={handlerBlur} >
+                                            <option value="1">US (+1)</option>
+                                            <option value="59">DZ (+59)</option>
+                                            <option value="213">DZ (+213)</option>
+                                            <option value="376">AD (+376)</option>
+                                            <option value="1264">AI (+1264)</option>
+                                        </Form.Select>
+                                    </Form.Group>
+                                </div>
+                                <div className="col-lg-6 mb-4">
+                                    <Form.Group className="contactField" controlId="formBasicEmail">
+                                        <Form.Label className="textClrThemeDark fs-13 fwSemiBold">Select Budget Range</Form.Label>                                                                       
+                                        <Form.Select className="rounded-pill px-4 form-control" name="budget" value={values.budget} onChange={handlerChange} onBlur={handlerBlur} >
+                                            <option value="1">US (+1)</option>
+                                            <option value="59">DZ (+59)</option>
+                                            <option value="213">DZ (+213)</option>
+                                            <option value="376">AD (+376)</option>
+                                            <option value="1264">AI (+1264)</option>
+                                        </Form.Select>
+                                    </Form.Group>
                                 </div>
                                 <div className="col-lg-12 mb-4">
                                     <Form.Group className="contactField" controlId="formBasicMessage">

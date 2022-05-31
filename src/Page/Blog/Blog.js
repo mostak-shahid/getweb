@@ -11,7 +11,6 @@ import "./Blog.scss";
 const withNavigateHook = (Component) => {
     return (props) => {
         const navigation = useNavigate();
-
         return <Component navigation={navigation} {...props} />
     }
 }
@@ -106,7 +105,7 @@ class Blog extends Component {
             <>
                 <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} />
                 <section className="blogWrapper secPadding">
-                    <div className="filterArea py-5 isBgBorder mb-5">
+                    <div className="filterArea pb-5 isBgBorder mb-5">
                         <div className="container">
                             <h2 className="text-white fs-30 fw-normal mb-5">
                                 All <span className="fw-bold">Resources</span>
@@ -152,7 +151,7 @@ class Blog extends Component {
                             <div className="row">
                                 {postData.length ?
                                     postData.map((item, index) => (
-                                        <div className="col-lg-4 mb-4" key={index}>
+                                        <div className="col-md-6 col-xl-4 mb-4" key={index}>
                                             <SingleBlogItems data={item} />
                                         </div>
                                     ))

@@ -358,6 +358,9 @@ img {
   }
 }
 @media (min-width: 992px) {
+  .w-lg-60 {
+    width: 60% !important;
+  }
   .w-lg-75 {
     width: 75% !important;
   }
