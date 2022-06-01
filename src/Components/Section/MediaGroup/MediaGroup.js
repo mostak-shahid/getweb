@@ -41,18 +41,19 @@ const MediaGroup = (props) => {
         var i = 0;
       
         Array.prototype.forEach.call(section, function(e) {
-          sections[e.id] = e.offsetTop;
+            sections[e.id] = e.offsetTop;
         });
       
         window.onscroll = function() {
-          var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
       
-          for (i in sections) {
-            if (sections[i] <= scrollPosition) {
-              document.querySelector('.active').setAttribute('class', 'list-group-item list-group-item-action');
-              document.querySelector('a[href*=' + i + ']').setAttribute('class', 'list-group-item list-group-item-action active');
+            for (i in sections) {
+                if (sections[i] <= scrollPosition) {
+                    document.querySelector('.active').setAttribute('class', 'list-group-item list-group-item-action');
+                    document.querySelector('a[href*=' + i + ']').setAttribute('class', 'list-group-item list-group-item-action active');
+                    console.log(document.querySelector('a[href*=' + i + ']'));
+                }
             }
-          }
         };
       })();
       
@@ -64,7 +65,7 @@ const MediaGroup = (props) => {
 
         <div className="media-group">
             <div className="row">
-                {console.log(props.count_col)}
+                {/*console.log(props.count_col)*/}
                 {   
                     props.layout === 'tab' 
                     ? 
