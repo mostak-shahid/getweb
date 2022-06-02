@@ -24,7 +24,17 @@ x_mosacademy_page_group_title_text: "<p>Section Title</p>"
     const {_mosacademy_page_group_content_width = "container", _mosacademy_page_group_css='',_mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='', _mosacademy_page_group_button, _mosacademy_page_group_freature_image='', _mosacademy_page_group_background_image='', _mosacademy_page_group_components = '', _mosacademy_page_group_component_layout ='', _mosacademy_page_group_component_count_total=0, _mosacademy_page_group_component_count_col=0, _mosacademy_page_group_component_template} = props.data;
 
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
-        const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
+    var noCol = 1;
+    if (_mosacademy_page_group_component_count_col === 'col-md-6') {
+        noCol = 2;
+    } else if (_mosacademy_page_group_component_count_col === 'col-xl-4 col-md-6') {
+        noCol = 3;
+    } else if (_mosacademy_page_group_component_count_col === 'col-xl-3 col-md-6') {
+        noCol = 4;
+    } else if (_mosacademy_page_group_component_count_col === 'col-xl-2 col-md-4 col-sm-6') {
+        noCol = 6;
+    }
     return (
         <section className={['section-wrapper', 'secPadding', _mosacademy_page_group_css].join(' ')} style={props?._mosacademy_page_group_background_image && { backgroundImage: `url(${_mosacademy_page_group_background_image})` }}>
             {/*console.log(props.data)*/}
@@ -58,7 +68,7 @@ x_mosacademy_page_group_title_text: "<p>Section Title</p>"
                             }
                             {
                                 _mosacademy_page_group_components && 
-                                <MediaGroup components={_mosacademy_page_group_components} count_total={_mosacademy_page_group_component_count_total} count_col={_mosacademy_page_group_component_count_col} template={_mosacademy_page_group_component_template} layout={_mosacademy_page_group_component_layout}/>
+                                <MediaGroup components={_mosacademy_page_group_components} count_total={_mosacademy_page_group_component_count_total} count_col={_mosacademy_page_group_component_count_col} template={_mosacademy_page_group_component_template} layout={_mosacademy_page_group_component_layout} noCol={noCol}/>
                             }                           
                         </div>
                     </div> 

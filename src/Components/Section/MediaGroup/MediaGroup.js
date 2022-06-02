@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import React, { useEffect, useState } from 'react';
 import Config from "../../../Config.json";
 import Loading from "../../Loading/Loading";
+import FaqBlock from '../FaqBlock/FaqBlock';
 import MediaBlock from "../MediaBlock/MediaBlock";
 import './MediaGroup.scss';
 const rand = Math.floor(Math.random() * 1000); 
@@ -49,8 +50,8 @@ const MediaGroup = (props) => {
             });
             if (offset) {
                 for (i in sections) {
-                    console.log('Curent: ', sections[i])
-                    console.log('Offset: ',offset)
+                    //console.log('Curent: ', sections[i])
+                    //console.log('Offset: ',offset)
                     if (sections[i] <= offset) {
                         document.querySelector('.active').setAttribute('class', 'list-group-item list-group-item-action');
                         document.querySelector('a[href*=' + i + ']').setAttribute('class', 'list-group-item list-group-item-action active');
@@ -83,8 +84,7 @@ const MediaGroup = (props) => {
             <div className="row">
                 {/*console.log(props.count_col)*/}
                 {   
-                    props.layout === 'tab' 
-                    ? 
+                    props.layout === 'tab' && 
                     <>
                         <div className="col-4">
                             <div className="list-group position-sticky top-0 start-0" >
@@ -104,11 +104,19 @@ const MediaGroup = (props) => {
                             }
                         </div>
                     </>
-                    : groupData.map((item, index) => (
+                }
+                {
+                    props.layout === 'block' && 
+                    groupData.map((item, index) => (
                         <div className={["mb-4", props.count_col].join(' ')} key={index}>
                             <MediaBlock data={item} template={props.template}/>
                         </div>
                     ))
+                }               
+                {
+                    props.layout === 'accordion' && 
+                    //components={_mosacademy_page_group_components} count_total={_mosacademy_page_group_component_count_total} count_col={_mosacademy_page_group_component_count_col} template={_mosacademy_page_group_component_template} layout={_mosacademy_page_group_component_layout}
+                    <FaqBlock components={props.components} count_total={props.count_total} count_col={props.count_col} template={props.template} noCol={props.noCol}/>
                 }               
             </div>
         </div>
