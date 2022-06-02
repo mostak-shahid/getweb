@@ -27,7 +27,7 @@ x_mosacademy_page_group_title_text: "<p>Section Title</p>"
         const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
     return (
         <section className={['section-wrapper', 'secPadding', _mosacademy_page_group_css].join(' ')} style={props?._mosacademy_page_group_background_image && { backgroundImage: `url(${_mosacademy_page_group_background_image})` }}>
-            {console.log(props.data)}
+            {/*console.log(props.data)*/}
             <div className={_mosacademy_page_group_content_width}>
                 <div className="row">
                     <div className={[widthClass, orderClass].join(' ')}>

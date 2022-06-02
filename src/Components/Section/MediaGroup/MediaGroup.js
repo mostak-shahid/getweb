@@ -6,10 +6,11 @@ import Config from "../../../Config.json";
 import Loading from "../../Loading/Loading";
 import MediaBlock from "../MediaBlock/MediaBlock";
 import './MediaGroup.scss';
+const rand = Math.floor(Math.random() * 1000); 
 const MediaGroup = (props) => {
     const [groupData,setGroupData]=useState([]);
     const [loading,setLoading]=useState(true); 
-    const rand = Math.floor(Math.random() * 1000);  
+     
     const type = (isNaN(parseFloat(props.components)))?props.components:'block';
     const taxonomy = (isNaN(parseFloat(props.components)))?0:props.components;
     
@@ -34,31 +35,46 @@ const MediaGroup = (props) => {
         }
     }, [groupData]);
 
-    (function() {        
-      
-        var section = document.querySelectorAll(".section");
-        var sections = {};
-        var i = 0;
-      
-        Array.prototype.forEach.call(section, function(e) {
-            sections[e.id] = e.offsetTop;
-        });
-      
-        window.onscroll = function() {
-            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-      
-            for (i in sections) {
-                if (sections[i] <= scrollPosition) {
-                    document.querySelector('.active').setAttribute('class', 'list-group-item list-group-item-action');
-                    document.querySelector('a[href*=' + i + ']').setAttribute('class', 'list-group-item list-group-item-action active');
-                    console.log(document.querySelector('a[href*=' + i + ']'));
+    const [offset, setOffset] = useState(0);
+    useEffect(() => {
+        //setOffset(window.pageYOffset);
+        const onScroll = () => {
+            setOffset(window.pageYOffset)
+            //setOffset(window.offsetTop)
+            var section = document.querySelectorAll(".section");
+            var sections = {};
+            var i = 0;
+            Array.prototype.forEach.call(section, function(e) {
+                sections[e.id] = e.offsetTop;
+            });
+            if (offset) {
+                for (i in sections) {
+                    console.log('Curent: ', sections[i])
+                    console.log('Offset: ',offset)
+                    if (sections[i] <= offset) {
+                        document.querySelector('.active').setAttribute('class', 'list-group-item list-group-item-action');
+                        document.querySelector('a[href*=' + i + ']').setAttribute('class', 'list-group-item list-group-item-action active');
+                        //console.log(document.querySelector('a[href*=' + i + ']'));
+                    }
                 }
             }
         };
-      })();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }, [offset]);
       
-
-
+    const handleClick = (e) => {
+        e.preventDefault()
+        // e.target.parentElement.querySelector('.list-group-item.active').classList.remove("active")
+        // e.target.classList.add("active")
+        const target = e.target.getAttribute('href')
+        const location = document.querySelector(target).offsetTop  
+        window.scrollTo({
+            left: 0,
+            //top: location - 64,
+            top: location + 100,
+        })
+        //setOffset(location)
+    }
     return (
         loading ?
         <Loading />:
@@ -72,15 +88,16 @@ const MediaGroup = (props) => {
                     <>
                         <div className="col-4">
                             <div className="list-group position-sticky top-0 start-0" >
+                                <h4 className="fs-24">Contents</h4>
                                 {groupData.map((item, index) => (                        
-                                    <a className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} href={["#list-item", rand, index].join('-')} dangerouslySetInnerHTML={{__html: item.title}}key={index}/>
+                                    <a onClick={handleClick} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} dangerouslySetInnerHTML={{__html: item.title}} key={index}/>
                                 ))}
                             </div>
                         </div>
                         <div className="col-8">
                             {
                                 groupData.map((item, index) => (
-                                    <div id={["list-item", rand, index].join('-')} className="section" key={index}>
+                                    <div id={["list-item", rand, index].join('-')} className="section tab-content" key={index}>
                                         <MediaBlock data={item} template={props.template}/>
                                     </div>
                                 ))

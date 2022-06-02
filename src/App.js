@@ -56,6 +56,7 @@ function App() {
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
                     <Route path="/our-process" element={<Single id="566"/>}/>
                     <Route path="/workshops" element={<Single id="569"/>}/>
+                    <Route path="/product-design" element={<Single id="603"/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>
