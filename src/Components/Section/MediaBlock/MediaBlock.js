@@ -6,13 +6,15 @@ const MediaBlock = (props) => {
     //console.log(props);
     return (
         <div className={['media-block block-unit', props?.template ].join(' ')}>
-            <div className='block-part-one'>
-                
+            <div className='block-part-one'>        
                 {props?.data?.featured_image?.full && 
                     <div className='block-image'>
                         <img src={props?.data?.featured_image?.full} alt={props?.data?.title} />
                     </div>
-                }
+                }               
+                {props?.data?.meta?._mosacademy_custom_html && 
+                    <div className='custom-html' dangerouslySetInnerHTML={{__html:props?.data?.meta?._mosacademy_custom_html}} />
+                }        
                 {props?.data?.title &&
                     <h3 className='block-title'>
                         {props?.data?.meta?._mosacademy_blobk_url?.url

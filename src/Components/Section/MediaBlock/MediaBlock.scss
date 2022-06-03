@@ -124,6 +124,19 @@
       }
     }
   }
+  &.template-5 {
+    text-align: center;
+    color: #ffffff;
+    .block-image,
+    .custom-html {
+      margin-bottom: 10px;
+    }
+    .block-title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
   &:hover {
     .block-part-one {
       .block-title {

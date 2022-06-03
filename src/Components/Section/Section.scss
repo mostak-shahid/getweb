@@ -73,6 +73,56 @@
   &.contentCenter {
     text-align: center;
   }
+  &.who-we-are {
+    .part-two {
+      .media-group {
+        .row {
+          display: block !important;
+          & > div {
+            max-width: 50% !important;
+            float: left !important;
+            margin-bottom: 0 !important;
+            text-align: center;
+            .media-block {
+              &.template-1 {
+                padding: 40px;
+                .block-part-one {
+                  .custom-html,
+                  .block-image {
+                    margin-bottom: 15px;
+                  }
+                }
+                .block-title {
+                  font-weight: 500;
+                  font-size: 14px;
+                  line-height: 22px;
+                  color: #6b6e78;
+                  margin-bottom: 3px;
+                }
+                .block-desc {
+                  font-weight: 500;
+                  font-size: 30px;
+                  line-height: 40px;
+                  color: #8d8f98;
+                }
+              }
+            }
+            &:first-child {
+              margin-top: 50%;
+              transform: translateY(-70%);
+            }
+          }
+          &::after {
+            content: "";
+            display: table;
+            width: 100%;
+            height: 1px;
+            clear: both;
+          }
+        }
+      }
+    }
+  }
   @media (min-width: 768px) {
     .part-one {
       .secTagLine {
