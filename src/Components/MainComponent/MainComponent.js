@@ -49,9 +49,9 @@ export default class MainComponent extends Component {
 
 const MainComponent = (props) => {
 
-    const {_mosacademy_page_group_content_width = "container", _mosacademy_page_group_css='', _mosacademy_page_group_component_name} = props.data;
+    const {_mosacademy_page_group_content_width = "container", _mosacademy_page_group_css='', _mosacademy_page_group_component_name, group_slug} = props.data;
     return (
-        <section className={['wrapper-section', 'secPadding', _mosacademy_page_group_css].join(' ')}>
+        <section className={['wrapper-section', 'secPadding', group_slug, _mosacademy_page_group_css].join(' ')}>
             {/* {console.log(_mosacademy_page_group_component_name)} */}
             <div className={_mosacademy_page_group_content_width}>
                 {(_mosacademy_page_group_component_name === 'OurServicesComponent') && <OurServicesComponent data={props.data} />}
