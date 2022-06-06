@@ -1,4 +1,5 @@
 import React from 'react';
+import PortfolioGroup from '../../Page/Portfolio/PortfolioGroup';
 import BlogUpdateComponent from "../BlogUpdate/BlogUpdateComponent";
 import CompanyBenefits from "../CompanyBenefits/CompanyBenefits";
 import ContactPageForm from '../ContactPageForm/ContactPageForm';
@@ -70,6 +71,7 @@ const MainComponent = (props) => {
                 {(_mosacademy_page_group_component_name === 'Faq') && <Faq data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'CompanyBenefits') && <CompanyBenefits data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'JobOpening') && <JobOpening data={props.data} />}
+                {(_mosacademy_page_group_component_name === 'PortfolioGroup') && <PortfolioGroup data={props.data} />}
             </div>
         </section>
     )

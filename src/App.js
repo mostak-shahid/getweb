@@ -15,7 +15,6 @@ import Contact from './Page/Contact/Contact';
 import Header from "./Page/Header";
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
-import Portfolio from './Page/Portfolio/Portfolio';
 import Search from "./Page/Search/Search";
 import Single from "./Page/Single/Single";
 //import Post from "./Page/Post/Post";
@@ -32,7 +31,7 @@ function App() {
                     {/* <Route exact path="/" element={<Home/>} /> */}
                     <Route index element={<Home/>} />
                     <Route path="/about" element={<Single id="358" />} />
-                    <Route path="/portfolio" element={<Portfolio />} />
+                    {/* <Route path="/portfolio" element={<Portfolio />} /> */}
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/careers" element={<Career />} />
                     {/* <Route path="/jobDetails" element={<JobDetails />} /> */}
@@ -54,6 +53,7 @@ function App() {
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
+                    <Route path="/portfolio" element={<Single id="493"/>}/>
                     <Route path="/our-process" element={<Single id="566"/>}/>
                     <Route path="/workshops" element={<Single id="569"/>}/>
                     <Route path="/product-design" element={<Single id="603"/>}/>

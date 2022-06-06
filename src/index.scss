@@ -200,7 +200,9 @@ a {
 .h-100vh {
   min-height: 100vh;
 }
-
+.contentCenter {
+  text-align: center;
+}
 .secPadding {
   padding: 60px 0;
   @media (min-width: 768px) {
