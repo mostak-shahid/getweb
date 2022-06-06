@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Audio } from 'react-loader-spinner';
 import BannerComponents from "../../Components/Banner/BannerComponents";
 import Loading from "../../Components/Loading/Loading";
-import MainComponent from "../../Components/MainComponent/MainComponent";
+import Section from "../../Components/Section/Section";
 import Config from "../../Config.json";
 import './Home.scss';
 
@@ -45,7 +45,8 @@ export default class Home extends Component {
                 <BannerComponents />
                 {
                     this.state.pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
-                        <MainComponent data={item} key={index} />                        
+                        // <MainComponent data={item} key={index} />  
+                        <Section data={item} key={index} />                       
                     ))
                 }
             </>

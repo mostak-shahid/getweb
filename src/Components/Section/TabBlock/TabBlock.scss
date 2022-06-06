@@ -13,6 +13,13 @@
       color: #6b6e78;
       border-style: none;
       padding: 5px;
+      span {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: calc(100% - 30px);
+        display: inline-block;
+      }
       &.active {
         color: #00ffa3;
       }

@@ -36,7 +36,7 @@ const CompanyBenefits = (props) => {
                     }
                     {
                         _mosacademy_page_group_title_description &&
-                        <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                        <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                     }
                 </div>
 

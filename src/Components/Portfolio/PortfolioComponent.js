@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SecLineShape from "../../assets/images/secLineShape.svg";
 import MultipleRows from "../slider/PortfolioSlider";
 
 //const PortfolioComponent = () => {
@@ -36,11 +35,9 @@ export default class PortfolioComponent extends Component {
                         }
                         {
                             _mosacademy_page_group_title_description &&
-                            <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                            <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                         }
-                        <div className="lineShape">
-                            <img src={SecLineShape} alt="lineShape" />
-                        </div>
+                        
                     </div>
                 </div>
                 <div className={[widthClass].join(' ')}>

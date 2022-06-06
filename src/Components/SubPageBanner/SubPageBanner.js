@@ -1,12 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Button from "../Button/Button";
 import "./SubPageBanner.scss";
 
 const SubPageBanner = (props) => {
+    const location = useLocation();
+    const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
     const { tagline, title, intro, bgImg, btn } = props;
     return (
-        <section className="subPageBanner position-relative" style={{ backgroundImage: `url(${bgImg})` }}>
-            {/*console.log(props)*/}
+        <section className={["subPageBanner position-relative bgClrDarkLight", bannerCls ].join(' ')} style={{ backgroundImage: `url(${bgImg})` }}>
             <div className="container">
                 <div className="bannerContent d-flex align-items-center">
                     <div className="bannerInfo w-100 w-lg-60">

@@ -57,6 +57,9 @@ function App() {
                     <Route path="/our-process" element={<Single id="566"/>}/>
                     <Route path="/workshops" element={<Single id="569"/>}/>
                     <Route path="/product-design" element={<Single id="603"/>}/>
+                    <Route path="/ux-design" element={<Single id="621"/>}/>
+                    <Route path="/ux-writing" element={<Single id="653"/>}/>
+                    <Route path="/ui-design" element={<Single id="685"/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>

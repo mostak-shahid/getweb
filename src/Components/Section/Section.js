@@ -65,7 +65,7 @@ const Section = (props) => {
                             {
                                 _mosacademy_page_group_component_layout === "slider" &&
                                 (_mosacademy_page_group_button?.url) &&
-                                <Button title={_mosacademy_page_group_button?.title} url={_mosacademy_page_group_button?.url}/>                                                
+                                <div className="part-two-button"><Button title={_mosacademy_page_group_button?.title} url={_mosacademy_page_group_button?.url}/></div>                                                
                             }                          
                         </div>
                     </div> 

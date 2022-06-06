@@ -5,7 +5,6 @@ import clockIcon from "../../assets/images/clock.svg";
 import locationIcon from "../../assets/images/location-icon.svg";
 import skypeIcon from "../../assets/images/ms_skype.png";
 import phoneIcon from "../../assets/images/phone.svg";
-import { default as secLineShape } from "../../assets/images/secLineShape.svg";
 import Config from "../../Config.json";
 import './ContactPageForm.scss';
 
@@ -141,11 +140,9 @@ function ContactPageForm(props) {
                         }
                         {
                             _mosacademy_page_group_title_description &&
-                            <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                            <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                         }
-                        <div className="lineShape">
-                            <img src={secLineShape} alt="lineShape" />
-                        </div>
+                        
                     </div>                    
                     <div className="getInTouch mb-5 mb-xl-0">
                         <div className="row isBgBorder pb-30 mb-30">

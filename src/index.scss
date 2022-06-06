@@ -48,7 +48,8 @@ a {
   @media (min-width: 1200px) {
   }
 }
-.fs-6 {
+.fs-6,
+.secIntro {
   font-size: 14px !important;
   line-height: 22px;
   @media (min-width: 768px) {
@@ -141,7 +142,8 @@ a {
   }
 }
 
-.textClrGray {
+.textClrGray,
+.secIntro {
   color: var(--clr-gray);
 }
 .textClrGrayDark {
@@ -345,6 +347,93 @@ img {
 
     &:focus {
       box-shadow: none !important;
+    }
+  }
+}
+.wrapper-section {
+  hr {
+    background-image: url("./assets/images/secLineShape.svg");
+    display: inline-block;
+    clear: both;
+    height: 2px;
+    width: 100px;
+    border-style: none;
+    opacity: 1;
+    background-color: transparent;
+    margin-top: 4px;
+    margin-bottom: 40px;
+  }
+  .secTitle,
+  .secIntro {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 1rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 42px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 26px;
+    }
+    h4 {
+      font-size: 22px;
+    }
+    h5 {
+      font-size: 20px;
+    }
+    h6 {
+      font-size: 18px;
+    }
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 56px;
+      }
+      h2 {
+        font-size: 48px;
+      }
+      h3 {
+        font-size: 38px;
+      }
+      h4 {
+        font-size: 30px;
+      }
+      h5 {
+        font-size: 26px;
+      }
+      h6 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+    @media (min-width: 1200px) {
+      h1 {
+        font-size: 72px;
+      }
+      h2 {
+        font-size: 48px;
+      }
+      h3 {
+      }
+      h4 {
+      }
+      h5 {
+      }
+      h6 {
+      }
+      p {
+      }
     }
   }
 }

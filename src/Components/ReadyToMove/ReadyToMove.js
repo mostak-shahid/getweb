@@ -9,7 +9,7 @@ const ReadyToMove = () => {
                     <h2 className="secTitle fw-normal fs-48 text-white mb-3">
                         Ready to <strong className="fw-bold">move forward</strong> and get results?
                     </h2>
-                    <div className="secIntro textClrGray fs-6 fw-normal mb-4">
+                    <div className="secIntro mb-4">
                         <p className="mb-0">Schedule a free consultation with our team to discuss further details about your project.</p>
                     </div>
                     <div className="gw-btn gw-btn-green d-flex justify-content-center">

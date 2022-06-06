@@ -20,7 +20,7 @@ const TabBlock = (props) => {
                     //console.log('Curent: ', sections[i])
                     //console.log('Offset: ',offset)
                     if (sections[i] <= offset) {
-                        document.querySelector('.active').setAttribute('class', 'list-group-item list-group-item-action');
+                        document.querySelector('.list-group-item.active').setAttribute('class', 'list-group-item list-group-item-action');
                         document.querySelector('a[href*=' + i + ']').setAttribute('class', 'list-group-item list-group-item-action active');
                         //console.log(document.querySelector('a[href*=' + i + ']'));
                     }
@@ -49,7 +49,9 @@ const TabBlock = (props) => {
                 <div className="list-group position-sticky top-0 start-0" >
                     <h4 className="fs-24">Contents</h4>
                     {props.groupData.map((item, index) => (                        
-                        <a onClick={handleClick} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} dangerouslySetInnerHTML={{__html: item.title}} key={index}/>
+                        <a onClick={handleClick} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} key={index}>
+                            <span  dangerouslySetInnerHTML={{__html: item.title}}></span>
+                        </a>
                     ))}
                 </div>
             </div>

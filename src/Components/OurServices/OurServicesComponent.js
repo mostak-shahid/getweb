@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import secLineShape from "../../assets/images/secLineShape.svg";
 import Config from '../../Config.json';
 import MediaBlock from "../MediaBlock/MediaBlock";
 import './OurServicesComponent.scss';
@@ -55,11 +54,9 @@ export default class OurServicesComponent extends Component {
                         }
                         {
                             _mosacademy_page_group_title_description &&
-                            <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                            <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                         }
-                        <div className="lineShape">
-                            <img src={secLineShape} alt="lineShape" />
-                        </div>
+                        
                     </div>
                 </div>
                 <div className={[widthClass].join(' ')}>

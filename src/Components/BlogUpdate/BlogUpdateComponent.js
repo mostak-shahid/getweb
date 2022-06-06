@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SecLineShape from "../../assets/images/secLineShape.svg";
 import MultipleItems from '../BlogSlider/BlogSlider';
 import './BlogUpdateComponent.scss';
 
@@ -23,11 +22,9 @@ const BlogUpdateComponent = (props) => {
                     }
                     {
                         _mosacademy_page_group_title_description &&
-                        <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                        <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                     }
-                    <div className="lineShape">
-                        <img src={SecLineShape} alt="lineShape" />
-                    </div>
+                    
                 </div>
             </div>
             <div className={[widthClass].join(' ')}>

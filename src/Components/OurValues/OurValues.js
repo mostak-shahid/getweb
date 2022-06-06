@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LineShape from "../../assets/images/secLineShape.svg";
 import Config from "../../Config.json";
 import MediaBlock from "../MediaBlock/MediaBlock";
 import "./OurValues.scss";
@@ -36,12 +35,10 @@ const OurValues = (props) => {
                         _mosacademy_page_group_title_text &&
                         <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
                     }
-                    <div className="lineShape mb-4">
-                        <img src={LineShape} alt="LineShape" />
-                    </div>
+                    
                     {
                         _mosacademy_page_group_title_description &&
-                        <div className="secIntro textClrGray fs-6 fw-normal" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                        <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                     }
                 </div>
             </div>

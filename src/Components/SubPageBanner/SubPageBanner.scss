@@ -5,6 +5,9 @@
   background-repeat: no-repeat;
   .bannerContent {
     padding: 130px 0;
+    .banner-desc {
+      color: var(--clr-dark-2);
+    }
     .banner-desc,
     .banner-heading {
       & > p {
@@ -30,5 +33,11 @@
     left: 0;
     background-image: linear-gradient(to right, #121316, rgba(18, 19, 22, 0.5));
     z-index: -1;
+  }
+  &._product-design-pageBanner,
+  &._ui-design-pageBanner {
+    &::after {
+      display: none;
+    }
   }
 }

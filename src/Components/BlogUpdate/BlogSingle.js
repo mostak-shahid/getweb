@@ -26,7 +26,7 @@ const BlogSingle = (props) => {
         const url = Config.API_BASE + "data-single/" + params.slug;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setPageData(resp))//setting response to state posts
-    },[]);
+    },[params.slug]);
     useEffect(()=>{
         const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET

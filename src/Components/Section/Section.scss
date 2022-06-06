@@ -11,7 +11,7 @@
     border-style: none;
     opacity: 1;
     background-color: transparent;
-    margin-top: 20px;
+    margin-top: 4px;
     margin-bottom: 40px;
   }
   .col-md-12 {
@@ -72,6 +72,10 @@
   }
   &.contentCenter {
     text-align: center;
+    .part-two-button {
+      display: block;
+      text-align: center;
+    }
   }
   &.who-we-are {
     .part-two {
@@ -121,6 +125,11 @@
           }
         }
       }
+    }
+  }
+  &.our-mission {
+    .row {
+      align-items: center;
     }
   }
   @media (min-width: 768px) {

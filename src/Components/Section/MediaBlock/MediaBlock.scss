@@ -137,6 +137,23 @@
       line-height: 22px;
     }
   }
+  &.template-6 {
+    .block-part-one {
+      .block-image {
+        display: flex;
+        align-items: center;
+        &::after {
+          content: "";
+          height: 20px;
+          width: auto;
+          background-image: url(../../../assets/images/fadded-arrow.png);
+          background-size: cover;
+          background-position: center right;
+          flex: 1;
+        }
+      }
+    }
+  }
   &:hover {
     .block-part-one {
       .block-title {

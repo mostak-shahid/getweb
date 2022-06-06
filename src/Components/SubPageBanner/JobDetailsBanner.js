@@ -1,9 +1,11 @@
-import React from 'react'
-import './JobDetailsBanner.scss'
-
+import React from 'react';
+import { useLocation } from "react-router-dom";
+import './JobDetailsBanner.scss';
 const JobDetailsBanner = (props) => {
+  const location = useLocation();
+  const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
   return (
-    <div className="JobDetailsBanner">
+    <div className={["JobDetailsBanner", bannerCls].join(' ')}>
         <div className="container">
             <div className="JobBannerContent d-flex align-items-center">
                 <div className="content">
