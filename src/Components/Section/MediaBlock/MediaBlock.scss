@@ -18,6 +18,9 @@
       color: var(--clr-gray);
       font-size: 1rem;
       line-height: 26px;
+      & > p:last-child {
+        margin-bottom: 0 !important;
+      }
     }
   }
   .block-part-two {

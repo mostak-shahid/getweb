@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Moment from 'react-moment';
-import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import clock1 from "../../assets/images/clock1.svg";
 import facebook from "../../assets/images/Facebook.svg";
 import linkdin from "../../assets/images/linkedinLink.svg";
@@ -13,7 +13,6 @@ import RecentPost from './RecentPost';
 
 
 const BlogSingle = (props) => {
-    const location = useLocation();
     const params = useParams();  
     const navigate = useNavigate();
     //console.log(params);
