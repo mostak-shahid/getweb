@@ -36,6 +36,7 @@ function App() {
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
+                    <Route path="/scoping-session" element={<Single id="834"/>}/>
                     <Route path="/research-development" element={<Single id="812"/>}/>
                     <Route path="/product-design-sprint" element={<Single id="764"/>}/>
                     <Route path="/product-design" element={<Single id="603"/>}/>
