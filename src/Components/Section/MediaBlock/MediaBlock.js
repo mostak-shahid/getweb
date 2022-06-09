@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './MediaBlock.scss';
 
 const MediaBlock = (props) => {
     //console.log(props);
+    const[open, setOpen] = useState(false)
     return (
         <div className={['media-block block-unit', props?.template ].join(' ')}>
             <div className='block-part-one'>        
@@ -16,7 +17,7 @@ const MediaBlock = (props) => {
                     <div className='custom-html' dangerouslySetInnerHTML={{__html:props?.data?.meta?._mosacademy_custom_html}} />
                 }        
                 {props?.data?.title &&
-                    <h3 className='block-title'>
+                    <h3 className={['block-title', open ? 'active':''].join(' ')} onClick={()=>setOpen(!open)}>
                         {props?.data?.meta?._mosacademy_blobk_url?.url
                             ? <a href={props?.data?.meta?._mosacademy_blobk_url?.url} className='block-title-link' dangerouslySetInnerHTML={{__html: props?.data?.title}} />
                             : <span className='block-title-text' dangerouslySetInnerHTML={{__html: props?.data?.title}} />

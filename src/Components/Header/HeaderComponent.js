@@ -58,14 +58,7 @@ export default class HeaderComponent extends Component {
                             <div className={["collapse navbar-collapse", this.state.menuOpen && 'show'].join(' ')} id="navbarSupportedContent">
                             {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} menuOpen={menuOpen} menuOpenToggle={(value) => this.setState({menuOpen:value})} />}
                             </div>
-                        </div>
-                        {/*<Navbar expand="xl" className='position-static position-xl-relative'>
-                            {// <Navbar.Toggle aria-controls="basic-navbar-nav" /> }
-                            <button type="button" className={['navbar-toggler', !this.state.menuOpen?'collapsed':''].join(' ')} onClick={menuAlter}><span className="navbar-toggler-icon"></span></button>
-                            <Navbar.Collapse id="basic-navbar-nav" className={this.state.menuOpen && 'show'}>
-                                {Config.MAIN_MENU && <Navigation id={Config.MAIN_MENU} menuOpen={menuOpen} menuOpenToggle={(value) => this.setState({menuOpen:value})} />}
-                            </Navbar.Collapse>
-                        </Navbar>*/}                        
+                        </div>                       
                     </div>
                     <div className="button-area d-none d-xl-block">
                         <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">Request a Quote</NavLink>

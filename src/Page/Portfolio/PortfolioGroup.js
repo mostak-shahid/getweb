@@ -5,6 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import OwlCarousel from "react-owl-carousel";
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import appreciate from "../../assets/images/appriciate.svg";
 import companyLogo from "../../assets/images/companyLogo.svg";
@@ -114,9 +115,12 @@ const PortfolioGroup = (props) => {
     }, []);
 
     const likeFunctionality = async (id) => {
+        console.log('IP: ', ip);
+        console.log('ID: ', id);
         await axios.get(Config.API_BASE + "post-like/" + ip + "/" + id)
         .then(function (response) {
-            console.log(response.data.req.data.message);
+            console.log(response.data);
+            toast.success(response.data.req.data.message);
         })
         .catch(function (error) {
             console.log("Error: ", error);
@@ -170,96 +174,97 @@ const PortfolioGroup = (props) => {
             >
                 <Modal.Header className="p-0 border-0" closeButton></Modal.Header>
                 <Modal.Body className="p-0">
-                <OwlCarousel className="owl-theme" {...settings}>
-                    {projects.map((item, index) => (
-                    <div className="item" key={index}>
-                        <div className="modal-body-top d-flex align-items-center gap-3">
-                        <img
-                            src={companyLogo}
-                            className="modal-top-img img-fluid"
-                            alt=""
-                            width="40"
-                            height="40"
-                        />
-                        <div>
-                            <h5
-                            className="templateHeading mb-1"
-                            dangerouslySetInnerHTML={{ __html: item.title }}
-                            />
-                            <div className="d-flex align-items-center gap-3">
-                            <p className="companyName mb-0">Getweb</p>
-                            <div className="d-flex align-items-center gap-2">
-                                {
-                                item?.meta?._mosacademy_project_follow_link && 
-                                <>
-                                <svg
-                                    width="3"
-                                    height="4"
-                                    viewBox="0 0 3 4"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <circle cx="1.5" cy="2" r="1.5" fill="white" />
-                                </svg>
-                                <a className="followLink" href={item.meta._mosacademy_project_follow_link} target="_blank" rel="noreferrer">Follow</a>
-                                </>
-                                }                              
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div className="modal-body-images">
-                        {
-                            item?.meta?._mosacademy_project_gallery && Object.values(item.meta._mosacademy_project_gallery).length &&
-                            Object.values(item.meta._mosacademy_project_gallery).map((item, index)=>(
-                            <img src={item} className="img-fluid" alt="" key={index} />
-                            ))
-                        }
-                        </div>
-
-                        <div className="modal-body-footer d-flex justify-content-center border-0 rounded-0 p-0 bg-black">
-                        <div className="modal-footer d-flex align-items-center justify-content-center">
-                            <div>
-                            <h5 className="modal-footer-heading" dangerouslySetInnerHTML={{ __html: item.title }} />
-                            <div className="modal-footer-icons d-flex align-items-center justify-content-center gap-3">
-                                <div className="text-center d-flex align-items-center justify-content-center gap-2">
-                                <img src={like} alt="" />
-                                <p className="mb-0">{item?.meta?._mosacademy_project_like? item.meta._mosacademy_project_like.length : 0}</p>
-                                </div>
-                                <div className="text-center d-flex align-items-center justify-content-center gap-2">
-                                <img src={preview} alt="" />
-                                <p className="mb-0">{item?.meta?._mosacademy_project_view_count? item.meta._mosacademy_project_view_count : 0}</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div className="modal-body-right">
-                        <span>
+                    <OwlCarousel className="owl-theme" {...settings}>
+                        {projects.map((item, index) => (
+                        <div className="item" key={index}>
+                            <div className="modal-body-top d-flex align-items-center gap-3">
                             <img
-                            src={companyRightLogo}
-                            className="img-fluid"
-                            alt=""
+                                src={companyLogo}
+                                className="modal-top-img img-fluid"
+                                alt=""
+                                width="40"
+                                height="40"
                             />
-                            <p className="rightImageContent">Getweb</p>
-                        </span>
-                        {
-                            item?.meta?._mosacademy_project_tool &&
+                            <div>
+                                <h5
+                                className="templateHeading mb-1"
+                                dangerouslySetInnerHTML={{ __html: item.title }}
+                                />
+                                <div className="d-flex align-items-center gap-3">
+                                <p className="companyName mb-0">Getweb</p>
+                                <div className="d-flex align-items-center gap-2">
+                                    {
+                                    item?.meta?._mosacademy_project_follow_link && 
+                                    <>
+                                    <svg
+                                        width="3"
+                                        height="4"
+                                        viewBox="0 0 3 4"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <circle cx="1.5" cy="2" r="1.5" fill="white" />
+                                    </svg>
+                                    <a className="followLink" href={item.meta._mosacademy_project_follow_link} target="_blank" rel="noreferrer">Follow</a>
+                                    </>
+                                    }                              
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div className="modal-body-images">
+                            {
+                                item?.meta?._mosacademy_project_gallery && Object.values(item.meta._mosacademy_project_gallery).length &&
+                                Object.values(item.meta._mosacademy_project_gallery).map((item, index)=>(
+                                <img src={item} className="img-fluid" alt="" key={index} />
+                                ))
+                            }
+                            </div>
+
+                            <div className="modal-body-footer d-flex justify-content-center border-0 rounded-0 p-0 bg-black">
+                            <div className="modal-footer d-flex align-items-center justify-content-center">
+                                <div>
+                                <h5 className="modal-footer-heading" dangerouslySetInnerHTML={{ __html: item.title }} />
+                                <div className="modal-footer-icons d-flex align-items-center justify-content-center gap-3">
+                                    <div className="text-center d-flex align-items-center justify-content-center gap-2">
+                                    <img src={like} alt="" />
+                                    <p className="mb-0">{item?.meta?._mosacademy_project_like? item.meta._mosacademy_project_like.length : 0}</p>
+                                    </div>
+                                    <div className="text-center d-flex align-items-center justify-content-center gap-2">
+                                    <img src={preview} alt="" />
+                                    <p className="mb-0">{item?.meta?._mosacademy_project_view_count? item.meta._mosacademy_project_view_count : 0}</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div className="modal-body-right">
                             <span>
-                            <img src={item?.meta?._mosacademy_project_tool} className="img-fluid" alt="" />
-                            <p className="rightImageContent">Tools</p>
+                                <img
+                                src={companyRightLogo}
+                                className="img-fluid"
+                                alt=""
+                                />
+                                <p className="rightImageContent">Getweb</p>
                             </span>
-                        }
-                        <span onClick={() => likeFunctionality(item.id)}>
-                            <img src={appreciate} className="img-fluid" alt="" />
-                            <p className="rightImageContent">Appreciate</p>
-                        </span>
+                            {
+                                item?.meta?._mosacademy_project_tool &&
+                                <span>
+                                <img src={item?.meta?._mosacademy_project_tool} className="img-fluid" alt="" />
+                                <p className="rightImageContent">Tools</p>
+                                </span>
+                            }
+                            <span onClick={() => likeFunctionality(item.id)}>
+                                <img src={appreciate} className="img-fluid" alt="" />
+                                <p className="rightImageContent">Appreciate</p>
+                            </span>
+                            </div>
                         </div>
-                    </div>
-                    ))}
-                </OwlCarousel>
+                        ))}
+                    </OwlCarousel>
                 </Modal.Body>
-            </Modal>
+            </Modal>            
+            <ToastContainer />
         </div>
   
 };

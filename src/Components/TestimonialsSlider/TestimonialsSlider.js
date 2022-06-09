@@ -81,23 +81,17 @@ export default class MultipleItems extends Component {
                 <div className="logos mb-4">
                   <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
                 </div>
-                <div className="feedbackText textClrGray fw-normal fs-6 mb-5">
-                  <p className="mb-0" style={{ width: "100%" }}>
-                    {items.content}
-                  </p>
-                </div>
+                <div className="feedbackText textClrGray fw-normal fs-6 mb-5" dangerouslySetInnerHTML={{__html:items.content}} />
                 <div className="reviewerInfo d-flex align-items-center justify-content-between">
                   <div className="d-flex align-items-center gap-3">
                     <div className="pic">
                       <img src={items.image} alt="pic" />
                     </div>
                     <a href="#" className="info text-decoration-none">
-                      <p className="fs-14 fw-bold text-white mb-1">
+                      <div className="fs-14 fw-bold text-white mb-1">
                         {items.meta._mosacademy_testimonial_name}
-                      </p>
-                      <p className="fs-12 fw-medium textClrGray mb-0">
-                        {items.meta._mosacademy_testimonial_designation}
-                      </p>
+                      </div>
+                      <div className="fs-12 fw-medium textClrGray mb-0" dangerouslySetInnerHTML={{__html:items.meta._mosacademy_testimonial_designation}} />
                     </a>
                   </div>
                   <div className="qoute">

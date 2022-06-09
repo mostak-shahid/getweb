@@ -35,7 +35,7 @@ export default class TestimonialsComponent extends Component {
                     </div>
                 </div>
                 <div className={[widthClass].join(' ')}>
-                    <div className="part-two">                 
+                    <div className="part-two text-start">                 
                         <MultipleItems data={this.props.data} />
                     </div>
                 </div>

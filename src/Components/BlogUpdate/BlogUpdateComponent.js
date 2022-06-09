@@ -28,7 +28,7 @@ const BlogUpdateComponent = (props) => {
                 </div>
             </div>
             <div className={[widthClass].join(' ')}>
-                <div className="part-two">
+                <div className="part-two text-start">
                     <MultipleItems />
                     {
                         _mosacademy_page_group_button?.url &&

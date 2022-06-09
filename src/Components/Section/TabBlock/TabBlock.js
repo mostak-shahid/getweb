@@ -45,7 +45,7 @@ const TabBlock = (props) => {
     }
     return (
         <>
-            <div className="col-4 tab-anchor-list">
+            <div className="col-lg-4 tab-anchor-list d-none d-lg-block">
                 <div className="list-group position-sticky top-0 start-0" >
                     <h4 className="fs-24">Contents</h4>
                     {props.groupData.map((item, index) => (                        
@@ -55,7 +55,7 @@ const TabBlock = (props) => {
                     ))}
                 </div>
             </div>
-            <div className="col-8 tab-content-list">
+            <div className="col-lg-8 tab-content-list">
                 {
                     props.groupData.map((item, index) => (
                         <div id={["list-item", rand, index].join('-')} className="section tab-content" key={index}>

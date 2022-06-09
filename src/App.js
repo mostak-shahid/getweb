@@ -9,8 +9,6 @@ import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationFo
 import JobDetails from "./Components/JobDetails/JobDetails";
 import "./index.scss";
 import Blog from "./Page/Blog/Blog";
-import Career from './Page/Career/Career';
-import Contact from './Page/Contact/Contact';
 import Home from "./Page/Home/Home";
 import NotFound from "./Page/NotFound/NotFound";
 import Search from "./Page/Search/Search";
@@ -49,7 +47,8 @@ function App() {
                     <Route path="/our-process" element={<Single id="566"/>}/>
                     <Route path="/workshops" element={<Single id="569"/>}/>
                     <Route path="/portfolio" element={<Single id="493"/>}/>
-                    <Route path="/careers" element={<Career />} />
+
+                    <Route path="/careers" element={<Single id="419" />} />
                     <Route path="/job/:slug" >
                         <Route index element={<JobDetails />} />
                         {/* <Route path="apply" element={<JobApplicationForm />} /> */}
@@ -62,7 +61,7 @@ function App() {
                         <Route index element={<Search />} />
                         <Route path=":keyword" element={<Search />} />
                     </Route>
-                    <Route path="/contact" element={<Contact/>}/>
+                    <Route path="/contact" element={<Single id="341"/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>

@@ -2,7 +2,7 @@ import axios from "axios";
 import { Modal } from "bootstrap";
 import React, { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel";
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import appreciate from "../../assets/images/appriciate.svg";
 import companyLogo from "../../assets/images/companyLogo.svg";
@@ -13,7 +13,8 @@ import Config from "../../Config.json";
 import PortfolioUnit from "../../Page/Portfolio/PortfolioUnit/PortfolioUnit";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
-import PortfolioComponentModal from "./PortfolioComponentModal";
+
+
 const PortfolioTab = (props) => {
     const [projects, setProjects] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -85,7 +86,7 @@ const PortfolioTab = (props) => {
     const likeFunctionality = async (id) => {
         await axios.get(Config.API_BASE + "post-like/" + ip + "/" + id)
         .then(function (response) {
-            console.log(response.data.req.data.message);
+          toast.success(response.data.req.data.message);
         })
         .catch(function (error) {
             console.log("Error: ", error);
@@ -98,7 +99,7 @@ const PortfolioTab = (props) => {
         await axios.get("https://api.ipify.org")
         .then(function (response) {
             setIP(response.data);
-            toast('Success');
+            //toast('Success');
             console.log(response.data);
         })
         .catch(function (error) {
@@ -269,7 +270,7 @@ const PortfolioTab = (props) => {
                 </OwlCarousel>
               </Modal.Body>
             </Modal>
-          <PortfolioComponentModal />
+            <ToastContainer />
         </>   
     
 }
