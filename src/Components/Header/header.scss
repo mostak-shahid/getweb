@@ -12,6 +12,10 @@
         li {
           a {
             display: block;
+            @media (max-width: 1199.98px) {
+              display: inline-block;
+              width: calc(100% - 65px);
+            }
           }
           ul {
             li {

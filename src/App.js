@@ -24,8 +24,8 @@ function App() {
             <Router>
                 <HeaderComponent/>
                 <Routes>          
-                    {/* <Route exact path="/" element={<Home/>} /> */}
-                    <Route index element={<Home/>} />
+                    <Route exact path="/" element={<Home/>} />
+                    {/* <Route index element={<Home/>} /> */}
                     {/* <Route path="/portfolio" element={<Portfolio />} /> */}
                     {/* <Route path="/jobDetails" element={<JobDetails />} /> */}
 

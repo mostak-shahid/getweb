@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
 import Config from '../../Config.json';
@@ -67,7 +67,8 @@ class JobApplication extends Component {
     async onSubmit(e){
         e.preventDefault();        
         //const {slug} = this.props.params; 
-        if (this.file?.name){
+        if (this.state.file?.name){
+            console.log(0);  
             let res = await this.uploadFile(this.state.file);
             if(res.data.req.data.status){
                 this.setState({
@@ -173,7 +174,7 @@ class JobApplication extends Component {
         if (!this.state.jobs) {
             return <div>Didn't get data from API</div>;
         }
-        console.log(this.state.pageData);
+        //console.log(this.state.pageData);
         return (
             <>         
                 <JobDetailsBanner title={this.state.pageData.meta._mosacademy_page_banner_title} content={this.state.pageData.meta._mosacademy_page_banner_intro}/>
@@ -243,7 +244,6 @@ class JobApplication extends Component {
                                                     <p className="fs-14 fw-medium textClrGray mb-0">{this.state.file?.name?this.state.file.name:'Upload your CV'}</p>
                                                 </div>
                                             </label>                                            
-                                            {this.state?.errors?.cv && <div className="text-danger mt-1">{this.state.errors.cv}</div>}
                                         </div>
                                         <div className="sbm-btn text-end">
                                             <button type="submit" className="btn bgClrGreen w-100 h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill">

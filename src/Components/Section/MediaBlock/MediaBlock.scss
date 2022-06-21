@@ -37,6 +37,9 @@
         font-size: 19px;
         width: 19px;
         text-align: center;
+        &::before {
+          font-weight: 400;
+        }
       }
     }
   }
@@ -57,6 +60,10 @@
       .block-title {
         font-size: 20px;
         line-height: 30px;
+        margin-bottom: 15px;
+      }
+      .block-desc {
+        margin-bottom: 30px;
       }
     }
     &:hover {

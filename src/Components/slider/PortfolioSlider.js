@@ -1,6 +1,7 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import React, { Component } from "react";
+import { Component } from "react";
+import { Modal } from "react-bootstrap";
 import OwlCarousel from 'react-owl-carousel';
 import Config from '../../Config.json';
 import PortfolioUnit from '../../Page/Portfolio/PortfolioUnit/PortfolioUnit';
@@ -14,7 +15,11 @@ export default class MultipleRows extends Component {
         this.state = {
             loading: true,
             portfolioData: null,
+            portfolioDataRaw: null,
+            isToggleOn: false,
         };
+        this.handleClick = this.handleClick.bind(this);
+     
     }
     
     
@@ -27,27 +32,53 @@ export default class MultipleRows extends Component {
         let portfolioOutput = [];
         let newArr = [];
         let tempArr = [];
-        var m = 0;
         var n = 0;
         
-        portfolioOutput = portfolioResponse.map((item, index) => {
-            if (n === 2){
+        // portfolioOutput = portfolioResponse.map((item, index) => {
+        //     if (n === 2){
+        //         newArr.push(tempArr);
+        //         n = 0;
+        //         tempArr = [];
+        //     }
+        //     n++;    
+        //     tempArr.push(item);
+        //     // console.log(index);
+        //     // console.log(n);
+        //     // console.log(item);
+        //     // console.log("TempArray: ",tempArr);
+        //     //console.log("newArray: ",newArr);
+        //     return tempArr;            
+        // })
+        var i = 0;
+        for (var index = 0; index < portfolioResponse.length; index++) {
+            if (i === 2){
                 newArr.push(tempArr);
-                n = 0;
-                m++;
+                i = 0;
                 tempArr = [];
             }
-            n++;    
-            tempArr.push(item);
-            return tempArr;
-        })
-
+            i++;
+            //console.log(portfolioResponse[index]);
+            tempArr.push(portfolioResponse[index]);
+            console.log(tempArr);
+        }
+        console.log(newArr);
         this.setState({ 
+            portfolioDataRaw: newArr,
             portfolioData: portfolioOutput,
             loading: false,
         });
         //console.log(this.state.portfolioData);
+
     }
+  
+
+    handleClick(index = 0) {
+        console.log(index);
+        this.setState(prevState => ({
+            isToggleOn: !prevState.isToggleOn
+        }));
+    }
+
     render() {
         if (this.state.loading) {
             return <div className="textClrGreen text-center">loading...</div>;
@@ -77,16 +108,20 @@ export default class MultipleRows extends Component {
                 }
             }
         };
-
+        
+       
         const {portfolioData} = this.state;        
         const {_mosacademy_page_banner_button} = this.props.data;
+        // console.log('Raw: ', this.state.portfolioDataRaw);
+        console.log('Formated: ', this.state.portfolioData);
         return (
             <div className="slider-wrapper">
                 <OwlCarousel className='owl-theme'  {...settings}>
                     {
                         (portfolioData.length) && 
                         portfolioData.map((item, index) => (
-                            <div className="item item-wrapper" key={index}>
+                            <div className={["item item-wrapper", "item-" + index 
+                             ].join(' ')} key={index} onClick={this.handleClick.bind(this, index)}>
                                 <div className="portSliderItem"><div className="portSliderImg"><PortfolioUnit data={item[0]}/></div></div>
                                 <div className="portSliderItem"><div className="portSliderImg"><PortfolioUnit data={item[1]}/></div></div>                                
                             </div>
@@ -104,6 +139,16 @@ export default class MultipleRows extends Component {
                     
                 
                 }
+                <Modal
+                    className="portfolioModalWrapper"
+                    show={this.state.isToggleOn}
+                    onHide={this.handleClick}
+                >
+                    <Modal.Header className="p-0 border-0" closeButton></Modal.Header>
+                    <Modal.Body className="p-0">
+                        Modal body
+                    </Modal.Body>
+                </Modal> 
             </div>
         );
     }

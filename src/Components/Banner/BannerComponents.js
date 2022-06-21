@@ -1,6 +1,6 @@
 // import SimpleSlider from './BrandCarousel';
 
-import React, { Component } from "react";
+import { Component } from "react";
 import Config from "../../Config.json";
 import "../Banner/BannerComponents.scss";
 import Button from "../Button/Button";
@@ -36,7 +36,7 @@ export default class BannerComponents extends Component {
                     <div className="bannerContent d-flex align-items-center position-relative">
                         <div className="content text-center">
                             <div className = "bannerTitle text-white fs-72 fw-normal mb-4 pb-2" dangerouslySetInnerHTML = {{__html: this.state.bannerData.meta._mosacademy_banner_title}}></div>
-                            <div className="bannerIntro fs-5 fw-normal textClrGray mb-3 mb-lg-4 mb-xl-5"  dangerouslySetInnerHTML = {{__html: this.state.bannerData.content}}></div>
+                            <div className="bannerIntro fs-5 fw-normal mb-3 mb-lg-4 mb-xl-5"  dangerouslySetInnerHTML = {{__html: this.state.bannerData.content}}></div>
                             <div className="d-flex justify-content-center">
                                 <Button url={this.state.bannerData.meta._mosacademy_banner_button_url} title={this.state.bannerData.meta._mosacademy_banner_button_title}/>                             
                             </div>

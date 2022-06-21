@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useLocation, useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
@@ -182,7 +182,7 @@ const JobApplicationForm = (props) => {
                                                         <Form.Control name="cv" type="file" className="d-none" /*onChange={(e) => console.log(e.target.files[0])}*/ onChange={handlerFileChange} />
                                                         <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center gap-3 gap-xl-4">
                                                             <img src={FileIcon} alt="icon" />
-                                                            <p className="fs-14 fw-medium textClrGray mb-0">Upload your CV</p>
+                                                            <p className="fs-14 fw-medium textClrGray mb-0">Upload your CV testing</p>
                                                         </div>
                                                     </Form.Label>
                                                 </Form.Group>

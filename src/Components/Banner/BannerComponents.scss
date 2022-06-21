@@ -38,6 +38,9 @@
   .content {
     padding-bottom: 30px;
   }
+  .bannerIntro {
+    color: var(--clr-dark-2);
+  }
   .gw-btn {
     .btn {
       transition: all 0.2s linear;
@@ -69,8 +72,9 @@
     }
   }
   @media (min-width: 768px) {
-    padding-top: 15.625vw;
-    padding-bottom: 13vw;
+    // padding-top: 15.625vw;
+    // padding-bottom: 13vw;
+    min-height: calc(100vh - 68px);
   }
 }
 .trustedWrapper {

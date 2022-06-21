@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import { Component } from "react";
+import Button from "../Button/Button";
 import MultipleRows from "../slider/PortfolioSlider";
-
 //const PortfolioComponent = () => {
 export default class PortfolioComponent extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ export default class PortfolioComponent extends Component {
         //     return <div>Didn't get data from API</div>;
         // }
         // const {taxonomiesData} = this.state;
-        const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
+        const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='', _mosacademy_page_group_button} = this.props.data;
         const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
         const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
         return (        
@@ -42,9 +42,17 @@ export default class PortfolioComponent extends Component {
                 </div>
                 <div className={[widthClass].join(' ')}>
                     <div className="part-two">     
-                        <MultipleRows data={this.props.data} />
+                        <MultipleRows data={this.props.data} handleShow="hanleShow" />
                     </div>
                 </div>
+                {_mosacademy_page_group_button?.url &&
+                <div className='button-container text-center mt-5'>
+                    <Button title={_mosacademy_page_group_button?.title} url={_mosacademy_page_group_button?.url}/>
+                </div>
+                }
+
+                
+
             </div>
         );
     }
