@@ -43,6 +43,8 @@ function App() {
                     <Route path="/ui-design" element={<Single id="685"/>}/>
                     <Route path="/branding" element={<Single id="728"/>}/>
                     <Route path="/ux-review" element={<Single id="793"/>}/>
+                    <Route path="/android" element={<Single id="878"/>}/>
+                    <Route path="/ios" element={<Single id="891"/>}/>
                     <Route path="/about" element={<Single id="358" />} />
                     <Route path="/our-process" element={<Single id="566"/>}/>
                     <Route path="/workshops" element={<Single id="569"/>}/>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Moment from 'react-moment';
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import clock1 from "../../assets/images/clock1.svg";
@@ -91,7 +91,7 @@ const BlogSingle = (props) => {
                                     </span>
                                 </div>
                                 <div className="BlogSingFeatheredImg">
-                                    <img src={pageData.image} alt="FeatheredImg" />
+                                    <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" />
                                 </div>
                             </div>
                         </div>

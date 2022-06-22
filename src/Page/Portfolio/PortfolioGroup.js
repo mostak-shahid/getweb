@@ -2,7 +2,7 @@ import "animate.css/animate.css";
 import axios from "axios";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import OwlCarousel from "react-owl-carousel";
 import { toast, ToastContainer } from 'react-toastify';

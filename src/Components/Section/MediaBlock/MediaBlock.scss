@@ -52,7 +52,6 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    margin-bottom: 15px;
     .block-part-one {
       .block-image {
         margin-bottom: 30px;
@@ -64,6 +63,9 @@
       }
       .block-desc {
         margin-bottom: 30px;
+      }
+      & > :last-child {
+        margin-bottom: 0 !important;
       }
     }
     &:hover {
