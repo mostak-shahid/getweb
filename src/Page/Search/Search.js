@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 import BlogBannerBg from '../../assets/images/blogBg.png';
 import SingleBlogItems from '../../Components/BlogUpdate/SingleBlogItems';
 import Loading from '../../Components/Loading/Loading';
@@ -8,11 +8,11 @@ import SubPageBanner from '../../Components/SubPageBanner/SubPageBanner';
 import Config from "../../Config.json";
 const Search = (props) => {
   
-  const location = useLocation();
+  //const location = useLocation();
   const params = useParams();  
   const navigate = useNavigate();
   const [searchPageData,setSearchPageData]=useState([]);
-  const [postCountData,setPostCountData]=useState(0);
+  //const [postCountData,setPostCountData]=useState(0);
   const [searchText,setSearchText]=useState(params.keyword);
   //const [postsData,setPostsData]=useState([]);
   const [loading,setLoading]=useState(true);
@@ -33,7 +33,7 @@ const Search = (props) => {
         console.log('Error: ', error);
       });
       
-  },[]);
+  },[searchText]);
   useEffect(() => {
       if (searchPageData.length !== 0) {
           setLoading(false);

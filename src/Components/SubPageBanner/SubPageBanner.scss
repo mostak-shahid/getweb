@@ -5,14 +5,17 @@
   background-repeat: no-repeat;
   .bannerContent {
     padding: 130px 0;
-    .banner-desc {
-      color: var(--clr-dark-2);
-    }
-    .banner-desc,
-    .banner-heading {
-      & > p {
-        &:last-child {
-          margin-bottom: 0;
+    .bannerInfo {
+      max-width: 730px;
+      .banner-desc {
+        color: var(--clr-dark-2);
+      }
+      .banner-desc,
+      .banner-heading {
+        & > p {
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
     }
@@ -21,7 +24,7 @@
       padding: 165px 0;
     }
     @media (min-width: 1200px) {
-      padding: 12.5vw 0;
+      padding: 11.9vw 0;
     }
   }
   &::after {

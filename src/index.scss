@@ -207,6 +207,13 @@ a {
 .contentCenter {
   text-align: center;
 }
+.contentVerticallyCenter {
+  & > .container {
+    & > .row {
+      align-items: center !important;
+    }
+  }
+}
 .secPadding {
   padding: 60px 0;
   @media (min-width: 768px) {

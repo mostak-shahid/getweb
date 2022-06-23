@@ -14,14 +14,35 @@ import NotFound from "./Page/NotFound/NotFound";
 import Search from "./Page/Search/Search";
 import Single from "./Page/Single/Single";
 //import Post from "./Page/Post/Post";
-
-
-function App() {
-    
-    return (
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Loading from "./Components/Loading/Loading";
+import Config from './Config.json';
+function App() {    
+    const [pages, setPages] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await axios
+            .get(Config.API_BASE + "page-list")
+            .then(function (response) {
+                setPages(response.data);
+                //console.log(response)
+            });
+        }
+        fetchData();
+    }, []);
+    useEffect(() => {
+        if (pages.length !== 0) {
+            setLoading(false);
+        }
+    }, [pages]);
+    return loading ? 
+    <Loading />
+   :
         <div className="App">
-            {/* <Router basename="/getweb-react"> */}
-            <Router>
+            <Router basename="/getweb-react">
+            {/* <Router> */}
                 <HeaderComponent/>
                 <Routes>          
                     <Route exact path="/" element={<Home/>} />
@@ -34,7 +55,24 @@ function App() {
                     {/* <Route path="/blog/:slug" element={<Post />} /> */}
                     {/* <Route path="/:slug" element={<Post />} /> */}
                     {/* <Route path="blogSingle" element={<BlogSingle />} /> */}
-                    <Route path="/scoping-session" element={<Single id="834"/>}/>
+                    <Route path="/blog" element={<Blog/>}/>
+
+                    <Route path="/job/:slug" >
+                        <Route index element={<JobDetails />} />
+                        {/* <Route path="apply" element={<JobApplicationForm />} /> */}
+                        <Route path="apply" element={<JobApplication />} />
+                    </Route> 
+                    <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
+                    <Route path="/blog" element={<Blog/>}/>
+                    <Route path="/blog/:slug" element={<BlogSingle />} />
+                    <Route path="/search" >
+                        <Route index element={<Search />} />
+                        <Route path=":keyword" element={<Search />} />
+                    </Route>
+                    {pages.map((item, index) => (
+                        <Route path={item.post_name} element={<Single id={item.ID}/>} key={index}/>
+                    ))}
+                    {/* <Route path="/scoping-session" element={<Single id="834"/>}/>
                     <Route path="/research-development" element={<Single id="812"/>}/>
                     <Route path="/product-design-sprint" element={<Single id="764"/>}/>
                     <Route path="/product-design" element={<Single id="603"/>}/>
@@ -51,25 +89,15 @@ function App() {
                     <Route path="/portfolio" element={<Single id="493"/>}/>
 
                     <Route path="/careers" element={<Single id="419" />} />
-                    <Route path="/job/:slug" >
-                        <Route index element={<JobDetails />} />
-                        {/* <Route path="apply" element={<JobApplicationForm />} /> */}
-                        <Route path="apply" element={<JobApplication />} />
-                    </Route> 
-                    <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
-                    <Route path="/blogs" element={<Blog/>}/>
-                    <Route path="/blog/:slug" element={<BlogSingle />} />
-                    <Route path="/search" >
-                        <Route index element={<Search />} />
-                        <Route path=":keyword" element={<Search />} />
-                    </Route>
-                    <Route path="/contact" element={<Single id="341"/>}/>
+                    
+                    <Route path="/contact" element={<Single id="341"/>}/> */}
+                    
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
                 <FooterComponent/>
             </Router>
         </div>
-    );
+    
 }
 
 export default App;

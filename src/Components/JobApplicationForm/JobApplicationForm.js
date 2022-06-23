@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
 import Config from "../../Config.json";
 import ReadyToMove from "../ReadyToMove/ReadyToMove";
@@ -8,14 +8,14 @@ import SuccessfulModal from "../SuccessfulModal/SuccessfulModal";
 import "./JobApplicationForm.scss";
 
 const JobApplicationForm = (props) => {
-    const location = useLocation();
+    //const location = useLocation();
     const params = useParams();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);    
+    //const handleShow = () => setShow(true);    
     const [loading,setLoading]=useState(true);
     const [jobs,setJobs]=useState([]);
-    const [formPocessing,setFormPocessing]=useState([]);
+    //const [formPocessing,setFormPocessing]=useState([]);
 
     useEffect(()=>{
         const url = Config.API_BASE + "data-list/job/0";//api url
@@ -45,7 +45,7 @@ const JobApplicationForm = (props) => {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        setFormPocessing(true);
+        //setFormPocessing(true);
         const formData = new FormData();
         formData.append("id", 1);
         formData.append("job_id", values.job_id);

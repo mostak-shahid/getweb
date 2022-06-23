@@ -1,6 +1,6 @@
-import { Button, Modal } from "react-bootstrap";
-import SuccessfulIcon from "../../assets/images/succesful-icon.svg";
+import { Modal } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import SuccessfulIcon from "../../assets/images/succesful-icon.svg";
 import "./SuccessfulModal.scss";
 
 const SuccessfulModal = ({ show, handleClose }) => {

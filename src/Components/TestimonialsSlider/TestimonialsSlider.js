@@ -1,6 +1,6 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import React, { Component } from "react";
+import { Component } from "react";
 import OwlCarousel from 'react-owl-carousel';
 import Config from '../../Config.json';
 import "./TestimonialsSlider.scss";
@@ -87,12 +87,12 @@ export default class MultipleItems extends Component {
                     <div className="pic">
                       <img src={items.image} alt="pic" />
                     </div>
-                    <a href="#" className="info text-decoration-none">
+                    <span className="info">
                       <div className="fs-14 fw-bold text-white mb-1">
                         {items.meta._mosacademy_testimonial_name}
                       </div>
                       <div className="fs-12 fw-medium textClrGray mb-0" dangerouslySetInnerHTML={{__html:items.meta._mosacademy_testimonial_designation}} />
-                    </a>
+                    </span>
                   </div>
                   <div className="qoute">
                     <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">

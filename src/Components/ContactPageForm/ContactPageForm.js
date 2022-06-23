@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import clockIcon from "../../assets/images/clock.svg";
@@ -16,12 +16,12 @@ function ContactPageForm(props) {
     // const [phone, setPhone] = useState(''); 
     // const [message, setMessage] = useState('');
     const [optionData,setOptionData]=useState([]);
-    const [loading,setLoading]=useState(true);
+    //const [loading,setLoading]=useState(true);
     useEffect(()=>{
         const url=Config.API_BASE + "options/";//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setOptionData(resp))//setting response to state posts
-        .then(setLoading(false));
+        //.then(setLoading(false));
     },[]);    
     const [values, setValues] = useState({
         name: "",

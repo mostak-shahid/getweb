@@ -3,7 +3,6 @@ import Moment from 'react-moment';
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import clock1 from "../../assets/images/clock1.svg";
 import facebook from "../../assets/images/Facebook.svg";
-import linkdin from "../../assets/images/linkedinLink.svg";
 import linkedinProfile from "../../assets/images/linkedinProfile.svg";
 import twitterLink from "../../assets/images/TwitterLink.svg";
 import Config from "../../Config.json";
@@ -137,20 +136,20 @@ const BlogSingle = (props) => {
                                         <p className="mb-0 fs-14 fw-bold text-white pe-2">Share</p>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <img src={facebook} alt="" />
+                                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}&t=${pageData.title}`} target="_blank" title="Share on Facebook" rel='noreferrer'>
+                                            <img src={facebook} alt="Facebook" />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <img src={twitterLink} alt="" />
+                                        <a href={`https://twitter.com/share?url=${window.location.href}&text=${pageData.title}`} target="_blank" title="Share on Twitetr" rel='noreferrer'>
+                                            <img src={twitterLink} alt="Twitter" />
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src={linkdin} alt="" />
+                                    {/* <li>
+                                        <a>
+                                            <img src={linkdin} alt="Linkdin" />
                                         </a>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                                 </div>
