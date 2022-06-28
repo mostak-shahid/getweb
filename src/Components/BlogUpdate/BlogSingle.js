@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from "react-helmet";
 import Moment from 'react-moment';
 import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 import clock1 from "../../assets/images/clock1.svg";
 import facebook from "../../assets/images/Facebook.svg";
+import linkdin from "../../assets/images/linkedin.svg";
 import linkedinProfile from "../../assets/images/linkedinProfile.svg";
 import twitterLink from "../../assets/images/TwitterLink.svg";
 import Config from "../../Config.json";
 import MainComponent from '../MainComponent/MainComponent';
 import "./BlogSingle.scss";
 import RecentPost from './RecentPost';
-
 
 const BlogSingle = (props) => {
     const params = useParams();  
@@ -67,6 +69,19 @@ const BlogSingle = (props) => {
             loading?
             <div className="textClrGreen text-center">loading...</div>:            
             <>
+            
+            <Helmet>
+                {/*<meta property="og:url" content={window.location.href}/>
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={pageData.title} />
+                <meta property="og:description" content="How much does culture influence creative thinking?" />
+                <meta property="og:image" content={pageData.image}/>
+                <meta property="og:image" content={pageData.image}/>
+                <meta property="og:image:secure_url" content={pageData.image} />
+                <meta property="og:image:width" content="850" />
+                <meta property="og:image:height" content="650" />
+                <meta property="og:image:type" content="image/jpeg" /> */}
+            </Helmet>
                 <section className="BlogSingleWrapper secPadding mt-5">
                     <div className="container">
                         <div className="blogFeathered">
@@ -136,20 +151,26 @@ const BlogSingle = (props) => {
                                         <p className="mb-0 fs-14 fw-bold text-white pe-2">Share</p>
                                     </li>
                                     <li>
-                                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}&t=${pageData.title}`} target="_blank" title="Share on Facebook" rel='noreferrer'>
+                                        {/* <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank" title="Share on Facebook" rel='noreferrer'>
                                             <img src={facebook} alt="Facebook" />
-                                        </a>
+                                        </a> */}
+                                        <FacebookShareButton url={window.location.href} quote={pageData.title} >
+                                            <img src={facebook} alt="Facebook" />
+                                        </FacebookShareButton>
                                     </li>
                                     <li>
-                                        <a href={`https://twitter.com/share?url=${window.location.href}&text=${pageData.title}`} target="_blank" title="Share on Twitetr" rel='noreferrer'>
+                                        {/* <a href={`https://twitter.com/share?url=${window.location.href}&text=${pageData.title}`} target="_blank" title="Share on Twitetr" rel='noreferrer'>
                                             <img src={twitterLink} alt="Twitter" />
-                                        </a>
+                                        </a> */}
+                                        <TwitterShareButton title={pageData.title} url={window.location.href}>
+                                            <img src={twitterLink} alt="Twitter" />
+                                        </TwitterShareButton>
                                     </li>
-                                    {/* <li>
-                                        <a>
+                                    <li>
+                                        <LinkedinShareButton title={window.location.href} source={pageData.title}>
                                             <img src={linkdin} alt="Linkdin" />
-                                        </a>
-                                    </li> */}
+                                        </LinkedinShareButton>
+                                    </li>
                                 </ul>
                             </div>
                                 </div>

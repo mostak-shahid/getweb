@@ -2,7 +2,6 @@
   "name": "react-pack",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mdshahalam.design/getweb-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -16,12 +15,14 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.3",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-loader-spinner": "^6.0.0-0",
     "react-moment": "^1.1.2",
     "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
     "react-scroll": "^1.8.7",
+    "react-share": "^4.4.0",
     "react-toastify": "^9.0.1",
     "sass": "^1.50.0",
     "web-vitals": "^1.1.2"

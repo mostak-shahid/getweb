@@ -1,4 +1,3 @@
-import React from 'react';
 import PortfolioGroup from '../../Page/Portfolio/PortfolioGroup';
 import BlogUpdateComponent from "../BlogUpdate/BlogUpdateComponent";
 import CompanyBenefits from "../CompanyBenefits/CompanyBenefits";
@@ -12,6 +11,7 @@ import OurServicesComponent from "../OurServices/OurServicesComponent";
 import OurValues from '../OurValues/OurValues';
 import PortfolioComponent from "../Portfolio/PortfolioComponent";
 import ReadyToMoveComponent from "../ReadyToMove/ReadyToMoveComponent";
+import FrontendTechnologies from "../Technologies/FrontendTechnologies";
 import TechnologiesComponent from "../Technologies/TechnologiesComponent";
 import TestimonialsComponent from "../Testimonials/TestimonialsComponent";
 import WhoWeAre from "../WhoWeAre/WhoWeAre";
@@ -72,6 +72,7 @@ const MainComponent = (props) => {
                 {(_mosacademy_page_group_component_name === 'CompanyBenefits') && <CompanyBenefits data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'JobOpening') && <JobOpening data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'PortfolioGroup') && <PortfolioGroup data={props.data} />}
+                {(_mosacademy_page_group_component_name === 'FrontendTechnologies') && <FrontendTechnologies data={props.data} />}
             </div>
         </section>
     )
