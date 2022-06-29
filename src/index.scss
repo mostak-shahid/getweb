@@ -186,6 +186,16 @@ a {
 .bgGradient2 {
   background: linear-gradient(180deg, #202124 0%, rgba(32, 33, 36, 0) 100%);
 }
+.bgGradient3 {
+  background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 1) 100%);
+}
+.bgGradient4 {
+  background: linear-gradient(
+    to bottom,
+    rgba(39, 40, 43, 1) 0%,
+    rgba(25, 26, 29, 1) 100%
+  );
+}
 .fw-medium {
   font-weight: 500;
 }
@@ -212,6 +222,11 @@ a {
     & > .row {
       align-items: center !important;
     }
+  }
+}
+.featureImageCenter {
+  .part-two {
+    text-align: center !important;
   }
 }
 .secPadding {
@@ -486,5 +501,22 @@ img {
 .unitTextCenter {
   .media-block {
     text-align: center;
+  }
+}
+
+ul {
+  &:not(.mos-menu-list, .dropdown) {
+    padding-left: 18px;
+    li {
+      padding-left: 12px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      &::marker {
+        font-family: "Font Awesome 6 Pro";
+        font-weight: 900;
+        content: "\f058";
+        color: var(--clr-green);
+      }
+    }
   }
 }

@@ -72,20 +72,6 @@
           h6 {
             color: #ffffff;
           }
-          ul {
-            padding-left: 18px;
-            li {
-              padding-left: 12px;
-              margin-top: 5px;
-              margin-bottom: 5px;
-              &::marker {
-                font-family: "Font Awesome 6 Pro";
-                font-weight: 900;
-                content: "\f058";
-                color: var(--clr-green);
-              }
-            }
-          }
           .button-wrapper {
             display: inline-block;
             padding: 7.5px;

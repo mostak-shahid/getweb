@@ -1,7 +1,7 @@
 import PortfolioGroup from '../../Page/Portfolio/PortfolioGroup';
 import BlogUpdateComponent from "../BlogUpdate/BlogUpdateComponent";
 import CompanyBenefits from "../CompanyBenefits/CompanyBenefits";
-import ContactPageForm from '../ContactPageForm/ContactPageForm';
+import ContactSection from '../ContactSection/ContactSection';
 import Faq from "../Faq/Faq";
 import JobOpening from '../JobOpening/JobOpening';
 import OurAward from "../OurAward/OurAward";
@@ -63,7 +63,7 @@ const MainComponent = (props) => {
                 {(_mosacademy_page_group_component_name === 'TestimonialsComponent') && <TestimonialsComponent data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'BlogUpdateComponent') && <BlogUpdateComponent data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'ReadyToMoveComponent') && <ReadyToMoveComponent data={props.data} />}
-                {(_mosacademy_page_group_component_name === 'ContactPageForm') && <ContactPageForm data={props.data} />}
+                {(_mosacademy_page_group_component_name === 'ContactSection') && <ContactSection data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'WhoWeAre') && <WhoWeAre data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'OurMission') && <OurMission data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'OurValues') && <OurValues data={props.data} />}

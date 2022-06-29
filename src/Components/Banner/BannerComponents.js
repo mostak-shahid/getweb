@@ -47,7 +47,7 @@ export default class BannerComponents extends Component {
                 <div className="trustedWrapper d-flex justify-content-center align-items-center pb-4 flex-wrap gap-2">
                     {Object.values(this.state.bannerData.meta._mosacademy_banner_gallery).map(( value , index)=> {
                         return (
-                            <img src={value} key={value} alt="images" className="partner-img" />
+                            <img src={value} key={value} alt="Partner Logo" className="img-fluid partner-img" />
                         )
                     })}                       
                     </div>
