@@ -4,8 +4,6 @@ import BlogSingle from "./Components/BlogUpdate/BlogSingle";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
 import HeaderComponent from "./Components/Header/HeaderComponent";
-import JobApplication from "./Components/JobApplication/JobApplication";
-import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
 import JobDetails from "./Components/JobDetails/JobDetails";
 import "./index.scss";
 import Blog from "./Page/Blog/Blog";
@@ -16,6 +14,7 @@ import Single from "./Page/Single/Single";
 //import Post from "./Page/Post/Post";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
 import Loading from "./Components/Loading/Loading";
 import Config from './Config.json';
 function App() {    
@@ -60,9 +59,9 @@ function App() {
                 <Route path="/job/:slug" >
                     <Route index element={<JobDetails />} />
                     {/* <Route path="apply" element={<JobApplicationForm />} /> */}
-                    <Route path="apply" element={<JobApplication />} />
+                    <Route path="apply" element={<JobApplicationForm />} />
                 </Route> 
-                <Route path="/apply-job/:slug" element={<JobApplicationForm />} />
+                <Route path="/jobapplication" element={<JobApplicationForm/>}/>
                 <Route path="/blog" element={<Blog/>}/>
                 <Route path="/blog/:slug" element={<BlogSingle />} />
                 <Route path="/search" >

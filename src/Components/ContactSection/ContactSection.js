@@ -5,7 +5,7 @@ import locationIcon from "../../assets/images/location-icon.svg";
 import skypeIcon from "../../assets/images/ms_skype.png";
 import phoneIcon from "../../assets/images/phone.svg";
 import Config from "../../Config.json";
-import ContactPageForm from "../ContactPageForm/ContactPageForm";
+import FormValidation from "../FormValidation/FormValidation";
 import './ContactSection.scss';
 
 function ContactSection(props) {
@@ -26,7 +26,7 @@ function ContactSection(props) {
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
                 <div className="part-one">   
-                    <div className="sectionHeader mb-30">                   
+                    <div className="sectionHeader">                   
                         {
                             _mosacademy_page_group_sub_titles[0] &&
                             <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
@@ -42,7 +42,7 @@ function ContactSection(props) {
                         
                     </div>                    
                     <div className="getInTouch mb-5 mb-xl-0">
-                        <div className="row isBgBorder pb-30 mb-30">
+                        <div className="row isBgBorder pb-20 mb-20">
                             <div className="col-lg-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
@@ -88,7 +88,7 @@ function ContactSection(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="row isBgBorder pb-30 mb-30">
+                        <div className="row isBgBorder pb-20 mb-20">
                             <div className="col-6 py-3">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
@@ -134,7 +134,7 @@ function ContactSection(props) {
             </div>
             <div className={[widthClass].join(' ')}>
                 <div className="part-two"> 
-                <ContactPageForm/>
+                <FormValidation title="Got a project in mind? We’re all ears." intro="It usually takes us up to 48 hours to get back to you." fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
                 </div>
             </div>
         </div>

@@ -35,9 +35,6 @@ const Faq = (props) => {
     
     return (
         <div className="row">
-            {
-                //console.log('FAQs: ', sectionData)
-            }
             <div className={[widthClass, orderClass].join(' ')}>
                 <div className="sectionHeader text-center mb-5">
                     {
