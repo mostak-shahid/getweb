@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import BlogSingle from "./Components/BlogUpdate/BlogSingle";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import "./Components/Header/header.scss";
@@ -20,6 +20,8 @@ import Config from './Config.json';
 function App() {    
     const [pages, setPages] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [location, setLocation] = useState('');
+    let {hash} = useLocation();
     useEffect(() => {
         async function fetchData() {
             await axios
@@ -36,12 +38,36 @@ function App() {
             setLoading(false);
         }
     }, [pages]);
+
+    useEffect(() => {
+        // if not a hash link, scroll to top
+        if (hash === '' && location === '') {
+            window.scrollTo(0, 0);
+            //setLocation('');
+        }
+        // else scroll to id
+        else {
+            console.count();
+            setLocation(hash);
+            setTimeout(() => {
+                const id = hash.replace('#', '');
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView();
+                    //setLocation('');
+                }
+            }, 0);
+        }
+    }, [hash,location]);
+     
+
     return loading ? 
     <Loading />
     :
     <div className="App">
+        {/*console.log('Hash', hash)*/}
+        {/*console.log('Location', location)*/}
         {/* <Router basename="/getweb-react"> */}
-        <Router>
             <HeaderComponent/>
             <Routes>          
                 <Route exact path="/" element={<Home/>} />
@@ -94,7 +120,6 @@ function App() {
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
             <FooterComponent/>
-        </Router>
     </div>
     
 }

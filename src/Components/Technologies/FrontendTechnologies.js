@@ -5,7 +5,7 @@ import Config from '../../Config.json';
 import Loading from '../Loading/Loading';
 import './FrontendTechnologies.scss';
 import Technology from "./TechnologiesBar/Technology/Technology";
-const Technologies = (props) => {  
+const FrontendTechnologies = (props) => {  
     const [technologiesData, setTechnologiesData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -78,4 +78,4 @@ const Technologies = (props) => {
         </div>
 }
 
-export default Technologies
+export default FrontendTechnologies

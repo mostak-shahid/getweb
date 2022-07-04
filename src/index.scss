@@ -181,10 +181,10 @@ a {
   background-color: var(--clr-menu-light);
 }
 .bgGradient {
-  background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+  background: linear-gradient(to bottom, #121316 0%, #191a1d 100%);
 }
 .bgGradient2 {
-  background: linear-gradient(180deg, #202124 0%, rgba(32, 33, 36, 0) 100%);
+  background: linear-gradient(180deg, #202124 0%, #121316 100%);
 }
 .bgGradient3 {
   background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 1) 100%);
