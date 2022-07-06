@@ -36,7 +36,7 @@ const Section = (props) => {
             <div className={_mosacademy_page_group_content_width}>
                 <div className="row">
                     <div className={[widthClass, orderClass].join(' ')}>
-                        <div className="part-one">                        
+                        <div className="part-one mb-4 mb-md-0">                        
                             {
                                 _mosacademy_page_group_sub_titles[0] &&
                                 <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>

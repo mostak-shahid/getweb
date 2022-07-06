@@ -53,6 +53,7 @@
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
   .portfolioMenu {
     font-size: 16px;
@@ -89,18 +90,22 @@
 
 .portfolioModalWrapper {
   .modal-header {
+    padding: 0;
+    border-radius: 0;
+    justify-content: flex-end;
     .btn-close {
-      position: absolute;
-      top: -82px;
-      right: -236px;
-      width: 24px;
-      height: 24px;
-
-      color: #000;
+      // position: absolute;
+      // top: 0;
+      // right: 0;
+      // width: 24px;
+      // height: 24px;
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545;
       background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L19 19' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.00001 19L19 5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-      border: 0;
-      border-radius: 0.25rem;
+      border-radius: 0;
       opacity: 1;
+      margin: 0;
     }
   }
   .modal-dialog {
@@ -113,6 +118,14 @@
       background-color: transparent;
     }
     .modal-body {
+      .portfolio-modal-close {
+        z-index: 9;
+        .btn {
+          width: 38px;
+          margin-top: 5px;
+          margin-right: 20px;
+        }
+      }
       .owl-carousel {
         .owl-nav {
           margin-top: 0;
@@ -255,6 +268,8 @@
 }
 
 .modal-backdrop {
+  height: unset;
+  bottom: 0;
   &.show {
     opacity: 0.9 !important;
   }

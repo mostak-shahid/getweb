@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import MultipleItems from '../TestimonialsSlider/TestimonialsSlider';
 
 //const TestimonialsComponent = () => {
@@ -18,7 +18,7 @@ export default class TestimonialsComponent extends Component {
         return (                    
             <div className="row">
                 <div className={[widthClass, orderClass].join(' ')}>
-                    <div className="part-one">                        
+                    <div className="part-one mb-4 mb-md-0">                        
                         {
                             _mosacademy_page_group_sub_titles[0] &&
                             <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>

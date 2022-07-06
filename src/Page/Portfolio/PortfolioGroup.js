@@ -138,12 +138,12 @@ const PortfolioGroup = (props) => {
                 </h3>
                 <hr />
                 {categories.length && (
-                    <ul>
+                    <ul className="portfolioFilteMenu">
                     {categories.map((item, index) => (
                         <li
                         className={[
                             "portfolioMenu",
-                            item.term_id === activeCatID && "active",
+                            item.term_id === activeCatID ? "active":"",
                         ].join(" ")}
                         key={index}
                         onClick={() => onClick(item.term_id, 0)}
@@ -172,8 +172,9 @@ const PortfolioGroup = (props) => {
                 show={show}
                 onHide={handleClose}
             >
-                <Modal.Header className="p-0 border-0" closeButton></Modal.Header>
+                <Modal.Header closeButton></Modal.Header>
                 <Modal.Body className="p-0">
+                    {/* <div className="portfolio-modal-close position-absolute top-0 end-0"><button className="btn btn-danger rounded-circle" onClick={handleClose}>x</button></div> */}
                     <OwlCarousel className="owl-theme" {...settings}>
                         {projects.map((item, index) => (
                         <div className="item" key={index}>

@@ -520,7 +520,7 @@ img {
 }
 
 ul {
-  &:not(.mos-menu-list, .dropdown) {
+  &:not(.mos-menu-list, .dropdown, .socialLink, .portfolioFilteMenu, .pagination) {
     padding-left: 18px;
     li {
       padding-left: 12px;

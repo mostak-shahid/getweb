@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Helmet } from "react-helmet";
 import Moment from 'react-moment';
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
@@ -9,7 +8,9 @@ import linkdin from "../../assets/images/linkedin.svg";
 import linkedinProfile from "../../assets/images/linkedinProfile.svg";
 import twitterLink from "../../assets/images/TwitterLink.svg";
 import Config from "../../Config.json";
+import Loading from '../Loading/Loading';
 import MainComponent from '../MainComponent/MainComponent';
+import SeoMeta from '../SeoMeta/SeoMeta';
 import "./BlogSingle.scss";
 import RecentPost from './RecentPost';
 
@@ -67,21 +68,9 @@ const BlogSingle = (props) => {
         <>
         {
             loading?
-            <div className="textClrGreen text-center">loading...</div>:            
-            <>
-            
-            <Helmet>
-                {/*<meta property="og:url" content={window.location.href}/>
-                <meta property="og:type" content="article" />
-                <meta property="og:title" content={pageData.title} />
-                <meta property="og:description" content="How much does culture influence creative thinking?" />
-                <meta property="og:image" content={pageData.image}/>
-                <meta property="og:image" content={pageData.image}/>
-                <meta property="og:image:secure_url" content={pageData.image} />
-                <meta property="og:image:width" content="850" />
-                <meta property="og:image:height" content="650" />
-                <meta property="og:image:type" content="image/jpeg" /> */}
-            </Helmet>
+            <Loading />:            
+            <>                
+                <SeoMeta pageData={pageData}/>
                 <section className="BlogSingleWrapper secPadding mt-5">
                     <div className="container">
                         <div className="blogFeathered">

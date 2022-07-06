@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Modal } from "bootstrap";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -121,7 +121,7 @@ const PortfolioTab = (props) => {
         smartSpeed: 2500,
         items: 1,
     };
-    const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='',_mosacademy_page_banner_button} = props.data;
+    const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_title_text=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
     return loading ? 
@@ -138,7 +138,7 @@ const PortfolioTab = (props) => {
                     {categories.map((item, index) => (
                         <li
                         className={[
-                          "portfolioMenu",
+                          "portfolioMenu","portfolioMenu-x",
                           item.term_id === activeCatID && "active",
                         ].join(" ")}
                         key={index}

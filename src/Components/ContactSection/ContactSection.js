@@ -25,7 +25,7 @@ function ContactSection(props) {
     return ( 
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
-                <div className="part-one">   
+                <div className="part-one mb-4 mb-md-0">   
                     <div className="sectionHeader">                   
                         {
                             _mosacademy_page_group_sub_titles[0] &&
@@ -134,7 +134,7 @@ function ContactSection(props) {
             </div>
             <div className={[widthClass].join(' ')}>
                 <div className="part-two"> 
-                <FormValidation title="Got a project in mind? We’re all ears." intro="It usually takes us up to 48 hours to get back to you." fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
+                <FormValidation title="Need a Digital Product or a Custom Solution? We’re All Ears!" fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
                 </div>
             </div>
         </div>

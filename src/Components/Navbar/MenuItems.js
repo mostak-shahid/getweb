@@ -22,28 +22,10 @@ const MenuItems = ({items,depthLevel, menuOpen, menuOpenToggle}) => {
             document.removeEventListener("touchstart", handler);
         };
     }, [dropdown]);
-
-    /*const onMouseEnter = () => {
-        window.innerWidth > 960 && setDropdown(true);
-    };
-
-    const onMouseLeave = () => {
-        window.innerWidth > 960 && setDropdown(false);
-    };*/
-    // console.log(items);
-    // console.count();
-    //console.log(items.image);
     const handleClick = useCallback((e) => {
         //e.target.parentElement.classList.add('open-menu-below');
         e.target.parentElement.classList.toggle('open-menu-below');
     }, []);
-    /*const linkClick = useCallback((e) => {
-        //console.log('clicked');
-        //button, navbar-toggler collapsed / navbar-toggler 
-        //navbar-collapse collapse / show navbar-collapse collapse
-        e.target.closest(".navbar").querySelector(".navbar-toggler").classList.toggle("collapsed");
-        e.target.closest(".navbar").querySelector(".navbar-collapse").classList.toggle("show");
-    }, []);*/
 
     return ( 
         /*<li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >*/

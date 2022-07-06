@@ -6,7 +6,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FileIcon from "../../assets/images/file.svg";
 import Config from "../../Config.json";
+import Loading from '../Loading/Loading';
 import Section from '../Section/Section';
+import SeoMeta from '../SeoMeta/SeoMeta';
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
 import SuccessfulModal from '../SuccessfulModal/SuccessfulModal';
 import "./JobApplicationForm.scss";
@@ -85,9 +87,10 @@ const JobApplicationForm = (props) => {
     const cv = watch("cv");
     return (
         loading
-        ?<div className="textClrGreen text-center">loading...</div>
+        ?<Loading />
         :        
         <>
+            <SeoMeta pageData={pageData}/>
             <JobDetailsBanner  title={pageData?.meta?._mosacademy_page_banner_title} content={pageData?.meta?._mosacademy_page_banner_intro}/>
             <section className="JobApplicationForm secPadding">
                 <div className="container">

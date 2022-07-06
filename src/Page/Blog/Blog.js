@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import SingleBlogItems from "../../Components/BlogUpdate/SingleBlogItems";
 import Loading from "../../Components/Loading/Loading";
 import MainComponent from "../../Components/MainComponent/MainComponent";
 import Pagination from "../../Components/Pagination/Pagination";
+import SeoMeta from "../../Components/SeoMeta/SeoMeta";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import "./Blog.scss";
@@ -47,7 +48,13 @@ class Blog extends Component {
         const responsePostCount = await fetch(urlPostCount);
         const postCountResponse = await responsePostCount.json();
 
-        const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
+        
+        const settingsUrl = Config.API_BASE + "settings";
+        const settingsResponse = await fetch(settingsUrl);
+        const settingsData = await settingsResponse.json();
+
+        //const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
+        const urlPage = Config.API_BASE + "data-single/" + settingsData.req.data.page_for_posts;
         const responsePage = await fetch(urlPage);
         const pageResponse = await responsePage.json();
 
@@ -103,6 +110,7 @@ class Blog extends Component {
         const { postData, postCountData, pageData, categoriesData, startFrom, postPerPage } = this.state;
         return (
             <>
+                <SeoMeta pageData={pageData}/>
                 <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} />
                 <section className="blogWrapper secPadding">
                     <div className="filterArea pb-5 isBgBorder mb-5">

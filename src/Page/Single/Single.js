@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Loading from "../../Components/Loading/Loading";
 //import MainComponent from '../../Components/MainComponent/MainComponent';
 import Section from '../../Components/Section/Section';
+import SeoMeta from "../../Components/SeoMeta/SeoMeta";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import './Single.scss';
-
 const Single = (props) => {    
     const [pageID, setPageID]=useState(props.id);
     const [pageData,setPageData]=useState([]);
@@ -48,7 +48,8 @@ const Single = (props) => {
     return (    
         loading
         ?<Loading />
-        :<>
+        :<>        
+            <SeoMeta pageData={pageData}/>
             {
             !pageData?.meta?._mosacademy_banner_hide && 
             <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />    

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from "react-router-dom";
 import BlogBannerBg from '../../assets/images/blogBg.png';
 import SingleBlogItems from '../../Components/BlogUpdate/SingleBlogItems';
@@ -75,6 +76,9 @@ const Search = (props) => {
       loading ? 
       <Loading /> : 
       <>
+      <Helmet>
+        <title>Search resulr for - {searchText}</title>
+      </Helmet>
       <SubPageBanner tagline={tagline} title={title} intro={intro} bgImg={bgImg} /> 
       <section className="blogWrapper secPadding">
         <div className="container"> 
