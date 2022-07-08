@@ -29,7 +29,7 @@ class Blog extends Component {
             dataList: 'data-list',
             categoryId: 0,
             startFrom: 0,
-            postPerPage: 6,
+            postPerPage: 0,
             value:''
         };
         
@@ -40,18 +40,18 @@ class Blog extends Component {
 
     async componentDidMount() {
 
-        const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/6";
+        
+        const settingsUrl = Config.API_BASE + "settings";
+        const settingsResponse = await fetch(settingsUrl);
+        const settingsData = await settingsResponse.json();
+
+        const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/" + this.state.postPerPage;
         const responsePost = await fetch(urlPost);
         const postResponse = await responsePost.json();
 
         const urlPostCount = Config.API_BASE+"data-nop/post/" + this.state.categoryId;
         const responsePostCount = await fetch(urlPostCount);
         const postCountResponse = await responsePostCount.json();
-
-        
-        const settingsUrl = Config.API_BASE + "settings";
-        const settingsResponse = await fetch(settingsUrl);
-        const settingsData = await settingsResponse.json();
 
         //const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
         const urlPage = Config.API_BASE + "data-single/" + settingsData.req.data.page_for_posts;
@@ -62,6 +62,7 @@ class Blog extends Component {
         const responseCategories = await fetch(urlCategories);
         const categoriesResponse = await responseCategories.json();
         this.setState({
+            postPerPage: settingsData.req.data.posts_per_page,
             postData: postResponse,
             postCountData: postCountResponse,
             pageData: pageResponse,
@@ -72,7 +73,7 @@ class Blog extends Component {
         // console.count();
     }
     async componentDidUpdate() {        
-        const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/6";
+        const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/" + this.state.postPerPage;
         const responsePost = await fetch(urlPost);
         const postResponse = await responsePost.json();
 
@@ -155,7 +156,10 @@ class Blog extends Component {
                         </div>
                     </div>
                     <div className="wrapper isBgBorder pb-5">
-                        <div className="container">
+                        <div className="container position-relative">
+                            <div className="position-absolute top-0 start-0 bottom-0 end-0 bg-primary d-flex justify-content-center align-items-center text-white" style={{ display: "none" }}>
+                                <i className="fad fa-arrows-spin rotate fs-48"></i>
+                            </div>
                             <div className="row">
                                 {postData.length ?
                                     postData.map((item, index) => (

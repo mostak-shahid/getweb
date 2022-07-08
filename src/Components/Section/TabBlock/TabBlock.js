@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MediaBlock from '../MediaBlock/MediaBlock';
 import './TabBlock.scss';
 const rand = Math.floor(Math.random() * 1000); 
@@ -34,8 +34,10 @@ const TabBlock = (props) => {
         e.preventDefault()
         // e.target.parentElement.querySelector('.list-group-item.active').classList.remove("active")
         // e.target.classList.add("active")
-        const target = e.target.getAttribute('href')
-        const location = document.querySelector(target).offsetTop  
+        //const target = e.target.getAttribute('href')
+        const target = e.target.getAttribute('data-target')
+        //console.log(document.querySelector('#' + target))
+        const location = document.querySelector('#' + target).offsetTop  
         window.scrollTo({
             left: 0,
             //top: location - 64,
@@ -49,8 +51,8 @@ const TabBlock = (props) => {
                 <div className="list-group position-sticky top-0 start-0" >
                     <h4 className="fs-24">Contents</h4>
                     {props.groupData.map((item, index) => (                        
-                        <a onClick={handleClick} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} key={index}>
-                            <span  dangerouslySetInnerHTML={{__html: item.title}}></span>
+                        <a onClick={handleClick} data-target={["list-item", rand, index].join('-')} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} key={index}>
+                            <span data-target={["list-item", rand, index].join('-')} dangerouslySetInnerHTML={{__html: item.title}}></span>
                         </a>
                     ))}
                 </div>

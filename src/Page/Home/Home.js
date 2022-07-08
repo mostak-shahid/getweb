@@ -42,10 +42,10 @@ export default class Home extends Component {
         if (!this.state.pageData || !this.state.settingsData ) {
             return <Loading cls="late-api-response" />;
         }
-        const { pageData,settingsData } = this.state;
+        const { pageData } = this.state;
         return (
             <>
-            {console.log(settingsData.req.data.page_on_front)}
+            {/*console.log(settingsData.req.data.page_on_front)*/}
                 <SeoMeta pageData={pageData}/>         
                 <BannerComponents />
                 {
