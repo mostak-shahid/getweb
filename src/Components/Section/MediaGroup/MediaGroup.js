@@ -20,8 +20,10 @@ const MediaGroup = (props) => {
     useEffect(() => {
         // declare the async data fetching function
         const fetchData = async () => {
+            let url = Config.API_BASE + 'data-list/'+type+'/'+taxonomy+'/0/' + props.count_total;
+            console.log(url);
             // get the data from the api
-            await axios.get(Config.API_BASE + 'data-list/'+type+'/'+taxonomy+'/0/' + props.count_total)
+            await axios.get(url)
             .then((response) => {
                 setGroupData(response.data);
                 // console.log(response.data);
@@ -31,23 +33,7 @@ const MediaGroup = (props) => {
         fetchData()
         // make sure to catch any error
         .catch(console.error);
-      }, [type, taxonomy, props.count_total])
-
-    
-    /*useEffect(() => {
-        async function fetchData() {
-            await axios.get(Config.API_BASE + 'data-list/'+type+'/'+taxonomy+'/0/' + props.count_total)
-            .then((response) => {
-                setGroupData(response.data);
-                // console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }
-        fetchData();        
-    }, [type, taxonomy, props.count_total]);*/
-    
+      }, [type, taxonomy, props.count_total])    
 
     useEffect(() => {
         if (groupData.length !== 0) {
@@ -60,14 +46,14 @@ const MediaGroup = (props) => {
 
         <div className="media-group">
             <div className="row">
-                {/*console.log(props.count_col)*/}
+                {console.log(props)}
                 {   
                     props.layout === 'tab' && 
                         <TabBlock groupData={groupData} template={props.template}/>
                 }
                 {
                     props.layout === 'block' && 
-                    groupData.map((item, index) => (
+                    groupData?.map((item, index) => (
                         <div className={["mb-4", props.count_col].join(' ')} key={index}>
                             <MediaBlock data={item} template={props.template}/>
                         </div>

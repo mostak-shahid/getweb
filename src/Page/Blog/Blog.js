@@ -157,7 +157,7 @@ class Blog extends Component {
                     </div>
                     <div className="wrapper isBgBorder pb-5">
                         <div className="container position-relative">
-                            <div className="position-absolute top-0 start-0 bottom-0 end-0 bg-primary d-flex justify-content-center align-items-center text-white" style={{ display: "none" }}>
+                            <div className="position-absolute top-0 start-0 bottom-0 end-0 bg-primary d-flex justify-content-center align-items-center text-white d-none">
                                 <i className="fad fa-arrows-spin rotate fs-48"></i>
                             </div>
                             <div className="row">
