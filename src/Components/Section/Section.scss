@@ -1,3 +1,4 @@
+@import "../../mixing.scss";
 .section-wrapper {
   background-position: center center;
   background-size: cover;
@@ -30,7 +31,7 @@
   .part-one {
     .secTagLine {
       color: var(--clr-green);
-      margin-bottom: 1rem;
+      margin-bottom: var(--16px);
       font-weight: 700;
       font-size: 14px;
       line-height: 22px;
@@ -43,7 +44,7 @@
       h4,
       h5,
       h6 {
-        margin-bottom: 1rem;
+        margin-bottom: var(--16px);
         font-weight: 400;
         color: #fff;
         line-height: 1.2;
@@ -56,7 +57,7 @@
         font-size: 30px;
       }
       h3 {
-        font-size: 26px;
+        font-size: var(--26px);
       }
       h4 {
         font-size: 22px;
@@ -68,7 +69,7 @@
         font-size: 18px;
       }
       p {
-        color: var(--clr-gray);
+        color: var(--clr-dark-2);
         font-size: 14px;
         line-height: 22px;
       }
@@ -138,11 +139,27 @@
       align-items: center;
     }
   }
+  &.newslatter {
+    .part-one {
+      .secIntro {
+        h2,
+        p {
+          margin-bottom: 30px;
+        }
+      }
+      .btn-wrapper {
+        .btn {
+          .btn-arrow {
+            background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.79639 17.4298L13.5014 11.7248C14.1751 11.0511 14.1751 9.94858 13.5014 9.27483L7.79639 3.56982' stroke='%23121316' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          }
+        }
+      }
+    }
+  }
   @media (min-width: 768px) {
     .part-one {
       .secTagLine {
-        font-size: 1rem;
-        line-height: 26px;
+        @include fs16();
       }
       .secTitle,
       .secIntro {
@@ -159,13 +176,13 @@
           font-size: 30px;
         }
         h5 {
-          font-size: 26px;
+          font-size: var(--26px);
         }
         h6 {
           font-size: 20px;
         }
         p {
-          font-size: 1rem;
+          @include fs16();
         }
       }
     }
@@ -173,7 +190,7 @@
   @media (min-width: 1200px) {
     .part-one {
       .secTagLine {
-        font-size: 1rem;
+        @include fs16();
       }
       .secTitle,
       .secIntro {

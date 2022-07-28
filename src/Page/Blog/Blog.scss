@@ -1,3 +1,4 @@
+@import "../../mixing.scss";
 .blogWrapper {
   .filterLeft {
     display: grid;
@@ -8,7 +9,7 @@
         border: 1px solid #4c4d54 !important;
         color: #8d8f98 !important;
         font-weight: 500;
-        font-size: 16px;
+        @include fs16();
         &:focus {
           box-shadow: none !important;
           font-size: 14px;

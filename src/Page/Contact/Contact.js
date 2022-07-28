@@ -24,7 +24,7 @@ const Contact = () => {
         <>
         {
             loading?
-            <Loading />:
+            <Loading cls="page-loader" />:
             pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
                 <MainComponent data={item} key={index} />    
                 //<div key={index}>{item._mosacademy_page_group_title_text}</div>                    

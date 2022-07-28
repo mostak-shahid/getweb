@@ -4,12 +4,10 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loading from "../../Components/Loading/Loading";
 import MainComponent from "../../Components/MainComponent/MainComponent";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import "./Portfolio.scss";
-import PortfolioGroup from "./PortfolioGroup";
 const Portfolio = () => {
   const [loading, setLoading] = useState(true);
   const [pageData,setPageData]=useState([]);
@@ -31,7 +29,7 @@ const Portfolio = () => {
 
 
   return loading ? 
-    <Loading />
+    <div className="textClrGreen text-center loder-text">loading...</div>
    : 
     <>
         <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />         

@@ -15,7 +15,7 @@
             right: 30px !important;
           }
           &.top-0 {
-            top: 16px !important;
+            top: var(--16px) !important;
           }
         }
         &:hover {

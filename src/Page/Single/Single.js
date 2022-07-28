@@ -47,7 +47,7 @@ const Single = (props) => {
     
     return (    
         loading
-        ?<Loading />
+        ?<Loading cls="page-loader" />
         :<>        
             <SeoMeta pageData={pageData}/>
             {

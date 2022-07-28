@@ -46,7 +46,7 @@
     overflow: hidden;
     background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
     border: 1px solid #202124;
-    border-radius: 16px;
+    border-radius: var(--16px);
     text-align: center;
     padding: 35px;
     width: 100%;

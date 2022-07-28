@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import { Link } from "react-scroll";
 import Config from '../../Config.json';
-import Loading from '../Loading/Loading';
 import './FrontendTechnologies.scss';
 import Technology from "./TechnologiesBar/Technology/Technology";
 const CWATechnologies = (props) => {  
@@ -28,7 +27,7 @@ const CWATechnologies = (props) => {
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12';
     return loading ? 
-    <Loading />
+    <div className="textClrGreen text-center loder-text">loading...</div>
     :
     <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>

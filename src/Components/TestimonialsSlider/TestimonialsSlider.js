@@ -75,13 +75,15 @@ export default class MultipleItems extends Component {
       <div className="TestimonialsSlider">
         <OwlCarousel className='owl-theme' {...settings}>
           {
-            (testimonialData.length)?
+            (testimonialData.length) && 
             testimonialData.map((items, index) => (
-              <div className="item-wrapper singleFeedback isRadius16 p-4 bgClrDarkLight" key={items.id}>
+              <div className="item-wrapper singleFeedback isRadius16 p-4 bgClrDarkLight d-flex flex-column justify-content-between" key={items.id}>
+                <div className="reviewerContent">
                 <div className="logos mb-4">
                   <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
                 </div>
                 <div className="feedbackText textClrGray fw-normal fs-6 mb-5" dangerouslySetInnerHTML={{__html:items.content}} />
+                </div>
                 <div className="reviewerInfo d-flex align-items-center justify-content-between">
                   <div className="d-flex align-items-center gap-3">
                     <div className="pic">
@@ -101,7 +103,7 @@ export default class MultipleItems extends Component {
                   </div>
                 </div>
               </div>
-            )):''
+            ))
           }
         </OwlCarousel>
       </div>

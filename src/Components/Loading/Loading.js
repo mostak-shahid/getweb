@@ -9,6 +9,7 @@ const Loading = (props) => {
             color='#00ffa3'
             ariaLabel='loading'
           />
+          <div className="text-center text-white">{props.text}</div>
     </div>
   )
 }

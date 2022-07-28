@@ -1,3 +1,4 @@
+@import "../../mixing.scss";
 .portfolio-hero-area {
   .text-area {
     .gw-btn {
@@ -15,7 +16,7 @@
             right: 30px !important;
           }
           &.top-0 {
-            top: 16px !important;
+            top: var(--16px) !important;
           }
         }
         &:hover {
@@ -56,7 +57,7 @@
     flex-wrap: wrap;
   }
   .portfolioMenu {
-    font-size: 16px;
+    @include fs16();
     font-weight: 600;
 
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
@@ -130,10 +131,16 @@
         .owl-nav {
           margin-top: 0;
           button.owl-prev {
-            left: calc(calc((100% - 1200px) / 2) - 90px);
+            left: 50px;
+            @media (min-width: 1600px) {
+              left: calc(calc((100% - 1200px) / 2) - 90px);
+            }
           }
           button.owl-next {
-            right: calc(calc((100% - 1200px) / 2) - 90px);
+            right: 50px;
+            @media (min-width: 1600px) {
+              right: calc(calc((100% - 1200px) / 2) - 90px);
+            }
           }
           button.owl-prev,
           button.owl-next {

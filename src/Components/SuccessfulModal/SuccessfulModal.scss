@@ -1,12 +1,13 @@
-.modal-content{
-    border-radius: 16px !important;
-    .sbm-btn{
-        .btn{
-            &:hover, &:focus{
-                background-color: #00e190;
-                color: #121316;
-                box-shadow: none !important;
-            }
-        }
+.modal-content {
+  border-radius: var(--16px) !important;
+  .sbm-btn {
+    .btn {
+      &:hover,
+      &:focus {
+        background-color: #00e190;
+        color: #121316;
+        box-shadow: none !important;
+      }
     }
+  }
 }

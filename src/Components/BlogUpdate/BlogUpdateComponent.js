@@ -32,9 +32,9 @@ const BlogUpdateComponent = (props) => {
                     {
                         _mosacademy_page_group_button?.url &&
                         <div className="allInsightBtn text-center mt-5">
-                            <Link to={_mosacademy_page_group_button?.url} className="btn fs-15 fwSemiBold textClrGrayDark text-decoration-none d-inline-flex align-items-center gap-2 justify-content-center">
-                                {_mosacademy_page_group_button?.title}
-                                <i className="fa-solid fa-arrow-right-long"></i>
+                            <Link to={_mosacademy_page_group_button?.url} className="btn fs-15 fwSemiBold textClrGrayDark text-decoration-none d-inline-flex align-items-center justify-content-center">
+                                <span className="mr-8" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_button?.title}} />
+                                <span className="btn-arrow"/>
                             </Link>
                         </div>
                     }

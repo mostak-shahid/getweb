@@ -30,7 +30,7 @@ const MediaBlock = (props) => {
             </div>
             {props?.data?.meta?._mosacademy_blobk_url?.url &&
             <div className='block-part-two'>
-                <NavLink to={props?.data?.meta?._mosacademy_blobk_url?.url} className='fs-14 fwSemiBold d-flex align-items-center block-btn'>
+                <NavLink to={props?.data?.meta?._mosacademy_blobk_url?.url} className='fs-14 fwSemiBold d-flex align-items-center block-btn mt-3'>
                     <span dangerouslySetInnerHTML={{__html:props?.data?.meta?._mosacademy_blobk_url?.title ? (props?.data?.meta?._mosacademy_blobk_url?.title) : 'Read More'}} />
                     <i className="fa-solid fa-angle-right"></i>
                 </NavLink>

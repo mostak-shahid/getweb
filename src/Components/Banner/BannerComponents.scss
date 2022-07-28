@@ -40,6 +40,9 @@
   }
   .bannerIntro {
     color: var(--clr-dark-2);
+    max-width: 730px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .gw-btn {
     .btn {
@@ -56,7 +59,7 @@
           right: 30px !important;
         }
         &.top-0 {
-          top: 16px !important;
+          top: var(--16px) !important;
         }
       }
       &:hover {
@@ -74,11 +77,20 @@
   @media (min-width: 768px) {
     // padding-top: 15.625vw;
     // padding-bottom: 13vw;
-    min-height: calc(100vh - 68px);
+    min-height: calc(100vh - 80px);
   }
 }
 .trustedWrapper {
+  position: relative;
+  z-index: 9;
   .partner-img {
     padding: 0px 1.5vw;
+    filter: grayscale(100%) contrast(50%);
+    opacity: 0.5;
+    transition: all 0.3s linear;
+    &:hover {
+      filter: grayscale(0) contrast(100%);
+      opacity: 1;
+    }
   }
 }

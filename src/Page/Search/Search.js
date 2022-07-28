@@ -74,7 +74,7 @@ const Search = (props) => {
   return (
     
       loading ? 
-      <Loading /> : 
+      <Loading cls="page-loader" /> : 
       <>
       <Helmet>
         <title>Search resulr for - {searchText}</title>

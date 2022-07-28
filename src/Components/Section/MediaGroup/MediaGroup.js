@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import React, { useEffect, useState } from 'react';
 import Config from "../../../Config.json";
-import Loading from "../../Loading/Loading";
 import FaqBlock from '../FaqBlock/FaqBlock';
 import MediaBlock from "../MediaBlock/MediaBlock";
 import SliderBlock from "../SliderBlock/SliderBlock";
@@ -21,7 +20,7 @@ const MediaGroup = (props) => {
         // declare the async data fetching function
         const fetchData = async () => {
             let url = Config.API_BASE + 'data-list/'+type+'/'+taxonomy+'/0/' + props.count_total;
-            console.log(url);
+            //console.log(url);
             // get the data from the api
             await axios.get(url)
             .then((response) => {
@@ -42,11 +41,11 @@ const MediaGroup = (props) => {
     }, [groupData]);
     return (
         loading ?
-        <Loading />:
+        <div className="textClrGreen text-center loder-text">loading...</div>:
 
         <div className="media-group">
             <div className="row">
-                {console.log(props)}
+                {/* {console.log(props)} */}
                 {   
                     props.layout === 'tab' && 
                         <TabBlock groupData={groupData} template={props.template}/>

@@ -4,16 +4,16 @@ import Config from "../../Config.json";
 const SeoMeta = ({pageData}) => {
   return (
     <Helmet>
-    {/* {console.log(Config)}
-    {console.log(pageData)} */}
+    {/* {console.log(Config)*/}
+    {/* {console.log(pageData)} */}
         <link rel="icon" href={[Config.SITE_DOMAIN, 'faveicon.png'].join("")} />
         <link rel="apple-touch-icon" href={[Config.SITE_DOMAIN, 'faveicon.png'].join("")} />
-        <title>{pageData.title}</title>
+        <title>{pageData?.meta?._yoast_wpseo_title && pageData?.meta?._yoast_wpseo_title}</title>
         <meta name="description" content={pageData.meta?._yoast_wpseo_metadesc} />
         <meta name="keywords" content={pageData.meta?._yoast_wpseo_focuskw}></meta>
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={pageData?._yoast_wpseo_title?pageData?._yoast_wpseo_title:[pageData.title, Config.SITE_TITLE].join(" - ")} />
+        <meta property="og:title" content={pageData?.meta?._yoast_wpseo_title && pageData?.meta?._yoast_wpseo_title} />
         <meta property="og:description" content={pageData.meta?._yoast_wpseo_metadesc} />
         <meta property="og:url" content={pageData.meta?._yoast_wpseo_canonical?pageData.meta?._yoast_wpseo_canonical:window.location.href} />
         <meta property="og:site_name" content={Config.SITE_TITLE} />

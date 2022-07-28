@@ -81,7 +81,7 @@ const PortfolioGroup = (props) => {
     const handleShow = (index) => {
         setSettings({
             loop: true,
-            margin: 30,
+            margin: 0,
             nav: true,
             dots: false,
             autoplayTimeout: 4000,
@@ -128,15 +128,13 @@ const PortfolioGroup = (props) => {
     }
 
   return loading ? 
-    <Loading />
+    <Loading cls="page-loader" />
    : 
-
+        
         <div className="row">
+            {console.log(props)}
             <div className="col-12">
-                <h3 className="fs-48 fw-normal mb-3 text-center">
-                    Our <span className="fw-bold">portfolios</span>
-                </h3>
-                <hr />
+                <div className="secIntro" dangerouslySetInnerHTML={{__html:props.data._mosacademy_page_group_title_description}} />
                 {categories.length && (
                     <ul className="portfolioFilteMenu">
                     {categories.map((item, index) => (
@@ -172,7 +170,7 @@ const PortfolioGroup = (props) => {
                 show={show}
                 onHide={handleClose}
             >
-                <Modal.Header closeButton></Modal.Header>
+                <Modal.Header closeButton className="d-flex d-sm-none"></Modal.Header>
                 <Modal.Body className="p-0">
                     {/* <div className="portfolio-modal-close position-absolute top-0 end-0"><button className="btn btn-danger rounded-circle" onClick={handleClose}>x</button></div> */}
                     <OwlCarousel className="owl-theme" {...settings}>

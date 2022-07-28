@@ -98,7 +98,7 @@
     .blogInnerContent {
       .blogInnerDescription {
         p {
-          line-height: 26px;
+          line-height: var(--26px);
           color: #8d8f98;
           b {
             color: #fff;

@@ -32,6 +32,6 @@
     }
   }
   &.with-radius {
-    border-radius: 16px;
+    border-radius: var(--16px);
   }
 }

@@ -6,7 +6,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FileIcon from "../../assets/images/file.svg";
 import Config from "../../Config.json";
-import Loading from '../Loading/Loading';
 import Section from '../Section/Section';
 import SeoMeta from '../SeoMeta/SeoMeta';
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
@@ -87,7 +86,7 @@ const JobApplicationForm = (props) => {
     const cv = watch("cv");
     return (
         loading
-        ?<Loading />
+        ?<div className="textClrGreen text-center loder-text">loading...</div>
         :        
         <>
             <SeoMeta pageData={pageData}/>

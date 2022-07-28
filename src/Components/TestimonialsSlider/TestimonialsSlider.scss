@@ -30,7 +30,7 @@
   .singleFeedback {
     .logos {
       img {
-        height: 30px;
+        height: 40px;
         width: auto;
       }
     }
@@ -42,6 +42,6 @@
     }
   }
   .slick-slide {
-    margin: 0 16px;
+    margin: 0 var(--16px);
   }
 }

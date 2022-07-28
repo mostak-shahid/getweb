@@ -8,7 +8,6 @@ import linkdin from "../../assets/images/linkedin.svg";
 import linkedinProfile from "../../assets/images/linkedinProfile.svg";
 import twitterLink from "../../assets/images/TwitterLink.svg";
 import Config from "../../Config.json";
-import Loading from '../Loading/Loading';
 import MainComponent from '../MainComponent/MainComponent';
 import SeoMeta from '../SeoMeta/SeoMeta';
 import "./BlogSingle.scss";
@@ -68,7 +67,7 @@ const BlogSingle = (props) => {
         <>
         {
             loading?
-            <Loading />:            
+            <div className="textClrGreen text-center loder-text">loading...</div>:            
             <>                
                 <SeoMeta pageData={pageData}/>
                 <section className="BlogSingleWrapper secPadding mt-5">

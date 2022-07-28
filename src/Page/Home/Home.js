@@ -18,17 +18,17 @@ export default class Home extends Component {
     
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
-        const settingsUrl = Config.API_BASE + "settings";
-        const settingsResponse = await fetch(settingsUrl);
-        const settingsData = await settingsResponse.json();
+        // const settingsUrl = Config.API_BASE + "settings";
+        // const settingsResponse = await fetch(settingsUrl);
+        // const settingsData = await settingsResponse.json();
 
-        //const url = Config.API_BASE + "data-single/" + Config.HOME_ID;
-        const url = Config.API_BASE + "data-single/" + settingsData.req.data.page_on_front;
+        const url = Config.API_BASE + "data-single/" + Config.HOME_ID;
+        //const url = Config.API_BASE + "data-single/" + settingsData.req.data.page_on_front;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({ 
             pageData: data, 
-            settingsData: settingsData, 
+            //settingsData: settingsData, 
             loading: false,
         });
         //console.log(data);
@@ -36,18 +36,18 @@ export default class Home extends Component {
     render() {
         
         if (this.state.loading) {
-            return <Loading cls="loading" />;
+            return <Loading cls="loading page-loader" />;
         }
 
-        if (!this.state.pageData || !this.state.settingsData ) {
-            return <Loading cls="late-api-response" />;
+        if (!this.state.pageData ) {
+            return <Loading cls="late-api-response page-loader" />;
         }
         const { pageData } = this.state;
         return (
             <>
-            {/*console.log(settingsData.req.data.page_on_front)*/}
+            {/* {console.log(pageData)} */}
                 <SeoMeta pageData={pageData}/>         
-                <BannerComponents />
+                <BannerComponents pageData={pageData}/>
                 {
                     pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
                         // <MainComponent data={item} key={index} />  

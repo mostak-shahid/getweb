@@ -11,7 +11,6 @@ import like from "../../assets/images/like.svg";
 import preview from "../../assets/images/preview.svg";
 import Config from "../../Config.json";
 import PortfolioUnit from "../../Page/Portfolio/PortfolioUnit/PortfolioUnit";
-import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
 
 
@@ -125,7 +124,7 @@ const PortfolioTab = (props) => {
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
     return loading ? 
-        <Loading /> : 
+        <div className="textClrGreen text-center loder-text">loading...</div> : 
         <>
             <div className="row">
                 <div className={[widthClass, orderClass].join(' ')}>

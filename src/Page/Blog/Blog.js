@@ -103,7 +103,7 @@ class Blog extends Component {
         
         //console.log("Categories: ", this.state.categoriesData)
         if (this.state.loading) {
-            return <Loading />;
+            return <Loading cls="page-loader" />;
         }
         if (!this.state.postData || !this.state.pageData ) {
             return <div>Didn't get data from API</div>;

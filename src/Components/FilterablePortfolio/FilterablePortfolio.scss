@@ -1,21 +1,21 @@
+@import "../../mixing.scss";
 .portfolioMenu {
-    font-size: 16px;
-    font-weight: 600;
+  @include fs16();
+  font-weight: 600;
 
-    border-bottom: 1px solid rgb(255, 255, 255, 0.1);
-    color: #fff;
-    padding: 20px 30px;
-    cursor: pointer;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &.active {
+    color: #00ffa3;
+    border-bottom: 2px solid #00ffa3;
     transition: all 0.5s;
-
-    &.active {
-        color: #00ffa3;
-        border-bottom: 2px solid #00ffa3;
-        transition: all 0.5s;
-    
-    }
-    &:hover {
-        color: #00ffa3;
-        border-bottom: 2px solid #00ffa3;
-    }
+  }
+  &:hover {
+    color: #00ffa3;
+    border-bottom: 2px solid #00ffa3;
+  }
 }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Loading from "../../Components/Loading/Loading";
 import MainComponent from '../../Components/MainComponent/MainComponent';
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
-import Loading from "../../Components/Loading/Loading";
 const About = (props) => {    
     const [pageData,setPageData]=useState([]);
     const [loading,setLoading]=useState(true);
@@ -21,7 +21,7 @@ const About = (props) => {
     
     return (    
         loading
-        ?<Loading />
+        ?<Loading cls="page-loader" />
         :<>
             <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />            
             {
