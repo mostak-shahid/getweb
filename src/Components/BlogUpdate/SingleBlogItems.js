@@ -5,7 +5,7 @@ import "./SingleBlogItem.scss";
 const SingleBlogItems = (props) => {
     //console.log(props);
     return (
-        <div className="singleBlog isRadius16 bgClrDarkLight d-flex flex-column justify-content-between">
+        <div className="singleBlog isRadius16 d-flex flex-column justify-content-between">
             <div className="content-part">
                 {
                     props?.data?.image &&

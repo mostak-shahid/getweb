@@ -43,7 +43,16 @@ a {
     width: 20%;
   }
 }
+::-moz-selection {
+  /* Code for Firefox */
+  background-color: var(--clr-green);
+  color: var(--clr-theme-dark);
+}
 
+::selection {
+  background-color: var(--clr-green);
+  color: var(--clr-theme-dark);
+}
 /* ==== custom classes ==== */
 .fs-5 {
   font-size: var(--16px) !important;
@@ -141,6 +150,9 @@ a {
     rgba(25, 26, 29, 1) 100%
   );
 }
+.bgGradient5 {
+  background: linear-gradient(to bottom, #191a1d 0%, #121316 100%);
+}
 .fw-medium {
   font-weight: 500;
 }
@@ -233,6 +245,9 @@ a {
 }
 .mb-30 {
   margin-bottom: 30px;
+}
+.mb-40 {
+  margin-bottom: 40px;
 }
 .isRadius12 {
   border-radius: 12px;
@@ -347,7 +362,15 @@ img {
     }
   }
 }
-.wrapper-section {
+.bannerTitle {
+  & * {
+    font-size: inherit;
+    margin-bottom: 0;
+  }
+}
+
+.wrapper-section,
+.section-wrapper {
   hr {
     background-image: url("./assets/images/secLineShape.svg");
     display: inline-block;
@@ -359,6 +382,21 @@ img {
     background-color: transparent;
     margin-top: 4px;
     margin-bottom: 40px;
+  }
+  .secTagLine {
+    color: var(--clr-green);
+    margin-bottom: var(--16px);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    @media (min-width: 768px) {
+      font-size: 16px;
+      line-height: 26px;
+    }
+    @media (min-width: 1200px) {
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
   .secTitle,
   .secIntro {
@@ -372,6 +410,7 @@ img {
       font-weight: 400;
       color: #fff;
       line-height: 1.2;
+      margin-bottom: 1.3rem;
     }
     h1 {
       font-size: 42px;
@@ -390,6 +429,11 @@ img {
     }
     h6 {
       font-size: 18px;
+    }
+    p {
+      color: var(--clr-dark-2);
+      font-size: 14px;
+      line-height: 22px;
     }
     @media (min-width: 768px) {
       h1 {
@@ -411,7 +455,8 @@ img {
         font-size: 20px;
       }
       p {
-        @include fs16();
+        font-size: 16px;
+        line-height: 26px;
       }
     }
     @media (min-width: 1200px) {
@@ -456,6 +501,42 @@ img {
       border-radius: 20px;
       text-indent: -9999px;
       background-color: transparent;
+    }
+  }
+}
+.singleBlog {
+  background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+  border: 1px solid #202124;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  overflow: hidden;
+  .blogImage {
+    max-width: 100%;
+    overflow: hidden;
+    img {
+      transition: all 0.3s linear;
+    }
+  }
+  .readMore {
+    transition: all 0.3s linear;
+    svg {
+      transition: all 0.3s linear;
+    }
+  }
+  &:hover {
+    background-color: #202124;
+    border-color: transparent;
+    .readMore {
+      color: var(--clr-green);
+      svg * {
+        stroke: var(--clr-green);
+      }
+    }
+    .blogImage {
+      img {
+        transform: scale(1.1) rotate(1deg);
+        width: 100%;
+      }
     }
   }
 }

@@ -18,6 +18,20 @@
   .blogWrapper {
     padding-top: 80px;
   }
+  &.WhoWeAre {
+    @media (min-width: 1200px) {
+      .sectionHeader {
+        padding-left: 60px;
+      }
+    }
+  }
+  &.OurMission {
+    @media (min-width: 1200px) {
+      .part-one {
+        padding-right: 60px;
+      }
+    }
+  }
 }
 
 .contactDetails {

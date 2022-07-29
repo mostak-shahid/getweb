@@ -11,9 +11,9 @@ const SubPageBanner = (props) => {
             <div className="container">
                 <div className="bannerContent d-flex align-items-center">
                     <div className="bannerInfo w-100">
-                        <h6 className="banner-tag-line textClrGreen fs-6 mb-1 mb-sm-2 mb-lg-3" dangerouslySetInnerHTML={{__html:tagline}} />
-                        <div className="banner-heading fs-48 fw-normal  mb-1 mb-sm-2 mb-lg-4" dangerouslySetInnerHTML={{__html:title}} />
-                        <div className="banner-desc w-100 w-lg-50 fs-18 fw-normal mb-4 mb-fm-5" dangerouslySetInnerHTML={{__html:intro}} />
+                        <h6 className="banner-tag-line textClrGreen fs-6" dangerouslySetInnerHTML={{__html:tagline}} />
+                        <div className="banner-heading fs-48 fw-normal" dangerouslySetInnerHTML={{__html:title}} />
+                        <div className="banner-desc w-100 w-lg-50 fw-normal mb-40" dangerouslySetInnerHTML={{__html:intro}} />
                         {
                             btn?.url &&
                                 <Button title={btn.title?btn.title:'Work with Us'} url={btn.url}/> 

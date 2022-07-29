@@ -43,8 +43,8 @@ export default class BannerComponents extends Component {
                 <div className="container">
                     <div className="bannerContent d-flex align-items-center position-relative">
                         <div className="content text-center">
-                            <div className = "bannerTitle text-white fs-72 fw-normal mb-4 pb-2" dangerouslySetInnerHTML = {{__html: this.props.pageData.meta._mosacademy_page_banner_title}}></div>
-                            <div className="bannerIntro fs-5 fw-normal mb-3 mb-lg-4 mb-xl-5"  dangerouslySetInnerHTML = {{__html: this.props.pageData.meta._mosacademy_page_banner_intro}}></div>
+                            <div className = "bannerTitle text-white fs-72 fw-normal mb-30" dangerouslySetInnerHTML = {{__html: this.props.pageData.meta._mosacademy_page_banner_title}}></div>
+                            <div className="bannerIntro fw-normal mb-3 mb-lg-4 mb-xl-5"  dangerouslySetInnerHTML = {{__html: this.props.pageData.meta._mosacademy_page_banner_intro}}></div>
                             <div className="d-flex justify-content-center">
                                 <Button url={this.props.pageData.meta._mosacademy_page_banner_button.url} title={this.props.pageData.meta._mosacademy_page_banner_button.title}/>                             
                             </div>

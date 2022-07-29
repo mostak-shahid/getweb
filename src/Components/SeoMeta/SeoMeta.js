@@ -6,8 +6,8 @@ const SeoMeta = ({pageData}) => {
     <Helmet>
     {/* {console.log(Config)*/}
     {/* {console.log(pageData)} */}
-        <link rel="icon" href={[Config.SITE_DOMAIN, 'faveicon.png'].join("")} />
-        <link rel="apple-touch-icon" href={[Config.SITE_DOMAIN, 'faveicon.png'].join("")} />
+        <link rel="icon" href={[Config.SITE_DOMAIN, 'favicon.png'].join("")} />
+        <link rel="apple-touch-icon" href={[Config.SITE_DOMAIN, 'favicon.png'].join("")} />
         <title>{pageData?.meta?._yoast_wpseo_title && pageData?.meta?._yoast_wpseo_title}</title>
         <meta name="description" content={pageData.meta?._yoast_wpseo_metadesc} />
         <meta name="keywords" content={pageData.meta?._yoast_wpseo_focuskw}></meta>

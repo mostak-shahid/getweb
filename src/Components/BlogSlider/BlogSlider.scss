@@ -27,41 +27,6 @@
       }
     }
   }
-  .singleBlog {
-    border: 1px solid #202124;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    overflow: hidden;
-    .blogImage {
-      max-width: 100%;
-      overflow: hidden;
-      img {
-        transition: all 0.3s linear;
-      }
-    }
-    .readMore {
-      transition: all 0.3s linear;
-      svg {
-        transition: all 0.3s linear;
-      }
-    }
-    &:hover {
-      background-color: #202124;
-      border-color: transparent;
-      .readMore {
-        color: var(--clr-green);
-        svg * {
-          stroke: var(--clr-green);
-        }
-      }
-      .blogImage {
-        img {
-          transform: scale(1.1) rotate(1deg);
-          width: 100%;
-        }
-      }
-    }
-  }
   .slick-slide {
     margin: 0 9px;
   }

@@ -3,21 +3,12 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  hr {
-    background-image: url("../../assets/images/secLineShape.svg");
-    display: inline-block;
-    clear: both;
-    height: 2px;
-    width: 100px;
-    border-style: none;
-    opacity: 1;
-    background-color: transparent;
-    margin-top: 4px;
-    margin-bottom: 60px;
-  }
   .col-md-6 {
     hr {
       margin-bottom: 40px;
+    }
+    .btn-wrapper {
+      margin-top: 24px;
     }
   }
   .col-md-12 {
@@ -28,54 +19,18 @@
       margin-right: auto;
     }
   }
-  .part-one {
-    .secTagLine {
-      color: var(--clr-green);
-      margin-bottom: var(--16px);
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 22px;
+  &.OurMission {
+    .part-two {
+      text-align: left !important;
     }
-    .secTitle,
-    .secIntro {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-bottom: var(--16px);
-        font-weight: 400;
-        color: #fff;
-        line-height: 1.2;
-        margin-bottom: 1.3rem;
+    @media (min-width: 1200px) {
+      .part-one {
+        padding-right: 60px;
       }
-      h1 {
-        font-size: 42px;
-      }
-      h2 {
-        font-size: 30px;
-      }
-      h3 {
-        font-size: var(--26px);
-      }
-      h4 {
-        font-size: 22px;
-      }
-      h5 {
-        font-size: 20px;
-      }
-      h6 {
-        font-size: 18px;
-      }
-      p {
-        color: var(--clr-dark-2);
-        font-size: 14px;
-        line-height: 22px;
+      .part-two {
+        text-align: right !important;
       }
     }
-  }
-  .part-two {
   }
   &.contentCenter {
     text-align: center;
@@ -134,11 +89,6 @@
       }
     }
   }
-  &.our-mission {
-    .row {
-      align-items: center;
-    }
-  }
   &.newslatter {
     .part-one {
       .secIntro {
@@ -152,63 +102,6 @@
           .btn-arrow {
             background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.79639 17.4298L13.5014 11.7248C14.1751 11.0511 14.1751 9.94858 13.5014 9.27483L7.79639 3.56982' stroke='%23121316' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
           }
-        }
-      }
-    }
-  }
-  @media (min-width: 768px) {
-    .part-one {
-      .secTagLine {
-        @include fs16();
-      }
-      .secTitle,
-      .secIntro {
-        h1 {
-          font-size: 56px;
-        }
-        h2 {
-          font-size: 48px;
-        }
-        h3 {
-          font-size: 38px;
-        }
-        h4 {
-          font-size: 30px;
-        }
-        h5 {
-          font-size: var(--26px);
-        }
-        h6 {
-          font-size: 20px;
-        }
-        p {
-          @include fs16();
-        }
-      }
-    }
-  }
-  @media (min-width: 1200px) {
-    .part-one {
-      .secTagLine {
-        @include fs16();
-      }
-      .secTitle,
-      .secIntro {
-        h1 {
-          font-size: 72px;
-        }
-        h2 {
-          font-size: 48px;
-        }
-        h3 {
-        }
-        h4 {
-        }
-        h5 {
-        }
-        h6 {
-        }
-        p {
         }
       }
     }

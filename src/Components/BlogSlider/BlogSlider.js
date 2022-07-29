@@ -68,7 +68,7 @@ export default class MultipleItems extends Component {
                     {
                         (postData.length)?
                         postData.map((item, index) => (
-                            <div className="item-wrapper singleBlog isRadius16 bgClrDarkLight d-flex flex-column justify-content-between" key={item.id}>
+                            <div className="item-wrapper singleBlog isRadius16 d-flex flex-column justify-content-between" key={item.id}>
                                 <div className="content-part">
                                 {
                                     (item.image)?

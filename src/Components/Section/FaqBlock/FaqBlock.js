@@ -37,7 +37,7 @@ const FaqBlock = (props) => {
                             <div className="col-xl-6" key={index}>
                                 {
                                     item.map((i, j)=>(
-                                        <Accordion.Item eventKey={[0, index, j].join('-')} className="mb-3 isRadius16 overflow-hidden" key={j}>                                            
+                                        <Accordion.Item eventKey={[0, index, j].join('-')} className="mb-3 overflow-hidden" key={j}>                                            
                                             <Accordion.Header className="fs-6 fw-bold">{i.title}</Accordion.Header>
                                             <Accordion.Body className="fw-normal fs-6" dangerouslySetInnerHTML={{__html:i.content}} />
                                         </Accordion.Item>
