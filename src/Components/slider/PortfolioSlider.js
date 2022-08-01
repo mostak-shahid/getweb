@@ -125,7 +125,7 @@ export default class MultipleRows extends Component {
                             <div className={["item item-wrapper", "item-" + index ].join(' ')} key={index}>
                                 {
                                     item.map((a,b) => (
-                                <div className={["portfolio-item", "portfolio-item-" + a.id].join(' ')} key={b} onClick={this.handleClick.bind(this, a.id)}><PortfolioUnit data={a}/></div>
+                                <div className={["p-7", "portfolio-item", "portfolio-item-" + a.id].join(' ')} key={b} onClick={this.handleClick.bind(this, a.id)}><PortfolioUnit data={a}/></div>
                                     ))
                                 }
                             </div>

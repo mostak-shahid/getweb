@@ -1,6 +1,8 @@
 .unit-item {
   position: relative;
   cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
   &:hover {
     .overLay {
       visibility: visible;
