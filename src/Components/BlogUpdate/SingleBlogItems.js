@@ -17,9 +17,7 @@ const SingleBlogItems = (props) => {
                 }
                 <div className="blogInfo p-4">
                     <h3 className="blogTitle fs-6 fw-bold mb-2">
-                        <NavLink to={['/blog',props?.data?.slug].join('/')} className="text-decoration-none text-white">
-                            {props.data.title}
-                        </NavLink>
+                        <NavLink to={['/blog',props?.data?.slug].join('/')} className="text-decoration-none text-white" dangerouslySetInnerHTML={{__html:props.data.title}}/>
                     </h3>
                     <div className="blogDesc textClrGray fw-normal fs-14">
                         <p className="mb-0">{props.data.excerpt.small}</p>

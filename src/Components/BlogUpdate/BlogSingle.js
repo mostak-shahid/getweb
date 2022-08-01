@@ -50,7 +50,7 @@ const BlogSingle = (props) => {
         _mosacademy_page_group_content_layout : "con-top",
         _mosacademy_page_group_sub_titles : ['Related blog'],
         _mosacademy_page_group_title_text : 'Read more on our blog',
-        _mosacademy_page_group_title_description: 'Check out the knowledge base collected and distilled by experienced professionals.'
+        _mosacademy_page_group_title_description: '<p>Check out the knowledge base collected and distilled by experienced professionals.</p><hr/>'
 
     };
     const onChange = (e) => {
@@ -77,13 +77,13 @@ const BlogSingle = (props) => {
                                 <p className="blogSingleTag textClrGreen fs-15 fwSemiBold">{pageData?.taxonomy?.category[0].name}</p>
                                 <h2 className="fs-48 fw-bold text-white mb-4 pb-2">{pageData.title}</h2>
                                 <div className="meta d-flex gap-4 align-items-center mb-5 pb-2">
-                                    <NavLink to={['/user', pageData?.author?.slug].join('/')} className="text-decoration-none text-white fs-14 fw-bold d-flex align-items-center gap-3">
+                                    <NavLink to={['/user', pageData?.author?.slug].join('/')} className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
                                         <div className="adminImg flex-shrink-0">
                                             <img className='author-image' src={pageData?.author?.image[22]} alt="Author Img" width="22" height="22" />
                                         </div>
                                         <span className="AuthorName">{pageData?.author?.name}</span>
                                     </NavLink>
-                                    <span className="text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center gap-3">
+                                    <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
                                         <div className="CalenderIcon flex-shrink-0">
                                             <img src={clock1} alt="Author Img" />
                                         </div>
@@ -101,7 +101,7 @@ const BlogSingle = (props) => {
                         <div className="BlogSingleContentArea">
                             <div className="row">
                                 <div className="col-xl-8">
-                                    <div className="SingleContents" dangerouslySetInnerHTML={{__html:pageData.content}} />
+                                    <div className="blogInnerContent" dangerouslySetInnerHTML={{__html:pageData.content}} />
                                 </div>
                                 <div className="col-xl-4">
                             <div className="SingleSidebar">

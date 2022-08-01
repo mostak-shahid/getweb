@@ -29,7 +29,7 @@ function ContactSection(props) {
                     <div className="sectionHeader">                   
                         {
                             _mosacademy_page_group_sub_titles[0] &&
-                            <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                            <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
                         }
                         {
                             _mosacademy_page_group_title_text &&
@@ -42,7 +42,7 @@ function ContactSection(props) {
                         
                     </div>                    
                     <div className="getInTouch mb-5 mb-xl-0">
-                        <div className="row isBgBorder pb-20 mb-20">
+                        <div className="row isBgBorder pb-30 mb-30">
                             <div className="col-lg-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
@@ -88,8 +88,8 @@ function ContactSection(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="row isBgBorder pb-20 mb-20">
-                            <div className="col-6 py-3">
+                        <div className="row isBgBorder pb-30 mb-30">
+                            <div className="col-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <img src={phoneIcon} alt="lineShape" />
@@ -102,7 +102,7 @@ function ContactSection(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6 py-3">
+                            <div className="col-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <img src={skypeIcon} alt="lineShape" />

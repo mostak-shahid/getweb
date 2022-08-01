@@ -35,25 +35,13 @@ export default class MultipleRows extends Component {
     
     
     async componentDidMount() {
-
         const url = Config.API_BASE + "data-list/project/0/0/12";
         const response = await fetch(url);
         const portfolioResponse = await response.json();
-        let newArr = [];
-        let tempArr = [];
-        var i = 0;
-        for (var index = 0; index < portfolioResponse.length; index++) {
-            if (i === 2){
-                newArr.push(tempArr);
-                i = 0;
-                tempArr = [];
-            }
-            i++;
-            //console.log(portfolioResponse[index]);
-            tempArr.push(portfolioResponse[index]);
-            //console.log(tempArr);
+        const portfolioDataArr = [];
+        for (let i = 0; i < Math.ceil(portfolioResponse.length / 2); i++) {
+            portfolioDataArr[i] = portfolioResponse.slice(i*2, i * 2 + 2);
         }
-        //console.log(newArr);
         axios.get("https://api.ipify.org")
         .then(res => {
             const ip = res.data;
@@ -61,7 +49,7 @@ export default class MultipleRows extends Component {
         })
         this.setState({ 
             portfolioDataRaw: portfolioResponse,
-            portfolioData: newArr,
+            portfolioData: portfolioDataArr,
             //ip:ip,
             loading: false,
         });
@@ -134,15 +122,12 @@ export default class MultipleRows extends Component {
                     {
                         (portfolioData.length) && 
                         portfolioData.map((item, index) => (
-                            <div className={["item item-wrapper", "item-" + index 
-                             ].join(' ')} key={index}>
+                            <div className={["item item-wrapper", "item-" + index ].join(' ')} key={index}>
                                 {
                                     item.map((a,b) => (
-                                <div className={["portSliderItem", "portSliderItem-" + a.id].join(' ')} key={b} onClick={this.handleClick.bind(this, a.id)}><div className="portSliderImg"><PortfolioUnit data={a}/></div></div>
+                                <div className={["portfolio-item", "portfolio-item-" + a.id].join(' ')} key={b} onClick={this.handleClick.bind(this, a.id)}><PortfolioUnit data={a}/></div>
                                     ))
                                 }
-                                
-                                {/* <div className="portSliderItem"><div className="portSliderImg"><PortfolioUnit data={item[1]}/></div></div>                                 */}
                             </div>
                         ))
                     }

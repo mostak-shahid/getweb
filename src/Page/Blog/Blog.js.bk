@@ -103,7 +103,7 @@ export default class Blog extends Component {
                             <div className="row">
                                 <div className="col-xl-6">
                                     <div className="filterLeft">
-                                        <div className="singleFilter">
+                                        <div className="singleFilter custom-mos-select">
                                             <Form.Select className="bg-transparent h-52 rounded-pill px-4">
                                                 <option>All Categories</option>
                                                 <option value="1">Blog</option>
@@ -111,7 +111,7 @@ export default class Blog extends Component {
                                                 <option value="3">Development</option>
                                             </Form.Select>
                                         </div>
-                                        <div className="singleFilter">
+                                        <div className="singleFilter custom-mos-select">
                                             <Form.Select className="bg-transparent h-52 rounded-pill px-4">
                                                 <option>Last 7 day’s</option>
                                                 <option value="1">Last Month</option>

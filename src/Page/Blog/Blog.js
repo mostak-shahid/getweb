@@ -122,7 +122,7 @@ class Blog extends Component {
                             <div className="row">
                                 <div className="col-xl-6 mb-4 mb-xl-0">
                                     <div className="filterLeft">
-                                        <div className="singleFilter">
+                                        <div className="singleFilter custom-mos-select">
                                             <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
                                                 <option value='0'>All Categories</option>
                                                 {
@@ -132,7 +132,7 @@ class Blog extends Component {
                                                 }
                                             </Form.Select>
                                         </div>
-                                        <div className="singleFilter">
+                                        <div className="singleFilter custom-mos-select">
                                             <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
                                                 <option value="0">Select One</option>
                                                 <option value="week">Last 7 day’s</option>

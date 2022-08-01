@@ -46,12 +46,12 @@ const FormValidation = (props) => {
         <div className="contactWrapper bgClrSolitude isRadius12 p-4 p-xl-5 h-100 form-validation">
             <ToastContainer />
             {(props?.title || props?.intro) &&
-                <div className="contactHeader mb-20">
+                <div className="contactHeader mb-30">
                     {props?.title && 
-                        <h2 className="textClrThemeDark fs-4 fw-bold mb-3" dangerouslySetInnerHTML={{__html:props.title}} />
+                        <div className="textClrThemeDark fs-24 fw-bold mb-10" dangerouslySetInnerHTML={{__html:props.title}} />
                     }
                     {props?.intro &&
-                        <p className="textClrGrayDark fs-6 fw-normal mb-0" dangerouslySetInnerHTML={{__html:props.intro}} />
+                        <div className="textClrGrayDark fs-6 fw-normal" dangerouslySetInnerHTML={{__html:props.intro}} />
                     }
                 </div>
             }

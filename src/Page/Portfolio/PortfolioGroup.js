@@ -52,8 +52,10 @@ const PortfolioGroup = (props) => {
     }, []);
     useEffect(() => {
         async function fetchData() {
+            var url = Config.API_BASE + "data-list/project/" + activeCatID + "/" + startFrom + "/" + postPerPage;
+            console.log(url);
             await axios
-            .get(Config.API_BASE + "data-list/project/" + activeCatID + "/" + startFrom + "/" + postPerPage)
+            .get(url)
             .then(function (response) {
                 setProjects(response.data);
             });
@@ -132,7 +134,7 @@ const PortfolioGroup = (props) => {
    : 
         
         <div className="row">
-            {console.log(props)}
+            {console.log(projects)}
             <div className="col-12">
                 <div className="secIntro" dangerouslySetInnerHTML={{__html:props.data._mosacademy_page_group_title_description}} />
                 {categories.length && (
@@ -153,14 +155,14 @@ const PortfolioGroup = (props) => {
                 )}
                 <div className="portfolio-wrapper">
                     {projects.map((item, index) => (
-                    <div className="portfolio-item" key={index} onClick={() => handleShow(index)} >
+                    <div className={["portfolio-item", "portfolio-item-" + item.id].join(' ')} key={index} onClick={() => handleShow(index)} >
                         <PortfolioUnit data={item} />
                     </div>
                     ))}
                 </div>
                 {Math.ceil(postCountData / postPerPage) > 1 && (
                     <>
-                    <div className="bottom-border"></div>
+                    <div className="bottom-border isBgBorder"></div>
                     <Pagination data={Math.ceil(postCountData / postPerPage)} postPerPage={postPerPage} startFrom={startFrom} startFromChange={(value) => onClick(activeCatID, value)} />
                     </>
                 )}

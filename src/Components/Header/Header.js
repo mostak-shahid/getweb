@@ -211,7 +211,7 @@ const Header = (props) => {
               submenu: {
                 14: {
                   ID: 299,
-                  title: "Androin App Development",
+                  title: "Android App Development",
                   class: [""],
                   url: "/android",
                   image: false,
@@ -558,7 +558,9 @@ const Header = (props) => {
                     </div>                       
                 </div>
                 <div className="button-area d-none d-xl-block">
-                    <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">Request a Quote</NavLink>
+                    <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">
+                    <span className="mr-8">Request a Quote</span>
+                    <span className="btn-arrow"></span></NavLink>
                 </div>
             </div>
         </header>

@@ -10,7 +10,7 @@ const ServicesForm = (props) => {
                 <div className="sectionHeader mb-5">
                     {
                         _mosacademy_page_group_sub_titles[0] &&
-                        <div className="secTagLine fs-6 fw-bold textClrGreen mb-3 d-block" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                        <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
                     }
                     {
                         _mosacademy_page_group_title_text &&

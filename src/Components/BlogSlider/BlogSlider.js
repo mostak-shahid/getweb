@@ -82,9 +82,7 @@ export default class MultipleItems extends Component {
 
                                 <div className="blogInfo p-4 pb-0">
                                     <h3 className="blogTitle fs-6 fw-bold mb-2" style={{ maxWidth: "300px", width: "100%" }}>
-                                        <Link to={['/blog',item.slug].join('/')}  className="text-decoration-none text-white">
-                                            {item.title}
-                                        </Link>
+                                        <Link to={['/blog',item.slug].join('/')}  className="text-decoration-none text-white" dangerouslySetInnerHTML={{__html:item.title}}/>
                                     </h3>
                                     <div className="blogDesc textClrGray fw-normal fs-14 mb-5" style={{ maxWidth: "300px", width: "100%" }}>
                                         <p className="mb-0" dangerouslySetInnerHTML = {{__html: item.excerpt.small}}></p>
