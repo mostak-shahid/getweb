@@ -3,8 +3,8 @@ import "./OurMission.scss";
 
 const OurMission = (props) => {
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description='', _mosacademy_page_group_freature_image} = props.data;
-    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
+    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12'; 
     //console.log(props);
     return (
 
@@ -32,7 +32,7 @@ const OurMission = (props) => {
                         <div className="OurMissionImg">
                             {
                                 _mosacademy_page_group_freature_image && 
-                                <div className="text-center text-md-start mt-3 mt-md-0"><img className="img-fluid" src={_mosacademy_page_group_freature_image} alt={_mosacademy_page_group_title_text} /></div>
+                                <div className="text-center text-lg-start mt-3 mt-lg-0"><img className="img-fluid" src={_mosacademy_page_group_freature_image} alt={_mosacademy_page_group_title_text} /></div>
                             }                            
                         </div>
                     </div>

@@ -166,13 +166,16 @@ h1,
   background: linear-gradient(to bottom, #191a1d 0%, #121316 100%);
 }
 .fw-medium {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 .fwSemiBold {
   font-weight: 600 !important;
 }
+.fwBold {
+  font-weight: 700 !important;
+}
 .fwBlack {
-  font-weight: 900;
+  font-weight: 900 !important;
 }
 .h-42 {
   height: 42px;

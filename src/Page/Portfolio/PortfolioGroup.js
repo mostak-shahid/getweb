@@ -12,7 +12,6 @@ import companyLogo from "../../assets/images/companyLogo.svg";
 import companyRightLogo from "../../assets/images/getwebRightLogo.png";
 import like from "../../assets/images/like.svg";
 import preview from "../../assets/images/preview.svg";
-import Loading from "../../Components/Loading/Loading";
 import Pagination from "../../Components/Pagination/Pagination";
 import Config from "../../Config.json";
 import "./Portfolio.scss";
@@ -26,6 +25,7 @@ const PortfolioGroup = (props) => {
     //const [postPerPage, setPostPerPage] = useState(4);
     const [ip, setIP] = useState("");
     const [loading, setLoading] = useState(true);
+    const [portfolioLoading, setPortfolioLoading] = useState(true);
     const postPerPage = 8;
     const [settings, setSettings] = useState({
         loop: true,
@@ -44,23 +44,24 @@ const PortfolioGroup = (props) => {
         .get(Config.API_BASE + "data-taxonomies/project_category")
         .then(function (response) {
             setCategories(response.data);
-            setActiveCatID(response.data[0].term_id);
+            //setActiveCatID(response.data[0].term_id);
         })
         .catch(function (error) {
             console.log("Error: ", error);
         });
     }, []);
     useEffect(() => {
+        setPortfolioLoading(true);
         async function fetchData() {
             var url = Config.API_BASE + "data-list/project/" + activeCatID + "/" + startFrom + "/" + postPerPage;
-            console.log(url);
+            //console.log(url);
             await axios
             .get(url)
             .then(function (response) {
                 setProjects(response.data);
             });
         }
-        activeCatID && fetchData();
+        fetchData();
     }, [activeCatID, startFrom]);
     useEffect(() => {
         async function fetchData() {
@@ -70,12 +71,13 @@ const PortfolioGroup = (props) => {
                 setPostCountData(response.data);
             });
         }
-        activeCatID && fetchData();
+        fetchData();
     }, [activeCatID]);
 
     useEffect(() => {
         if (categories.length !== 0 && projects !== 0) {
             setLoading(false);
+            setPortfolioLoading(false);
         }
     }, [categories, projects]);
     const [show, setShow] = useState(false);
@@ -97,8 +99,10 @@ const PortfolioGroup = (props) => {
     const onClick = (aCatID, start_From) => {
         if (aCatID) {
             setActiveCatID(aCatID);
-            setStartFrom(start_From);
+        } else {
+            setActiveCatID(0); 
         }
+        setStartFrom(start_From);
     };
     const getIP = async () => {
         //const res = await axios.get('https://checkip.amazonaws.com/')
@@ -106,7 +110,7 @@ const PortfolioGroup = (props) => {
         await axios.get("https://api.ipify.org")
         .then(function (response) {
             setIP(response.data);
-            console.log(response.data);
+            //console.log(response.data);
         })
         .catch(function (error) {
             //toast.error(error);
@@ -117,8 +121,8 @@ const PortfolioGroup = (props) => {
     }, []);
 
     const likeFunctionality = async (id) => {
-        console.log('IP: ', ip);
-        console.log('ID: ', id);
+        // console.log('IP: ', ip);
+        // console.log('ID: ', id);
         await axios.get(Config.API_BASE + "post-like/" + ip + "/" + id)
         .then(function (response) {
             console.log(response.data);
@@ -129,16 +133,15 @@ const PortfolioGroup = (props) => {
         });
     }
 
-  return loading ? 
-    <Loading cls="page-loader" />
-   : 
-        
+    return loading?
+    <div className="textClrGreen text-center loder-text">loading...</div>:   
         <div className="row">
-            {console.log(projects)}
+            {/* { console.log(projects) } */}
             <div className="col-12">
                 <div className="secIntro" dangerouslySetInnerHTML={{__html:props.data._mosacademy_page_group_title_description}} />
                 {categories.length && (
                     <ul className="portfolioFilteMenu">
+                        <li className={["portfolioMenu",!activeCatID ? "active":""].join(" ")} onClick={() => onClick(0, 0)}>All</li>
                     {categories.map((item, index) => (
                         <li
                         className={[
@@ -153,13 +156,18 @@ const PortfolioGroup = (props) => {
                     ))}
                     </ul>
                 )}
-                <div className="portfolio-wrapper">
-                    {projects.map((item, index) => (
-                    <div className={["portfolio-item", "portfolio-item-" + item.id].join(' ')} key={index} onClick={() => handleShow(index)} >
-                        <PortfolioUnit data={item} />
-                    </div>
-                    ))}
-                </div>
+                
+                    {
+                        portfolioLoading?
+                        <div className="textClrGreen text-center loder-text">loading...</div>:
+                        <div className="portfolio-wrapper">
+                            {projects.map((item, index) => (
+                            <div className={["portfolio-item", "portfolio-item-" + item.id].join(' ')} key={index} onClick={() => handleShow(index)} >
+                                <PortfolioUnit data={item} />
+                            </div>
+                            ))}
+                        </div>
+                    }     
                 {Math.ceil(postCountData / postPerPage) > 1 && (
                     <>
                     <div className="bottom-border isBgBorder"></div>
@@ -266,8 +274,8 @@ const PortfolioGroup = (props) => {
                 </Modal.Body>
             </Modal>            
             <ToastContainer />
-        </div>
-  
+        </div> 
+    
 };
 
 export default PortfolioGroup;

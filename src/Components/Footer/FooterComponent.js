@@ -318,7 +318,7 @@ export default class FooterComponent extends Component {
               <div className="col-xl-4 text-center text-sm-start mb-4">
                 <div className="widget">
                   <div className="row">
-                    <div className="col-12 col-md-8 col-xl-12 text-center text-md-start">
+                    <div className="col-12 col-lg-8 col-xl-12 text-center text-lg-start">
                       <div className="footerLogo mb-4">
                         <NavLink to="/">
                           <img
@@ -335,7 +335,7 @@ export default class FooterComponent extends Component {
                           __html: optionData["sections-footer-content"],
                         }}
                       ></div>
-                      <div className="footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4 justify-content-center justify-content-md-start">
+                      <div className="footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4 justify-content-center justify-content-lg-start">
                         {Object.values(
                           optionData["sections-footer-gallery"]
                         ).map((value, index) => {
@@ -345,9 +345,9 @@ export default class FooterComponent extends Component {
                         })}
                       </div>
                     </div>
-                    <div className="col-12 col-md-4 col-xl-12 ">
+                    <div className="col-12 col-lg-4 col-xl-12 ">
                       {optionData["sections-footer-career"] && (
-                        <div className="Careers text-center text-md-end text-xl-start">
+                        <div className="Careers text-center text-lg-end text-xl-start">
                           <p className="text-white fs-14 fw-bold">Careers</p>
                           <a
                             href={optionData["sections-footer-career"]}
@@ -441,18 +441,18 @@ export default class FooterComponent extends Component {
         <div className="copyright py-5">
           <div className="container">
             <div className="row">
-              <div className="col-md-8">
+              <div className="col-lg-8">
                 <div
-                  className="copyrightText text-center text-md-start d-block d-md-flex align-items-md-center"
+                  className="copyrightText text-center text-lg-start d-block d-lg-flex align-items-lg-center"
                   dangerouslySetInnerHTML={{
                     __html: optionData["sections-footer-copyright"],
                   }}
                 ></div>
               </div>
-              <div className="col-md-4">
+              <div className="col-lg-4">
                 {optionData["contact-social-links"].length && (
                   <div className="social">
-                    <ul className="footer-social-list list-inline text-md-end text-center p-0 m-3 m-md-0">
+                    <ul className="footer-social-list list-inline text-lg-end text-center p-0 m-3 m-lg-0">
                       {optionData["contact-social-links"].map((item, index) => (
                         <li className="list-inline-item" key={index}>
                             {item.link_url.match(/facebook/gi) && (

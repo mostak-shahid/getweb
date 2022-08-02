@@ -565,7 +565,7 @@ const Header = (props) => {
             </div>
         </header>
         <div className="back-to-top-con">
-            <div className="container">
+            <div className="container-fluid">
                 <div className="d-flex justify-content-end position-relative">
                     {/* <a href="#root" className="back-to-top">Back to top</a> */}
                     <NavLink className="back-to-top" to="#root" onClick={handleClick} data-target="#root">Back to top</NavLink>

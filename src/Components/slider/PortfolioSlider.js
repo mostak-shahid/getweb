@@ -98,6 +98,7 @@ export default class MultipleRows extends Component {
             autoplayTimeout: 4000,
             autoplayHoverPause: true,
             smartSpeed:2500,
+            autoHeight:true,
             responsive:{
                 0:{
                     items:1,

@@ -163,7 +163,7 @@ class Blog extends Component {
                             <div className="row">
                                 {postData.length ?
                                     postData.map((item, index) => (
-                                        <div className="col-md-6 col-xl-4 mb-4" key={index}>
+                                        <div className="col-lg-6 col-xl-4 mb-4" key={index}>
                                             <SingleBlogItems data={item} />
                                         </div>
                                     ))

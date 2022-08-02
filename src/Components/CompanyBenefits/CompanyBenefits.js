@@ -18,8 +18,8 @@ const CompanyBenefits = (props) => {
         //console.log(pageData);
     }, [sectionData]);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
-    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-md-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-md-6':'col-md-12'; 
+    const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12'; 
     //console.log(props)
     return (
         <div className="row">
@@ -47,7 +47,7 @@ const CompanyBenefits = (props) => {
                     ?<div className="textClrGreen text-center">loading...</div>
                     :<div className="row">
                         {sectionData.map((item, index) => (
-                            <div className="col-md-6 col-xl-4" key={item.id}>
+                            <div className="col-lg-6 col-xl-4" key={item.id}>
                                 <div className="benifit-item text-center">
                                     {item.image && 
                                         <div className="benifit-img"><img src={item.image} alt={item.title} className='img-fluid img-benifit' /></div> 

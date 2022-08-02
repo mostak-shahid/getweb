@@ -4,25 +4,39 @@
   background-size: cover;
   background-repeat: no-repeat;
   .bannerContent {
-    padding: 130px 0;
+    padding: 90px 0 30px;
+    min-height: 100vh;
     .bannerInfo {
       max-width: 730px;
       .banner-tag-line {
         margin-bottom: 10px;
-        @media (min-width: 768px) {
+        @media (min-width: 576px) {
           margin-bottom: 15px;
         }
       }
       .banner-heading {
         margin-bottom: 10px;
-        @media (min-width: 768px) {
+        & * {
+          margin-bottom: 0;
+        }
+        @media (min-width: 576px) {
           margin-bottom: 20px;
         }
       }
       .banner-desc {
         color: var(--clr-dark-2);
-        font-size: 18px;
-        line-height: 28px;
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-size: 14px !important;
+        line-height: 22px !important;
+        & > * {
+          margin-bottom: 0;
+        }
+        @media (min-width: 576px) {
+          margin-bottom: 40px;
+          font-size: 18px !important;
+          line-height: 28px !important;
+        }
       }
       .banner-desc,
       .banner-heading {
@@ -35,17 +49,37 @@
           }
         }
       }
+      .btn-wrapper {
+        .btn {
+          padding: 12px 28px;
+          @media (min-width: 576px) {
+            padding: 16px 35px;
+          }
+        }
+      }
     }
-
+    .bannerImage {
+      margin-top: 30px;
+      img.img-banner {
+        padding-left: 24px;
+        padding-right: 24px;
+        @media (min-width: 768px) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      @media (min-width: 992px) {
+        margin-top: 0;
+      }
+    }
     @media (min-width: 768px) {
-      padding: 165px 0;
+      padding: 130px 0 30px;
     }
     @media (min-width: 1200px) {
       padding: 5vw 0;
-      min-height: 800px;
     }
   }
-  &::after {
+  /*&::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -54,7 +88,7 @@
     left: 0;
     background-image: linear-gradient(to right, #121316, rgba(18, 19, 22, 0.5));
     z-index: -1;
-  }
+  }*/
   &._product-design-pageBanner,
   &._ui-design-pageBanner {
     &::after {
