@@ -557,10 +557,12 @@ const Header = (props) => {
                         </div>
                     </div>                       
                 </div>
-                <div className="button-area d-none d-xl-block">
-                    <NavLink to={optionData['contact-request-link']} className="btn bgClrPink text-white border-0 rounded-pill fwSemiBold fs-14">
-                    <span className="mr-8">Request a Quote</span>
-                    <span className="btn-arrow"></span></NavLink>
+                <div className="button-area d-none d-xl-block btn-wrapper">
+                    <NavLink className={["btn bgClrPink text-white position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} to={optionData['contact-request-link']}>
+                        <span className="mr-8">Request a Quote</span>
+                        <span className="btn-arrow"></span>
+                    </NavLink>
+
                 </div>
             </div>
         </header>

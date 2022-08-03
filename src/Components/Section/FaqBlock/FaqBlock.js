@@ -25,7 +25,7 @@ const FaqBlock = (props) => {
     return (
 
         <div className="faqList">
-            {/* {console.log('Main: ', sectionData)} */}
+            {/* {console.log('Main: ', props.noCol)} */}
             {/* {console.log('Grouped: ', groupData)} */}
             <Accordion defaultActiveKey="0" flush>
                 <div className="row">

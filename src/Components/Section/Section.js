@@ -27,6 +27,7 @@ const Section = (props) => {
         noColmd = 3;
         noColsm = 2;
     }
+    //console.log(_mosacademy_page_group_component_count_col)
     return (
         _mosacademy_page_group_component_name ?
         
