@@ -1,10 +1,6 @@
-import axios from "axios";
-import { useEffect, useState } from 'react';
-import { Link } from "react-scroll";
-import Config from '../../Config.json';
-import './FrontendTechnologies.scss';
-import Technology from "./TechnologiesBar/Technology/Technology";
-const FrontendTechnologies = (props) => {  
+import React from 'react'
+
+const GroupTechonologiesbar = () => {
     const [technologiesData, setTechnologiesData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -76,4 +72,4 @@ const FrontendTechnologies = (props) => {
     </div>
 }
 
-export default FrontendTechnologies
+export default GroupTechonologiesbar

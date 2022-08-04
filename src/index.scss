@@ -417,6 +417,7 @@ img {
   }
   .secTitle,
   .secIntro {
+    color: var(--clr-dark-2);
     h1,
     h2,
     h3,
@@ -426,7 +427,6 @@ img {
       color: #fff;
     }
     p {
-      color: var(--clr-dark-2);
       margin-bottom: 20px;
     }
   }

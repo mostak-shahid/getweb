@@ -2,22 +2,23 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import { Link } from "react-scroll";
 import Config from '../../Config.json';
-import './FrontendTechnologies.scss';
 import Technology from "./TechnologiesBar/Technology/Technology";
-const FrontendTechnologies = (props) => {  
+
+const SingleTechonologyBar = (props) => {
     const [technologiesData, setTechnologiesData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const taxID = props.data?._mosacademy_page_group_component_data;
     useEffect(() => {
         async function fetchData() {
             await axios
-            .get(Config.API_BASE + "data-list/technology/7/")
+            .get(Config.API_BASE + "data-list/technology/"+taxID+"/")
             .then(function (response) {
                 setTechnologiesData(response.data);
                 //console.log(response)
             });
         }
         fetchData();
-    }, []);
+    }, [taxID]);
     useEffect(() => {
         if (technologiesData.length !== 0) {
             setLoading(false);
@@ -33,22 +34,23 @@ const FrontendTechnologies = (props) => {
             <div className="part-one mb-4 mb-lg-0">                        
                 {
                     _mosacademy_page_group_sub_titles[0] &&
-                    <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
+                    <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}} />
                 }
                 {
                     _mosacademy_page_group_title_text &&
-                    <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}></div>
+                    <div className="secTitle fw-normal fs-48 text-white mb-3" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_text}}/>
                 }
                 {
                     _mosacademy_page_group_title_description &&
-                    <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                    <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}/>
                 }
-                
+                {
+                    console.log(props)
+                }
             </div>
         </div>
         <div className={[widthClass].join(' ')}>
             <div className="part-two text-start">
-                
                 {
                     (technologiesData.length) &&
                     <div className="singleTechnology p-2 border-start-0 frontend-development">
@@ -60,8 +62,7 @@ const FrontendTechnologies = (props) => {
                         }
                         </div>
                     </div>
-                }
-                
+                }                
                 {
                     _mosacademy_page_group_button?.url &&
                     <div className="allInsightBtn text-center mt-5">
@@ -76,4 +77,4 @@ const FrontendTechnologies = (props) => {
     </div>
 }
 
-export default FrontendTechnologies
+export default SingleTechonologyBar

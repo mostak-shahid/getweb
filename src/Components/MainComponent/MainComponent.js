@@ -16,6 +16,7 @@ import CWATechnologies from '../Technologies/CWATechnologies';
 import FrontendTechnologies from "../Technologies/FrontendTechnologies";
 import HomeTechnologiesComponent from '../Technologies/HomeTechnologiesComponent';
 import IosTechnologiesComponent from '../Technologies/IosTechnologiesComponent';
+import SingleTechonologyBar from '../Technologies/SingleTechonologyBar';
 import TechnologiesComponent from "../Technologies/TechnologiesComponent";
 import TestimonialsComponent from "../Testimonials/TestimonialsComponent";
 import WhoWeAre from "../WhoWeAre/WhoWeAre";
@@ -50,6 +51,7 @@ const MainComponent = (props) => {
                 {(_mosacademy_page_group_component_name === 'FrontendTechnologies') && <FrontendTechnologies data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'CWATechnologies') && <CWATechnologies data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'ServicesForm') && <ServicesForm data={props.data} />}
+                {(_mosacademy_page_group_component_name === 'SingleTechonologyBar') && <SingleTechonologyBar data={props.data} />}
             </div>
         </section>
     )

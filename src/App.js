@@ -93,6 +93,7 @@ function App() {
         {"ID": 621, "post_name": "ux-design"},
         {"ID": 793, "post_name": "ux-review"},
         {"ID": 653, "post_name": "ux-writing"},
+        {"ID": 1564, "post_name": "magento"},
         {"ID": 569, "post_name": "workshops"}
     ]
     return (

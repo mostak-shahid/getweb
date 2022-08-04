@@ -31,7 +31,7 @@ const Section = (props) => {
     return (
         _mosacademy_page_group_component_name ?
         
-        <MainComponent  data={props.data} /> :
+        <MainComponent data={props.data} /> :
         
         <section id={group_id} className={['section-wrapper', 'secPadding', group_slug, _mosacademy_page_group_css].join(' ')} style={props?._mosacademy_page_group_background_image && { backgroundImage: `url(${_mosacademy_page_group_background_image})` }}>
             <div className={_mosacademy_page_group_content_width}>
