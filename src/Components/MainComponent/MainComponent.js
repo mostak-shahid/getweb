@@ -14,6 +14,7 @@ import ReadyToMoveComponent from "../ReadyToMove/ReadyToMoveComponent";
 import ServicesForm from "../ServicesForm/ServicesForm";
 import CWATechnologies from '../Technologies/CWATechnologies';
 import FrontendTechnologies from "../Technologies/FrontendTechnologies";
+import GroupTechonologiesbar from '../Technologies/GroupTechonologiesbar';
 import HomeTechnologiesComponent from '../Technologies/HomeTechnologiesComponent';
 import IosTechnologiesComponent from '../Technologies/IosTechnologiesComponent';
 import SingleTechonologyBar from '../Technologies/SingleTechonologyBar';
@@ -27,7 +28,7 @@ const MainComponent = (props) => {
     const {_mosacademy_page_group_content_width = "container", _mosacademy_page_group_css='', _mosacademy_page_group_component_name, group_slug, group_id} = props.data;
     return (
         <section id={group_id} className={['wrapper-section', 'secPadding', group_slug, _mosacademy_page_group_css].join(' ')}>
-            {/* {console.log(_mosacademy_page_group_component_name)} */}
+            {/* {console.log(props.data)} */}
             <div className={_mosacademy_page_group_content_width}>
                 {(_mosacademy_page_group_component_name === 'OurServicesComponent') && <OurServicesComponent data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'WhyChooseUsComponent') && <WhyChooseUsComponent data={props.data} />}
@@ -52,6 +53,7 @@ const MainComponent = (props) => {
                 {(_mosacademy_page_group_component_name === 'CWATechnologies') && <CWATechnologies data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'ServicesForm') && <ServicesForm data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'SingleTechonologyBar') && <SingleTechonologyBar data={props.data} />}
+                {(_mosacademy_page_group_component_name === 'GroupTechonologiesbar') && <GroupTechonologiesbar data={props.data} />}
             </div>
         </section>
     )

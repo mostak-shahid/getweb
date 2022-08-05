@@ -94,7 +94,13 @@ function App() {
         {"ID": 793, "post_name": "ux-review"},
         {"ID": 653, "post_name": "ux-writing"},
         {"ID": 1564, "post_name": "magento"},
-        {"ID": 569, "post_name": "workshops"}
+        {"ID": 569, "post_name": "workshops"},
+        {"ID": 1590, "post_name": "wordpress"},
+        {"ID": 1595, "post_name": "e-commerce-app"},
+        {"ID": 1599, "post_name": "aws"},
+        {"ID": 1601, "post_name": "azure"},
+        {"ID": 1603, "post_name": "google-cloud"},
+        {"ID": 1593, "post_name": "shopify"}
     ]
     return (
     /*loading ? 

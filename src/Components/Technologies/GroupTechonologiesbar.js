@@ -1,19 +1,25 @@
-import React from 'react'
-
-const GroupTechonologiesbar = () => {
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Config from '../../Config.json';
+import TechnologiesBar from './TechnologiesBar/TechnologiesBar';
+const GroupTechonologiesbar = (props) => {
     const [technologiesData, setTechnologiesData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const tags = (props.data?._mosacademy_page_group_component_data)?props.data?._mosacademy_page_group_component_data:0;
+
     useEffect(() => {
+        // console.log(props.data);
         async function fetchData() {
             await axios
-            .get(Config.API_BASE + "data-list/technology/7/")
+            .get(Config.API_BASE + "data-taxonomies/technology_catagory/" + tags)
             .then(function (response) {
                 setTechnologiesData(response.data);
                 //console.log(response)
             });
         }
         fetchData();
-    }, []);
+    }, [tags, props.data]);
     useEffect(() => {
         if (technologiesData.length !== 0) {
             setLoading(false);
@@ -44,18 +50,34 @@ const GroupTechonologiesbar = () => {
         </div>
         <div className={[widthClass].join(' ')}>
             <div className="part-two text-start">
+                                 
+                             
+                        <div className="singleTechnologyBar">
+                            {/* { console.log(technologiesData)} */}
+                            {
+                                (technologiesData.length) && 
+                                technologiesData.map((item, index) => ( 
+                                        (item.count!=="0") && <TechnologiesBar data={item} key={index} />                                
+                                    )
+                                )
+                            }
+                        </div>
+
+                    
                 
                 {
-                    (technologiesData.length) &&
-                    <div className="singleTechnology p-2 border-start-0 frontend-development">
-                        <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap gap-2">
-                        {
-                        technologiesData.map((logo, index) => (
-                            <Technology data={logo} key={logo.id} />
-                        ))
-                        }
-                        </div>
-                    </div>
+                    // (technologiesData.length) &&
+                    // <div className="singleTechnology p-2 border-start-0 frontend-development">
+                    //     <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap gap-2">
+                    //     {
+                    //             (technologiesData.length) && 
+                    //             technologiesData.map((item, index) => ( 
+                    //                     (item.count!=="0") && <TechnologiesBar data={item} key={index} />                                
+                    //                 )
+                    //             )
+                    //         }
+                    //     </div>
+                    // </div>
                 }
                 
                 {

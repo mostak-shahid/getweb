@@ -326,6 +326,15 @@ const Header = (props) => {
               hover_image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-ecommerce.png",
               submenu: {
+                27: {
+                  ID: 317,
+                  title: "Magento",
+                  class: [""],
+                  url: "/magento",
+                  image: false,
+                  hover_image: false,
+                  submenu: [],
+                },
                 23: {
                   ID: 313,
                   title: "WordPress",
@@ -346,27 +355,18 @@ const Header = (props) => {
                 },
                 25: {
                   ID: 315,
-                  title: "Webflow",
+                  title: "E-Commerce App",
                   class: [""],
-                  url: "/webflow",
+                  url: "/e-commerce-app",
                   image: false,
                   hover_image: false,
                   submenu: [],
                 },
                 26: {
                   ID: 316,
-                  title: "Drupal",
+                  title: "E-Commerce Web",
                   class: [""],
-                  url: "/drupal",
-                  image: false,
-                  hover_image: false,
-                  submenu: [],
-                },
-                27: {
-                  ID: 317,
-                  title: "Magento",
-                  class: [""],
-                  url: "/magento",
+                  url: "/e-commerce-web",
                   image: false,
                   hover_image: false,
                   submenu: [],

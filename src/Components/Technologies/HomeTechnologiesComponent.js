@@ -122,6 +122,9 @@ export default class HomeTechnologiesComponent extends Component {
                     <div className="part-two">                 
                         <div className="singleTechnologyBar">
                             {
+                                console.log(taxonomiesData)
+                            }
+                            {
                                 (taxonomiesData.length) && 
                                     taxonomiesData.map((item, index) => ( 
                                         (item.count!=="0") && <TechnologiesBar data={item} key={index} />                                
