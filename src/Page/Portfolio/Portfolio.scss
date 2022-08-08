@@ -85,6 +85,12 @@
     padding: 0;
     border-radius: 0;
     justify-content: flex-end;
+    position: fixed;
+    width: calc(100% - 30px);
+    border-bottom-style: none;
+    z-index: 9;
+    top: 0;
+    left: 0;
     .btn-close {
       // position: absolute;
       // top: 0;
@@ -92,9 +98,7 @@
       // width: 24px;
       // height: 24px;
       color: #fff;
-      background-color: #dc3545;
-      border-color: #dc3545;
-      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L19 19' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.00001 19L19 5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 5L19 19' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.00001 19L19 5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       border-radius: 0;
       opacity: 1;
       margin: 0;
@@ -141,9 +145,11 @@
         }
       }
       .item {
-        padding-right: 90px;
-        padding-left: 90px;
         position: relative;
+        @media (min-width: 992px) {
+          padding-right: 90px;
+          padding-left: 90px;
+        }
       }
       .modal-body-top {
         padding-top: 22px;
@@ -174,15 +180,14 @@
       }
       .modal-body-right {
         position: absolute;
-        top: 100px;
-        right: 5px;
-        width: 70px;
-        text-align: center;
         z-index: 9;
         font-weight: 600;
         font-size: 12px;
         line-height: 20px;
         color: #8d8f98;
+        display: flex;
+        top: 25px;
+        right: 25px;
         img {
           width: 40px;
           height: 40px;
@@ -191,6 +196,20 @@
         }
         span {
           cursor: pointer;
+          width: 50px;
+        }
+        .rightImageContent {
+          display: none;
+        }
+        @media (min-width: 992px) {
+          top: 100px;
+          right: 5px;
+          width: 70px;
+          text-align: center;
+          flex-direction: column;
+          .rightImageContent {
+            display: block;
+          }
         }
       }
 

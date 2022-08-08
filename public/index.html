@@ -15,6 +15,40 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+  </style>
+  <script>
+    const header = document.querySelector(".main-header");
+    var lastScrollTop = 251;
+    var scrolleffect = window.addEventListener(
+      "scroll",
+      function () {
+        // or window.addEventListener("scroll"....
+        const header = document.querySelector(".main-header");
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        //const scrollTop = window.scrollY;
+        movingup = this.oldScroll > this.scrollY;
+        this.oldScroll = this.scrollY;
+        if (movingup){
+          header.classList.add("headroom--pinned")
+          header.classList.remove("headroom--unpinned")
+        } else {
+          header.classList.remove("headroom--pinned")
+          header.classList.add("headroom--unpinned")
+        }
+
+        st > 0
+          ? header.classList.add("active-sticky-menu")
+          : header.classList.remove('active-sticky-menu', 'headroom--pinned', 'headroom--unpinned');
+        // st > lastScrollTop
+        //   ? header.classList.add("is-nonsticky")
+        //   : header.classList.add("is-sticky");
+        // lastScrollTop = st <= 0 ? 0 : st;
+        //console.log(scrollTop, lastScrollTop);
+      },
+      false
+    );
+  </script>
+
     <meta name="developer" content="Md. Mostak Shahid" />
   </head>
 

@@ -21,19 +21,21 @@ const Header = (props) => {
         }
     }, [optionData]);
     // Sticky Menu Area
-    useEffect(() => {
+    /*useEffect(() => {
         window.addEventListener('scroll', isSticky);
         return () => {
             window.removeEventListener('scroll', isSticky);
         };
     });           
-    /* Method that will fix header after a specific scrollable */
+    // Method that will fix header after a specific scrollable
     const isSticky = (e) => {
         const header = document.querySelector('.main-header');
         const scrollTop = window.scrollY;
         scrollTop >= 100 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
-    };
+    };*/
+    /*
     
+    */
     const menuAlter = () => {
         return setMenuOpen(!menuOpen)
     }
@@ -542,7 +544,7 @@ const Header = (props) => {
         ?<Loading cls="page-loader" />
         : 
         <>     
-        <header className='main-header position-absolute top-0 start-0 w-100 zindex-fixed'>
+        <header className='main-header'>
             <div className="wrapper d-flex justify-content-between align-items-center">
                 <div className="logo-area">
                     <NavLink to="/" onClick={() => {setMenuOpen(false)}}><img src={optionData.logo.url} alt="logo" /></NavLink>

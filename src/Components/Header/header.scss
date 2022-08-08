@@ -1,6 +1,29 @@
+.active-sticky-menu {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 10000;
+  transform: translateY(-100%);
+  background-color: var(--clr-dark-light);
+}
+.active-sticky-menu.headroom--pinned {
+  transition: all 0.3s ease 0s;
+  transform: translateY(0px);
+}
+.active-sticky-menu.headroom--unpinned {
+  transition: all 0.6s ease 0s;
+  transform: translateY(-100%);
+  //box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px;
+}
 .main-header {
   z-index: 99;
-  transition: all 0.3s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.3s ease 0s;
   .wrapper {
     padding-left: var(--16px);
     padding-right: var(--16px);
@@ -443,7 +466,7 @@
       padding-right: 5.2vw;
     }
   }
-  &.is-sticky {
+  &.headroom--pinned {
     @media (min-width: 1200px) {
       position: fixed !important;
       z-index: 999;
@@ -459,6 +482,7 @@
             }
             & > li {
               & > a {
+                transition: all 0.6s ease 0s;
                 padding: 20px 30px;
               }
             }

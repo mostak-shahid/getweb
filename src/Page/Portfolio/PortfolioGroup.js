@@ -180,7 +180,7 @@ const PortfolioGroup = (props) => {
                 show={show}
                 onHide={handleClose}
             >
-                <Modal.Header closeButton className="d-flex d-sm-none"></Modal.Header>
+                <Modal.Header closeButton className="d-flex"></Modal.Header>
                 <Modal.Body className="p-0">
                     {/* <div className="portfolio-modal-close position-absolute top-0 end-0"><button className="btn btn-danger rounded-circle" onClick={handleClose}>x</button></div> */}
                     <OwlCarousel className="owl-theme" {...settings}>
