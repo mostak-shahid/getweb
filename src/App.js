@@ -97,6 +97,7 @@ function App() {
         {"ID": 569, "post_name": "workshops"},
         {"ID": 1590, "post_name": "wordpress"},
         {"ID": 1595, "post_name": "e-commerce-app"},
+        {"ID": 1597, "post_name": "e-commerce-web"},
         {"ID": 1599, "post_name": "aws"},
         {"ID": 1601, "post_name": "azure"},
         {"ID": 1603, "post_name": "google-cloud"},
