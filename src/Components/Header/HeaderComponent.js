@@ -538,7 +538,7 @@ export default class HeaderComponent extends Component {
             <header className='main-header position-absolute top-0 start-0 w-100 zindex-fixed'>
                 <div className="wrapper d-flex justify-content-between align-items-center">
                     <div className="logo-area">
-                        <NavLink to="/" onClick={() => this.setState({menuOpen:false})}><img src={optionData.logo.url} alt="logo" /></NavLink>
+                        <NavLink to="/" onClick={() => this.setState({menuOpen:false})}><img src={optionData.logo.url} alt="Getweb - logo" /></NavLink>
                     </div>
                     <div className="menu-area position-static position-xl-relative">
                         <div className="position-static position-xl-relative navbar navbar-expand-xl navbar-light">

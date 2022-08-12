@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import { Link } from "react-scroll";
 import Config from '../../Config.json';
+import './SingleTechonologyBar.scss';
 import Technology from "./TechnologiesBar/Technology/Technology";
 
 const SingleTechonologyBar = (props) => {
@@ -50,11 +51,11 @@ const SingleTechonologyBar = (props) => {
             </div>
         </div>
         <div className={[widthClass].join(' ')}>
-            <div className="part-two text-start">
+            <div className="part-two text-center">
                 {
                     (technologiesData.length) &&
-                    <div className="singleTechnology p-2 border-start-0 frontend-development">
-                        <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap gap-2">
+                    <div className="singleTechnology p-2 d-inline-block singleTechnology-without-border">
+                        <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap gap-2 border-start-0">
                         {
                         technologiesData.map((logo, index) => (
                             <Technology data={logo} key={logo.id} />

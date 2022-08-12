@@ -53,10 +53,10 @@ export default class BannerComponents extends Component {
                 </div>
                 
                 <div className="trustedWrapper d-flex justify-content-center align-items-center pb-40 flex-wrap gap-2">
-                    {/* {console.log(this.props.pageData.meta._mosacademy_page_banner_image_gallery)} */}
+                    {console.log(this.props.pageData.meta.banner_image_gallery)}
                     {this.props.pageData.meta.banner_image_gallery.map(( value , index)=> {
                         return (
-                            <img src={value} key={value} alt="Partner Logo" className="img-fluid partner-img" />
+                            <img src={value.url} key={index} alt={value.alt} className="img-fluid partner-img" />
                         )
                     })}                       
                 </div>

@@ -5,8 +5,8 @@ import "./SubPageBanner.scss";
 const SubPageBanner = (props) => {
     const location = useLocation();
     const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
-    // console.log(props);
-    const { tagline, title, intro, bgImg, btn, featureImage } = props;
+    console.log(props);
+    const { tagline, title, intro, bgImg, btn, featureImage, alt } = props;
     return (
         <section className={["subPageBanner position-relative bgClrDarkLight", bannerCls ].join(' ')} style={{ backgroundImage: `url(${bgImg})` }}>
             <div className="container">
@@ -23,7 +23,7 @@ const SubPageBanner = (props) => {
                     {
                     featureImage &&
                         <div className="bannerImage col-lg-6 text-center text-lg-end">
-                            <img src={featureImage} alt="" className="img-fluid img-banner" />
+                            <img src={featureImage} alt={alt} className="img-fluid img-banner" />
                         </div>
                     }
                 </div>

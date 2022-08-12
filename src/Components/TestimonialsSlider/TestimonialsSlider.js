@@ -80,7 +80,7 @@ export default class MultipleItems extends Component {
               <div className="item-wrapper singleFeedback isRadius16 p-30 bgClrDarkLight d-flex flex-column justify-content-between" key={items.id}>
                 <div className="reviewerContent">
                 <div className="logos mb-4">
-                  <img src={items.meta._mosacademy_testimonial_company_logo} alt="slider logo" />
+                  <img src={items.meta._mosacademy_testimonial_company_logo} alt={[items.meta._mosacademy_testimonial_name, '- Conpany Logo'].join(" ")} />
                 </div>
                 <div className="feedbackText textClrGray fw-normal fs-6 mb-5" dangerouslySetInnerHTML={{__html:items.content}} />
                 </div>

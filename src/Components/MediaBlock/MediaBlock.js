@@ -13,7 +13,7 @@ const MediaBlock = (props) => {
                         <img src={props?.data?.featured_image?.full} alt={props?.data?.title} />
                     </div>
                 }
-                {props?.data?.title &&
+                {props?.data?.title && props?.data?.title !== "Untitled" &&
                     <h3 className='serTitle fw-bold fs-5 mb-4 block-title'>
                         {props?.data?.meta?._mosacademy_blobk_url?.url
                             ? <a href={props?.data?.meta?._mosacademy_blobk_url?.url} className='block-title-link' dangerouslySetInnerHTML={{__html: props?.data?.title}} />

@@ -45,7 +45,7 @@ export default class Home extends Component {
         const { pageData } = this.state;
         return (
             <>
-            {/* {console.log(pageData)} */}
+                {/* {console.log(pageData)} */}
                 <SeoMeta pageData={pageData}/>         
                 <BannerComponents pageData={pageData}/>
                 {

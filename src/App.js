@@ -101,6 +101,7 @@ function App() {
         {"ID": 1599, "post_name": "aws"},
         {"ID": 1601, "post_name": "azure"},
         {"ID": 1603, "post_name": "google-cloud"},
+        {"ID": 1801, "post_name": "app-development"},
         {"ID": 1593, "post_name": "shopify"}
     ]
     return (

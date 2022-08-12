@@ -16,7 +16,7 @@ const MediaBlock = (props) => {
                 {props?.data?.meta?._mosacademy_custom_html && 
                     <div className='custom-html' dangerouslySetInnerHTML={{__html:props?.data?.meta?._mosacademy_custom_html}} />
                 }        
-                {props?.data?.title &&
+                {props?.data?.title &&  props?.data?.title !== "Untitled" &&
                     <h3 className={['block-title', open ? 'active':''].join(' ')} onClick={()=>setOpen(!open)}>
                         {props?.data?.meta?._mosacademy_blobk_url?.url
                             ? <a href={props?.data?.meta?._mosacademy_blobk_url?.url} className='block-title-link' dangerouslySetInnerHTML={{__html: props?.data?.title}} />

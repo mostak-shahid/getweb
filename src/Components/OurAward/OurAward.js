@@ -50,7 +50,7 @@ const OurAward = (props) => {
                             <div className="OurAwardItem px-3 py-3 text-center" key={index}>
                                 {item.image && 
                                 <div className="icon mb-3">
-                                    <img src={item.image} alt="OurAwardLogo" /> 
+                                    <img src={item.image} alt={item.title} /> 
                                 </div>
                                 }
                                 <h4 className="title fs-14 fw-bold text-white" dangerouslySetInnerHTML={{__html: item.title}} />

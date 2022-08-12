@@ -547,7 +547,7 @@ const Header = (props) => {
         <header className='main-header'>
             <div className="wrapper d-flex justify-content-between align-items-center">
                 <div className="logo-area">
-                    <NavLink to="/" onClick={() => {setMenuOpen(false)}}><img src={optionData.logo.url} alt="logo" /></NavLink>
+                    <NavLink to="/" onClick={() => {setMenuOpen(false)}}><img src={optionData.logo.url} alt="Getweb Inc - logo" /></NavLink>
                 </div>
                 <div className="menu-area position-static position-xl-relative">
                     <div className="position-static position-xl-relative navbar navbar-expand-xl navbar-light">
