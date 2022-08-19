@@ -52,7 +52,7 @@ const Header = (props) => {
               ID: 286,
               title: "Ideation and Evaluation",
               class: [""],
-              url: "/ideation-evaluation",
+              url: "/ideation-and-evaluation-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-ideation-evaluation.png",
               hover_image:
@@ -100,7 +100,7 @@ const Header = (props) => {
               ID: 290,
               title: "Product Design",
               class: ["menu-double-column"],
-              url: "/product-design",
+              url: "/product-design-service-category-page", //software product design
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-product-design.png",
               hover_image:
@@ -110,7 +110,7 @@ const Header = (props) => {
                   ID: 292,
                   title: "Product Design",
                   class: [""],
-                  url: "/product-design",
+                  url: "/software-product-design",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -157,7 +157,7 @@ const Header = (props) => {
               ID: 932,
               title: "Staff Augmentation",
               class: [""],
-              url: "/staff-augmentation",
+              url: "/staff-augmentation-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/06/mobile-programming.svg",
               hover_image:
@@ -205,7 +205,7 @@ const Header = (props) => {
               ID: 296,
               title: "App Development",
               class: [""],
-              url: "/app-development",
+              url: "/app-development-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-mobile-development.png",
               hover_image:
@@ -244,7 +244,7 @@ const Header = (props) => {
               ID: 302,
               title: "Web Applications",
               class: [""],
-              url: "/web-applications",
+              url: "/web-applications-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/06/monitor-mobbile.svg",
               hover_image:
@@ -283,7 +283,7 @@ const Header = (props) => {
               ID: 937,
               title: "Product Engineering",
               class: [""],
-              url: "/product-engineering",
+              url: "/product-engineering-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/06/code.svg",
               hover_image:
@@ -322,7 +322,7 @@ const Header = (props) => {
               ID: 312,
               title: "eCommerce & CMS Development",
               class: ["menu-double-column"],
-              url: "/ecommerce-cms-development",
+              url: "/ecommerce-cms-development-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-ecommerce.png",
               hover_image:
@@ -418,7 +418,7 @@ const Header = (props) => {
               ID: 318,
               title: "Cloud Solutions",
               class: [""],
-              url: "/cloud-solutions",
+              url: "/cloud-solutions-service-category-page",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-1000003506.svg",
               hover_image:

@@ -197,7 +197,7 @@ const FormValidation = (props) => {
                     }
                     <div className="sbm-btn text-end">
                         <input type="hidden" value={window.location.pathname.replace("/", "")} {...register('source')} />
-                        <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn btn-primary" disabled={formProcessing}>{formProcessing? 'Sending Mesage...' : 'Send Message '}</button>
+                        <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn" disabled={formProcessing}>{formProcessing? 'Sending Mesage...' : 'Send Message '}</button>
                     </div>
                 </div>
             </form>

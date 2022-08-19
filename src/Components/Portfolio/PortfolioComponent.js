@@ -12,7 +12,7 @@ export default class PortfolioComponent extends Component {
     }
     render() {
         if (this.state.loading) {
-            return <div className="textClrGreen text-center">loading...</div>;
+            return <div className="textClrGreen text-center d-none">loading...</div>;
         }
         // if (!this.state.taxonomiesData) {
         //     return <div>Didn't get data from API</div>;

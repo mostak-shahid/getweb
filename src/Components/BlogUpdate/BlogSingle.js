@@ -67,7 +67,7 @@ const BlogSingle = (props) => {
         <>
         {
             loading?
-            <div className="textClrGreen text-center loder-text">loading...</div>:            
+            <div className="textClrGreen text-center loder-text d-none">loading...</div>:            
             <>                
                 <SeoMeta pageData={pageData}/>
                 <section className="BlogSingleWrapper secPadding mt-5">

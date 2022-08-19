@@ -39,7 +39,7 @@ const JobOpening = (props) => {
             </div> 
             {
                 loading
-                ?<div className="textClrGreen text-center">loading...</div>
+                ?<div className="textClrGreen text-center d-none">loading...</div>
                 :<>                          
                     <div className="jobs mb-5">
                         <h6 className="mb-3">All Jobs</h6>

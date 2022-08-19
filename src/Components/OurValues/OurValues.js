@@ -45,7 +45,7 @@ const OurValues = (props) => {
             <div className={[widthClass].join(' ')}>
                 {
                     loading
-                    ?<div className="textClrGreen text-center">loading...</div>
+                    ?<div className="textClrGreen text-center d-none">loading...</div>
                     :<div className="row">
                         {sectionData.map((item, index) => (
                             <div className="col-xl-4 col-sm-6 mb-4" key={index}>

@@ -29,7 +29,7 @@ const Portfolio = () => {
 
 
   return loading ? 
-    <div className="textClrGreen text-center loder-text">loading...</div>
+    <div className="textClrGreen text-center loder-text d-none">loading...</div>
    : 
     <>
         <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />         

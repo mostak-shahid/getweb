@@ -26,7 +26,7 @@ export default class TechnologiesBar extends Component {
         const {name='', slug=''} = this.props.data;
         const {technologiesData} = this.state;
         if (this.state.loading) {
-            return <div className="textClrGreen text-center">loading...</div>;
+            return <div className="textClrGreen text-center d-none">loading...</div>;
         }
 
         if (!this.state.technologiesData) {

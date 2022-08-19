@@ -64,7 +64,7 @@ const Faq = (props) => {
                             <div className="col-xl-6">                                
                                 {
                                     loading
-                                    ?<div className="textClrGreen text-center">loading...</div>
+                                    ?<div className="textClrGreen text-center d-none">loading...</div>
                                     :
                                         sectionData.map((item, index) => (
                                             <Accordion.Item eventKey={[0, index].join('-')} className="mb-3 isRadius16 overflow-hidden" key={index}>                                            
@@ -79,7 +79,7 @@ const Faq = (props) => {
                                                       
                             {
                                     loading
-                                    ?<div className="textClrGreen text-center">loading...</div>
+                                    ?<div className="textClrGreen text-center d-none">loading...</div>
                                     :
                                         sectionDataTwo.map((item, index) => (
                                             <Accordion.Item eventKey={[1, index].join('-')} className="mb-3 isRadius16 overflow-hidden" key={index}>

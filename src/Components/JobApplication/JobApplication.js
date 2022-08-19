@@ -169,7 +169,7 @@ class JobApplication extends Component {
         // console.log('Jobs: ', this.state.jobs);
         // console.log('Loading: ', this.state.loading);
         if (this.state.loading) {
-            return <div className="textClrGreen text-center">loading...</div>;
+            return <div className="textClrGreen text-center d-none">loading...</div>;
         }
         if (!this.state.jobs) {
             return <div>Didn't get data from API</div>;

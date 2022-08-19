@@ -134,7 +134,7 @@ const PortfolioGroup = (props) => {
     }
 
     return loading?
-    <div className="textClrGreen text-center loder-text">loading...</div>:   
+    <div className="textClrGreen text-center loder-text d-none">loading...</div>:   
         <div className="row">
             {/* { console.log(projects) } */}
             <div className="col-12">

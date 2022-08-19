@@ -5,7 +5,7 @@ import "./SubPageBanner.scss";
 const SubPageBanner = (props) => {
     const location = useLocation();
     const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
-    console.log(props);
+    //console.log(props);
     const { tagline, title, intro, bgImg, btn, featureImage, alt } = props;
     return (
         <section className={["subPageBanner position-relative bgClrDarkLight", bannerCls ].join(' ')} style={{ backgroundImage: `url(${bgImg})` }}>

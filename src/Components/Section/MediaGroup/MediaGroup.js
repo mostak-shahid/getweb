@@ -41,7 +41,7 @@ const MediaGroup = (props) => {
     }, [groupData]);
     return (
         loading ?
-        <div className="textClrGreen text-center loder-text">loading...</div>:
+        <div className="textClrGreen text-center loder-text d-none">loading...</div>:
 
         <div className="media-group">
             <div className="row">

@@ -44,4 +44,17 @@
   .slick-slide {
     margin: 0 var(--16px);
   }
+  .item-wrapper {
+    .testimonial-company {
+      filter: grayscale(100%) contrast(50%);
+      opacity: 0.5;
+      transition: all 0.3s linear;
+    }
+    &:hover {
+      .testimonial-company {
+        filter: grayscale(0) contrast(100%);
+        opacity: 1;
+      }
+    }
+  }
 }

@@ -1,19 +1,34 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import BlogSingle from "./Components/BlogUpdate/BlogSingle";
+
+
 import FooterComponent from "./Components/Footer/FooterComponent";
-import "./Components/Header/header.scss";
-import JobDetails from "./Components/JobDetails/JobDetails";
-import "./index.scss";
-import Blog from "./Page/Blog/Blog";
-import Home from "./Page/Home/Home";
-import NotFound from "./Page/NotFound/NotFound";
-import Search from "./Page/Search/Search";
-import Single from "./Page/Single/Single";
-//import Post from "./Page/Post/Post";
-import { useEffect, useState } from "react";
 import Header from "./Components/Header/Header";
-import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
+import "./Components/Header/header.scss";
+
+import "./index.scss";
+
+// import Home from "./Page/Home/Home";
+// import Blog from "./Page/Blog/Blog";
+// import BlogSingle from "./Components/BlogUpdate/BlogSingle";
+// import Single from "./Page/Single/Single";
+// import Search from "./Page/Search/Search";
+// //import Post from "./Page/Post/Post";
+// import JobDetails from "./Components/JobDetails/JobDetails";
+// import JobApplicationForm from "./Components/JobApplicationForm/JobApplicationForm";
+// import NotFound from "./Page/NotFound/NotFound";
+
+const Home = lazy(() => import("./Page/Home/Home"));
+const Blog = lazy(() => import("./Page/Blog/Blog"));
+const BlogSingle = lazy(() => import("./Components/BlogUpdate/BlogSingle"));
+const Single = lazy(() => import("./Page/Single/Single"));
+const Search = lazy(() => import("./Page/Search/Search"));
+const JobDetails = lazy(() => import("./Components/JobDetails/JobDetails"));
+const JobApplicationForm = lazy(() => import("./Components/JobApplicationForm/JobApplicationForm"));
+const NotFound = lazy(() => import("./Page/NotFound/NotFound"));
+
+
 function App() {    
     //const [pages, setPages] = useState([]);
     //const [loading, setLoading] = useState(true);
@@ -81,7 +96,7 @@ function App() {
         {"ID": 1026, "post_name": "mobile-app-developer"},
         {"ID": 566, "post_name": "our-process"},
         {"ID": 493, "post_name": "portfolios"},
-        {"ID": 603, "post_name": "product-design"},
+        {"ID": 603, "post_name": "software-product-design"},
         {"ID": 764, "post_name": "product-design-sprint"},
         {"ID": 1002, "post_name": "progressive-web-apps"},
         {"ID": 812, "post_name": "research-development"},
@@ -101,7 +116,14 @@ function App() {
         {"ID": 1599, "post_name": "aws"},
         {"ID": 1601, "post_name": "azure"},
         {"ID": 1603, "post_name": "google-cloud"},
-        {"ID": 1801, "post_name": "app-development"},
+        {"ID": 1801, "post_name": "app-development-service-category-page"},
+        {"ID": 1877, "post_name": "cloud-solutions-service-category-page"},
+        {"ID": 1867, "post_name": "ecommerce-cms-development-service-category-page"},
+        {"ID": 1836, "post_name": "product-design-service-category-page"},
+        {"ID": 1884, "post_name": "web-applications-service-category-page"},
+        {"ID": 1892, "post_name": "staff-augmentation-service-category-page"},
+        {"ID": 1901, "post_name": "ideation-and-evaluation-service-category-page"},
+        {"ID": 1903, "post_name": "product-engineering-service-category-page"},
         {"ID": 1593, "post_name": "shopify"}
     ]
     return (
@@ -111,24 +133,26 @@ function App() {
     <div className="App">
         {/* <Router basename="/getweb-react"> */}
             <Header/>
-            <Routes>          
-                <Route exact path="/" element={<Home/>} />
-                <Route path="/job/:slug" >
-                    <Route index element={<JobDetails />} />
-                    <Route path="apply" element={<JobApplicationForm />} />
-                </Route> 
-                <Route path="/blog" element={<Blog/>}/>
-                <Route path="/blog/:slug" element={<BlogSingle />} />
-                <Route path="/search" >
-                    <Route index element={<Search />} />
-                    <Route path=":keyword" element={<Search />} />
-                </Route>
-                {pages.map((item, index) => (
-                    <Route path={item.post_name} element={<Single id={item.ID}/>} key={index}/>
-                ))}
-                
-                <Route path="*" element={<NotFound/>}/>
-            </Routes>
+            <Suspense fallback={<div>Loading...</div>}>         
+                <Routes> 
+                        <Route exact path="/" element={<Home/>} />
+                        <Route path="/job/:slug" >
+                            <Route index element={<JobDetails />} />
+                            <Route path="apply" element={<JobApplicationForm />} />
+                        </Route> 
+                        <Route path="/blog" element={<Blog/>}/>
+                        <Route path="/blog/:slug" element={<BlogSingle />} />
+                        <Route path="/search" >
+                            <Route index element={<Search />} />
+                            <Route path=":keyword" element={<Search />} />
+                        </Route>
+                        {pages.map((item, index) => (
+                            <Route path={item.post_name} element={<Single id={item.ID}/>} key={index}/>
+                        ))}
+                        
+                        <Route path="*" element={<NotFound/>}/>
+                </Routes>
+             </Suspense>
             <FooterComponent/>
         {/* </Router> */}
     </div>

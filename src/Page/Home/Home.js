@@ -1,10 +1,13 @@
-import { Component } from "react";
+import React, { Component, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import BannerComponents from "../../Components/Banner/BannerComponents";
 import Loading from "../../Components/Loading/Loading";
-import Section from "../../Components/Section/Section";
+//import Section from "../../Components/Section/Section";
+import ErrorFallback from "../../Components/ErrorBoundary";
 import SeoMeta from "../../Components/SeoMeta/SeoMeta";
 import Config from "../../Config.json";
 import './Home.scss';
+const Section = React.lazy(() => import("../../Components/Section/Section"));
 
 export default class Home extends Component {  
     constructor(props) {
@@ -14,8 +17,7 @@ export default class Home extends Component {
             pageData: "",
             settingsData: "",
         };
-    }
-    
+    }    
     async componentDidMount() {
         //const url = "https://api.randomuser.me/";
         // const settingsUrl = Config.API_BASE + "settings";
@@ -33,12 +35,10 @@ export default class Home extends Component {
         });
         //console.log(data);
     }
-    render() {
-        
+    render() {        
         if (this.state.loading) {
             return <Loading cls="loading page-loader" />;
         }
-
         if (!this.state.pageData ) {
             return <Loading cls="late-api-response page-loader" />;
         }
@@ -50,8 +50,12 @@ export default class Home extends Component {
                 <BannerComponents pageData={pageData}/>
                 {
                     pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
-                        // <MainComponent data={item} key={index} />  
-                        <Section data={item} key={index} />                       
+                        // <MainComponent data={item} key={index} />
+                        <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {}} key={index}>  
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Section data={item} />
+                        </Suspense> 
+                        </ErrorBoundary>                      
                     ))
                 }
             </>

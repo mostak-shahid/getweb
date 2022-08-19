@@ -26,7 +26,7 @@ export default class FooterComponent extends Component {
 
   render() {
     if (this.state.loading) {
-      return <div className="textClrGreen text-center">loading...</div>;
+      return <div className="textClrGreen text-center d-none">loading...</div>;
     }
 
     if (!this.state.optionData) {
@@ -330,7 +330,7 @@ export default class FooterComponent extends Component {
                         </NavLink>
                       </div>
                       <div
-                        className="intro textClrGray fs-14 fw-normal mb-4"
+                        className="intro textClrGray fs-14 fw-medium mb-4"
                         dangerouslySetInnerHTML={{
                           __html: optionData["sections-footer-content"],
                         }}

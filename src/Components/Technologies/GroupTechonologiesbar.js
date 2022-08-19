@@ -29,7 +29,7 @@ const GroupTechonologiesbar = (props) => {
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12';
     return loading ? 
-    <div className="textClrGreen text-center loder-text">loading...</div> :
+    <div className="textClrGreen text-center loder-text d-none">loading...</div> :
     <div className="row">
         <div className={[widthClass, orderClass].join(' ')}>
             <div className="part-one mb-4 mb-lg-0">                        

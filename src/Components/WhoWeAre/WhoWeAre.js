@@ -44,7 +44,7 @@ const WhoWeAre = (props) => {
             <div className={[widthClass].join(' ')}>
             {
                     loading
-                    ?<div className="textClrGreen text-center">loading...</div>
+                    ?<div className="textClrGreen text-center d-none">loading...</div>
                     :
                 <div className="activity-grid-container">
                     {sectionData.map((item, index) => (

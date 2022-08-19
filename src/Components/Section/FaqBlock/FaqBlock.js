@@ -31,7 +31,7 @@ const FaqBlock = (props) => {
                 <div className="row">
                     {                                
                         loading
-                        ?<div className="textClrGreen text-center">loading...</div>
+                        ?<div className="textClrGreen text-center d-none">loading...</div>
                         :                                
                         groupData.map((item, index) => (
                             <div className="col-xl-6" key={index}>

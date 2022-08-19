@@ -32,7 +32,7 @@ export default class HeaderComponent extends Component {
  
     render() {
         if (this.state.loading) {
-            return <div className="textClrGreen text-center">Header loading...</div>;
+            return <div className="textClrGreen text-center d-none">Header loading...</div>;
         }
 
         if (!this.state.optionData) {

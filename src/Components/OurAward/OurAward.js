@@ -44,7 +44,7 @@ const OurAward = (props) => {
             <div className={[widthClass].join(' ')}>
                 {
                     loading
-                    ?<div className="textClrGreen text-center">loading...</div>
+                    ?<div className="textClrGreen text-center d-none">loading...</div>
                     :<div className="OurAwardWrapper">
                         {sectionData.map((item, index) => (
                             <div className="OurAwardItem px-3 py-3 text-center" key={index}>
