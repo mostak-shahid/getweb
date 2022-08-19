@@ -6,6 +6,7 @@ import OwlCarousel from 'react-owl-carousel';
 // import "slick-carousel/slick/slick-theme.css";
 // import "slick-carousel/slick/slick.css";
 import { Link } from "react-router-dom";
+import LazyImage from '../../Components/LazyImage';
 import Config from '../../Config.json';
 import "./BlogSlider.scss";
 
@@ -71,13 +72,13 @@ export default class MultipleItems extends Component {
                             <div className="item-wrapper singleBlog isRadius16 d-flex flex-column justify-content-between" key={item.id}>
                                 <div className="content-part">
                                 {
-                                    (item.image)?
+                                    (item.image) &
                                     <div className="blogImage">
                                         <Link to={['/blog',item.slug].join('/')} className=" text-decoration-none">
-                                            <img src={item.image} alt={item.title}/>
+                                            {/* <img src={item.image} alt={item.title}/> */}
+                                            <LazyImage src={item.image} alt={item.title}/>
                                         </Link>
-                                    </div>:
-                                    null                             
+                                    </div>                            
                                 }
 
                                 <div className="blogInfo p-4 pb-0">

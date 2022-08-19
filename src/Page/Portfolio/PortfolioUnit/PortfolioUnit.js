@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import goArrow from "../../../assets/images/goArrow-iocn.svg";
+import LazyImage from '../../../Components/LazyImage';
 import './PortfolioUnit.scss';
 
 const PortfolioUnit = (props) => {
@@ -10,7 +11,8 @@ const PortfolioUnit = (props) => {
             <div className="overLay"></div>
             {
                 props?.data?.image && 
-                <img src={props?.data?.image} alt={props?.data?.title} />
+                // <img src={props?.data?.image} alt={props?.data?.title} />
+                <LazyImage src={props?.data?.image} alt={props?.data?.title} />
             }
             
             <div className="afterHover">
