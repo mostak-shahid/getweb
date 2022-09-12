@@ -1,0 +1,19 @@
+.notFound-banner {
+  .bannerContent {
+    width: 100%;
+    max-width: 730px;
+    margin-left: auto;
+    margin-right: auto;
+    .img-404-page {
+      margin-bottom: 60px;
+    }
+    .banner-desc {
+      margin-bottom: 20px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      text-align: center;
+      color: var(--clr-dark-2);
+    }
+  }
+}

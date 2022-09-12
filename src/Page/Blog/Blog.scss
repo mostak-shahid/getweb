@@ -2,8 +2,9 @@
 .blogWrapper {
   .filterLeft {
     display: grid;
-    gap: 30px;
+    gap: 20px;
     grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 20px;
     .singleFilter {
       .form-select {
         border: 1px solid #4c4d54 !important;
@@ -16,8 +17,49 @@
         }
       }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    @media (min-width: 992px) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.singleBlogWrapper {
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+    @media (min-width: 576px) {
+      margin-bottom: 30px;
+    }
+  }
+}
+.blog-pagination-wrapper {
+  margin-top: 30px;
+  @media (min-width: 576px) {
+    margin-top: 40px;
+  }
+  @media (min-width: 992px) {
+    margin-top: 60px;
+  }
+}
+.blog-wrapper {
+  padding-bottom: 30px;
+  @media (min-width: 576px) {
+    padding-bottom: 10px;
+  }
+  @media (min-width: 992px) {
+    padding-bottom: 30px;
+  }
+}
+.filterArea {
+  .form-select,
+  .form-control {
+    height: 42px !important;
+    @media (min-width: 576px) {
+      height: 52px !important;
     }
   }
 }

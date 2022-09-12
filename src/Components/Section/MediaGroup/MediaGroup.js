@@ -53,7 +53,7 @@ const MediaGroup = (props) => {
                 {
                     props.layout === 'block' && 
                     groupData?.map((item, index) => (
-                        <div className={["mb-4", props.count_col].join(' ')} key={index}>
+                        <div className={["mb-4", "block-unit", props.count_col].join(' ')} key={index}>
                             <MediaBlock data={item} template={props.template}/>
                         </div>
                     ))

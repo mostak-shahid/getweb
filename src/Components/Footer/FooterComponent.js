@@ -2,6 +2,7 @@ import "font-awesome/css/font-awesome.min.css";
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Config from "../../Config.json";
+import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import "./FooterComponent.scss";
 
@@ -268,12 +269,23 @@ export default class FooterComponent extends Component {
         submenu: [],
       },
     ];
+    
+    const handleClick = (e) => {
+      e.preventDefault()
+      const target = e.target.getAttribute('data-target')
+      const location = document.querySelector(target).offsetTop  
+      window.scrollTo({
+          left: 0,
+          top: location,
+      })
+    }
     return (
       <div className="footer">
-        <div className="contactUs isBgBorder pt-120 pb-40">
-          <div className="container">
+        <div className="contactUs isBgBorder pt-120">
+          <div className="container-lg">
+            <div className="widget">
             <div className="row">
-              <div className="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center text-sm-start">
+              <div className="col-lg-4 col-sm-6 text-center text-sm-start">
                 <div className="contacts">
                   <p className="textClrGray fs-14 fw-medium mb-2">
                     Want to collaborate?
@@ -286,7 +298,7 @@ export default class FooterComponent extends Component {
                   </a>
                 </div>
               </div>
-              <div className="col-lg-4 col-sm-6 mb-5 mb-lg-0 text-center text-sm-start">
+              <div className="col-lg-4 col-sm-6 text-center text-sm-start">
                 <div className="contacts">
                   <p className="textClrGray fs-14 fw-medium mb-2">
                     Want to join us?
@@ -310,18 +322,20 @@ export default class FooterComponent extends Component {
                 </div>
               </div>
             </div>
+
+            </div>
           </div>
         </div>
         <div className="footerWidgetArea isBgBorder pt-40 pb-40">
-          <div className="container">
+          <div className="container-lg">
             <div className="row">
               <div className="col-xl-4 text-center text-sm-start mb-4">
                 <div className="widget">
                   <div className="row">
-                    <div className="col-12 col-lg-8 col-xl-12 text-center text-lg-start">
+                    <div className="col-12 col-sm-8 col-xl-12 text-center text-sm-start">
                       <div className="footerLogo mb-4">
                         <NavLink to="/">
-                          <img
+                          <LazyImage
                             src={optionData.logo.url}
                             alt="footerLogo"
                             width="101"
@@ -335,19 +349,19 @@ export default class FooterComponent extends Component {
                           __html: optionData["sections-footer-content"],
                         }}
                       ></div>
-                      <div className="footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4 justify-content-center justify-content-lg-start">
+                      <div className="footerSubLogo d-flex align-items-center gap-3 flex-wrap mb-4 justify-content-center justify-content-sm-start">
                         {Object.values(
                           optionData["sections-footer-gallery"]
                         ).map((value, index) => {
                           return (
-                            <img src={value} key={index} alt="footerSubLogo" />
+                            <LazyImage src={value} key={index} alt="footerSubLogo" />
                           );
                         })}
                       </div>
                     </div>
-                    <div className="col-12 col-lg-4 col-xl-12 ">
+                    <div className="col-12 col-sm-4 col-xl-12">
                       {optionData["sections-footer-career"] && (
-                        <div className="Careers text-center text-lg-end text-xl-start">
+                        <div className="Careers text-center text-sm-start">
                           <p className="text-white fs-14 fw-bold">Careers</p>
                           <a
                             href={optionData["sections-footer-career"]}
@@ -384,6 +398,7 @@ export default class FooterComponent extends Component {
                 </div>
               </div>
               <div className="col-xl-8">
+                <div className="sm-border"></div>
                 <div className="widgetMenu">
                   {menu1 && (
                     <div className="m-widget m-widget-1 mb-4 mb-xl-0 ps-xl-4">
@@ -410,7 +425,7 @@ export default class FooterComponent extends Component {
                     </div>
                   )}
                   {menu3 && (
-                    <div className="m-widget m-widget-3 mb-4 mb-xl-0 ps-xl-4">
+                    <div className="m-widget m-widget-3 mb-0 ps-xl-4">
                       <Navigation
                         menuData={menu3}
                         id="0"
@@ -422,7 +437,7 @@ export default class FooterComponent extends Component {
                     </div>
                   )}
                   {menu4 && (
-                    <div className="m-widget m-widget-4 mb-4 mb-xl-0 ps-xl-4">
+                    <div className="m-widget m-widget-4 mb-0 ps-xl-4">
                       <Navigation
                         menuData={menu4}
                         id="0"
@@ -438,21 +453,22 @@ export default class FooterComponent extends Component {
             </div>
           </div>
         </div>
-        <div className="copyright py-5">
-          <div className="container">
+        <div className="copyright">
+          <div className="container-lg">
+            <div className="widget">
             <div className="row">
-              <div className="col-lg-8">
+              <div className="col-sm-8">
                 <div
-                  className="copyrightText text-center text-lg-start d-block d-lg-flex align-items-lg-center"
+                  className="copyrightText text-center text-sm-start d-block d-sm-flex align-items-sm-center"
                   dangerouslySetInnerHTML={{
                     __html: optionData["sections-footer-copyright"],
                   }}
                 ></div>
               </div>
-              <div className="col-lg-4">
+              <div className="col-sm-4">
                 {optionData["contact-social-links"].length && (
                   <div className="social">
-                    <ul className="footer-social-list list-inline text-lg-end text-center p-0 m-3 m-lg-0">
+                    <ul className="footer-social-list list-inline text-sm-end text-center p-0 mt-3 mb-0 m-sm-0">
                       {optionData["contact-social-links"].map((item, index) => (
                         <li className="list-inline-item" key={index}>
                             {item.link_url.match(/facebook/gi) && (
@@ -477,8 +493,19 @@ export default class FooterComponent extends Component {
                 )}
               </div>
             </div>
+
+            </div>
           </div>
         </div>
+        
+        <div className="back-to-top-con">
+            
+                <div className="d-flex justify-content-start position-relative">
+                    {/* <a href="#root" className="back-to-top">Back to top</a> */}
+                    <NavLink className="back-to-top" to="#root" onClick={handleClick} data-target="#root">Back to top</NavLink>
+                </div>
+            
+        </div> 
       </div>
     );
   }

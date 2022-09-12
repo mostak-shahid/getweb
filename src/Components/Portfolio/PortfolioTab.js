@@ -11,6 +11,7 @@ import like from "../../assets/images/like.svg";
 import preview from "../../assets/images/preview.svg";
 import Config from "../../Config.json";
 import PortfolioUnit from "../../Page/Portfolio/PortfolioUnit/PortfolioUnit";
+import LazyImage from "../LazyImage";
 import Pagination from "../Pagination/Pagination";
 
 
@@ -122,7 +123,7 @@ const PortfolioTab = (props) => {
     };
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_title_text=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12'; 
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12'; 
     return loading ? 
         <div className="textClrGreen text-center loder-text d-none">loading...</div> : 
         <>
@@ -183,7 +184,7 @@ const PortfolioTab = (props) => {
                   {projects.map((item, index) => (
                     <div className="item" key={index} onClick={handleShow}>
                       <div className="modal-body-top d-flex align-items-center gap-3">
-                        <img
+                        <LazyImage
                           src={companyLogo}
                           className="modal-top-img img-fluid"
                           alt=""
@@ -221,7 +222,7 @@ const PortfolioTab = (props) => {
                         {
                           item?.meta?._mosacademy_project_gallery && Object.values(item.meta._mosacademy_project_gallery).length &&
                           Object.values(item.meta._mosacademy_project_gallery).map((item, index)=>(
-                            <img src={item} className="img-fluid" alt="" key={index} />
+                            <LazyImage src={item} className="img-fluid" alt="" key={index} />
                           ))
                         }
                       </div>
@@ -232,11 +233,11 @@ const PortfolioTab = (props) => {
                             <h5 className="modal-footer-heading" dangerouslySetInnerHTML={{ __html: item.title }} />
                             <div className="modal-footer-icons d-flex align-items-center justify-content-center gap-3">
                               <div className="text-center d-flex align-items-center justify-content-center gap-2">
-                                <img src={like} alt="" />
+                                <LazyImage src={like} alt="" />
                                 <p className="mb-0">{item?.meta?._mosacademy_project_like? item.meta._mosacademy_project_like.length : 0}</p>
                               </div>
                               <div className="text-center d-flex align-items-center justify-content-center gap-2">
-                                <img src={preview} alt="" />
+                                <LazyImage src={preview} alt="" />
                                 <p className="mb-0">{item?.meta?._mosacademy_project_view_count? item.meta._mosacademy_project_view_count : 0}</p>
                               </div>
                             </div>
@@ -245,7 +246,7 @@ const PortfolioTab = (props) => {
                       </div>
                       <div className="modal-body-right">
                         <span>
-                          <img
+                          <LazyImage
                             src={companyRightLogo}
                             className="img-fluid"
                             alt=""
@@ -255,12 +256,12 @@ const PortfolioTab = (props) => {
                         {
                           item?.meta?._mosacademy_project_tool &&
                           <span>
-                            <img src={item?.meta?._mosacademy_project_tool} className="img-fluid" alt="" />
+                            <LazyImage src={item?.meta?._mosacademy_project_tool} className="img-fluid" alt="" />
                             <p className="rightImageContent">Tools</p>
                           </span>
                         }
                         <span onClick={() => likeFunctionality(item.id)}>
-                          <img src={appreciate} className="img-fluid" alt="" />
+                          <LazyImage src={appreciate} className="img-fluid" alt="" />
                           <p className="rightImageContent">Appreciate</p>
                         </span>
                       </div>

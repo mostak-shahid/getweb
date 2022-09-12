@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { useParams } from "react-router-dom";
 import FileIcon from "../../assets/images/file.svg";
 import Config from '../../Config.json';
+import LazyImage from '../LazyImage';
 import MainComponent from '../MainComponent/MainComponent';
 import JobDetailsBanner from '../SubPageBanner/JobDetailsBanner';
 import SuccessfulModal from '../SuccessfulModal/SuccessfulModal';
@@ -179,7 +180,7 @@ class JobApplication extends Component {
             <>         
                 <JobDetailsBanner title={this.state.pageData.meta._mosacademy_page_banner_title} content={this.state.pageData.meta._mosacademy_page_banner_intro}/>
                 <section className="JobApplicationForm secPadding">                
-                    <div className="container">
+                    <div className="container-lg">
                         <div className="row">
                             <div className="col-lg-6 offset-lg-3">
                                 <div className="ApplicationForm bgClrSolitude isRadius16 p-4 p-lg-5">
@@ -240,7 +241,7 @@ class JobApplication extends Component {
                                                 <p className="mb-2">Upload CV</p>
                                                 <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9" onChange={ this.onChangeFile } required/>
                                                 <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center gap-3 gap-xl-4">
-                                                    <img src={FileIcon} alt="icon" />
+                                                    <LazyImage src={FileIcon} alt="icon" />
                                                     <p className="fs-14 fw-medium textClrGray mb-0">{this.state.file?.name?this.state.file.name:'Upload your CV'}</p>
                                                 </div>
                                             </label>                                            

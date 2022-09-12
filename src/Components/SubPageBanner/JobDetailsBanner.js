@@ -6,7 +6,7 @@ const JobDetailsBanner = (props) => {
   const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
   return (
     <div className={["JobDetailsBanner", bannerCls].join(' ')}>
-        <div className="container">
+        <div className="container-lg">
             <div className="JobBannerContent d-flex align-items-center">
                 <div className="content">
                     <h2 className="jobTitle fs-48 fw-bold text-white mb-4" dangerouslySetInnerHTML={{__html:props.title}} />

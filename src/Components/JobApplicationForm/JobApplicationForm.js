@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FileIcon from "../../assets/images/file.svg";
 import Config from "../../Config.json";
+import LazyImage from '../LazyImage';
 import Section from '../Section/Section';
 import SeoMeta from '../SeoMeta/SeoMeta';
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
@@ -92,7 +93,7 @@ const JobApplicationForm = (props) => {
             <SeoMeta pageData={pageData}/>
             <JobDetailsBanner  title={pageData?.meta?._mosacademy_page_banner_title} content={pageData?.meta?._mosacademy_page_banner_intro}/>
             <section className="JobApplicationForm secPadding">
-                <div className="container">
+                <div className="container-lg">
                     <div className="row">
                         <div className="col-lg-6 offset-lg-3">
                             <div className="ApplicationForm bgClrSolitude isRadius16 p-4 p-lg-5">
@@ -153,7 +154,7 @@ const JobApplicationForm = (props) => {
                                             <p className="mb-2">Upload CV</p>
                                             <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv',{ required: true})}/>
                                             <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center gap-3 gap-xl-4">
-                                                <img src={FileIcon} alt="icon" />
+                                                <LazyImage src={FileIcon} alt="icon" />
                                                 <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Upload your CV'}</p>
                                             </div>
                                             {errors.cv?.type === "required" && <div className='text-danger mt-1'>CV is required.</div>}

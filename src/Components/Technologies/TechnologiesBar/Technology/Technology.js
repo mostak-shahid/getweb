@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import LazyImage from '../../../LazyImage';
 import './Techonology.scss';
 
 export default class Technology extends Component {
@@ -12,7 +13,7 @@ export default class Technology extends Component {
         return (
             <div className="techLogos">
                 <div className="icons mb-2">
-                    <img src={image} alt={title} />
+                    <LazyImage src={image} alt={title} />
                 </div>
                 <h5 className="fs-12 fw-medium text-white mb-0">{title}</h5>
             </div>

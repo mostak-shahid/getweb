@@ -74,14 +74,14 @@ function App() {
      
     const pages = [
         {"ID": 358, "post_name": "about"},
-        {"ID": 878, "post_name": "android"},
+        {"ID": 878, "post_name": "android-app-development"},//android-app-development
         {"ID": 447, "post_name": "appis"},
         {"ID": 1023, "post_name": "back-end-developer"},
         {"ID": 386, "post_name": "blog"},
         {"ID": 728, "post_name": "branding"},
         {"ID": 419, "post_name": "careers"},
         {"ID": 341, "post_name": "contact"},
-        {"ID": 924, "post_name": "mobile-development"},
+        {"ID": 924, "post_name": "cross-platform-mobile-development"},//Cross Platform Mobile Development
         {"ID": 1012, "post_name": "custom-application-development"},
         {"ID": 986, "post_name": "custom-web-apps"},
         {"ID": 363, "post_name": "elementor-363"},
@@ -90,13 +90,13 @@ function App() {
         {"ID": 1032, "post_name": "full-stack-developer"},
         {"ID": 365, "post_name": "gutenberg"},
         {"ID": 82, "post_name": "home"},
-        {"ID": 891, "post_name": "ios"},
+        {"ID": 891, "post_name": "ios-app-development"},//iOS App Development
         {"ID": 464, "post_name": "job-application-form"},
         {"ID": 1006, "post_name": "lean-product-development"},
         {"ID": 1026, "post_name": "mobile-app-developer"},
         {"ID": 566, "post_name": "our-process"},
         {"ID": 493, "post_name": "portfolios"},
-        {"ID": 603, "post_name": "software-product-design"},
+        {"ID": 603, "post_name": "product-design"},
         {"ID": 764, "post_name": "product-design-sprint"},
         {"ID": 1002, "post_name": "progressive-web-apps"},
         {"ID": 812, "post_name": "research-development"},
@@ -116,14 +116,16 @@ function App() {
         {"ID": 1599, "post_name": "aws"},
         {"ID": 1601, "post_name": "azure"},
         {"ID": 1603, "post_name": "google-cloud"},
-        {"ID": 1801, "post_name": "app-development-service-category-page"},
-        {"ID": 1877, "post_name": "cloud-solutions-service-category-page"},
-        {"ID": 1867, "post_name": "ecommerce-cms-development-service-category-page"},
+        {"ID": 1801, "post_name": "app-development"},
+        {"ID": 1877, "post_name": "cloud-solutions"},
+        {"ID": 1867, "post_name": "ecommerce-cms-development"},
+        //{"ID": 1903, "post_name": "product-design-service-category-page"},
         {"ID": 1836, "post_name": "product-design-service-category-page"},
-        {"ID": 1884, "post_name": "web-applications-service-category-page"},
-        {"ID": 1892, "post_name": "staff-augmentation-service-category-page"},
-        {"ID": 1901, "post_name": "ideation-and-evaluation-service-category-page"},
-        {"ID": 1903, "post_name": "product-engineering-service-category-page"},
+        {"ID": 1884, "post_name": "web-applications"},
+        {"ID": 1892, "post_name": "staff-augmentation"},
+        {"ID": 1901, "post_name": "ideation-and-evaluation"},
+        {"ID": 1903, "post_name": "product-engineering"},
+        {"ID": 2054, "post_name": "quality-assurance"},
         {"ID": 1593, "post_name": "shopify"}
     ]
     return (
@@ -133,7 +135,7 @@ function App() {
     <div className="App">
         {/* <Router basename="/getweb-react"> */}
             <Header/>
-            <Suspense fallback={<div>Loading...</div>}>         
+            <Suspense fallback={<div className="textClrGreen text-center loder-text d-none">loading...</div>}>         
                 <Routes> 
                         <Route exact path="/" element={<Home/>} />
                         <Route path="/job/:slug" >

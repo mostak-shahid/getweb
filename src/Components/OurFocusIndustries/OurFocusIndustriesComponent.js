@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Config from '../../Config.json';
+import LazyImage from "../LazyImage";
 import './OurFocusIndustriesComponent.scss';
 
 
@@ -44,11 +45,11 @@ export default class OurFocusIndustriesComponent extends Component {
         }
         const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-        const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12';
+        const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12';
         return (   
             <div className="row">
                 <div className={[widthClass, orderClass].join(' ')}>
-                    <div className="part-one mb-4 mb-lg-0">                        
+                    <div className="part-one">                        
                         {
                             _mosacademy_page_group_sub_titles[0] &&
                             <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
@@ -71,10 +72,10 @@ export default class OurFocusIndustriesComponent extends Component {
                                 {
                                     (industryDataOne.length) && 
                                     industryDataOne.map((item, index) => (
-                                        <div className='col-4 col-lg-3 col-xl-2 industriesItem text-end' key={item.id}>
+                                        <div className='col-4 col-sm-3 col-lg-2 industriesItem text-end' key={item.id}>
                                             <div className='icon px-3 py-3 text-center'>
                                                 {(item.featured_image.full) && 
-                                                <div className="wrapper-img"><img className="d-inline-block mb-4" src={item.featured_image.full} alt={item.title} /></div>                                                
+                                                <div className="wrapper-img"><LazyImage className="d-inline-block mb-1 mb-sm-2 mb-lg-4" src={item.featured_image.full} alt={item.title} /></div>                                                
                                                 }
                                                 <div className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></div>
                                             </div>

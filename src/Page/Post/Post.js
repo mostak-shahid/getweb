@@ -42,14 +42,14 @@ class Post extends Component {
             <>
             <section className="page-title">
                 <div className="wrapper">
-                    <div className="container">
+                    <div className="container-lg">
                         <h1 className="text-center">{this.state.postData.title}</h1>
                     </div>
                 </div>
             </section>
             <section className="content-area">
                 <div className="wrapper">
-                    <div className="container" dangerouslySetInnerHTML = {{__html: this.state.postData.content}}></div>
+                    <div className="container-lg" dangerouslySetInnerHTML = {{__html: this.state.postData.content}}></div>
                 </div>
             </section>
             </>

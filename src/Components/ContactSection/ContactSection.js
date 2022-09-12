@@ -6,6 +6,7 @@ import skypeIcon from "../../assets/images/ms_skype.png";
 import phoneIcon from "../../assets/images/phone.svg";
 import Config from "../../Config.json";
 import FormValidation from "../FormValidation/FormValidation";
+import LazyImage from "../LazyImage";
 import './ContactSection.scss';
 
 function ContactSection(props) {
@@ -20,12 +21,12 @@ function ContactSection(props) {
     // console.log(optionData);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12';
         
     return ( 
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
-                <div className="part-one mb-4 mb-lg-0">   
+                <div className="part-one">   
                     <div className="sectionHeader">                   
                         {
                             _mosacademy_page_group_sub_titles[0] &&
@@ -46,7 +47,7 @@ function ContactSection(props) {
                             <div className="col-lg-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
-                                        <img src={locationIcon} alt="lineShape" />
+                                        <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">USA Office</h4>
@@ -64,7 +65,7 @@ function ContactSection(props) {
                             <div className="col-lg-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
-                                        <img src={locationIcon} alt="lineShape" />
+                                        <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Saudi Arabia Office</h4>
@@ -77,7 +78,7 @@ function ContactSection(props) {
                             <div className="col-lg-12">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
-                                        <img src={locationIcon} alt="lineShape" />
+                                        <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Bangladesh</h4>
@@ -92,7 +93,7 @@ function ContactSection(props) {
                             <div className="col-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
-                                        <img src={phoneIcon} alt="lineShape" />
+                                        <LazyImage src={phoneIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Phone</h4>
@@ -105,7 +106,7 @@ function ContactSection(props) {
                             <div className="col-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
-                                        <img src={skypeIcon} alt="lineShape" />
+                                        <LazyImage src={skypeIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Skype</h4>
@@ -120,7 +121,7 @@ function ContactSection(props) {
                             <div className="col-lg-12">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
-                                        <img src={clockIcon} alt="lineShape" />
+                                        <LazyImage src={clockIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Open Hours</h4>

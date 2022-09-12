@@ -1,6 +1,7 @@
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import { Link } from "react-router-dom";
+import LazyImage from '../../LazyImage';
 import './SliderBlock.scss';
 const SliderBlock = (props) => {
     //console.log(props);
@@ -35,7 +36,7 @@ const SliderBlock = (props) => {
                         (item.image)?
                         <div className="blogImage">
                             <Link to={['/blog',item.slug].join('/')} className=" text-decoration-none">
-                                <img src={item.image} alt={item.title}/>
+                                <LazyImage src={item.image} alt={item.title}/>
                             </Link>
                         </div>:
                         null                             

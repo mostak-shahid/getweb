@@ -19,10 +19,10 @@ const PortfolioUnit = (props) => {
                 <div className="category">
                 {
                         //console.log(item)
-                        props?.data?.taxonomy?.project_tag && props?.data?.taxonomy?.project_tag.length &&
-                        props?.data.taxonomy.project_tag.slice(0, 2).map((a, b) => (
-                        <div className="name" key={b}>{a.name}</div>    
-                        ))
+                        // props?.data?.taxonomy?.project_tag && props?.data?.taxonomy?.project_tag.length &&
+                        // props?.data.taxonomy.project_tag.slice(0, 2).map((a, b) => (
+                        // <div className="name" key={b}>{a.name}</div>    
+                        // ))
                 }
                 </div>
                 <NavLink to="" className="goArrow position-absolute bottom-50 start-50" >

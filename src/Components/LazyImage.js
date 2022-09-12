@@ -5,13 +5,14 @@ import logo from '../assets/images/loader-logo.svg';
 const LazyImage = (props) => {
     return (
         <LazyLoadImage
-            className='lazy-load-image'
+            className={['lazy-load-image', 'lazyload',props.className].join(' ')}
             alt={props.alt?props.alt:''}
-            // height={props.height?props.height:''}
+            height={props.height?props.height:''}
             src={props.src?props.src:''} // use normal <img> attributes as props
-            // width={props.width?props.width:''}
+            width={props.width?props.width:''}
             effect="blur"
-            visibleByDefault={logo} />
+            visibleByDefault={logo}
+            loading="lazy" />
     )
 }
 

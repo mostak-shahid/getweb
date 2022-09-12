@@ -13,6 +13,7 @@ import like from "../../assets/images/like.svg";
 import preview from "../../assets/images/preview.svg";
 import Config from '../../Config.json';
 import PortfolioUnit from '../../Page/Portfolio/PortfolioUnit/PortfolioUnit';
+import LazyImage from "../LazyImage";
 import "./PortfolioSlider.scss";
 
 export default class MultipleRows extends Component {
@@ -35,7 +36,8 @@ export default class MultipleRows extends Component {
     
     
     async componentDidMount() {
-        const url = Config.API_BASE + "data-list/project/0/0/12";
+        //https://getwebinc.com/api/wp-json/mos-getweb-api/v1/data-list/project/141/0
+        const url = Config.API_BASE + "data-list/project/141/0/12";
         const response = await fetch(url);
         const portfolioResponse = await response.json();
         const portfolioDataArr = [];
@@ -90,7 +92,7 @@ export default class MultipleRows extends Component {
         }
         const settings = {
             loop: true,
-            center: true,
+            //center: true,
             margin: 0,
             nav: false,
             dots: false,
@@ -155,7 +157,7 @@ export default class MultipleRows extends Component {
                         
                         <div className="item">
                             <div className="modal-body-top d-flex align-items-center gap-3">
-                            <img
+                            <LazyImage
                                 src={companyLogo}
                                 className="modal-top-img img-fluid"
                                 alt=""
@@ -193,7 +195,7 @@ export default class MultipleRows extends Component {
                             {
                                 modalData?.meta?._mosacademy_project_gallery && Object.values(modalData.meta._mosacademy_project_gallery).length &&
                                 Object.values(modalData.meta._mosacademy_project_gallery).map((item, index)=>(
-                                <img src={item} className="img-fluid" alt="" key={index} />
+                                <LazyImage src={item} className="img-fluid" alt="" key={index} />
                                 ))
                             }
                             </div>
@@ -204,11 +206,11 @@ export default class MultipleRows extends Component {
                                 <h5 className="modal-footer-heading" dangerouslySetInnerHTML={{ __html: modalData.title }} />
                                 <div className="modal-footer-icons d-flex align-items-center justify-content-center gap-3">
                                     <div className="text-center d-flex align-items-center justify-content-center gap-2">
-                                    <img src={like} alt="" />
+                                    <LazyImage src={like} alt="" />
                                     <p className="mb-0">{modalData?.meta?._mosacademy_project_like? modalData.meta._mosacademy_project_like.length : 0}</p>
                                     </div>
                                     <div className="text-center d-flex align-items-center justify-content-center gap-2">
-                                    <img src={preview} alt="" />
+                                    <LazyImage src={preview} alt="" />
                                     <p className="mb-0">{modalData?.meta?._mosacademy_project_view_count? modalData.meta._mosacademy_project_view_count : 0}</p>
                                     </div>
                                 </div>
@@ -217,7 +219,7 @@ export default class MultipleRows extends Component {
                             </div>
                             <div className="modal-body-right">
                             <span>
-                                <img
+                                <LazyImage
                                 src={companyRightLogo}
                                 className="img-fluid"
                                 alt=""
@@ -227,12 +229,12 @@ export default class MultipleRows extends Component {
                             {
                                 modalData?.meta?._mosacademy_project_tool &&
                                 <span>
-                                <img src={modalData?.meta?._mosacademy_project_tool} className="img-fluid" alt="" />
+                                <LazyImage src={modalData?.meta?._mosacademy_project_tool} className="img-fluid" alt="" />
                                 <p className="rightImageContent">Tools</p>
                                 </span>
                             }
                             <span onClick={this.likeFunctionality.bind(this, modalData.id)}>
-                                <img src={appreciate} className="img-fluid" alt="" />
+                                <LazyImage src={appreciate} className="img-fluid" alt="" />
                                 <p className="rightImageContent">Appreciate</p>
                             </span>
                             </div>

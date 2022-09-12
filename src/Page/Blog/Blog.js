@@ -112,18 +112,19 @@ class Blog extends Component {
         return (
             <>
                 <SeoMeta pageData={pageData}/>
-                <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} boldTile={pageData?.meta?._mosacademy_page_banner_title} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} />
+            {/* {console.log(pageData.meta)} */}
+            {
+            !pageData?.meta?._mosacademy_banner_hide && 
+            <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} featureImage={pageData?.meta?._mosacademy_page_banner_feature_image} alt={pageData?.meta?._mosacademy_page_banner_feature_image_alt} />    
+            }
                 <section className="blogWrapper secPadding">
                     <div className="filterArea pb-5 isBgBorder mb-5">
-                        <div className="container">
-                            <h2 className="text-white fs-30 fw-normal mb-5">
-                                All <span className="fw-bold">Resources</span>
-                            </h2>
+                        <div className="container-lg">
                             <div className="row">
-                                <div className="col-xl-6 mb-4 mb-xl-0">
+                                <div className="col-xl-6">
                                     <div className="filterLeft">
                                         <div className="singleFilter custom-mos-select">
-                                            <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
+                                            <Form.Select className="bg-transparent rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
                                                 <option value='0'>All Categories</option>
                                                 {
                                                     categoriesData.length && categoriesData.map((item, index) => (
@@ -133,7 +134,7 @@ class Blog extends Component {
                                             </Form.Select>
                                         </div>
                                         <div className="singleFilter custom-mos-select">
-                                            <Form.Select className="bg-transparent h-52 rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
+                                            <Form.Select className="bg-transparent rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
                                                 <option value="0">Select One</option>
                                                 <option value="week">Last 7 day’s</option>
                                                 <option value="month">Last Month</option>
@@ -147,7 +148,7 @@ class Blog extends Component {
                                     <div className="searchInput">
                                         <form onSubmit={this.handleSubmit}>
                                             <Form.Group className="d-flex justify-content-xl-end" controlId="exampleForm.ControlInputSearch">
-                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent h-52 rounded-pill" onChange={this.handleChange} value={this.state.value} />
+                                                <Form.Control name="search" type="search" placeholder="Search" className="bg-transparent rounded-pill" onChange={this.handleChange} value={this.state.value} />
                                             </Form.Group>
                                         </form>
                                     </div>
@@ -155,15 +156,15 @@ class Blog extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="wrapper isBgBorder pb-5">
-                        <div className="container position-relative">
+                    <div className="blog-wrapper isBgBorder">
+                        <div className="container-lg position-relative">
                             <div className="position-absolute top-0 start-0 bottom-0 end-0 bg-primary d-flex justify-content-center align-items-center text-white d-none">
                                 <i className="fad fa-arrows-spin rotate fs-48"></i>
                             </div>
                             <div className="row">
                                 {postData.length ?
                                     postData.map((item, index) => (
-                                        <div className="col-lg-6 col-xl-4 mb-4" key={index}>
+                                        <div className="col-sm-6 col-lg-4 singleBlogWrapper" key={index}>
                                             <SingleBlogItems data={item} />
                                         </div>
                                     ))
@@ -174,7 +175,7 @@ class Blog extends Component {
                     </div>
                     {
                         Math.ceil(postCountData / postPerPage) > 1 &&
-                        <div className="mt-5"><Pagination data={Math.ceil(postCountData / postPerPage)} postPerPage={postPerPage} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} /></div>
+                        <div className="blog-pagination-wrapper"><Pagination data={Math.ceil(postCountData / postPerPage)} postPerPage={postPerPage} startFrom={startFrom} startFromChange={(value)=>this.setState({startFrom:value})} /></div>
                     }
                 </section>           
                 {

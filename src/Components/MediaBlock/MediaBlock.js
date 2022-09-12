@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LazyImage from '../LazyImage';
 import './MediaBlock.scss';
 
 const MediaBlock = (props) => {
@@ -10,7 +11,7 @@ const MediaBlock = (props) => {
                 
                 {props?.data?.featured_image?.full && 
                     <div className='mb-4 block-image'>
-                        <img src={props?.data?.featured_image?.full} alt={props?.data?.title} />
+                        <LazyImage src={props?.data?.featured_image?.full} alt={props?.data?.title} />
                     </div>
                 }
                 {props?.data?.title && props?.data?.title !== "Untitled" &&

@@ -21,7 +21,7 @@ function Functional(props) {
             {/* lopping through each object and dispaying id and title of posts */}
             {
                 isLoading ? (
-                    <h1>Loading...</h1>
+                    <div className='d-none'>Loading...</div>
                 ) : (
                     dataOptions.contactAddress[2]
                 )

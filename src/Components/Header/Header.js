@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Config from "../../Config.json";
-import Loading from "../Loading/Loading";
+import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import './header.scss';
 const Header = (props) => {
@@ -44,7 +44,7 @@ const Header = (props) => {
           ID: 285,
           title: "Services",
           class: ["megamenu"],
-          url: "/services",
+          url: "#",
           image: false,
           hover_image: false,
           submenu: {
@@ -52,11 +52,11 @@ const Header = (props) => {
               ID: 286,
               title: "Ideation and Evaluation",
               class: [""],
-              url: "/ideation-and-evaluation-service-category-page",
+              url: "/ideation-and-evaluation",
               image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-ideation-evaluation.png",
+                "https://getwebinc.com/api/wp-content/uploads/2022/09/menu-ideation-3.svg",
               hover_image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-ideation-evaluation.png",
+                "https://getwebinc.com/api/wp-content/uploads/2022/09/menu-ideation-3.svg",
               submenu: {
                 1: {
                   ID: 765,
@@ -110,7 +110,7 @@ const Header = (props) => {
                   ID: 292,
                   title: "Product Design",
                   class: [""],
-                  url: "/software-product-design",
+                  url: "/product-design",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -157,11 +157,11 @@ const Header = (props) => {
               ID: 932,
               title: "Staff Augmentation",
               class: [""],
-              url: "/staff-augmentation-service-category-page",
+              url: "/staff-augmentation",
               image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/mobile-programming.svg",
+                "https://getwebinc.com/api/wp-content/uploads/2022/08/Staff-Augmentation.svg",
               hover_image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/mobile-programming.svg",
+                "https://getwebinc.com/api/wp-content/uploads/2022/08/Staff-Augmentation.svg",
               submenu: {
                 10: {
                   ID: 933,
@@ -205,17 +205,17 @@ const Header = (props) => {
               ID: 296,
               title: "App Development",
               class: [""],
-              url: "/app-development-service-category-page",
+              url: "/app-development",
               image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-mobile-development.png",
+                "https://getwebinc.com/api/wp-content/uploads/2022/08/App-Development.svg",
               hover_image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-mobile-development.png",
+                "https://getwebinc.com/api/wp-content/uploads/2022/08/App-Development.svg",
               submenu: {
                 14: {
                   ID: 299,
                   title: "Android App Development",
                   class: [""],
-                  url: "/android",
+                  url: "/android-app-development",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -224,7 +224,7 @@ const Header = (props) => {
                   ID: 298,
                   title: "iOS App Development",
                   class: [""],
-                  url: "/ios",
+                  url: "/ios-app-development",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -233,7 +233,7 @@ const Header = (props) => {
                   ID: 297,
                   title: "Cross Platform Mobile Development",
                   class: [""],
-                  url: "/mobile-development",
+                  url: "/cross-platform-mobile-development",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -244,11 +244,11 @@ const Header = (props) => {
               ID: 302,
               title: "Web Applications",
               class: [""],
-              url: "/web-applications-service-category-page",
+              url: "/web-applications",
               image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/monitor-mobbile.svg",
+                "https://getwebinc.com/api/wp-content/uploads/2022/08/Web-Applications.svg",
               hover_image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/monitor-mobbile.svg",
+                "https://getwebinc.com/api/wp-content/uploads/2022/08/Web-Applications.svg",
               submenu: {
                 17: {
                   ID: 303,
@@ -283,7 +283,7 @@ const Header = (props) => {
               ID: 937,
               title: "Product Engineering",
               class: [""],
-              url: "/product-engineering-service-category-page",
+              url: "/product-engineering",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/06/code.svg",
               hover_image:
@@ -322,7 +322,7 @@ const Header = (props) => {
               ID: 312,
               title: "eCommerce & CMS Development",
               class: ["menu-double-column"],
-              url: "/ecommerce-cms-development-service-category-page",
+              url: "/ecommerce-cms-development",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-ecommerce.png",
               hover_image:
@@ -376,53 +376,14 @@ const Header = (props) => {
               },
             },
             35: {
-              ID: 942,
-              title: "Quality Assurance",
-              class: [""],
-              url: "/quality-assurance",
-              image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-140.svg",
-              hover_image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-140.svg",
-              submenu: {
-                28: {
-                  ID: 943,
-                  title: "WordPress",
-                  class: [""],
-                  url: "/wordPress",
-                  image: false,
-                  hover_image: false,
-                  submenu: [],
-                },
-                29: {
-                  ID: 944,
-                  title: "Shopify",
-                  class: [""],
-                  url: "/shopify",
-                  image: false,
-                  hover_image: false,
-                  submenu: [],
-                },
-                30: {
-                  ID: 945,
-                  title: "Webflow",
-                  class: [""],
-                  url: "/webflow",
-                  image: false,
-                  hover_image: false,
-                  submenu: [],
-                },
-              },
-            },
-            39: {
               ID: 318,
               title: "Cloud Solutions",
               class: [""],
-              url: "/cloud-solutions-service-category-page",
+              url: "/cloud-solutions",
               image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-1000003506.svg",
+                "https://getwebinc.com/api/wp-content/uploads/2022/09/Menu-Cloud-Solutions.svg",
               hover_image:
-                "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-1000003506.svg",
+                "https://getwebinc.com/api/wp-content/uploads/2022/09/Menu-Cloud-Solutions.svg",
               submenu: {
                 31: {
                   ID: 319,
@@ -453,6 +414,27 @@ const Header = (props) => {
                 },
               },
             },
+            39: {
+              ID: 2054,
+              title: "Quality Assurance",
+              class: [""],
+              url: "/quality-assurance",
+              image:
+                "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-140.svg",
+              hover_image:
+                "https://getwebinc.com/api/wp-content/uploads/2022/06/Group-140.svg",
+              submenu: {
+                28: {
+                  ID: 2054,
+                  title: "Quality Assurance",
+                  class: [""],
+                  url: "/quality-assurance",
+                  image: false,
+                  hover_image: false,
+                  submenu: [],
+                },
+              },
+            },
           },
         },
         43: {
@@ -468,7 +450,7 @@ const Header = (props) => {
           ID: 328,
           title: "How We Work",
           class: ["dropdownmenu"],
-          url: "/how-we-work",
+          url: "#",
           image: false,
           hover_image: false,
           submenu: {
@@ -529,28 +511,19 @@ const Header = (props) => {
           submenu: [],
         },
     };
-    const handleClick = (e) => {
-      e.preventDefault()
-      const target = e.target.getAttribute('data-target')
-      const location = document.querySelector(target).offsetTop  
-      window.scrollTo({
-          left: 0,
-          top: location,
-      })
-    }
     return ( 
         
         loading
-        ?<Loading cls="page-loader" />
+        ?<div cls="d-none"></div>
         : 
         <>     
         <header className='main-header'>
             <div className="wrapper d-flex justify-content-between align-items-center">
                 <div className="logo-area">
-                    <NavLink to="/" onClick={() => {setMenuOpen(false)}}><img src={optionData.logo.url} alt="Getweb Inc - logo" /></NavLink>
+                    <NavLink to="/" onClick={() => {setMenuOpen(false)}}><LazyImage src={optionData.logo.url} alt="Getweb Inc - logo" /></NavLink>
                 </div>
                 <div className="menu-area position-static position-xl-relative">
-                    <div className="position-static position-xl-relative navbar navbar-expand-xl navbar-light">
+                    <div className="position-static position-xl-relative navbar navbar-expand-xl navbar-dark">
                         <button className={['navbar-toggler', !menuOpen?'collapsed':''].join(' ')} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={menuAlter}>
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -568,14 +541,6 @@ const Header = (props) => {
                 </div>
             </div>
         </header>
-        <div className="back-to-top-con">
-            <div className="container-fluid">
-                <div className="d-flex justify-content-end position-relative">
-                    {/* <a href="#root" className="back-to-top">Back to top</a> */}
-                    <NavLink className="back-to-top" to="#root" onClick={handleClick} data-target="#root">Back to top</NavLink>
-                </div>
-            </div>
-        </div> 
         </> 
     );
 };

@@ -29,19 +29,24 @@ const JobOpening = (props) => {
             setLoading(false);
         }
     }, [jobData]);
+    
     return (
         <div className="job-listing">
-            <div className="text-center">
-                <h6 className="textClrGreen fs-6 mb-3">Jobs</h6>
-                <h3 className="fs-48 fw-normal mb-5">
-                    Job<span className="fw-bold"> openings</span>
-                </h3>
+            <div className="text-center">               
+                {
+                    props.data._mosacademy_page_group_sub_titles[0] &&
+                    <div className="secTagLine" dangerouslySetInnerHTML={{__html:props.data._mosacademy_page_group_sub_titles[0]}}></div>
+                }                            
+                {
+                    props.data._mosacademy_page_group_title_description &&
+                    <div className="secIntro" dangerouslySetInnerHTML={{__html:props.data._mosacademy_page_group_title_description}}></div>
+                }
             </div> 
             {
                 loading
                 ?<div className="textClrGreen text-center d-none">loading...</div>
                 :<>                          
-                    <div className="jobs mb-5">
+                    <div className="jobs mb-5 text-start">
                         <h6 className="mb-3">All Jobs</h6>
                         {jobData.map((item, index) => (
                             <SingleJobPost data={item} key={index} />

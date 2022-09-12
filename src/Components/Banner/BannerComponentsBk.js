@@ -36,7 +36,7 @@ export default class BannerComponents extends Component {
         //const bannerData = this.state.bannerData;
         return ( 
         <section className="banner">
-            <div className="container">
+            <div className="container-lg">
                 <div className="bannerContent d-flex align-items-center position-relative">
                     <div className="content text-center"> 
                         {!this.state.isLoaded && <div className="text-info"> Please wait... < /div>}

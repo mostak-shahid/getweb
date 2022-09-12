@@ -39,7 +39,7 @@ const JobDetails = () => {
             <div className="JobDetails">
                 <JobDetailsBanner title={pageData.title} content={pageData.excerpt}/>
                 <div className="JobOverView secPadding">
-                    <div className="container">
+                    <div className="container-lg">
                         <div className="row">
                             <div className="col-lg-8">
                                 <div className="overViewContent">

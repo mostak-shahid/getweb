@@ -40,20 +40,26 @@
   }
 
   ul {
-    padding: 60px 0;
+    padding-bottom: 60px;
+    padding-left: 0;
     margin: 0;
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    &.pagination {
+      padding-top: 60px;
+      padding-bottom: 0;
+    }
   }
+
   .portfolioMenu {
     @include fs16();
     font-weight: 600;
 
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
     color: #fff;
-    padding: 20px 30px;
+    padding: 0 30px 20px;
     cursor: pointer;
     transition: all 0.5s;
 
@@ -71,10 +77,10 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 15px;
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 992px) {
       grid-template-columns: repeat(4, 1fr);
     }
   }

@@ -25,7 +25,7 @@ import WhyChooseUsComponent from "../WhyChooseUs/WhyChooseUsComponent";
 import "./MainComponent.scss";
 const MainComponent = (props) => {
 
-    const {_mosacademy_page_group_content_width = "container", _mosacademy_page_group_css='', _mosacademy_page_group_component_name, group_slug, group_id} = props.data;
+    const {_mosacademy_page_group_content_width = "container-lg", _mosacademy_page_group_css='', _mosacademy_page_group_component_name, group_slug, group_id} = props.data;
     return (
         <section id={group_id} className={['wrapper-section', 'secPadding', group_slug, _mosacademy_page_group_css].join(' ')}>
             {/* {console.log(props.data)} */}

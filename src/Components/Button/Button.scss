@@ -2,10 +2,10 @@
   display: inline-block;
   .btn {
     background-color: var(--clr-green);
-    padding: 16px 35px;
+    padding: 12px 28px;
     font-weight: 600;
-    font-size: 15px;
-    line-height: 21px;
+    font-size: 14px;
+    line-height: 19px;
     color: var(--clr-theme-dark);
     i,
     svg {
@@ -39,6 +39,11 @@
         background-color: var(--clr-green);
         color: var(--clr-theme-dark);
       }
+    }
+    @media (min-width: 576px) {
+      padding: 16px 35px;
+      font-size: 15px;
+      line-height: 21px;
     }
   }
 }

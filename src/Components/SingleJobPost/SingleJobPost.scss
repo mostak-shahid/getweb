@@ -11,7 +11,7 @@
     font-size: var(--16px);
     line-height: 24px;
     margin-bottom: 10px;
-    @media (min-width: 768px) {
+    @media (min-width: 576px) {
       font-weight: 500;
       font-size: 24px;
       line-height: 34px;
@@ -33,7 +33,7 @@
         font-size: 12px;
         line-height: 20px;
         color: #8d8f98;
-        @media (min-width: 768px) {
+        @media (min-width: 576px) {
           font-size: 14px;
           line-height: 22px;
         }
@@ -52,7 +52,7 @@
       font-weight: 600;
       font-size: 13px;
       line-height: 18px;
-      padding: 7px 42px 7px 20px;
+      padding: 6px 42px 6px 20px;
       .btn-arrow {
         background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.627 5.18872L17.9382 10.5L12.627 15.8112' stroke='%2300FFA3' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.0625 10.5H17.7887' stroke='%2300FFA3' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       }
@@ -61,14 +61,14 @@
           background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6265 5.18872L17.9377 10.5L12.6265 15.8112' stroke='%23121316' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.0625 10.5H17.7887' stroke='%23121316' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         }
       }
-      @media (min-width: 768px) {
+      @media (min-width: 576px) {
         padding: 15px 35px;
         font-size: 14px;
         line-height: 19px;
       }
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 576px) {
     padding: 30px;
   }
   @media (min-width: 1200px) {

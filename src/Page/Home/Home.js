@@ -52,7 +52,7 @@ export default class Home extends Component {
                     pageData.meta._mosacademy_page_group_details_group.map((item, index) => (
                         // <MainComponent data={item} key={index} />
                         <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {}} key={index}>  
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback={<div className="textClrGreen text-center loder-text d-none">loading...</div>}>
                             <Section data={item} />
                         </Suspense> 
                         </ErrorBoundary>                      

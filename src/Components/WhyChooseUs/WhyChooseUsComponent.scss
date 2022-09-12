@@ -15,7 +15,7 @@
         font-size: 14px !important;
         line-height: 22px;
         position: relative;
-        &:before {
+        &::before {
           content: "";
           width: 1px;
           height: 15px;
@@ -24,13 +24,13 @@
           left: -var(--16px);
           background-color: var(--clr-green);
         }
-        @media (min-width: 768px) {
+        @media (min-width: 576px) {
           font-size: 18px !important;
           line-height: 30px;
         }
       }
     }
-    &:before {
+    &::before {
       display: block;
       content: counter(item, decimal-leading-zero) ". ";
       counter-increment: item;
@@ -40,11 +40,11 @@
       line-height: 40px !important;
       margin-bottom: 1.5rem !important;
       margin-left: 0.5rem !important;
-      @media (min-width: 768px) {
+      @media (min-width: 576px) {
         font-size: 48px !important;
         line-height: 56px !important;
       }
-      @media (min-width: 1200px) {
+      @media (min-width: 992px) {
         margin-left: var(--16px) !important;
       }
     }

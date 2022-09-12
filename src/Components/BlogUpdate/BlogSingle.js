@@ -8,6 +8,7 @@ import linkdin from "../../assets/images/linkedin.svg";
 import linkedinProfile from "../../assets/images/linkedinProfile.svg";
 import twitterLink from "../../assets/images/TwitterLink.svg";
 import Config from "../../Config.json";
+import LazyImage from '../LazyImage';
 import MainComponent from '../MainComponent/MainComponent';
 import SeoMeta from '../SeoMeta/SeoMeta';
 import "./BlogSingle.scss";
@@ -44,12 +45,12 @@ const BlogSingle = (props) => {
         //console.log(pageData);
     }, [pageData, blogPageData, postsData]);
     const blogUpdateComponentData = {
-        _mosacademy_page_group_content_width : "container", 
+        _mosacademy_page_group_content_width : "container-lg", 
         _mosacademy_page_group_css:'blogs', 
         _mosacademy_page_group_component_name:'BlogUpdateComponent',
         _mosacademy_page_group_content_layout : "con-top",
         _mosacademy_page_group_sub_titles : ['Related blog'],
-        _mosacademy_page_group_title_text : 'Read more on our blog',
+        _mosacademy_page_group_title_text : 'Read more on <strong>our blog</strong>',
         _mosacademy_page_group_title_description: '<p>Check out the knowledge base collected and distilled by experienced professionals.</p><hr/>'
 
     };
@@ -71,21 +72,23 @@ const BlogSingle = (props) => {
             <>                
                 <SeoMeta pageData={pageData}/>
                 <section className="BlogSingleWrapper secPadding mt-5">
-                    <div className="container">
+                    <div className="container-lg">
                         <div className="blogFeathered">
-                            <div className="BlogsSingleHeader mb-5 pb-2">
+                            <div className="BlogsSingleHeader">
                                 <p className="blogSingleTag textClrGreen fs-15 fwSemiBold">{pageData?.taxonomy?.category[0].name}</p>
                                 <h2 className="fs-48 fw-bold text-white mb-4 pb-2">{pageData.title}</h2>
                                 <div className="meta d-flex gap-4 align-items-center mb-5 pb-2">
                                     <NavLink to={['/user', pageData?.author?.slug].join('/')} className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
                                         <div className="adminImg flex-shrink-0">
-                                            <img className='author-image' src={pageData?.author?.image[22]} alt="Author Img" width="22" height="22" />
+                                            {/* <img className='author-image' src={pageData?.author?.image[22]} alt="Author Img" width="22" height="22" /> */}
+                                            <LazyImage className='author-image' src={pageData?.author?.image[22]} alt="Author Img" width="22" height="22" />
                                         </div>
                                         <span className="AuthorName">{pageData?.author?.name}</span>
                                     </NavLink>
                                     <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
                                         <div className="CalenderIcon flex-shrink-0">
-                                            <img src={clock1} alt="Author Img" />
+                                            {/* <img src={clock1} alt="Author Img" /> */}
+                                            <LazyImage src={clock1} alt="Author Img" /> 
                                         </div>
                                         <span className="PostDate">
                                             <Moment format="MMM DD, YYYY">{pageData.date}</Moment>
@@ -93,7 +96,8 @@ const BlogSingle = (props) => {
                                     </span>
                                 </div>
                                 <div className="BlogSingFeatheredImg">
-                                    <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" />
+                                    {/* <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" /> */}
+                                    <LazyImage className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" />
                                 </div>
                             </div>
                         </div>
@@ -120,7 +124,7 @@ const BlogSingle = (props) => {
 
                                 <div className="gradientBorder2 mt-5 mb-4"></div>
                                 <div className="d-flex align-items-center gap-3 borderBottom pb-3">
-                                    <img  className='author-image' src={pageData?.author?.image[47]} width="47" height="47" alt={[pageData?.author?.name, 'Image'].join('-')} />
+                                    <LazyImage  className='author-image' src={pageData?.author?.image[47]} width="47" height="47" alt={[pageData?.author?.name, 'Image'].join('-')} />
                                     <div>
                                         <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>
                                         <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData?.author?.designation}</p>
@@ -130,7 +134,7 @@ const BlogSingle = (props) => {
                                 {
                                     pageData?.author?.linkedin && 
                                     <a href={pageData?.author?.linkedin} className="linkedinProfileLink mt-4" target="_blank" rel="noreferrer">
-                                        <img src={linkedinProfile} className="img-fluid" alt="" />
+                                        <LazyImage src={linkedinProfile} className="img-fluid" alt="" />
                                         <span>Linkedin</span>
                                     </a>
                                 }
@@ -143,7 +147,7 @@ const BlogSingle = (props) => {
                                             <img src={facebook} alt="Facebook" />
                                         </a> */}
                                         <FacebookShareButton url={window.location.href} quote={pageData.title} >
-                                            <img src={facebook} alt="Facebook" />
+                                            <LazyImage src={facebook} alt="Facebook" />
                                         </FacebookShareButton>
                                     </li>
                                     <li>
@@ -151,12 +155,12 @@ const BlogSingle = (props) => {
                                             <img src={twitterLink} alt="Twitter" />
                                         </a> */}
                                         <TwitterShareButton title={pageData.title} url={window.location.href}>
-                                            <img src={twitterLink} alt="Twitter" />
+                                            <LazyImage src={twitterLink} alt="Twitter" />
                                         </TwitterShareButton>
                                     </li>
                                     <li>
                                         <LinkedinShareButton title={window.location.href} source={pageData.title}>
-                                            <img src={linkdin} alt="Linkdin" />
+                                            <LazyImage src={linkdin} alt="Linkdin" />
                                         </LinkedinShareButton>
                                     </li>
                                 </ul>

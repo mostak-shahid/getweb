@@ -24,6 +24,7 @@
       function () {
         // or window.addEventListener("scroll"....
         const header = document.querySelector(".main-header");
+        const backToTop = document.querySelector(".back-to-top-con");
         var st = window.pageYOffset || document.documentElement.scrollTop;
         //const scrollTop = window.scrollY;
         movingup = this.oldScroll > this.scrollY;
@@ -39,11 +40,11 @@
         st > 0
           ? header.classList.add("active-sticky-menu")
           : header.classList.remove('active-sticky-menu', 'headroom--pinned', 'headroom--unpinned');
-        // st > lastScrollTop
-        //   ? header.classList.add("is-nonsticky")
-        //   : header.classList.add("is-sticky");
+        st > 100
+          ? backToTop.classList.add("make-visible")
+          : backToTop.classList.remove("make-visible");
         // lastScrollTop = st <= 0 ? 0 : st;
-        //console.log(scrollTop, lastScrollTop);
+        // console.log(st);
       },
       false
     );

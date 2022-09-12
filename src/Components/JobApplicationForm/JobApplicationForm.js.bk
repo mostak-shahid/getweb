@@ -105,7 +105,7 @@ const JobApplicationForm = (props) => {
         :<>
             <section className="JobDetails">
                 <div className="JobDetailsBanner bgClrDarkLight">
-                    <div className="container">
+                    <div className="container-lg">
                         <div className="JobBannerContent d-flex align-items-center">
                             <div className="content">
                                 <h2 className="jobTitle fs-48 fw-bold text-white mb-4">Job Application Form</h2>
@@ -120,7 +120,7 @@ const JobApplicationForm = (props) => {
                     </div>
                 </div>
                 <div className="JobApplicationForm secPadding">
-                    <div className="container">
+                    <div className="container-lg">
                         <div className="row">
                             <div className="col-lg-6 offset-lg-3">
                                 <div className="ApplicationForm bgClrSolitude isRadius16 p-4 p-lg-5">

@@ -81,7 +81,7 @@ const Search = (props) => {
       </Helmet>
       <SubPageBanner tagline={tagline} title={title} intro={intro} bgImg={bgImg} /> 
       <section className="blogWrapper secPadding">
-        <div className="container"> 
+        <div className="container-lg"> 
           <div className="filterArea py-5 isBgBorder mb-5">
             <div className="row align-items-center">
               <div className="col-lg-6">

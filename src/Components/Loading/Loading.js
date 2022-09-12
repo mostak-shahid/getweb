@@ -1,5 +1,6 @@
 //import { Audio } from 'react-loader-spinner';
 import logo from '../../assets/images/loader-logo.svg'
+import LazyImage from '../LazyImage'
 import './Loading.scss'
 const Loading = (props) => {
   return (
@@ -10,7 +11,7 @@ const Loading = (props) => {
             color='#00ffa3'
             ariaLabel='loading'
           /> */}
-              <img src={logo} alt=""/>
+              <LazyImage src={logo} alt=""/>
               <div className="rotating-border"></div>
           <div className="text-center text-white">{props.text}</div>
     </div>

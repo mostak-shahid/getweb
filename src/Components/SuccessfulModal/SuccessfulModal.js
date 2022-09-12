@@ -1,6 +1,7 @@
 import { Modal } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import SuccessfulIcon from "../../assets/images/succesful-icon.svg";
+import LazyImage from "../LazyImage";
 import "./SuccessfulModal.scss";
 
 const SuccessfulModal = ({ show, handleClose }) => {
@@ -9,7 +10,7 @@ const SuccessfulModal = ({ show, handleClose }) => {
             <Modal.Body className="border-0 p-xl-5 p-4">
                 <div className="bodyContents text-center">
                     <div className="mb-5">
-                        <img src={SuccessfulIcon} alt="icon" className="img" />
+                        <LazyImage src={SuccessfulIcon} alt="icon" className="img" />
                     </div>
                     <h2 className="fs-30 fw-bold text-dark mb-4">Thanks for your application!</h2>
                     <p className="fs-6 fw-normal textClrGray mb-5">A Getweb team member will reach out to schedule a call within 2 days.</p>

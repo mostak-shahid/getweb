@@ -47,7 +47,7 @@
     border-radius: var(--16px);
     background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
     border: 1px solid #202124;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,19 +57,36 @@
         margin-bottom: 30px;
       }
       .block-title {
-        font-size: 20px;
-        line-height: 30px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
         margin-bottom: 15px;
+        @media (min-width: 576px) {
+          font-size: 20px;
+          line-height: 30px;
+        }
       }
       .block-desc {
         margin-bottom: 30px;
       }
+
       & > :last-child {
         margin-bottom: 0 !important;
       }
     }
+    .wrapper-btn {
+      margin-top: 20px;
+      @media (min-width: 576px) {
+        margin-top: 30px;
+      }
+    }
     &:hover {
       background: #202124;
+    }
+    @media (min-width: 576px) {
+      padding: 30px;
+    }
+    @media (min-width: 992px) {
     }
   }
   &.template-2 {
@@ -89,7 +106,7 @@
       padding-left: 15px;
       .block-title {
         position: relative;
-        &:before {
+        &::before {
           content: "";
           width: 1px;
           height: 15px;
@@ -106,7 +123,7 @@
       padding-left: 15px;
       .block-title {
         position: relative;
-        &:before {
+        &::before {
           content: "";
           width: 1px;
           height: 15px;
@@ -128,7 +145,7 @@
       line-height: 40px !important;
       margin-bottom: 1.5rem !important;
       margin-left: 0.5rem !important;
-      @media (min-width: 768px) {
+      @media (min-width: 576px) {
         font-size: 48px !important;
         line-height: 56px !important;
       }
@@ -185,6 +202,22 @@
         color: var(--clr-green);
         span {
           margin-right: 7px;
+        }
+      }
+    }
+    svg * {
+      stroke: var(--clr-green);
+    }
+  }
+}
+.block-unit {
+  &:last-child {
+    .template-6 {
+      .block-part-one {
+        .block-image {
+          &::after {
+            background-image: url(../../../assets/images/fadded-arrow-2.png);
+          }
         }
       }
     }

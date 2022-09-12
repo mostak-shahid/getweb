@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Config from "../../Config.json";
+import LazyImage from "../LazyImage";
 import "./OurAward.scss";
 
 const OurAward = (props) => {    
@@ -20,7 +21,7 @@ const OurAward = (props) => {
     }, [sectionData]);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-lg-12'; 
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12'; 
     return (
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
@@ -50,7 +51,7 @@ const OurAward = (props) => {
                             <div className="OurAwardItem px-3 py-3 text-center" key={index}>
                                 {item.image && 
                                 <div className="icon mb-3">
-                                    <img src={item.image} alt={item.title} /> 
+                                    <LazyImage src={item.image} alt={item.title} /> 
                                 </div>
                                 }
                                 <h4 className="title fs-14 fw-bold text-white" dangerouslySetInnerHTML={{__html: item.title}} />

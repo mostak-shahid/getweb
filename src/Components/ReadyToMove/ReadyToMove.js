@@ -4,7 +4,7 @@ import './ReadyToMoveComponent.scss';
 const ReadyToMove = () => {
     return (
         <div className="newslatter secPadding">
-            <div className="container">
+            <div className="container-lg">
                 <div className="sectionHeader text-center mb-0">
                     <h2 className="secTitle fw-normal fs-48 text-white mb-3">
                         Ready to <strong className="fw-bold">move forward</strong> and get results?
