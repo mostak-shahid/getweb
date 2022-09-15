@@ -166,13 +166,13 @@ const FormValidation = (props) => {
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicEmail">Select Budget Range</label>
                                 <select className="rounded-pill px-4 form-control form-select" id="formBasicEmail" {...register('budget')}>
                                     <option value="">Select</option>
-                                    <option value="$25">$25</option>
-                                    <option value="$50">$50</option>
-                                    <option value="$75">$75</option>
-                                    <option value="$100">$100</option>
-                                    <option value="$125">$125</option>
-                                    <option value="$150">$150</option>
-                                    <option value="More than $150">More than $150</option>
+                                    <option value="$500 - $1000">$500 - $1000</option>
+                                    <option value="$1001 - $3000">$1001 - $3000</option>
+                                    <option value="$3001 - $6000">$3001 - $6000</option>
+                                    <option value="$6001 - $10000">$6001 - $10000</option>
+                                    <option value="$10001 - $20000">$10001 - $20000</option>
+                                    <option value="$20001 - $40000">$20001 - $40000</option>
+                                    <option value="More than $40000">More than $40000</option>
                                 </select>
                             </div>
                         </div>
