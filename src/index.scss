@@ -208,6 +208,13 @@ h1,
   & > .container-lg {
     & > .row {
       align-items: center !important;
+      .part-two {
+        text-align: center !important;
+
+        @media (min-width: 992px) {
+          text-align: left !important;
+        }
+      }
     }
   }
 }
