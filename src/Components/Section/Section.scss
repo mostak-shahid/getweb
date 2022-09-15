@@ -1,5 +1,10 @@
 @import "../../mixing.scss";
 .secPadding {
+  a {
+    &:hover {
+      color: var(--clr-green);
+    }
+  }
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

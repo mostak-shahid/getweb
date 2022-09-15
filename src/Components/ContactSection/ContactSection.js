@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import clockIcon from "../../assets/images/clock.svg";
 import locationIcon from "../../assets/images/location-icon.svg";
 import skypeIcon from "../../assets/images/ms_skype.png";
@@ -97,9 +96,9 @@ function ContactSection(props) {
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Phone</h4>
-                                        <NavLink to={['tel', optionData['contact-phone']].join(':')} className="address textClrGray fs-14 fw-medium mb-0 text-decoration-none">
+                                        <a href={['tel', optionData['contact-phone']].join(':')} className="address textClrGray fs-14 fw-medium mb-0 text-decoration-none">
                                             {optionData['contact-phone']}
-                                        </NavLink>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -110,9 +109,9 @@ function ContactSection(props) {
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Skype</h4>
-                                        <NavLink to={(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].title} className="address textClrGray fs-14 fw-medium mb-0">                                                
+                                        <a href={(typeof optionData['contact-social-links'] !== 'undefined') && 'skype:'+optionData['contact-social-links'][5].title} className="address textClrGray fs-14 fw-medium mb-0">                                                
                                             {(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].title}
-                                        </NavLink>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
