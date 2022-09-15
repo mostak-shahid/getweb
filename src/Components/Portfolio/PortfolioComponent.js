@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Button from "../Button/Button";
 import MultipleRows from "../slider/PortfolioSlider";
+import './PortfolioComponent.scss';
 //const PortfolioComponent = () => {
 export default class PortfolioComponent extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ export default class PortfolioComponent extends Component {
                     </div>
                 </div>
                 {_mosacademy_page_group_button?.url &&
-                <div className='button-container text-center mt-5'>
+                <div className='portfolio-button-container text-center'>
                     <Button title={_mosacademy_page_group_button?.title} url={_mosacademy_page_group_button?.url}/>
                 </div>
                 }

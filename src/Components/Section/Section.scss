@@ -19,14 +19,12 @@
   }
   &.OurMission {
     .part-two {
-      text-align: left !important;
+      text-align: center !important;
     }
     @media (min-width: 1200px) {
-      .part-one {
-        padding-right: 60px;
-      }
       .part-two {
         text-align: right !important;
+        margin-bottom: 0 !important;
       }
     }
   }
@@ -112,7 +110,7 @@
   &.service-detail-section {
     .row {
       .row {
-        justify-content: center;
+        // justify-content: center;
       }
     }
   }
@@ -175,6 +173,31 @@
             }
           }
         }
+      }
+    }
+  }
+  &.workshops-1 {
+    @media (min-width: 576px) {
+      .col-sm-6 {
+        width: 33.33333333%;
+      }
+    }
+  }
+  &.WhoWeAre {
+    @media (min-width: 1200px) {
+      .activity-grid-container {
+        padding-right: 60px;
+      }
+    }
+  }
+  &.home-our-portfolios {
+    .owl-dots {
+      margin-top: 30px !important;
+      @media (min-width: 576px) {
+        margin-top: 40px !important;
+      }
+      @media (min-width: 992px) {
+        display: none;
       }
     }
   }

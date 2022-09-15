@@ -52,14 +52,16 @@
       padding-bottom: 0;
     }
   }
-
+  .portfolioFilteMenu {
+    margin-top: -20px;
+  }
   .portfolioMenu {
     @include fs16();
     font-weight: 600;
 
     border-bottom: 1px solid rgb(255, 255, 255, 0.1);
     color: #fff;
-    padding: 0 30px 20px;
+    padding: 20px 30px;
     cursor: pointer;
     transition: all 0.5s;
 
@@ -192,6 +194,9 @@
           padding-bottom: 22px;
           padding-left: 0;
         }
+        @media (max-width: 575.98px) {
+          padding-bottom: 80px;
+        }
       }
       .modal-body-right {
         position: absolute;
@@ -225,6 +230,12 @@
           .rightImageContent {
             display: block;
           }
+        }
+
+        @media (max-width: 575.98px) {
+          right: auto;
+          left: 25px;
+          top: 100px;
         }
       }
 

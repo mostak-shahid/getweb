@@ -56,7 +56,7 @@ const JobOpening = (props) => {
                         jobCount < jobTotal &&
                         <div className="more-btn mx-auto">
                             <span className="gw-btn text-decoration-none d-flex align-items-center justify-content-center">
-                                <button className="btn bgClrGreen position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-52 gap-2 d-flex align-items-center justify-content-center" onClick={()=>{setJobCount(jobCount + increament)}}>
+                                <button className="btn bgClrGreen position-relative text-dark border-0 py-2 px-4 rounded-pill fwSemiBold fs-15 h-sm-52 h-42 gap-2 d-flex align-items-center justify-content-center" onClick={()=>{setJobCount(jobCount + increament)}}>
                                     Load More...
                                 </button>
                             </span>

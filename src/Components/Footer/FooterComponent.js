@@ -198,7 +198,7 @@ export default class FooterComponent extends Component {
         ID: 269,
         title: "Front End Development Services",
         class: [""],
-        url: "/front-end-development-services",
+        url: "/front-end-developer-services",
         image: false,
         hover_image: false,
         submenu: [],
@@ -236,7 +236,7 @@ export default class FooterComponent extends Component {
         ID: 278,
         title: "Front End Developer",
         class: ["mb-3", "mt-3"],
-        url: "/front-end-development",
+        url: "/front-end-developer",
         image: false,
         hover_image: false,
         submenu: [],
@@ -326,7 +326,7 @@ export default class FooterComponent extends Component {
             </div>
           </div>
         </div>
-        <div className="footerWidgetArea isBgBorder pt-40 pb-40">
+        <div className="footerWidgetArea isBgBorder">
           <div className="container-lg">
             <div className="row">
               <div className="col-xl-4 text-center text-sm-start mb-4">
@@ -406,7 +406,7 @@ export default class FooterComponent extends Component {
                         menuData={menu1}
                         id="0"
                         title="Company"
-                        titleCls="widgetTitle fs-14 fw-bold text-white mb-30"
+                        titleCls="widgetTitle fs-14 fw-bold text-white"
                         listCls="widgetList list-unstyled mb-0"
                         itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block"
                       />
@@ -418,7 +418,7 @@ export default class FooterComponent extends Component {
                         menuData={menu2}
                         id="0"
                         title="Design"
-                        titleCls="widgetTitle fs-14 fw-bold text-white mb-30"
+                        titleCls="widgetTitle fs-14 fw-bold text-white"
                         listCls="widgetList list-unstyled mb-0"
                         itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block"
                       />
@@ -430,7 +430,7 @@ export default class FooterComponent extends Component {
                         menuData={menu3}
                         id="0"
                         title="Development"
-                        titleCls="widgetTitle fs-14 fw-bold text-white mb-30"
+                        titleCls="widgetTitle fs-14 fw-bold text-white"
                         listCls="widgetList list-unstyled mb-0"
                         itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block"
                       />
@@ -442,7 +442,7 @@ export default class FooterComponent extends Component {
                         menuData={menu4}
                         id="0"
                         title="Staff Augmentation"
-                        titleCls="widgetTitle fs-14 fw-bold text-white mb-30"
+                        titleCls="widgetTitle fs-14 fw-bold text-white"
                         listCls="widgetList list-unstyled mb-0"
                         itemCls="fs-14 fw-medium textClrGray text-decoration-none d-block"
                       />

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Config from "../../Config.json";
 import Button from "../Button/Button";
 import MainComponent from "../MainComponent/MainComponent";
+import Section from "../Section/Section";
 import SeoMeta from "../SeoMeta/SeoMeta";
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
 import "./JobDetails.scss";
@@ -34,10 +35,10 @@ const JobDetails = () => {
     return (
         loading?
         <div className="textClrGreen text-center loder-text d-none">loading...</div>:            
-        <>       
+        <>      
             <SeoMeta pageData={pageData}/>
             <div className="JobDetails">
-                <JobDetailsBanner title={pageData.title} content={pageData.excerpt}/>
+                <JobDetailsBanner title={pageData?.title} content={pageData?.excerpt}/>
                 <div className="JobOverView secPadding">
                     <div className="container-lg">
                         <div className="row">
@@ -132,7 +133,8 @@ const JobDetails = () => {
                 </div>            
                 {
                 jobPageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-                    <MainComponent data={item} key={index} />                        
+                    // <MainComponent data={item} key={index} />
+                    <Section data={item} key={index} />                        
                 ))
                 }
             </div>

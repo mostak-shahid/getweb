@@ -12,10 +12,10 @@ export default class Technology extends Component {
         const {image='', title=''} = this.props.data;
         return (
             <div className="techLogos">
-                <div className="icons mb-2">
+                <div className="techLogo-icon icons mb-2">
                     <LazyImage src={image} alt={title} />
                 </div>
-                <h5 className="fs-12 fw-medium text-white mb-0">{title}</h5>
+                <h5 className="techLogo-text">{title}</h5>
             </div>
         )
     }

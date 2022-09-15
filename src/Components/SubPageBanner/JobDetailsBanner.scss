@@ -1,6 +1,22 @@
 .JobDetailsBanner {
   background-color: var(--clr-menu-light);
   .JobBannerContent {
-    min-height: 500px;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    @media (min-width: 576px) {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    @media (min-width: 992px) {
+      padding-top: 220px;
+      padding-bottom: 120px;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
+}
+.jobIntro {
+  max-width: 635px;
 }

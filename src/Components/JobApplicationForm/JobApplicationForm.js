@@ -98,7 +98,7 @@ const JobApplicationForm = (props) => {
                         <div className="col-lg-6 offset-lg-3">
                             <div className="ApplicationForm bgClrSolitude isRadius16 p-4 p-lg-5">
                                 <div className="contactHeader mb-4">
-                                    <h2 className="textClrThemeDark fs-4 fw-bold mb-3">Fillup the Job Application Form</h2>
+                                    <h2 className="textClrThemeDark fs-4 fw-bold mb-3">Fillup the job application form</h2>
                                     <p className="textClrGrayDark fs-6 fw-normal mb-0">It usually takes us up to 48 hours to get back to you.</p>
                                 </div>
                                 
@@ -117,20 +117,20 @@ const JobApplicationForm = (props) => {
                                         {errors.job_id?.type === "required" && <div className='text-danger mt-1'>Please select a job.</div>}
                                     </div>
                                     <div className="row">
-                                        <div className="col-lg-6 mb-4">
+                                        <div className="col-sm-6 mb-4">
                                             <div className="field">
                                                 <label htmlFor="first_name" className="textClrThemeDark fs-13 fwSemiBold">First Name</label><input id="first_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your first name" {...register('first_name', { required: true, pattern: /^[A-Za-z .]+$/ })}/>
                                             </div>
                                             {errors.first_name?.type === "required" && <div className='text-danger mt-1'>First name is required.</div>}
                                             {errors.first_name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
                                         </div>
-                                        <div className="col-lg-6 mb-4">
+                                        <div className="col-sm-6 mb-4">
                                             <div className="field"><label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Last Name</label><input id="last_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your last name" {...register('last_name', {pattern: /^[A-Za-z .]+$/ })}/></div>
                                             {errors.last_name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-lg-6 mb-4">
+                                        <div className="col-sm-6 mb-4">
                                             <div className="field">
                                                 <label htmlFor="email" className="textClrThemeDark fs-13 fwSemiBold">Email</label>
                                                 <input id="email" type="email" className="form-control rounded-pill h-42 px-4" placeholder="Enter your email" {...register('email', { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/ })}/>
@@ -138,7 +138,7 @@ const JobApplicationForm = (props) => {
                                                 {errors.email?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid email.</div>}
                                             </div>
                                         </div>
-                                        <div className="col-lg-6 mb-4">
+                                        <div className="col-sm-6 mb-4">
                                             <div className="field">
                                                 <label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Country</label>
                                                 <select id="country" className="form-select rounded-pill h-42 px-4" defaultValue="0" {...register('country')}>

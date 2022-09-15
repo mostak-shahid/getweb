@@ -59,7 +59,7 @@ const FormValidation = (props) => {
                 <div className="row">
                     {
                         props?.fields.find((element) => { return element === 'name' } ) === 'name' && 
-                        <div className="col-lg-6 mb-20">
+                        <div className="col-sm-6 mb-20">
                             <div className="contactField">
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicName">Name</label>
                                 <input placeholder="Please enter your name" type="text" id="formBasicName" className="rounded-pill px-4 form-control" {...register('name', { required: true, pattern: /^[A-Za-z .]+$/ })}/>
@@ -70,7 +70,7 @@ const FormValidation = (props) => {
                     }
                     {
                         props?.fields.find((element) => { return element === 'email' } ) === 'email' && 
-                        <div className="col-lg-6 mb-20">
+                        <div className="col-sm-6 mb-20">
                             <div className="contactField">
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicEmail">Email</label>
                                 <input placeholder="Please enter your email" type="email" id="formBasicEmail" className="rounded-pill px-4 form-control" {...register('email', { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/ })}/>
@@ -99,7 +99,7 @@ const FormValidation = (props) => {
                     }
                     {
                         props?.fields.find((element) => { return element === 'interestedin' } ) === 'interestedin' && 
-                        <div className="col-lg-6 mb-20">
+                        <div className="col-sm-6 mb-20">
                             <div className="contactField">
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicName">Interested In</label>
                                 <select className="rounded-pill px-4 form-control form-select" id="formBasicName" {...register('interested')}>
@@ -161,7 +161,7 @@ const FormValidation = (props) => {
                     }
                     {
                         props?.fields.find((element) => { return element === 'budget' } ) === 'budget' && 
-                        <div className="col-lg-6 mb-20">
+                        <div className="col-sm-6 mb-20">
                             <div className="contactField">
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicEmail">Select Budget Range</label>
                                 <select className="rounded-pill px-4 form-control form-select" id="formBasicEmail" {...register('budget')}>
@@ -195,7 +195,7 @@ const FormValidation = (props) => {
                             </div>
                         </div>
                     }
-                    <div className="sbm-btn text-end">
+                    <div className="sbm-btn text-center text-lg-end">
                         <input type="hidden" value={window.location.pathname.replace("/", "")} {...register('source')} />
                         <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn" disabled={formProcessing}>{formProcessing? 'Sending Mesage...' : 'Send Message '}</button>
                     </div>

@@ -40,6 +40,8 @@
     }
   }
   .footerWidgetArea {
+    padding-top: 30px;
+    padding-bottom: 30px;
     .m-widget-1 {
       grid-area: menu_1;
     }
@@ -69,6 +71,7 @@
     }
     .widgetMenu {
       display: grid;
+      gap: 12px;
       // grid-template-areas:
       //   "menu_1"
       //   "menu_2"
@@ -80,6 +83,12 @@
         "menu_3 menu_4";
       padding-left: 5px;
       padding-right: 5px;
+      .widgetTitle {
+        margin-bottom: 15px;
+        @media (min-width: 576px) {
+          margin-bottom: 30px;
+        }
+      }
       @media (min-width: 576px) {
         display: grid;
         grid-template-areas: "menu_1 menu_2 menu_3 menu_3 menu_4";
@@ -90,7 +99,7 @@
       @media (min-width: 992px) {
         //grid-template-columns: repeat(4, 1fr);
         //grid-template-areas: "menu_1 menu_2 menu_3 menu_3 menu_4";
-
+        gap: 0;
         padding-left: 0;
         padding-right: 0;
       }
@@ -100,21 +109,34 @@
         }
         li {
           a {
-            margin-bottom: var(--16px);
             transition: all 0.2s linear;
             color: var(--clr-dark-2);
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
-            line-height: 22px;
             display: block;
-            margin-top: 10px;
+            margin-bottom: 7px;
+            font-size: 12px;
+            line-height: 17px;
             &:hover {
               color: var(--clr-green) !important;
+            }
+            @media (min-width: 576px) {
+              margin-bottom: 10px;
+              font-size: 14px;
+              line-height: 22px;
+            }
+          }
+          &:last-child {
+            a {
+              margin-bottom: 0 !important;
             }
           }
         }
       }
+    }
+    @media (min-width: 576px) {
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
   }
   .social {

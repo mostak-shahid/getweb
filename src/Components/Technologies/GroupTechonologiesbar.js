@@ -62,23 +62,6 @@ const GroupTechonologiesbar = (props) => {
                                 )
                             }
                         </div>
-
-                    
-                
-                {
-                    // (technologiesData.length) &&
-                    // <div className="singleTechnology p-2 border-start-0 frontend-development">
-                    //     <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap gap-2">
-                    //     {
-                    //             (technologiesData.length) && 
-                    //             technologiesData.map((item, index) => ( 
-                    //                     (item.count!=="0") && <TechnologiesBar data={item} key={index} />                                
-                    //                 )
-                    //             )
-                    //         }
-                    //     </div>
-                    // </div>
-                }
                 
                 {
                     _mosacademy_page_group_button?.url &&

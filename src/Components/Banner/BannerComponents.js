@@ -52,15 +52,16 @@ export default class BannerComponents extends Component {
                         </div>
                     </div>
                 </div>
-                
-                <div className="trustedWrapper d-flex justify-content-center align-items-center pb-40 flex-wrap gap-2">
-                    {/* {console.log(this.props.pageData.meta.banner_image_gallery)} */}
+                <div className="container-lg trustedWrapper">
+                    <div className="row justify-content-center">
                     {this.props.pageData.meta.banner_image_gallery.map(( value , index)=> {
                         return (
-                            // <img src={value.url} key={index} alt={value.alt} className="img-fluid partner-img" />
+                        <div className="col-4 col-sm-3 col-lg-2 text-center mb-4 mb-sm-5 mb-lg-0">
                             <LazyImage src={value.url} key={index} alt={[value.alt, 'Logo'].join(' - ')} className="img-fluid partner-img" />
+                        </div>
                         )
-                    })}                       
+                    })}  
+                    </div>
                 </div>
             </section>
         );

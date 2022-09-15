@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Config from '../../../Config.json';
+import './TechnologiesBar.scss';
 import Technology from './Technology/Technology';
 
 export default class TechnologiesBar extends Component {
@@ -34,7 +35,7 @@ export default class TechnologiesBar extends Component {
         }
         //console.log(technologiesData);
         return (
-            <div className={['singleTechnology','p-2','mb-4', slug].join(' ')}>
+            <div className={['singleTechnology','p-2', slug].join(' ')}>
                 <div className="row align-items-center">
                     <div className="col-xl-3">
                         <div className="p-3">
@@ -43,6 +44,7 @@ export default class TechnologiesBar extends Component {
                     </div>
                     <div className="col-xl-9">
                         <div className="singleTechLogo d-flex align-items-center flex-wrap gap-2">
+                        {/* <div className="singleTechLogo d-flex align-items-center justify-content-between flex-wrap"> */}
                             {
                                 (technologiesData.length)?
                                 technologiesData.map((logo, index) => (

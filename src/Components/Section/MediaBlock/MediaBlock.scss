@@ -54,7 +54,10 @@
     height: 100%;
     .block-part-one {
       .block-image {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        @media (min-width: 576px) {
+          margin-bottom: 30px;
+        }
       }
       .block-title {
         font-weight: 700;

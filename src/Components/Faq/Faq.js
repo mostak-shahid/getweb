@@ -36,7 +36,7 @@ const Faq = (props) => {
     return (
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
-                <div className="sectionHeader text-center mb-5">
+                <div className="sectionHeader text-center">
                     {
                         _mosacademy_page_group_sub_titles[0] &&
                         <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>

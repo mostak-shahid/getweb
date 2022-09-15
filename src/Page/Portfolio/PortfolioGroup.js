@@ -249,7 +249,7 @@ const PortfolioGroup = (props) => {
                             </div>
                             </div>
                             <div className="modal-body-right">
-                            <span>
+                            <span className="d-none">
                                 <LazyImage
                                 src={companyRightLogo}
                                 className="img-fluid"

@@ -167,7 +167,7 @@ const Header = (props) => {
                   ID: 933,
                   title: "Front End Developer",
                   class: [""],
-                  url: "/front-end-development",
+                  url: "/front-end-developer",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -272,7 +272,7 @@ const Header = (props) => {
                   ID: 305,
                   title: "Front End Development Services",
                   class: [""],
-                  url: "/front-end-development-services",
+                  url: "/front-end-developer-services",
                   image: false,
                   hover_image: false,
                   submenu: [],
@@ -346,7 +346,7 @@ const Header = (props) => {
                   hover_image: false,
                   submenu: [],
                 },
-                24: {
+                25: {
                   ID: 314,
                   title: "Shopify",
                   class: [""],
@@ -355,7 +355,7 @@ const Header = (props) => {
                   hover_image: false,
                   submenu: [],
                 },
-                25: {
+                24: {
                   ID: 315,
                   title: "E-Commerce App",
                   class: [""],
@@ -426,7 +426,7 @@ const Header = (props) => {
               submenu: {
                 28: {
                   ID: 2054,
-                  title: "Quality Assurance",
+                  title: "QA/QC Testing",
                   class: [""],
                   url: "/quality-assurance",
                   image: false,

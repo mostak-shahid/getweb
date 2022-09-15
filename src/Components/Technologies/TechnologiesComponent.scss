@@ -38,6 +38,7 @@
     cursor: pointer;
     @media (min-width: 992px) {
       border-left: 2px solid rgba(76, 77, 84, 0.2);
+      padding-left: 10px;
     }
   }
   .techLogos {
@@ -45,7 +46,12 @@
     .icons {
       transition: all 0.2s linear;
       img {
+        width: 24px;
+        height: auto;
         transition: all 0.2s linear;
+        @media (min-width: 576px) {
+          width: 34px;
+        }
       }
     }
     &:hover {

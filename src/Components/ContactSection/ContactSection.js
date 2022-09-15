@@ -44,7 +44,7 @@ function ContactSection(props) {
                     </div>                    
                     <div className="getInTouch mb-5 mb-xl-0">
                         <div className="row isBgBorder pb-30 mb-30">
-                            <div className="col-lg-6">
+                            <div className="col-sm-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
                                         <LazyImage src={locationIcon} alt="lineShape" />
@@ -62,7 +62,7 @@ function ContactSection(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-6">
+                            <div className="col-sm-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
                                         <LazyImage src={locationIcon} alt="lineShape" />
@@ -135,7 +135,7 @@ function ContactSection(props) {
             </div>
             <div className={[widthClass].join(' ')}>
                 <div className="part-two"> 
-                <FormValidation title="Need a Digital Product or a Custom Solution? We’re All Ears!" fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
+                <FormValidation title="Need a digital product or a custom solution? We’re all ears!" fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
                 </div>
             </div>
         </div>

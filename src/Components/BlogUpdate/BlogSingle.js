@@ -77,7 +77,7 @@ const BlogSingle = (props) => {
                             <div className="BlogsSingleHeader">
                                 <p className="blogSingleTag textClrGreen fs-15 fwSemiBold">{pageData?.taxonomy?.category[0].name}</p>
                                 <h2 className="fs-48 fw-bold text-white mb-4 pb-2">{pageData.title}</h2>
-                                <div className="meta d-flex gap-4 align-items-center mb-5 pb-2">
+                                <div className="meta d-flex gap-4 align-items-center">
                                     <NavLink to={['/user', pageData?.author?.slug].join('/')} className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
                                         <div className="adminImg flex-shrink-0">
                                             {/* <img className='author-image' src={pageData?.author?.image[22]} alt="Author Img" width="22" height="22" /> */}

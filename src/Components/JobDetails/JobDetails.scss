@@ -17,15 +17,14 @@
         margin-bottom: 15px;
       }
       ul {
-        padding-left: 18px;
-        li {
-          padding-left: 12px;
-          &::marker {
-            font-family: "Font Awesome 6 Pro";
-            font-weight: 900;
-            content: "\f058";
-            color: var(--clr-green);
-          }
+        padding-left: 24px;
+      }
+      .jobDetails {
+        ul {
+          margin-top: 30px;
+        }
+        & > *:last-child {
+          margin-bottom: 0;
         }
       }
       @media (min-width: 1200px) {
@@ -36,6 +35,7 @@
     .jobSideBar {
       background-color: var(--clr-menu-light);
       padding: 35px;
+      margin-top: 60px;
       .btn-wrapper {
         display: block;
         .btn {
@@ -51,6 +51,19 @@
             }
           }
         }
+        @media (min-width: 576px) {
+          max-width: 270px;
+        }
+        @media (min-width: 992px) {
+          max-width: unset;
+        }
+      }
+
+      @media (min-width: 576px) {
+        margin-top: 80px;
+      }
+      @media (min-width: 992px) {
+        margin-top: 0;
       }
     }
   }

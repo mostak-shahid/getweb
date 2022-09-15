@@ -185,7 +185,7 @@ class JobApplication extends Component {
                             <div className="col-lg-6 offset-lg-3">
                                 <div className="ApplicationForm bgClrSolitude isRadius16 p-4 p-lg-5">
                                     <div className="contactHeader mb-30">
-                                        <h2 className="textClrThemeDark fs-24 fw-bold mb-10">Fillup the Job Application Form</h2>
+                                        <h2 className="textClrThemeDark fs-24 fw-bold mb-10">Fillup the job application form</h2>
                                         <p className="textClrGrayDark fs-6 fw-normal">It usually takes us up to 48 hours to get back to you.</p>
                                     </div>
                                     <form onSubmit={ this.onSubmit }>

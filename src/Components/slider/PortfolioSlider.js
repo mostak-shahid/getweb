@@ -95,7 +95,7 @@ export default class MultipleRows extends Component {
             //center: true,
             margin: 0,
             nav: false,
-            dots: false,
+            dots: true,
             autoplay: true,
             autoplayTimeout: 4000,
             autoplayHoverPause: true,
