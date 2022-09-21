@@ -1,54 +1,98 @@
 .css-1s2u09g-control,
 .css-1pahdxg-control {
-    border-radius: 30px !important;
-    padding: 0 10px !important;
-    min-height: 42px !important;
+  border-radius: 30px !important;
+  padding: 0 10px !important;
+  min-height: 42px !important;
+  border-color: rgba(170, 173, 183, 0.4) !important;
+  &:hover,
+  &:focus {
     border-color: rgba(170, 173, 183, 0.4) !important;
-    &:hover,
-    &:focus {
-        border-color: rgba(170, 173, 183, 0.4) !important;
-    }
+  }
 }
 .css-6j8wv5-Input {
-    &::placeholder {
-        font-size: 13px !important;
-        color: #8d8f98 !important;
-    }
+  &::placeholder {
+    font-size: 13px !important;
+    color: #8d8f98 !important;
+  }
 }
 .css-1okebmr-indicatorSeparator {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 .css-2613qy-menu {
-    color: #000 !important;
-    background-color: #000 !important;
+  color: #000 !important;
+  background-color: #000 !important;
+}
+.JobApplicationForm {
+  padding-top: 90px;
+  overflow: hidden;
+  @media (min-width: 992px) {
+    padding-top: 222px;
+  }
 }
 .ApplicationForm {
-    .form-select {
-        &:focus {
-            box-shadow: none !important;
-        }
-        font-size: 13px;
-        color: #8d8f98;
+  position: relative;
+  .contactHeader {
+    margin-bottom: 30px;
+    text-align: center;
+    .form-title {
+      font-weight: 700;
+      color: var(--clr-theme-dark);
+      margin-bottom: 10px;
     }
-    .field {
-        .form-control {
-            font-size: 13px;
-            color: #8d8f98;
-            &:focus {
-                box-shadow: none !important;
-            }
-        }
+    .form-intro {
+      font-weight: 400;
+      color: var(--clr-grayDark);
+      margin-bottom: 0;
     }
-    .fileBody{
-        border: 1px dashed #AAADB7;
+  }
+  .form-select {
+    &:focus {
+      box-shadow: none !important;
     }
-    .sbm-btn{
-        .btn{
-            &:hover, &:focus{
-                background-color: #00e190;
-                color: #121316;
-                box-shadow: none !important;
-            }
-        }
+    font-size: 13px;
+    color: #8d8f98;
+  }
+  .field {
+    .form-control {
+      font-size: 13px;
+      color: #8d8f98;
+      &:focus {
+        box-shadow: none !important;
+      }
     }
+  }
+  .fileBody {
+    border: 1px dashed #aaadb7;
+  }
+  .countryCode {
+    select.form-select {
+      background-position-x: calc(100% - 5px);
+    }
+  }
+  .sbm-btn {
+    .btn {
+      width: 100%;
+      max-width: 220px;
+      &:hover,
+      &:focus {
+        background-color: #00e190;
+        color: #121316;
+        box-shadow: none !important;
+      }
+    }
+  }
+  &::before,
+  &::after {
+    position: absolute;
+  }
+  &::before {
+    content: url(../../assets/images/application-form-before.svg);
+    top: -40px;
+    left: -190px;
+  }
+  &::after {
+    content: url(../../assets/images/application-form-after.svg);
+    bottom: -40px;
+    right: -190px;
+  }
 }

@@ -240,7 +240,7 @@ class JobApplication extends Component {
                                             <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
                                                 <p className="mb-2">Upload CV</p>
                                                 <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9" onChange={ this.onChangeFile } required/>
-                                                <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center gap-3 gap-xl-4">
+                                                <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
                                                     <LazyImage src={FileIcon} alt="icon" />
                                                     <p className="fs-14 fw-medium textClrGray mb-0">{this.state.file?.name?this.state.file.name:'Upload your CV'}</p>
                                                 </div>

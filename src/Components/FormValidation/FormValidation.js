@@ -1,21 +1,57 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import FileIcon from "../../assets/images/file.svg";
 import Config from '../../Config.json';
+import LazyImage from '../LazyImage';
 import './FormValidation.scss';
 const FormValidation = (props) => {
     const [formProcessing, setFormPocessing] = useState(false);
+    
     const {
         register,
         handleSubmit,
         reset,
+        watch,
         formState: { errors },
     } = useForm();
     
     const onSubmit = async (data) => {
         setFormPocessing(true);
+        //formData.append("cv", data.cv[0]);
+        const formData = new FormData();
+        formData.append('name',data.name);
+        formData.append('email',data.email);
+        formData.append('code',data.code);
+        formData.append('phone',data.phone);
+        formData.append('interested',data.interested);
+        formData.append('budget',data.budget);
+        formData.append('company',data.company);
+        formData.append('message',data.message);
+        formData.append("cv", data.cv[0]);
         try {
+            //const rawResponse = await axios.post(Config.API_BASE + 'job-apply', JSON.stringify(data),{ 
+            const rawResponse = await axios.post(Config.API_BASE + 'contact-data', formData,{ 
+                headers: {
+                    'content-type': 'multipart/form-data',
+                    'Accept': 'application/json',
+                    "Content-type": "application/json; charset=UTF-8",
+                }
+            })
+            //const content = await rawResponse.json();
+            console.log(rawResponse);
+            if(rawResponse.data.req.data.status){
+                toast.success('Thank you for submitting this query.');
+                //setShow(true);
+                reset();
+            }
+        } catch (error) {
+            toast.error('Please try again.');
+            console.log(error);
+        }
+        /*try {
             const rawResponse = await fetch(Config.API_BASE + 'contact-data/', {
                 method: "POST",
                 body: JSON.stringify(data),
@@ -34,16 +70,12 @@ const FormValidation = (props) => {
             toast.error('Please try again.');
             //console.log(error);
             //setError("title", { type: "postAlreadyExists" }, { shouldFocus: true });
-        }
+        }*/
         setFormPocessing(false);
     };   
-    
-    /*const onSubmit = (data) => {
-        console.log(data);
-        reset();
-    }*/
+    const cv = watch("cv");
     return (
-        <div className="contactWrapper bgClrSolitude isRadius12 p-4 p-xl-5 h-100 form-validation">
+        <div className="contactWrapper bgClrSolitude isRadius12 h-100 form-validation">
             <ToastContainer />
             {(props?.title || props?.intro) &&
                 <div className="contactHeader mb-30">
@@ -85,14 +117,14 @@ const FormValidation = (props) => {
                             <div className="contactField">
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicContactNumber">Contact Number</label>
                                 <div className="countryCode d-flex align-items-center rounded-pill border overflow-hidden">
-                                    <select className="w-25 border-0 rounded-0 px-3 form-select" id="formBasicContactNumber" {...register('code')}>
+                                    <select className="border-0 rounded-0 px-3 form-select" id="formBasicContactNumber" {...register('code')}>
                                         <option value="1">US (+1)</option>
                                         <option value="59">DZ (+59)</option>
                                         <option value="213">DZ (+213)</option>
                                         <option value="376">AD (+376)</option>
                                         <option value="1264">AI (+1264)</option>
                                     </select>
-                                    <input placeholder="Please enter your number" name="phone" type="phone" id="formBasicContactNumber" className="rounded-0 border-0 border-start px-3 w-75 form-control" {...register('phone')}/>
+                                    <input placeholder="Please enter your number" name="phone" type="phone" id="formBasicContactNumber" className="rounded-0 border-0 border-start px-3 form-control" {...register('phone')}/>
                                 </div>
                             </div>
                         </div>
@@ -195,9 +227,24 @@ const FormValidation = (props) => {
                             </div>
                         </div>
                     }
-                    <div className="sbm-btn text-center text-lg-end">
-                        <input type="hidden" value={window.location.pathname.replace("/", "")} {...register('source')} />
-                        <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn" disabled={formProcessing}>{formProcessing? 'Sending Mesage...' : 'Send Message '}</button>
+                    <div className="mb-20">
+                        <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
+                            <p className="mb-2">Attach File</p>
+                            <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv')}/>
+                            <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
+                                <LazyImage src={FileIcon} alt="icon" />
+                                <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Attach your file'}</p>
+                            </div>
+                        </label>                                            
+                    </div>
+                    <div className="col-12">
+                    <div className="sbm-btn row justify-content-center justify-content-lg-start">
+                        <div className="col-sm-6">
+                            <input type="hidden" value={window.location.pathname.replace("/", "")} {...register('source')} />
+                            <button type="submit" className="bgClrGreen w-100 h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn" disabled={formProcessing}>{formProcessing? 'Sending Mesage...' : 'Send Message '}</button>
+
+                        </div>
+                    </div>
                     </div>
                 </div>
             </form>

@@ -43,7 +43,7 @@ export default class TechnologiesBar extends Component {
                         </div>
                     </div>
                     <div className="col-xl-9">
-                        <div className="singleTechLogo d-flex align-items-center flex-wrap gap-2">
+                        <div className="singleTechLogo d-flex align-items-center flex-wrap">
                         {/* <div className="singleTechLogo d-flex align-items-center justify-content-between flex-wrap"> */}
                             {
                                 (technologiesData.length)?

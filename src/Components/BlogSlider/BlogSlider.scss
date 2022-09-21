@@ -1,24 +1,26 @@
 .blogSlider {
   .owl-theme .owl-nav {
-    margin: 0;
-    @media (max-width: 991px) {
-      margin-top: 30px;
-    }
-  }
-  .owl-theme .owl-nav {
     margin-top: 30px;
     text-align: center;
+    .owl-prev,
+    .owl-next {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
     .owl-prev {
       @media (min-width: 1200px) {
-        left: -60px;
+        left: -80px;
       }
     }
     .owl-next {
       @media (min-width: 1200px) {
-        right: -60px;
+        right: -80px;
       }
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 576px) {
+      margin-top: 40px;
+    }
+    @media (min-width: 992px) {
       margin-top: 0;
       [class*="owl-"] {
         position: absolute;

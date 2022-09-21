@@ -3,6 +3,7 @@ import clockIcon from "../../assets/images/clock.svg";
 import locationIcon from "../../assets/images/location-icon.svg";
 import skypeIcon from "../../assets/images/ms_skype.png";
 import phoneIcon from "../../assets/images/phone.svg";
+import whatsApp from "../../assets/images/whatsapp.svg";
 import Config from "../../Config.json";
 import FormValidation from "../FormValidation/FormValidation";
 import LazyImage from "../LazyImage";
@@ -20,11 +21,11 @@ function ContactSection(props) {
     // console.log(optionData);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-sm-12';
         
     return ( 
         <div className="row">
-            <div className={[widthClass, orderClass].join(' ')}>
+            <div className={['mb-30-40-0', widthClass, orderClass].join(' ')}>
                 <div className="part-one">   
                     <div className="sectionHeader">                   
                         {
@@ -41,7 +42,7 @@ function ContactSection(props) {
                         }
                         
                     </div>                    
-                    <div className="getInTouch mb-5 mb-xl-0">
+                    <div className="getInTouch">
                         <div className="row isBgBorder pb-30 mb-30">
                             <div className="col-sm-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
@@ -89,7 +90,7 @@ function ContactSection(props) {
                             </div>
                         </div>
                         <div className="row isBgBorder pb-30 mb-30">
-                            <div className="col-6">
+                            <div className="col-6 col-sm-4 mb-4 mb-sm-0">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <LazyImage src={phoneIcon} alt="lineShape" />
@@ -102,14 +103,27 @@ function ContactSection(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 col-sm-4 mb-4 mb-sm-0">
+                                <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
+                                    <div className="icon">
+                                        <LazyImage src={whatsApp} alt="lineShape" />
+                                    </div>
+                                    <div className="info">
+                                        <h4 className="country text-white fw-bold fs-14">WhatsApp</h4>
+                                        <a href={(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][6].link_url} className="address textClrGray fs-14 fw-medium mb-0">                                                
+                                            {(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][6].title}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-sm-4">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <LazyImage src={skypeIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Skype</h4>
-                                        <a href={(typeof optionData['contact-social-links'] !== 'undefined') && 'skype:'+optionData['contact-social-links'][5].title} className="address textClrGray fs-14 fw-medium mb-0">                                                
+                                        <a href={(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].link_url} className="address textClrGray fs-14 fw-medium mb-0">                                                
                                             {(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].title}
                                         </a>
                                     </div>

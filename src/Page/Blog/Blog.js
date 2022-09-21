@@ -115,9 +115,9 @@ class Blog extends Component {
             {/* {console.log(pageData.meta)} */}
             {
             !pageData?.meta?._mosacademy_banner_hide && 
-            <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} featureImage={pageData?.meta?._mosacademy_page_banner_feature_image} alt={pageData?.meta?._mosacademy_page_banner_feature_image_alt} />    
+            <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} featureImage={pageData?.meta?._mosacademy_page_banner_feature_image} alt={pageData?.meta?._mosacademy_page_banner_feature_image_alt} btn2={pageData?.meta?._mosacademy_page_banner_button_2} />    
             }
-                <section className="blogWrapper secPadding">
+                <section id="blogWrapper" className="blogWrapper secPadding">
                     <div className="filterArea pb-5 isBgBorder mb-5">
                         <div className="container-lg">
                             <div className="row">

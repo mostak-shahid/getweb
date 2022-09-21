@@ -5,6 +5,9 @@ import Config from "../../Config.json";
 import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import "./FooterComponent.scss";
+import FooterBG from "../../assets/images/footer-bg-min.png"
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+
 
 //const FooterComponent = () => {
 export default class FooterComponent extends Component {
@@ -280,7 +283,8 @@ export default class FooterComponent extends Component {
       })
     }
     return (
-      <div className="footer">
+      <LazyLoadComponent>
+        <div className="footer" style={{ backgroundImage: `url(${FooterBG})` }}>
         <div className="contactUs isBgBorder pt-120">
           <div className="container-lg">
             <div className="widget">
@@ -507,6 +511,8 @@ export default class FooterComponent extends Component {
             
         </div> 
       </div>
+      </LazyLoadComponent>
+      
     );
   }
 }

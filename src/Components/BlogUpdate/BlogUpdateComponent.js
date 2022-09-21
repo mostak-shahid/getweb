@@ -31,7 +31,7 @@ const BlogUpdateComponent = (props) => {
                     <MultipleItems />
                     {
                         _mosacademy_page_group_button?.url &&
-                        <div className="allInsightBtn text-center mt-40">
+                        <div className="allInsightBtn text-center">
                             <Link to={_mosacademy_page_group_button?.url} className="btn fs-15 fwSemiBold textClrGrayDark text-decoration-none d-inline-flex align-items-center justify-content-center">
                                 <span className="mr-8" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_button?.title}} />
                                 <span className="btn-arrow"/>

@@ -7,3 +7,19 @@
     padding-bottom: 11px;
   }
 }
+.contactWrapper {
+  padding: 30px 20px;
+  @media (min-width: 576px) {
+    padding: 40px;
+  }
+  @media (min-width: 992px) {
+  }
+}
+.countryCode {
+  .form-select {
+    flex: 0 0 113px;
+  }
+  .form-control {
+    flex: 1;
+  }
+}

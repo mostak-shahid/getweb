@@ -97,6 +97,20 @@
     background-image: linear-gradient(to right, #121316, rgba(18, 19, 22, 0.5));
     z-index: -1;
   }*/
+  .lint-to-id {
+    margin-bottom: 50px;
+    .lint-to-id-title {
+      color: var(--clr-dark-2);
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 21px;
+      display: block;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 991.98px) {
+      display: none;
+    }
+  }
   &._product-design-pageBanner,
   &._ui-design-pageBanner {
     &::after {

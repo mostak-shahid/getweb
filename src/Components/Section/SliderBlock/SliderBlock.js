@@ -46,13 +46,13 @@ const SliderBlock = (props) => {
                         <h3 className="blogTitle fs-6 fw-bold mb-2" style={{ maxWidth: "300px", width: "100%" }}>
                             <Link to={['/blog',item.slug].join('/')}  className="text-decoration-none text-white" dangerouslySetInnerHTML={{__html:item.title}} />
                         </h3>
-                        <div className="blogDesc textClrGray fw-normal fs-14 mb-5" style={{ maxWidth: "300px", width: "100%" }}>
-                            <p className="mb-0" dangerouslySetInnerHTML = {{__html: item.excerpt.small}}></p>
+                        <div className="blogDesc textClrGray fw-normal fs-14 mb-30" style={{ maxWidth: "300px", width: "100%" }}>
+                            <p className="mb-0" dangerouslySetInnerHTML = {{__html: item.excerpt.medium}}></p>
                         </div>
                     </div>
                     </div>
                     <div className='link-part p-4 pt-0'>
-                        <Link to={['/blog',item.slug].join('/')} className="readMore d-flex justify-content-between align-items-center textClrGrayDark fs-14 fwSemiBold text-decoration-none">
+                        <Link to={['/blog',item.slug].join('/')} className="readMore d-flex align-items-center textClrGrayDark fs-14 fwSemiBold text-decoration-none">
                             <span>
                                 Read More
                             </span>

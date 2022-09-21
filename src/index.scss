@@ -29,6 +29,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: var(--clr-green);
 }
 @media (min-width: 992px) {
   .col-lg-one-fifth {
@@ -277,6 +278,9 @@ h1,
 .mb-10 {
   margin-bottom: 10px !important;
 }
+.mb-15 {
+  margin-bottom: 15px !important;
+}
 .m-20 {
   margin: 20px !important;
 }
@@ -292,6 +296,9 @@ h1,
 .mb-40 {
   margin-bottom: 40px !important;
 }
+.mt-10 {
+  margin-top: 10px !important;
+}
 .mt-40 {
   margin-top: 40px !important;
 }
@@ -306,6 +313,23 @@ h1,
   @media (min-width: 992px) {
     margin-top: 0;
   }
+}
+.mb-30-40-0 {
+  margin-bottom: 30px;
+  .secIntro {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @media (min-width: 576px) {
+    margin-bottom: 40px;
+  }
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
+}
+.line-height-1 {
+  line-height: 1 !important;
 }
 .isRadius12 {
   border-radius: 12px;
@@ -428,6 +452,7 @@ img {
     border-style: none;
     opacity: 1;
     background-color: transparent;
+    vertical-align: top;
     margin-top: 4px;
     margin-bottom: 30px;
     @media (min-width: 576px) {
@@ -528,6 +553,18 @@ img {
   //.owl-theme .owl-dots .owl-dot.active span,
   //.owl-theme .owl-dots .owl-dot:hover span
 }
+.fileBody {
+  border: 1px dashed #aaadb7;
+  // background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='#AAADB7' rx='12' ry='12' stroke='black' stroke-width='8' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  // border-radius: 12px;
+  img {
+    margin-right: 10px;
+  }
+}
+.blogDesc p {
+  max-height: 88px;
+  overflow: hidden;
+}
 .singleBlog {
   background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
   border: 1px solid #202124;
@@ -585,12 +622,11 @@ img {
 
 ul {
   &:not(.mos-menu-list, .dropdown, .socialLink, .portfolioFilteMenu, .pagination, .footer-social-list) {
-    padding-left: 20px;
+    padding-left: 5px;
     //list-style-image: url(./assets/images/green-tick.svg);
     list-style: none;
     margin-bottom: 30px;
     li {
-      padding-left: 5px;
       padding-top: 5px;
       padding-bottom: 5px;
       display: flex;

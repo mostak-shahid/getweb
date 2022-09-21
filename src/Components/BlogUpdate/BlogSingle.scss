@@ -1,20 +1,22 @@
 .BlogSingleWrapper {
   .BlogsSingleHeader {
     margin-bottom: 30px;
+    .blogSingleTag,
+    .blogSingleTitle {
+      margin-bottom: 20px;
+    }
+    .meta {
+      margin-bottom: 30px;
+      @media (min-width: 576px) {
+        margin-bottom: 40px;
+      }
+      @media (min-width: 992px) {
+      }
+    }
     @media (min-width: 576px) {
       margin-bottom: 40px;
     }
     @media (min-width: 992px) {
-      margin-bottom: 60px;
-    }
-  }
-  .meta {
-    margin-bottom: 30px;
-    @media (min-width: 576px) {
-      margin-bottom: 40px;
-    }
-    @media (min-width: 992px) {
-      margin-bottom: 60px;
     }
   }
   .BlogSingFeatheredImg {
@@ -142,7 +144,6 @@
             margin-top: 40px;
           }
           @media (min-width: 992px) {
-            margin-top: 60px;
           }
         }
       }
@@ -158,6 +159,7 @@
       }
       blockquote {
         margin-top: 30px;
+        margin-bottom: 0;
         padding: 25px 28px;
         border-width: 2px;
         border-style: solid;
@@ -187,14 +189,13 @@
           padding: 30px 38px;
         }
         @media (min-width: 992px) {
-          margin-top: 60px;
           padding: 30px 60px;
         }
       }
       table {
         width: 100%;
-        margin-bottom: 60px;
-        margin-top: 60px;
+        margin-bottom: 40px;
+        margin-top: 40px;
         thead {
           background-color: var(--clr-menu-light);
           border-radius: 4px;
@@ -280,7 +281,7 @@
       }
       hr {
         background-color: #4c4d54;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
       }
       & > *:last-child {
         margin-bottom: 0;

@@ -1,6 +1,6 @@
 @import "../../mixing.scss";
 .secPadding {
-  a {
+  a:not(.btn) {
     &:hover {
       color: var(--clr-green);
     }
@@ -204,6 +204,11 @@
       @media (min-width: 992px) {
         display: none;
       }
+    }
+  }
+  &.google-cloud-development-1 {
+    .btn-wrapper {
+      margin-top: 20px;
     }
   }
 }
