@@ -4,14 +4,14 @@ import LazyImage from '../../LazyImage';
 import './MediaBlock.scss';
 
 const MediaBlock = (props) => {
-    //console.log(props);
+    // console.log(props);
     const[open, setOpen] = useState(false)
     return (
         <div className={['media-block', props?.template ].join(' ')}>
             <div className='block-part-one'>        
                 {props?.data?.featured_image?.full && 
                     <div className='block-image'>
-                        <LazyImage src={props?.data?.featured_image?.full} alt={props?.data?.title} />
+                        <LazyImage src={props?.data?.featured_image?.full} alt={props?.data?.title} width={[props?.data?.featured_image?.image_attributes[1], 'px'].join('')} height={[props?.data?.featured_image?.image_attributes[2], 'px'].join('')} />
                     </div>
                 }               
                 {props?.data?.meta?._mosacademy_custom_html && 

@@ -1,6 +1,9 @@
 @import "../../../mixing.scss";
 .media-block {
   transition: all 0.2s linear;
+  a {
+    text-decoration: none;
+  }
   .block-part-one {
     .block-image {
       margin-bottom: 20px;
@@ -10,6 +13,7 @@
       font-size: 18px;
       line-height: 30px;
       margin-bottom: 10px;
+      color: var(--clr-white);
       a {
         transition: all 0.2s linear;
         color: var(--clr-white);

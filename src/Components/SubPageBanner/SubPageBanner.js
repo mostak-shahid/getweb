@@ -7,7 +7,7 @@ const SubPageBanner = (props) => {
     const location = useLocation();
     const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
     //console.log(props);
-    const { tagline, title, intro, bgImg, btn, featureImage, alt } = props;
+    const { tagline, title, intro, bgImg, btn, featureImage, alt, attributes } = props;
     return (
         <section className={["subPageBanner position-relative bgClrDarkLight", bannerCls ].join(' ')} style={{ backgroundImage: `url(${bgImg})` }}>
             <div className="container-lg">
@@ -25,7 +25,7 @@ const SubPageBanner = (props) => {
                         {
                         featureImage &&
                             <div className="bannerImage col-lg-6 text-center text-lg-end">
-                                <LazyImage src={featureImage} alt={alt} className="img-fluid img-banner" />
+                                <LazyImage src={featureImage} alt={alt} className="img-fluid img-banner" width={[attributes[1], 'px'].join('')} height={[attributes[2], 'px'].join('')} />
                             </div>
                         }
                     </div>

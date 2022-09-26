@@ -75,7 +75,9 @@ export default class OurFocusIndustriesComponent extends Component {
                                         <div className='col-4 col-sm-3 col-lg-2 industriesItem text-end' key={item.id}>
                                             <div className='icon px-3 py-3 text-center'>
                                                 {(item.featured_image.full) && 
-                                                <div className="wrapper-img"><LazyImage className="d-inline-block mb-1 mb-sm-2 mb-lg-4" src={item.featured_image.full} alt={item.title} /></div>                                                
+                                                <div className="wrapper-img">
+                                                    <LazyImage className="d-inline-block mb-1 mb-sm-2 mb-lg-4" src={item.featured_image.full} alt={item.title} width={[item.featured_image.image_attributes[1], "px"].join('')} height={[item.featured_image.image_attributes[2], "px"].join('')} />
+                                                </div>                                                
                                                 }
                                                 <div className='iITitle fs-14 fw-bold text-white' dangerouslySetInnerHTML = {{__html: item.title}}></div>
                                             </div>

@@ -6,14 +6,13 @@ const LazyImage = (props) => {
     return (
         <LazyLoadImage
             className={['lazy-load-image', 'lazyload',props.className].join(' ')}
-            alt={props.alt?props.alt:''}
-            height={props.height?props.height:''}
             src={props.src?props.src:''} // use normal <img> attributes as props
+            alt={props.alt?props.alt:''}
             width={props.width?props.width:''}
+            height={props.height?props.height:''}
             effect="blur"
             visibleByDefault={logo}
             loading="lazy" />
     )
 }
-
 export default LazyImage

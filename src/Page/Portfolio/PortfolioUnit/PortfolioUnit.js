@@ -12,9 +12,9 @@ const PortfolioUnit = (props) => {
             {
                 props?.data?.image && 
                 // <img src={props?.data?.image} alt={props?.data?.title} />
-                <LazyImage src={props?.data?.image} alt={props?.data?.title} />
+                <LazyImage src={props?.data?.image} alt={props?.data?.title} width={[props?.data?.featured_image?.image_attributes[1], 'px'].join('')} height={[props?.data?.featured_image?.image_attributes[2], 'px'].join('')} />
+                
             }
-            
             <div className="afterHover">
                 <div className="category">
                 {
@@ -26,7 +26,7 @@ const PortfolioUnit = (props) => {
                 }
                 </div>
                 <NavLink to="" className="goArrow position-absolute bottom-50 start-50" >
-                    <img src={goArrow} alt="go icon" />
+                    <img src={goArrow} alt="go icon" width="42px" height="42px" />
                 </NavLink>
                 <NavLink to="" className="portTitle fs-6 fw-bold text-white position-absolute bottom-0 start-0 p-4 mb-0 text-decoration-none" dangerouslySetInnerHTML={{__html: props?.data?.title}}/>
             </div>

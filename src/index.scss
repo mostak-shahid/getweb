@@ -629,3 +629,38 @@ ul {
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
 }
+
+/*From Frahim vai*/
+#banner Content .bannerTitle {
+  @media all and (max-width: 480px) {
+    width: 427px;
+  }
+  @media all and (min-width: 481px) and (max-width: 568px) {
+    width: 460px;
+  }
+  @media all and (min-width: 569px) and (max-width: 768px) {
+    width: 500px;
+  }
+  @media all and (min-width: 769px) {
+    width: 100%;
+  }
+}
+
+/*Footer content*/
+@media (max-width: 768px) {
+  .footer {
+    background-image: none;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .contacts {
+    width: 446px;
+  }
+}
+@media (min-width: 769px) {
+  .footer {
+    background-image: url(./assets/images/footer-bg-min.png);
+  }
+}
+/*From Frahim vai*/

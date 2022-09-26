@@ -354,7 +354,7 @@ export default class FooterComponent extends Component {
                           optionData["sections-footer-gallery"]
                         ).map((value, index) => {
                           return (
-                            <LazyImage src={value} key={index} alt="footerSubLogo" />
+                            <LazyImage src={value.url} key={index} alt="footerSubLogo" width={[value.image_attributes[1], 'px'].join('')} height={[value.image_attributes[2], 'px'].join('')} />
                           );
                         })}
                       </div>

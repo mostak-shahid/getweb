@@ -18,8 +18,8 @@ const NotFound = () => {
         <div className="bannerContent d-flex align-items-center justify-content-center">
           <div className="wrapper">
             <LazyImage src={image} alt="404 Page" className="img-fluid img-404-page" />
-            <div class="banner-heading fs-48 fw-normal"><h2>Oops! this page <strong>not found</strong></h2></div>
-            <div class="banner-desc">The page you are looking for might have been removed its name, changed or is temporary unavailable.</div>
+            <div className="banner-heading fs-48 fw-normal"><h2>Oops! this page <strong>not found</strong></h2></div>
+            <div className="banner-desc">The page you are looking for might have been removed its name, changed or is temporary unavailable.</div>
             <Button title="Back to Home" url="/"/>
           </div>
         </div>

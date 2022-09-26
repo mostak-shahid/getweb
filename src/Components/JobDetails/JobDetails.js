@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Config from "../../Config.json";
 import Button from "../Button/Button";
-import MainComponent from "../MainComponent/MainComponent";
 import Section from "../Section/Section";
 import SeoMeta from "../SeoMeta/SeoMeta";
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";

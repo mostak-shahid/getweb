@@ -81,14 +81,14 @@ export default class MultipleItems extends Component {
               <div className="item-wrapper singleFeedback isRadius16 p-30 bgClrDarkLight d-flex flex-column justify-content-between" key={items.id}>
                 <div className="reviewerContent">
                 <div className="logos mb-4">
-                  <LazyImage className="testimonial-company" src={items.meta._mosacademy_testimonial_company_logo} alt={[items.meta._mosacademy_testimonial_name, '- Conpany Logo'].join(" ")} />
+                  <LazyImage className="testimonial-company" src={items.meta._mosacademy_testimonial_company_logo} alt={[items.meta._mosacademy_testimonial_name, '- Conpany Logo'].join(" ")} width={[items.meta._mosacademy_testimonial_company_logo_attributes[1], 'px'].join('')} height={[items.meta._mosacademy_testimonial_company_logo_attributes[2], 'px'].join('')} />
                 </div>
                 <div className="feedbackText textClrGray fw-normal fs-6 mb-5" dangerouslySetInnerHTML={{__html:items.content}} />
                 </div>
                 <div className="reviewerInfo d-flex align-items-center justify-content-between">
                   <div className="d-flex align-items-center gap-3">
                     <div className="pic">
-                      <LazyImage className="rounded-circle" width="45" height="45" src={items.image} alt={items.meta._mosacademy_testimonial_name} />
+                      <LazyImage className="rounded-circle" width="45px" height="45px" src={items.image} alt={items.meta._mosacademy_testimonial_name} />
                     </div>
                     <span className="info">
                       <div className="fs-14 fw-bold text-white mb-1">
