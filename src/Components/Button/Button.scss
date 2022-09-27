@@ -1,7 +1,6 @@
 .btn-wrapper {
   display: inline-block;
   .btn {
-    background-color: var(--clr-green);
     padding: 12px 28px;
     font-weight: 600;
     font-size: 14px;
@@ -48,9 +47,16 @@
     }
   }
 }
+.btn-contact,
 .btn {
+  background-color: var(--clr-green);
   &:hover {
-    background-color: #4991ff !important;
-    color: var(--clr-theme-dark) !important;
+    background-color: #4991ff;
+    color: var(--clr-theme-dark);
+  }
+}
+.allInsightBtn {
+  .btn {
+    background-color: transparent !important;
   }
 }

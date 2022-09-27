@@ -1,7 +1,7 @@
 @import "../../mixing.scss";
 .secPadding {
   a {
-    &:hover {
+    &:not(.btn):hover {
       color: var(--clr-green);
     }
   }
@@ -204,6 +204,13 @@
       @media (min-width: 992px) {
         display: none;
       }
+    }
+  }
+  &.JobApplicationForm {
+    padding-top: 90px;
+    overflow-x: hidden;
+    @media (min-width: 992px) {
+      padding-top: 222px;
     }
   }
 }

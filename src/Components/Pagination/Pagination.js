@@ -2,11 +2,13 @@ import React from "react";
 import "./Pagination.scss";
 
 const Pagination = (props) => {
-    //console.log(props)
+    console.log('props.startFrom', props.startFrom);
+    console.log('props.postPerPage', props.postPerPage);
+    console.log(props.startFrom/props.postPerPage);
     const list = [];
     var cls;
     for (let i = 0; i < props.data; i++) {
-        if (i === props.startFrom/props.postPerPage) cls = "active";
+        if (i === Math.floor(props.startFrom/props.postPerPage)) cls = "active";
         else cls = "";
         list.push(
             <li className="page-item" key={i}>
@@ -20,10 +22,9 @@ const Pagination = (props) => {
         <div className="pagination-box">
             <nav>
                 <ul className="pagination justify-content-center gap-3">
-                    {
-                        props.startFrom!==0 &&
+                    
                         <li className="page-item">
-                            <span className="page-link bg-transparent" aria-label="Previous" onClick={() => props.startFromChange(props.startFrom - 1)}>
+                            <span className="page-link bg-transparent" aria-label="Previous" onClick={() => props.startFrom!==0 && props.startFromChange(props.startFrom - props.postPerPage)}>
                                 <span aria-hidden="true">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -38,12 +39,12 @@ const Pagination = (props) => {
                                 </span>
                             </span>
                         </li>
-                    }                    
+                                       
                     {list}
-                    {
-                        ((props.startFrom)/props.postPerPage + 1) < props.data &&
+                    
+                        
                         <li className="page-item">
-                            <span className="page-link bg-transparent" aria-label="Next" onClick={() => props.startFromChange(props.startFrom + 1)}>
+                            <span className="page-link bg-transparent" aria-label="Next" onClick={() => ((props.startFrom)/props.postPerPage + 1) < props.data && props.startFromChange(props.startFrom + props.postPerPage)}>
                                 <span aria-hidden="true">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -58,7 +59,7 @@ const Pagination = (props) => {
                                 </span>
                             </span>
                         </li>
-                    }
+                    
                 </ul>
             </nav>
         </div>

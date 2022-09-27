@@ -6,4 +6,16 @@
     padding-top: 11px;
     padding-bottom: 11px;
   }
+  select.form-select {
+    background-position-x: calc(100% - 20px);
+  }
+  .countryCode {
+    select.form-select {
+      background-position-x: calc(100% - 5px);
+      width: 113px;
+    }
+  }
+  textarea {
+    border-radius: 16px;
+  }
 }

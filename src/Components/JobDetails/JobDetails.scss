@@ -10,14 +10,14 @@
       h4 {
         margin-top: 45px;
         margin-bottom: 20px;
-        font-weight: 900;
+        font-weight: 700;
         color: var(--clr-white);
       }
       p {
         margin-bottom: 15px;
       }
       ul {
-        padding-left: 24px;
+        padding-left: 5px;
       }
       .jobDetails {
         ul {
@@ -36,6 +36,7 @@
       background-color: var(--clr-menu-light);
       padding: 35px;
       margin-top: 60px;
+
       .btn-wrapper {
         display: block;
         .btn {
@@ -64,6 +65,7 @@
       }
       @media (min-width: 992px) {
         margin-top: 0;
+        top: 100px;
       }
     }
   }

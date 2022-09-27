@@ -1,7 +1,7 @@
+import he from 'he';
 import React, { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import "./FaqBlock.scss";
-
 const FaqBlock = (props) => {
     const [groupData,setGroupData]=useState([]);
     const [loading,setLoading]=useState(true);
@@ -38,7 +38,7 @@ const FaqBlock = (props) => {
                                 {
                                     item.map((i, j)=>(
                                         <Accordion.Item eventKey={[0, index, j].join('-')} className="mb-3 overflow-hidden" key={j}>                                            
-                                            <Accordion.Header className="fs-6 fw-bold">{i.title}</Accordion.Header>
+                                            <Accordion.Header className="fs-6 fw-bold">{he.decode(i.title)}</Accordion.Header>
                                             <Accordion.Body className="fw-normal fs-6" dangerouslySetInnerHTML={{__html:i.content}} />
                                         </Accordion.Item>
                                     ))

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <meta name="googlebot" content="noindex" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> -->
+
     <!-- <link
       rel="stylesheet"
       type="text/css"
@@ -17,41 +17,49 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  
-  <script>
-    const header = document.querySelector(".main-header");
-    var lastScrollTop = 251;
-    var scrolleffect = window.addEventListener(
-      "scroll",
-      function () {
-        // or window.addEventListener("scroll"....
-        const header = document.querySelector(".main-header");
-        const backToTop = document.querySelector(".back-to-top-con");
-        var st = window.pageYOffset || document.documentElement.scrollTop;
-        //const scrollTop = window.scrollY;
-        movingup = this.oldScroll > this.scrollY;
-        this.oldScroll = this.scrollY;
-        if (movingup){
-          header.classList.add("headroom--pinned")
-          header.classList.remove("headroom--unpinned")
-        } else {
-          header.classList.remove("headroom--pinned")
-          header.classList.add("headroom--unpinned")
-        }
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script> -->
 
-        st > 0
-          ? header.classList.add("active-sticky-menu")
-          : header.classList.remove('active-sticky-menu', 'headroom--pinned', 'headroom--unpinned');
-        st > 100
-          ? backToTop.classList.add("make-visible")
-          : backToTop.classList.remove("make-visible");
-        // lastScrollTop = st <= 0 ? 0 : st;
-        // console.log(st);
-      },
-      false
-    );
-  </script>
+    <script>
+      const header = document.querySelector(".main-header");
+      var lastScrollTop = 251;
+      var scrolleffect = window.addEventListener(
+        "scroll",
+        function () {
+          // or window.addEventListener("scroll"....
+          const header = document.querySelector(".main-header");
+          const backToTop = document.querySelector(".back-to-top-con");
+          var st = window.pageYOffset || document.documentElement.scrollTop;
+          //const scrollTop = window.scrollY;
+          movingup = this.oldScroll > this.scrollY;
+          this.oldScroll = this.scrollY;
+          if (movingup) {
+            header.classList.add("headroom--pinned");
+            header.classList.remove("headroom--unpinned");
+          } else {
+            header.classList.remove("headroom--pinned");
+            header.classList.add("headroom--unpinned");
+          }
+
+          st > 0
+            ? header.classList.add("active-sticky-menu")
+            : header.classList.remove(
+                "active-sticky-menu",
+                "headroom--pinned",
+                "headroom--unpinned"
+              );
+          st > 100
+            ? backToTop.classList.add("make-visible")
+            : backToTop.classList.remove("make-visible");
+          // lastScrollTop = st <= 0 ? 0 : st;
+          // console.log(st);
+        },
+        false
+      );
+    </script>
 
     <meta name="developer" content="Md. Mostak Shahid" />
   </head>

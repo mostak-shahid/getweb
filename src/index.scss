@@ -29,6 +29,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: var(--clr-green);
 }
 @media (min-width: 992px) {
   .col-lg-one-fifth {
@@ -276,6 +277,9 @@ h1,
 }
 .mb-10 {
   margin-bottom: 10px !important;
+}
+.mb-15 {
+  margin-bottom: 15px !important;
 }
 .m-20 {
   margin: 20px !important;
@@ -585,14 +589,12 @@ img {
 
 ul {
   &:not(.mos-menu-list, .dropdown, .socialLink, .portfolioFilteMenu, .pagination, .footer-social-list) {
-    padding-left: 20px;
+    padding-left: 5px;
     //list-style-image: url(./assets/images/green-tick.svg);
     list-style: none;
     margin-bottom: 30px;
     li {
-      padding-left: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: 5px 0;
       display: flex;
       align-items: center;
       &::before {
@@ -645,7 +647,26 @@ ul {
     width: 100%;
   }
 }
-
+.fileBody {
+  border: 1px dashed #aaadb7;
+  img {
+    margin-right: 10px;
+  }
+}
+.singleBlog {
+  .blogDesc {
+    max-height: 88px;
+    overflow: hidden;
+  }
+  .link-part {
+    display: inline-block;
+    .readMore {
+      span {
+        padding-right: 10px;
+      }
+    }
+  }
+}
 /*Footer content*/
 @media (max-width: 768px) {
   .footer {
@@ -656,6 +677,7 @@ ul {
 @media all and (max-width: 480px) {
   .contacts {
     width: 446px;
+    max-width: 100%;
   }
 }
 @media (min-width: 769px) {
