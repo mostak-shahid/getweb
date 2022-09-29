@@ -43,6 +43,7 @@
 }
 .tab-content-list {
   margin-bottom: 1.5rem !important;
+  margin-top: -20px;
   .tab-content {
     .media-block {
       .block-part-one {
@@ -191,5 +192,8 @@
         padding-top: 120px;
       }
     }
+  }
+  @media (min-width: 992px) {
+    margin-top: 0;
   }
 }

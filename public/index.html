@@ -13,6 +13,8 @@
       href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css"
     /> -->
     <script
+      async
+      defer
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
@@ -60,7 +62,32 @@
         false
       );
     </script>
-
+    <script>
+      jQuery.event.special.touchstart = {
+        setup: function (_, ns, handle) {
+          this.addEventListener("touchstart", handle, {
+            passive: !ns.includes("noPreventDefault"),
+          });
+        },
+      };
+      jQuery.event.special.touchmove = {
+        setup: function (_, ns, handle) {
+          this.addEventListener("touchmove", handle, {
+            passive: !ns.includes("noPreventDefault"),
+          });
+        },
+      };
+      jQuery.event.special.wheel = {
+        setup: function (_, ns, handle) {
+          this.addEventListener("wheel", handle, { passive: true });
+        },
+      };
+      jQuery.event.special.mousewheel = {
+        setup: function (_, ns, handle) {
+          this.addEventListener("mousewheel", handle, { passive: true });
+        },
+      };
+    </script>
     <meta name="developer" content="Md. Mostak Shahid" />
   </head>
 

@@ -120,7 +120,7 @@ export default class HomeTechnologiesComponent extends Component {
                 </div>
                 <div className={[widthClass].join(' ')}>
                     <div className="part-two">                 
-                        <div className="singleTechnologyBar">
+                        <div className="singleTechnologyBar mb-4">
                             {
                                 console.log(taxonomiesData)
                             }

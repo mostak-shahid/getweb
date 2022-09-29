@@ -52,7 +52,7 @@ const GroupTechonologiesbar = (props) => {
             <div className="part-two text-start mb--4">
                                  
                              
-                        <div className="singleTechnologyBar">
+                        <div className="singleTechnologyBar mb-4">
                             {/* { console.log(technologiesData)} */}
                             {
                                 (technologiesData.length) && 

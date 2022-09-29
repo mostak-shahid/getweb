@@ -24,10 +24,10 @@ const FaqBlock = (props) => {
     
     return (
 
-        <div className="faqList">
+        <div className="faqList col-12 mb-4">
             {/* {console.log('Main: ', props.noCol)} */}
             {/* {console.log('Grouped: ', groupData)} */}
-            <Accordion defaultActiveKey="0" flush>
+            <Accordion defaultActiveKey="0" flush className='mb--3'>
                 <div className="row">
                     {                                
                         loading

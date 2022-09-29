@@ -120,6 +120,7 @@ const PortfolioTab = (props) => {
         autoplayHoverPause: true,
         smartSpeed: 2500,
         items: 1,
+        autoHeight:true,
     };
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_title_text=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';

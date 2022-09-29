@@ -1,16 +1,23 @@
 @import "../../mixing.scss";
 .secPadding {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   a {
     &:not(.btn):hover {
       color: var(--clr-green);
     }
   }
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  .left-right-content {
+    .secIntro {
+      *:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
   .col-lg-6 {
     .btn-wrapper {
-      margin-top: 24px;
+      margin-top: 40px;
     }
   }
   .col-lg-12,
@@ -119,17 +126,6 @@
       }
     }
   }
-  &.about-0 {
-    .col-lg-6.order-lg-last {
-      margin-bottom: 10px;
-      @media (min-width: 576px) {
-        margin-bottom: 20px;
-      }
-      @media (min-width: 992px) {
-        margin-bottom: 0;
-      }
-    }
-  }
   &.service-detail-content {
     .part-two {
       .block-unit {
@@ -211,6 +207,18 @@
     overflow-x: hidden;
     @media (min-width: 992px) {
       padding-top: 222px;
+    }
+  }
+  &.quality-assurance-1 {
+    .singleTechnology {
+      width: 100%;
+      .singleTechLogo {
+        justify-content: flex-start !important;
+
+        @media (min-width: 992px) {
+          justify-content: center !important;
+        }
+      }
     }
   }
 }

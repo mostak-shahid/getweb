@@ -25,7 +25,7 @@ const WhoWeAre = (props) => {
     //console.log(props);
     return (
         <div className="row">
-            <div className={['mb-5 mb-lg-0',widthClass, orderClass].join(' ')}>
+            <div className={[widthClass, orderClass].join(' ')}>
                 <div className="sectionHeader">                   
                     {
                         _mosacademy_page_group_sub_titles[0] &&
@@ -41,7 +41,7 @@ const WhoWeAre = (props) => {
                     }
                 </div>
             </div>
-            <div className={[widthClass].join(' ')}>
+            <div className={['tab-mobile-margin-top',widthClass].join(' ')}>
             {
                 loading
                 ?<div className="textClrGreen text-center d-none">loading...</div>

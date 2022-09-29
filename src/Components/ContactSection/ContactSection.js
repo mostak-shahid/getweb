@@ -21,7 +21,7 @@ function ContactSection(props) {
     // console.log(optionData);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12';
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-sm-12';
         
     return ( 
         <div className="row">
@@ -42,7 +42,7 @@ function ContactSection(props) {
                         }
                         
                     </div>                    
-                    <div className="getInTouch mb-5 mb-xl-0">
+                    <div className="getInTouch">
                         <div className="row isBgBorder pb-30 mb-30">
                             <div className="col-sm-6">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
@@ -146,7 +146,7 @@ function ContactSection(props) {
                     </div>  
                 </div>
             </div>
-            <div className={[widthClass].join(' ')}>
+            <div className={['tab-mobile-margin-top', widthClass].join(' ')}>
                 <div className="part-two"> 
                 <FormValidation title="Need a digital product or a custom solution? We’re all ears!" fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
                 </div>

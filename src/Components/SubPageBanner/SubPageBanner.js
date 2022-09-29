@@ -1,13 +1,13 @@
 import { useLocation } from "react-router-dom";
+import Goto from '../../assets/images/go-to-btn.svg';
 import Button from "../Button/Button";
 import LazyImage from "../LazyImage";
 import "./SubPageBanner.scss";
-
 const SubPageBanner = (props) => {
     const location = useLocation();
     const bannerCls = location.pathname.replaceAll('/', '_') + '-pageBanner';
     //console.log(props);
-    const { tagline, title, intro, bgImg, btn, featureImage, alt, attributes } = props;
+    const { tagline, title, intro, bgImg, btn, featureImage, alt, attributes,btn2 } = props;
     return (
         <section className={["subPageBanner position-relative bgClrDarkLight", bannerCls ].join(' ')} style={{ backgroundImage: `url(${bgImg})` }}>
             <div className="container-lg">
@@ -31,6 +31,16 @@ const SubPageBanner = (props) => {
                     </div>
                 </div>
             </div>
+            {console.log(btn2)}
+            {
+                btn2?.title && btn2?.url &&
+                <div className="banner-go-to text-center">
+                    <a href={btn2.url}>
+                        <span dangerouslySetInnerHTML={{__html:btn2.title}} />
+                        <LazyImage src={Goto} height="50px" width="50px"/>
+                    </a>
+                </div>
+            }
         </section>
     );
 };

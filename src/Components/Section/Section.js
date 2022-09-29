@@ -4,11 +4,14 @@ import MainComponent from '../MainComponent/MainComponent';
 import MediaGroup from './MediaGroup/MediaGroup';
 import './Section.scss';
 const Section = (props) => {
-    const {_mosacademy_page_group_content_width = "container-lg", _mosacademy_page_group_css='',_mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_description='', _mosacademy_page_group_button, _mosacademy_page_group_freature_image='', _mosacademy_page_group_background_image='', _mosacademy_page_group_components = '', _mosacademy_page_group_component_layout ='', _mosacademy_page_group_component_count_total=0, _mosacademy_page_group_component_count_col=0, _mosacademy_page_group_component_template, group_slug, group_id, _mosacademy_page_group_component_name, image_alt} = props.data;
+
+    //console.log(props.data);
+    const {_mosacademy_page_group_content_width = "container-lg", _mosacademy_page_group_css='',_mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_description='', _mosacademy_page_group_button, _mosacademy_page_group_freature_image='', _mosacademy_page_group_background_image='', _mosacademy_page_group_components = '', _mosacademy_page_group_component_layout ='', _mosacademy_page_group_component_count_total=0, _mosacademy_page_group_component_count_col=0, _mosacademy_page_group_component_template, group_slug, group_id, _mosacademy_page_group_component_name, image_alt, _mosacademy_page_group_freature_image_attributes} = props.data;
 
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-sm-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-sm-12';
     const sCMT = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'tab-mobile-margin-top':'';
+    const fCMT = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? ' left-right-content':'';
     var noCol = 1;
     var noColmd = 1;
     var noColsm = 1;
@@ -38,7 +41,7 @@ const Section = (props) => {
         <section id={group_id} className={['section-wrapper', 'secPadding', 'section-js',group_slug, _mosacademy_page_group_css].join(' ')} style={props?._mosacademy_page_group_background_image && { backgroundImage: `url(${_mosacademy_page_group_background_image})` }}>
             <div className={_mosacademy_page_group_content_width}>
                 <div className="row">
-                    <div className={[widthClass, orderClass].join(' ')}>
+                    <div className={[widthClass, orderClass, fCMT].join(' ')}>
                         <div className="part-one">                        
                             {
                                 _mosacademy_page_group_sub_titles[0] &&
@@ -59,7 +62,7 @@ const Section = (props) => {
                         <div className="part-two text-start mb--4">
                             {
                                 _mosacademy_page_group_freature_image && 
-                                <LazyImage className="img-fluid section-featured-img" src={_mosacademy_page_group_freature_image} alt={image_alt} /> 
+                                <LazyImage className="img-fluid section-featured-img mb-4" src={_mosacademy_page_group_freature_image} alt={image_alt} width={[_mosacademy_page_group_freature_image_attributes[1], 'px'].join('')} height={[_mosacademy_page_group_freature_image_attributes[2], 'px'].join('')} /> 
                             }
                             {
                                 _mosacademy_page_group_components && 

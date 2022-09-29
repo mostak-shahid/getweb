@@ -148,7 +148,7 @@
       }
       a {
         color: var(--clr-green);
-        text-decoration: underline;
+        text-decoration: none;
       }
       p {
         margin-bottom: 30px;
@@ -273,6 +273,7 @@
         dd {
           padding-left: 15px;
           padding-bottom: 30px;
+          margin-bottom: 0;
         }
       }
       hr {

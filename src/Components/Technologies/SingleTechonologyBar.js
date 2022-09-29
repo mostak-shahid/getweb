@@ -55,7 +55,7 @@ const SingleTechonologyBar = (props) => {
                 {
                     (technologiesData.length) &&
                     <div className="singleTechnology p-2 d-inline-block singleTechnology-without-border">
-                        <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap gap-2 border-start-0">
+                        <div className="singleTechLogo d-flex align-items-center justify-content-center flex-wrap border-start-0">
                         {
                         technologiesData.map((logo, index) => (
                             <Technology data={logo} key={logo.id} />

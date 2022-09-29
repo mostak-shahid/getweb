@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import SingleJobPost from "../../Components/SingleJobPost/SingleJobPost";
 import Config from "../../Config.json";
+import './JobOpening.scss';
 const JobOpening = (props) => {    
     const increament = 6;
     const [jobData,setJobData]=useState([]);
@@ -46,7 +47,7 @@ const JobOpening = (props) => {
                 loading
                 ?<div className="textClrGreen text-center d-none">loading...</div>
                 :<>                          
-                    <div className="jobs mb-5 text-start">
+                    <div className="jobs-wrapper text-start">
                         <h6 className="mb-3">All Jobs</h6>
                         {jobData.map((item, index) => (
                             <SingleJobPost data={item} key={index} />

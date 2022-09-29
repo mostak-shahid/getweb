@@ -100,7 +100,7 @@ export default class IosTechnologiesComponent extends Component {
                 </div>
                 <div className={[widthClass].join(' ')}>
                     <div className="part-two">                 
-                        <div className="singleTechnologyBar">
+                        <div className="singleTechnologyBar mb-4">
                             {
                                 (taxonomiesData.length) && 
                                     taxonomiesData.map((item, index) => ( 

@@ -285,7 +285,7 @@ export default class FooterComponent extends Component {
           <div className="container-lg">
             <div className="widget">
             <div className="row">
-              <div className="col-lg-4 col-sm-6 text-center text-sm-start">
+              <div className="col-lg-4 wdfh col-sm-6 text-center text-sm-start">
                 <div className="contacts">
                   <p className="textClrGray fs-14 fw-medium mb-2">
                     Want to collaborate?
@@ -298,7 +298,7 @@ export default class FooterComponent extends Component {
                   </a>
                 </div>
               </div>
-              <div className="col-lg-4 col-sm-6 text-center text-sm-start">
+              <div className="col-lg-4 wdfh col-sm-6 text-center text-sm-start">
                 <div className="contacts">
                   <p className="textClrGray fs-14 fw-medium mb-2">
                     Want to join us?
@@ -311,7 +311,7 @@ export default class FooterComponent extends Component {
                   </a>
                 </div>
               </div>
-              <div className="col-lg-4 text-center text-sm-start">
+              <div className="col-lg-4 wdfh text-center text-sm-start">
                 <div className="contacts">
                   <p className="textClrGray fs-14 fw-medium mb-2">
                     Want to visit us?
@@ -330,7 +330,7 @@ export default class FooterComponent extends Component {
           <div className="container-lg">
             <div className="row">
               <div className="col-xl-4 text-center text-sm-start mb-4">
-                <div className="widget">
+                <div className="widget footerimagarea">
                   <div className="row">
                     <div className="col-12 col-sm-8 col-xl-12 text-center text-sm-start">
                       <div className="footerLogo mb-4">

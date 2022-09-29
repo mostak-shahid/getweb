@@ -2,9 +2,9 @@ import React from "react";
 import "./Pagination.scss";
 
 const Pagination = (props) => {
-    console.log('props.startFrom', props.startFrom);
-    console.log('props.postPerPage', props.postPerPage);
-    console.log(props.startFrom/props.postPerPage);
+    // console.log('props.startFrom', props.startFrom);
+    // console.log('props.postPerPage', props.postPerPage);
+    // console.log(props.startFrom/props.postPerPage);
     const list = [];
     var cls;
     for (let i = 0; i < props.data; i++) {
