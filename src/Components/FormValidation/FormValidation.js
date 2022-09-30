@@ -9,6 +9,7 @@ import LazyImage from '../LazyImage';
 import './FormValidation.scss';
 const FormValidation = (props) => {
     const [formProcessing, setFormPocessing] = useState(false);
+    const [error, setError] = useState(false);
     const {
         register,
         handleSubmit,
@@ -40,14 +41,20 @@ const FormValidation = (props) => {
                 }
             })
             //const content = await rawResponse.json();
-            console.log(rawResponse);
+            //console.log(rawResponse);
             if(rawResponse.data.req.data.status){
                 toast.success('Thank you for submitting this query.');
                 reset();
+            } else {
+                setError({
+                    name: rawResponse.data.req.data.error.name,
+                    email: rawResponse.data.req.data.error.email,
+                    file: rawResponse.data.req.data.error.file,
+                });
             }
         } catch (error) {
             toast.error('Please try again.');
-            console.log(error);
+            //console.log(error);
         }
         setFormPocessing(false);
 
@@ -100,7 +107,7 @@ const FormValidation = (props) => {
                         <div className="col-sm-6 mb-20">
                             <div className="contactField">
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicName">Name</label>
-                                <input placeholder="Please enter your name" type="text" id="formBasicName" className="rounded-pill px-4 form-control" {...register('name', { required: true, pattern: /^[A-Za-z .]+$/ })}/>
+                                <input placeholder="Please enter your name" type="text" id="formBasicName" className="rounded-pill px-4 form-control" {...register('name', { required: true, pattern: /^[a-zA-Z-_'. ]*$/ })}/>
                                 {errors.name?.type === "required" && <div className='text-danger mt-1'>Name is required.</div>}
                                 {errors.name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
                             </div>
@@ -204,13 +211,12 @@ const FormValidation = (props) => {
                                 <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicEmail">Select Budget Range</label>
                                 <select className="rounded-pill px-4 form-control form-select" id="formBasicEmail" {...register('budget')}>
                                     <option value="">Select</option>
-                                    <option value="$25">$25</option>
-                                    <option value="$50">$50</option>
-                                    <option value="$75">$75</option>
-                                    <option value="$100">$100</option>
-                                    <option value="$125">$125</option>
-                                    <option value="$150">$150</option>
-                                    <option value="More than $150">More than $150</option>
+                                    <option value="$501 - $1000">$501 - $1000</option>
+                                    <option value="$1001 - $5000">$1001 - $5000</option>
+                                    <option value="$5001 - $20000">$5001 - $20000</option>
+                                    <option value="$20001 - $35000">$20001 - $35000</option>
+                                    <option value="$35001 - $50000">$35001 - $50000</option>
+                                    <option value="More than $50000">More than $50000</option>
                                 </select>
                             </div>
                         </div>
@@ -234,15 +240,16 @@ const FormValidation = (props) => {
                         </div>
                     }
                     <div className="mb-20">
-                                        <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
-                                            <p className="mb-2">Attach File</p>
-                                            <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv')}/>
-                                            <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
-                                                <LazyImage src={FileIcon} alt="icon" />
-                                                <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Attach your file'}</p>
-                                            </div>
-                                        </label>                                            
-                                    </div>
+                        <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
+                            <p className="mb-2">Attach File</p>
+                            <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"   {...register('cv')} accept=".jpg, .jpeg, .png, .gif, .docx, .doc, .pdf"/>
+                            <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
+                                <LazyImage src={FileIcon} alt="icon" />
+                                <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Attach your file'}</p>                                
+                            </div>
+                            {error?.file && <div className='text-danger mt-1'>{error.file}</div>}
+                        </label>                                            
+                    </div>
                     <div className="sbm-btn text-center text-lg-start">
                         <input type="hidden" value={window.location.pathname.replace("/", "")} {...register('source')} />
                         <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn btn-contact" disabled={formProcessing}>{formProcessing? 'Sending Mesage...' : 'Send Message '}</button>

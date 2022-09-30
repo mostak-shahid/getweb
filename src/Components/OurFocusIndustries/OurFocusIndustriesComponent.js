@@ -84,9 +84,9 @@ export default class OurFocusIndustriesComponent extends Component {
                                         </div>                             
                                     ))
                                 }
-                                <div className="industries-border industries-border-1"></div>
+                                {/* <div className="industries-border industries-border-1"></div>
                                 <div className="industries-border industries-border-2"></div>
-                                <div className="industries-border industries-border-3"></div>
+                                <div className="industries-border industries-border-3"></div> */}
                             </div>
                         </div>
 

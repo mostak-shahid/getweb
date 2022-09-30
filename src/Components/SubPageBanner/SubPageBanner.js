@@ -31,7 +31,7 @@ const SubPageBanner = (props) => {
                     </div>
                 </div>
             </div>
-            {console.log(btn2)}
+            {/* {console.log(btn2)} */}
             {
                 btn2?.title && btn2?.url &&
                 <div className="banner-go-to text-center">

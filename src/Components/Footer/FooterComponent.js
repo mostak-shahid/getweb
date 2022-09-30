@@ -458,12 +458,12 @@ export default class FooterComponent extends Component {
             <div className="widget">
             <div className="row">
               <div className="col-sm-8">
+                
                 <div
-                  className="copyrightText text-center text-sm-start d-block d-sm-flex align-items-sm-center"
-                  dangerouslySetInnerHTML={{
-                    __html: optionData["sections-footer-copyright"],
-                  }}
-                ></div>
+                  className="copyrightText text-center text-sm-start d-block d-sm-flex align-items-sm-center">
+                  <LazyImage className="copywrite-image" src={optionData["sections-footer-copyright-image"]["url"]} alt="" width={[optionData['sections-footer-copyright-image-attributes']['1'], 'px'].join('')} height={[optionData['sections-footer-copyright-image-attributes']['2'], 'px'].join('')}/>
+                  <span dangerouslySetInnerHTML={{__html: optionData["sections-footer-copyright"]}} />
+                </div>
               </div>
               <div className="col-sm-4">
                 {optionData["contact-social-links"].length && (

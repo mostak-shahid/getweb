@@ -90,7 +90,7 @@ function ContactSection(props) {
                             </div>
                         </div>
                         <div className="row isBgBorder pb-30 mb-30">
-                            <div className="col-6 col-lg-4">
+                            <div className="col-6 col-sm-4">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <LazyImage src={phoneIcon} alt="lineShape" />
@@ -103,7 +103,7 @@ function ContactSection(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6 col-lg-4">
+                            <div className="col-6 col-sm-4">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <LazyImage src={whatappIcon} alt="lineShape" />
@@ -116,7 +116,7 @@ function ContactSection(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-12 col-lg-4 mt-3 mt-lg-0">
+                            <div className="col-12 col-sm-4 mt-3 mt-sm-0">
                                 <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <LazyImage src={skypeIcon} alt="lineShape" />

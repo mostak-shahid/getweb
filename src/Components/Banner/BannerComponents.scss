@@ -44,8 +44,8 @@
   }
 }
 .bannerContent {
-  padding-top: 130px;
-  padding-bottom: 110px;
+  padding-top: 100px;
+  padding-bottom: 140px;
   z-index: 20;
   .content {
     padding-bottom: 30px;
@@ -121,9 +121,13 @@
   }
 }
 .trustedWrapper {
-  position: relative;
+  // position: relative;
   z-index: 9;
   margin-bottom: calc(30px - 1.5rem);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   .partner-img {
     // padding: 0px 1.5vw;
     filter: grayscale(100%) contrast(50%);
@@ -143,16 +147,12 @@
     }
   }
   @media (min-width: 576px) {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 30px;
   }
   @media (min-width: 992px) {
-    margin-bottom: 30px;
-    position: absolute;
     max-width: 1110px;
-    left: 0;
-    right: 0;
-    bottom: 0;
     padding-right: var(--bs-gutter-x, 0.75rem);
     padding-left: var(--bs-gutter-x, 0.75rem);
     z-index: 99;

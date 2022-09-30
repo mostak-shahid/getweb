@@ -22,6 +22,7 @@ const JobApplicationForm = (props) => {
     const [jobs,setJobs]=useState([]);
     
     const [formProcessing, setFormPocessing] = useState(false);
+    const [error, setError] = useState(false);
     const {
         register,
         handleSubmit,
@@ -68,15 +69,22 @@ const JobApplicationForm = (props) => {
                 }
             })
             //const content = await rawResponse.json();
-            console.log(rawResponse);
+            // console.log(rawResponse);
             if(rawResponse.data.req.data.status){
                 //toast.success('Thank you for submitting this query.');
                 setShow(true);
                 reset();
+            } else {
+                setError({
+                    first_name: rawResponse.data.req.data.error.first_name,
+                    last_name: rawResponse.data.req.data.error.last_name,
+                    email: rawResponse.data.req.data.error.email,
+                    file: rawResponse.data.req.data.error.file,
+                });
             }
         } catch (error) {
             toast.error('Please try again.');
-            console.log(error);
+            //console.log(error);
         }
         setFormPocessing(false);
     };   
@@ -175,12 +183,13 @@ const JobApplicationForm = (props) => {
                                             <div className="mb-3">
                                                 <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
                                                     <p className="mb-2">Upload CV</p>
-                                                    <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv',{ required: true})}/>
+                                                    <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv',{ required: true})} accept=".jpg, .jpeg, .png, .gif, .docx, .doc, .pdf"/>
                                                     <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
                                                         <LazyImage src={FileIcon} alt="icon" />
                                                         <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Upload your CV'}</p>
                                                     </div>
                                                     {errors.cv?.type === "required" && <div className='text-danger mt-1'>CV is required.</div>}
+                                                    {error?.file && <div className='text-danger mt-1'>{error.file}</div>}
                                                 </label>                                            
                                             </div>
                                             <div className="sbm-btn text-end">

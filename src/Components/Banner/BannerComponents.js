@@ -56,7 +56,7 @@ export default class BannerComponents extends Component {
                     <div className="row justify-content-center">
                     {this.props.pageData.meta.banner_image_gallery.map(( value , index)=> {
                         return (
-                        <div className="col-4 col-sm-3 col-lg-2 text-center mb-4 mb-lg-0" key={index}>
+                        <div className="col-4 col-sm-2 col-lg-2 text-center mb-3 mb-sm-0" key={index}>
                             <LazyImage src={value.url} alt={[value.alt, 'Logo'].join(' - ')} className="img-fluid partner-img" width={[value.image_attributes[1], 'px'].join('')} height={[value.image_attributes[2], 'px'].join('')} />
                         </div>
                         )
