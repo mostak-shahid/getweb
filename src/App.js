@@ -59,7 +59,7 @@ function App() {
         }
         // else scroll to id
         else {
-            console.count();
+            //console.count();
             setLocation(hash);
             setTimeout(() => {
                 const id = hash.replace('#', '');

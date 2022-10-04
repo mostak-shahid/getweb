@@ -69,12 +69,13 @@ const JobApplicationForm = (props) => {
                 }
             })
             //const content = await rawResponse.json();
-            // console.log(rawResponse);
+            console.log(rawResponse);
             if(rawResponse.data.req.data.status){
                 //toast.success('Thank you for submitting this query.');
                 setShow(true);
                 reset();
             } else {
+                toast.error('You have already applied for position.');
                 setError({
                     first_name: rawResponse.data.req.data.error.first_name,
                     last_name: rawResponse.data.req.data.error.last_name,
@@ -111,101 +112,99 @@ const JobApplicationForm = (props) => {
                                     <div dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_page_banner_title}}></div>
                                     <p dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_page_banner_intro}}></p>
                                     <hr />
-                                </div>
-                                
+                                </div>                                
                                 <div className="ApplicationForm bgClrSolitude isRadius16 p-4 p-lg-5 form-validation">
-                                        <div className="contactHeader mb-4 text-center">
-                                            <div className="textClrThemeDark fs-4 fw-bold mb-10">Fillup the job application form</div>
-                                            <p className="textClrGrayDark fs-6 fw-normal mb-0">It usually takes us up to 48 hours to get back to you.</p>
-                                        </div>                               
-                
-                                        <form className="form-job-application" onSubmit={handleSubmit(onSubmit)}>
-                                            <div className="selectJobTitle mb-3">
-                                                <label htmlFor="job_id" className="textClrThemeDark fs-13 fwSemiBold">Job Title</label>
-                                                <select id="job_id" className="form-select rounded-pill h-42 px-4"  {...register('job_id', { required: true })} defaultValue={params.slug?params.slug:0}>
-                                                    <option value="0">Position applying for</option>
-                                                    {
-                                                        jobs.map((item, index) => (
-                                                            <option value={item.slug} key={index} dangerouslySetInnerHTML={{__html: item.title}} />
-                                                        ))                                                    
-                                                    }
-                                                </select>
-                                                {errors.job_id?.type === "required" && <div className='text-danger mt-1'>Please select a job.</div>}
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-sm-6 mb-4">
-                                                    <div className="field">
-                                                        <label htmlFor="first_name" className="textClrThemeDark fs-13 fwSemiBold">First Name</label><input id="first_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your first name" {...register('first_name', { required: true, pattern: /^[A-Za-z .]+$/ })}/>
-                                                    </div>
-                                                    {errors.first_name?.type === "required" && <div className='text-danger mt-1'>First name is required.</div>}
-                                                    {errors.first_name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
-                                                </div>
-                                                <div className="col-sm-6 mb-4">
-                                                    <div className="field"><label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Last Name</label><input id="last_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your last name" {...register('last_name', {pattern: /^[A-Za-z .]+$/ })}/></div>
-                                                    {errors.last_name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
-                                                </div>
-                                            </div>
-                                            <div className="mb-3">
-                                                <div className="contactField">
-                                                    <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicContactNumber">Contact Number</label>
-                                                    <div className="countryCode d-flex align-items-center rounded-pill border overflow-hidden">
-                                                        <select className="border-0 rounded-0 px-3 form-select" id="formBasicContactNumber" {...register('code')}>
-                                                            <option value="1">US (+1)</option>
-                                                            <option value="59">DZ (+59)</option>
-                                                            <option value="213">DZ (+213)</option>
-                                                            <option value="376">AD (+376)</option>
-                                                            <option value="1264">AI (+1264)</option>
-                                                        </select>
-                                                        <input placeholder="Please enter your number" name="phone" type="phone" id="formBasicContactNumber" className="rounded-0 border-0 border-start px-3 form-control" {...register('phone')}/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-sm-6 mb-4">
-                                                    <div className="field">
-                                                        <label htmlFor="email" className="textClrThemeDark fs-13 fwSemiBold">Email</label>
-                                                        <input id="email" type="email" className="form-control rounded-pill h-42 px-4" placeholder="Enter your email" {...register('email', { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/ })}/>
-                                                        {errors.email?.type === "required" && <div className='text-danger mt-1'>Email is required.</div>}
-                                                        {errors.email?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid email.</div>}
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-6 mb-4">
-                                                    <div className="field">
-                                                        <label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Country</label>
-                                                        <select id="country" className="form-select rounded-pill h-42 px-4" defaultValue="0" {...register('country')}>
-                                                            <option value="0">Select your country</option>
-                                                            <option>Bangladesh</option>
-                                                            <option>India</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="mb-3">
-                                                <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
-                                                    <p className="mb-2">Upload CV</p>
-                                                    <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv',{ required: true})} accept=".jpg, .jpeg, .png, .gif, .docx, .doc, .pdf"/>
-                                                    <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
-                                                        <LazyImage src={FileIcon} alt="icon" />
-                                                        <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Upload your CV'}</p>
-                                                    </div>
-                                                    {errors.cv?.type === "required" && <div className='text-danger mt-1'>CV is required.</div>}
-                                                    {error?.file && <div className='text-danger mt-1'>{error.file}</div>}
-                                                </label>                                            
-                                            </div>
-                                            <div className="sbm-btn text-end">
-                                                <button type="submit" className="btn bgClrGreen h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn-job-application" disabled={formProcessing}>{formProcessing? 'Submitting Application...' : 'Submit Application'}</button>
-                                            </div>
-                                        </form>
+                                    <div className="contactHeader mb-4 text-center">
+                                        <div className="textClrThemeDark fs-4 fw-bold mb-10">Fillup the job application form</div>
+                                        <p className="textClrGrayDark fs-6 fw-normal mb-0">It usually takes us up to 48 hours to get back to you.</p>
                                     </div>
+                                    <form className="form-job-application" onSubmit={handleSubmit(onSubmit)}>
+                                        <div className="selectJobTitle mb-3">
+                                            <label htmlFor="job_id" className="textClrThemeDark fs-13 fwSemiBold">Job Title</label>
+                                            <select id="job_id" className="form-select rounded-pill h-42 px-4"  {...register('job_id', { required: true })} defaultValue={params.slug?params.slug:0}>
+                                                <option value="0">Position applying for</option>
+                                                {
+                                                    jobs.map((item, index) => (
+                                                        <option value={item.slug} key={index} dangerouslySetInnerHTML={{__html: item.title}} />
+                                                    ))                                                    
+                                                }
+                                            </select>
+                                            {errors.job_id?.type === "required" && <div className='text-danger mt-1'>Please select a job.</div>}
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-sm-6 mb-4">
+                                                <div className="field">
+                                                    <label htmlFor="first_name" className="textClrThemeDark fs-13 fwSemiBold">First Name</label><input id="first_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your first name" {...register('first_name', { required: true, pattern: /^[A-Za-z .]+$/ })}/>
+                                                </div>
+                                                {errors.first_name?.type === "required" && <div className='text-danger mt-1'>First name is required.</div>}
+                                                {errors.first_name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
+                                            </div>
+                                            <div className="col-sm-6 mb-4">
+                                                <div className="field"><label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Last Name</label><input id="last_name" type="text" className="form-control rounded-pill h-42 px-4" placeholder="Enter your last name" {...register('last_name', {pattern: /^[A-Za-z .]+$/ })}/></div>
+                                                {errors.last_name?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid name.</div>}
+                                            </div>
+                                        </div>
+                                        <div className="mb-3">
+                                            <div className="contactField">
+                                                <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicContactNumber">Contact Number</label>
+                                                <div className="countryCode d-flex align-items-center rounded-pill border overflow-hidden">
+                                                    <select className="border-0 rounded-0 px-3 form-select" id="formBasicContactNumber" {...register('code')}>
+                                                        <option value="1">US (+1)</option>
+                                                        <option value="59">DZ (+59)</option>
+                                                        <option value="213">DZ (+213)</option>
+                                                        <option value="376">AD (+376)</option>
+                                                        <option value="1264">AI (+1264)</option>
+                                                    </select>
+                                                    <input placeholder="Please enter your number" name="phone" type="phone" id="formBasicContactNumber" className="rounded-0 border-0 border-start px-3 form-control" {...register('phone')}/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-sm-6 mb-4">
+                                                <div className="field">
+                                                    <label htmlFor="email" className="textClrThemeDark fs-13 fwSemiBold">Email</label>
+                                                    <input id="email" type="email" className="form-control rounded-pill h-42 px-4" placeholder="Enter your email" {...register('email', { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/ })}/>
+                                                    {errors.email?.type === "required" && <div className='text-danger mt-1'>Email is required.</div>}
+                                                    {errors.email?.type === "pattern" && <div className='text-danger mt-1'>Please enter a valid email.</div>}
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6 mb-4">
+                                                <div className="field">
+                                                    <label htmlFor="country" className="textClrThemeDark fs-13 fwSemiBold">Country</label>
+                                                    <select id="country" className="form-select rounded-pill h-42 px-4" defaultValue="0" {...register('country')}>
+                                                        <option value="0">Select your country</option>
+                                                        <option>Bangladesh</option>
+                                                        <option>India</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="cv" className="textClrThemeDark fs-13 fwSemiBold d-block position-relative">
+                                                <p className="mb-2">Upload CV</p>
+                                                <input name='cv' id='cv' type="file" className="opacity-0 position-absolute bottom-0 end-0 top-0 start-0 z-index-9"  {...register('cv',{ required: true})} accept=".jpg, .jpeg, .png, .gif, .docx, .doc, .pdf"/>
+                                                <div className="fileBody bg-white p-4 isRadius12 d-flex justify-content-center align-items-center">
+                                                    <LazyImage src={FileIcon} alt="icon" />
+                                                    <p className="fs-14 fw-medium textClrGray mb-0">{(cv && cv[0]?.name)?cv[0].name:'Upload your CV'}</p>
+                                                </div>
+                                                {errors.cv?.type === "required" && <div className='text-danger mt-1'>CV is required.</div>}
+                                                {error?.file && <div className='text-danger mt-1'>{error.file}</div>}
+                                            </label>                                            
+                                        </div>
+                                        <div className="sbm-btn text-end">
+                                            <button type="submit" className="btn bgClrGreen h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn-job-application" disabled={formProcessing}>{formProcessing? 'Submitting Application...' : 'Submit Application'}</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>                        
                     </div>
                 </div>
             </section>               
             {
-            pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (                 
-                <Section data={item} key={index} />                      
-            ))
+                pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (                 
+                    <Section data={item} key={index} />                      
+                ))
             }
             <SuccessfulModal show={show} handleClose={handleClose} />
             <ToastContainer /> 
