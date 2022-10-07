@@ -22,7 +22,7 @@ const FormValidation = (props) => {
     } = useForm();
     
     const onSubmit = async (data) => {        
-        console.log(data);
+        //console.log(data);
         let  isValidNumberForRegion = true;
         if (data.phone && data.code){
             // Get an instance of `PhoneNumberUtil`.
@@ -58,7 +58,7 @@ const FormValidation = (props) => {
                     }
                 })
                 //const content = await rawResponse.json();
-                console.log(rawResponse);
+                //console.log(rawResponse);
                 if(rawResponse.data.req.data.status){
                     toast.success('Thank you for submitting this query.');
                     reset();

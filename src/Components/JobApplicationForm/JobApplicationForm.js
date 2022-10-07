@@ -83,7 +83,7 @@ const JobApplicationForm = (props) => {
                     }
                 })
                 //const content = await rawResponse.json();
-                console.log(rawResponse);
+                //console.log(rawResponse);
                 if(rawResponse.data.req.data.status){
                     //toast.success('Thank you for submitting this query.');
                     setShow(true);
