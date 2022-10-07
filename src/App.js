@@ -86,7 +86,7 @@ function App() {
         {"ID": 986, "post_name": "custom-web-apps"},
         {"ID": 363, "post_name": "elementor-363"},
         {"ID": 948, "post_name": "front-end-developer"},
-        {"ID": 1043, "post_name": "front-end-developer-services"},
+        {"ID": 1043, "post_name": "front-end-development-services"},
         {"ID": 1032, "post_name": "full-stack-developer"},
         {"ID": 365, "post_name": "gutenberg"},
         {"ID": 82, "post_name": "home"},

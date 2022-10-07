@@ -198,7 +198,7 @@ export default class FooterComponent extends Component {
         ID: 269,
         title: "Front End Development Services",
         class: [""],
-        url: "/front-end-developer-services",
+        url: "/front-end-development-services",
         image: false,
         hover_image: false,
         submenu: [],

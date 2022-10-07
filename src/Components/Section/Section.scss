@@ -17,7 +17,12 @@
   }
   .col-lg-6 {
     .btn-wrapper {
-      margin-top: 40px;
+      margin-top: 30px;
+      @media (min-width: 576px) {
+        margin-top: 40px;
+      }
+      @media (min-width: 992px) {
+      }
     }
   }
   .col-lg-12,
@@ -214,11 +219,24 @@
       width: 100%;
       .singleTechLogo {
         justify-content: flex-start !important;
-
         @media (min-width: 992px) {
           justify-content: center !important;
         }
       }
+    }
+  }
+  &.custom-web-apps-2 {
+    .singleTechnology {
+      // width: 100%;
+      // max-width: 920px;
+    }
+  }
+  &.quality-assurance-1,
+  &.magento-3,
+  &.custom-web-apps-2,
+  &.front-end-development-services-2 {
+    .part-two {
+      margin-bottom: -24px;
     }
   }
 }

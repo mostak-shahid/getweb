@@ -61,6 +61,7 @@
   }
 }
 .ApplicationForm {
+  padding: 30px 20px;
   position: relative;
   &::before,
   &::after {
@@ -75,5 +76,10 @@
     bottom: -40px;
     right: -190px;
     content: url("../../assets/images/form-after.svg");
+  }
+  @media (min-width: 576px) {
+    padding: 40px;
+  }
+  @media (min-width: 992px) {
   }
 }

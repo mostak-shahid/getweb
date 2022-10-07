@@ -5,6 +5,7 @@
     min-height: 974px;
   }
   .contactWrapper {
+    padding: 30px 20px;
     .contactField {
       .form-control,
       .form-select {
@@ -43,6 +44,11 @@
           color: var(--clr-theme-dark) !important;
         }
       }
+    }
+    @media (min-width: 576px) {
+      padding: 40px;
+    }
+    @media (min-width: 992px) {
     }
   }
 }

@@ -258,4 +258,7 @@
   .list-inline-item:not(:last-child) {
     margin-right: 15px;
   }
+  .list-inline-item:empty {
+    display: none;
+  }
 }

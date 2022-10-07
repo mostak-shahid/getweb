@@ -1,12 +1,10 @@
 .blogSlider {
-  .owl-theme .owl-nav {
-    margin: 0;
-    @media (max-width: 991px) {
-      margin-top: 30px;
-    }
+  .owl-item {
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .owl-theme .owl-nav {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     .owl-prev {
       @media (min-width: 1200px) {
@@ -17,6 +15,9 @@
       @media (min-width: 1200px) {
         right: -60px;
       }
+    }
+    @media (max-width: 991px) {
+      margin-top: 30px;
     }
     @media (min-width: 1200px) {
       margin-top: 0;

@@ -175,6 +175,10 @@
           font-size: 14px;
           line-height: 22px;
           color: #ffffff;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-width: 80%;
+          white-space: nowrap;
         }
         .companyName {
           font-weight: 500;

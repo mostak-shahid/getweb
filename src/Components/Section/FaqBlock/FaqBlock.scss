@@ -1,11 +1,11 @@
 .faqList {
   .accordion-item {
-    background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+    // background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
+    background: #202124;
     border: 1px solid #202124;
     border-radius: 16px;
 
     .accordion-button {
-      border: 1px solid #202124;
       background-color: var(--clr-black);
       color: var(--clr-green);
       font-weight: 700;

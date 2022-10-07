@@ -1,11 +1,11 @@
 .BlogSingleWrapper {
   .BlogsSingleHeader {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     @media (min-width: 576px) {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     @media (min-width: 992px) {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
   }
   .meta {
@@ -118,6 +118,11 @@
         background-color: #049df0;
       }
     }
+    @media (min-width: 992px) {
+      margin-top: 0;
+      top: 100px;
+      z-index: 1;
+    }
   }
   .BlogSingleContentArea {
     .blogInnerContent {
@@ -134,12 +139,12 @@
         margin-top: 0;
         margin-bottom: 15px;
         &:not(:first-child) {
-          margin-top: 30px;
+          margin-top: 20px;
           @media (min-width: 576px) {
-            margin-top: 40px;
+            margin-top: 30px;
           }
           @media (min-width: 992px) {
-            margin-top: 60px;
+            margin-top: 40px;
           }
         }
       }
@@ -190,8 +195,8 @@
       }
       table {
         width: 100%;
-        margin-bottom: 60px;
-        margin-top: 60px;
+        margin-bottom: 20px;
+        margin-top: 20px;
         thead {
           background-color: var(--clr-menu-light);
           border-radius: 4px;
@@ -225,6 +230,15 @@
               }
             }
           }
+        }
+
+        @media (min-width: 576px) {
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+        @media (min-width: 992px) {
+          margin-top: 40px;
+          margin-bottom: 40px;
         }
         @media (max-width: 575.98px) {
           thead {
@@ -278,7 +292,13 @@
       }
       hr {
         background-color: #4c4d54;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
+        @media (min-width: 576px) {
+          margin-bottom: 30px;
+        }
+        @media (min-width: 992px) {
+          margin-bottom: 40px;
+        }
       }
       & > *:last-child {
         margin-bottom: 0;

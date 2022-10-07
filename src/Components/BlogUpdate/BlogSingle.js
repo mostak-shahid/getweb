@@ -102,13 +102,13 @@ const BlogSingle = (props) => {
                             </div>
                         </div>
 
-                        <div className="BlogSingleContentArea">
+                        <div className="BlogSingleContentArea position-relative">
                             <div className="row">
                                 <div className="col-xl-8">
                                     <div className="blogInnerContent" dangerouslySetInnerHTML={{__html:pageData.content}} />
                                 </div>
                                 <div className="col-xl-4">
-                            <div className="SingleSidebar">
+                            <div className="SingleSidebar sticky-xl-top">
                                 <p className="fs-16 fwSemiBold">Search</p>
                                 <div className="searchInput pb-4">
                                 <form onSubmit={handleSearchSubmit}>

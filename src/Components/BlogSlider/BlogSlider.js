@@ -43,7 +43,7 @@ export default class MultipleItems extends Component {
         }
         const settings = {
             loop: true,
-            margin: 30,
+            margin: 0,
             nav: true,
             dots: false,
             autoplay: true,

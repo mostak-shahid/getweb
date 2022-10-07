@@ -3,11 +3,11 @@ import FormValidation from '../FormValidation/FormValidation';
 const ServicesForm = (props) => {    
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
-    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12'; 
+    const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-sm-12'; 
     return (
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
-                <div className="sectionHeader mb-5">
+                <div className="sectionHeader">
                     {
                         _mosacademy_page_group_sub_titles[0] &&
                         <div className="secTagLine" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_sub_titles[0]}}></div>
@@ -23,7 +23,7 @@ const ServicesForm = (props) => {
                     
                 </div>
             </div>
-            <div className={[widthClass].join(' ')}>                
+            <div className={['tab-mobile-margin-top',widthClass].join(' ')}>                
                 <FormValidation fields={['name', 'email', 'phone', 'company','message']}/>
             </div>
         </div>

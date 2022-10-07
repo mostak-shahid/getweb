@@ -1,9 +1,21 @@
 .contactDetails {
   padding-top: 11.5vw !important;
-  padding-bottom: 6.25vw !important;
+  padding-bottom: 60px;
   .part-one {
     text-align: left !important;
     margin-bottom: 0;
   }
-  
+  @media (min-width: 576px) {
+    padding-bottom: 80px;
+  }
+  @media (min-width: 992px) {
+    padding-bottom: 120px;
+  }
+}
+.sectionHeader {
+  .secIntro {
+    > *:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
 }

@@ -164,7 +164,7 @@ export default class MultipleRows extends Component {
                                 width="40"
                                 height="40"
                             />
-                            <div>
+                            <div className="w-100">
                                 <h5
                                 className="templateHeading mb-1"
                                 dangerouslySetInnerHTML={{ __html: modalData.title }}
@@ -218,7 +218,7 @@ export default class MultipleRows extends Component {
                             </div>
                             </div>
                             <div className="modal-body-right">
-                            <span>
+                            <span className="d-none">
                                 <LazyImage
                                 src={companyRightLogo}
                                 className="img-fluid"

@@ -277,7 +277,7 @@ export default class HeaderComponent extends Component {
                       ID: 305,
                       title: "Front End Development Services",
                       class: [""],
-                      url: "/front-end-developer-services",
+                      url: "/front-end-development-services",
                       image: false,
                       hover_image: false,
                       submenu: [],

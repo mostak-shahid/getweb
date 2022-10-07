@@ -192,7 +192,7 @@ const PortfolioTab = (props) => {
                           width="40"
                           height="40"
                         />
-                        <div>
+                        <div className="w-100">
                           <h5
                             className="templateHeading mb-1"
                             dangerouslySetInnerHTML={{ __html: item.title }}
