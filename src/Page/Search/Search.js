@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from "react-router-dom";
-import BlogBannerBg from '../../assets/images/blogBg.png';
+import BlogBannerBg from '../../assets/images/Blog-Banner.svg';
 import SingleBlogItems from '../../Components/BlogUpdate/SingleBlogItems';
 import Loading from '../../Components/Loading/Loading';
 import SubPageBanner from '../../Components/SubPageBanner/SubPageBanner';
@@ -69,8 +69,8 @@ const Search = (props) => {
 
   const tagline = "Search Results";
   const title = "Showing results for <strong>"+searchText+"</strong> ";
-  const intro = "The page you were looking for doesn't exist anymore.";
-  const bgImg = BlogBannerBg;
+  //const intro = "The page you were looking for doesn't exist anymore.";
+
   return (
     
       loading ? 
@@ -79,7 +79,7 @@ const Search = (props) => {
       <Helmet>
         <title>Search resulr for - {searchText}</title>
       </Helmet>
-      <SubPageBanner tagline={tagline} title={title} intro={intro} bgImg={bgImg} /> 
+      <SubPageBanner tagline={tagline} title={title} featureImage={BlogBannerBg} alt="" attributes={[null, 500, 475]} /> 
       <section className="blogWrapper secPadding">
         <div className="container-lg"> 
           <div className="filterArea py-5 isBgBorder mb-5">

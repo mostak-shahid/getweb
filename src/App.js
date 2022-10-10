@@ -8,6 +8,7 @@ import Header from "./Components/Header/Header";
 import "./Components/Header/header.scss";
 
 import "./index.scss";
+import Blogs from "./Page/Blog/Blogs";
 
 // import Home from "./Page/Home/Home";
 // import Blog from "./Page/Blog/Blog";
@@ -143,6 +144,7 @@ function App() {
                             <Route path="apply" element={<JobApplicationForm />} />
                         </Route> 
                         <Route path="/blog" element={<Blog/>}/>
+                        <Route path="/blogs" element={<Blogs/>}/>
                         <Route path="/blog/:slug" element={<BlogSingle />} />
                         <Route path="/search" >
                             <Route index element={<Search />} />

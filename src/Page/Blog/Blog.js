@@ -23,6 +23,7 @@ class Blog extends Component {
         this.state = {
             loading: true,
             postData: null,
+            postLoading: true,
             postCountData: 0,
             pageData: null,
             categoriesData: null,
@@ -41,9 +42,9 @@ class Blog extends Component {
     async componentDidMount() {
 
         
-        const settingsUrl = Config.API_BASE + "settings";
-        const settingsResponse = await fetch(settingsUrl);
-        const settingsData = await settingsResponse.json();
+        // const settingsUrl = Config.API_BASE + "settings";
+        // const settingsResponse = await fetch(settingsUrl);
+        // const settingsData = await settingsResponse.json();
 
         const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/" + this.state.postPerPage;
         const responsePost = await fetch(urlPost);
@@ -53,8 +54,8 @@ class Blog extends Component {
         const responsePostCount = await fetch(urlPostCount);
         const postCountResponse = await responsePostCount.json();
 
-        //const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
-        const urlPage = Config.API_BASE + "data-single/" + settingsData.req.data.page_for_posts;
+        const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
+        //const urlPage = Config.API_BASE + "data-single/" + settingsData.req.data.page_for_posts;
         const responsePage = await fetch(urlPage);
         const pageResponse = await responsePage.json();
 
@@ -62,7 +63,8 @@ class Blog extends Component {
         const responseCategories = await fetch(urlCategories);
         const categoriesResponse = await responseCategories.json();
         this.setState({
-            postPerPage: settingsData.req.data.posts_per_page,
+            //postPerPage: settingsData.req.data.posts_per_page,
+            postPerPage: Config.POST_PER_PAGE,
             postData: postResponse,
             postCountData: postCountResponse,
             pageData: pageResponse,
@@ -85,6 +87,7 @@ class Blog extends Component {
             postData: postResponse,   
             postCountData: postCountResponse,        
             loading: false,
+            postLoading: false,
         });
         //console.log(postCountResponse);
     }   
@@ -124,7 +127,7 @@ class Blog extends Component {
                                 <div className="col-xl-6">
                                     <div className="filterLeft">
                                         <div className="singleFilter custom-mos-select">
-                                            <Form.Select className="bg-transparent rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
+                                            <Form.Select className="bg-transparent rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value, postLoading:true})}>
                                                 <option value='0'>All Categories</option>
                                                 {
                                                     categoriesData.length && categoriesData.map((item, index) => (
@@ -134,7 +137,7 @@ class Blog extends Component {
                                             </Form.Select>
                                         </div>
                                         <div className="singleFilter custom-mos-select">
-                                            <Form.Select className="bg-transparent rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value})}>
+                                            <Form.Select className="bg-transparent rounded-pill px-4" onChange={(event) => this.setState({categoryId:event.target.value, postLoading:true})}>
                                                 <option value="0">Select One</option>
                                                 <option value="week">Last 7 day’s</option>
                                                 <option value="month">Last Month</option>
@@ -162,7 +165,10 @@ class Blog extends Component {
                                 <i className="fad fa-arrows-spin rotate fs-48"></i>
                             </div>
                             <div className="row">
-                                {postData.length ?
+                                {console.log('Post data:', postData)}
+                                {console.log('Post Loaded:', this.state.postLoading)}
+                                {console.log('Category ID:', this.state.categoryId)}
+                                {postData.length && !this.state.postLoading ?
                                     postData.map((item, index) => (
                                         <div className="col-sm-6 col-lg-4 singleBlogWrapper" key={index}>
                                             <SingleBlogItems data={item} />
