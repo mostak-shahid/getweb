@@ -181,6 +181,8 @@ const PortfolioTab = (props) => {
             >
               <Modal.Header className="p-0 border-0" closeButton></Modal.Header>
               <Modal.Body className="p-0">
+                {
+                  projects.length ?
                 <OwlCarousel className="owl-theme" {...settings}>
                   {projects.map((item, index) => (
                     <div className="item" key={index} onClick={handleShow}>
@@ -268,7 +270,8 @@ const PortfolioTab = (props) => {
                       </div>
                     </div>
                   ))}
-                </OwlCarousel>
+                </OwlCarousel>:''
+                }
               </Modal.Body>
             </Modal>
             <ToastContainer />

@@ -184,6 +184,7 @@ const PortfolioGroup = (props) => {
                 <Modal.Header closeButton className="d-flex"></Modal.Header>
                 <Modal.Body className="p-0">
                     {/* <div className="portfolio-modal-close position-absolute top-0 end-0"><button className="btn btn-danger rounded-circle" onClick={handleClose}>x</button></div> */}
+                    {projects.length?
                     <OwlCarousel className="owl-theme" {...settings}>
                         {projects.map((item, index) => (
                         <div className="item" key={index}>
@@ -271,7 +272,7 @@ const PortfolioGroup = (props) => {
                             </div>
                         </div>
                         ))}
-                    </OwlCarousel>
+                    </OwlCarousel>:''}
                 </Modal.Body>
             </Modal>            
             <ToastContainer />

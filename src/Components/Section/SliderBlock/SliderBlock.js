@@ -27,6 +27,8 @@ const SliderBlock = (props) => {
         }
     };
     return (
+        
+        
         <OwlCarousel className='owl-theme' {...settings}>
         {
             props.groupData.map((item, index) => (

@@ -65,9 +65,10 @@ export default class MultipleItems extends Component {
         const {postData} = this.state; 
         return (
             <div className="blogSlider">
+                {(postData.length)?
                 <OwlCarousel className='owl-theme' {...settings}>
                     {
-                        (postData.length)?
+                        
                         postData.map((item, index) => (
                             <div className="item-wrapper singleBlog isRadius16 d-flex flex-column justify-content-between" key={item.id}>
                                 <div className="content-part">
@@ -102,9 +103,9 @@ export default class MultipleItems extends Component {
                                     </Link>
                                 </div>
                             </div>
-                        )):null
+                        ))
                     }
-                </OwlCarousel>
+                </OwlCarousel>:null}
             </div>
         );
     }

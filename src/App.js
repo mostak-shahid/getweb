@@ -8,7 +8,6 @@ import Header from "./Components/Header/Header";
 import "./Components/Header/header.scss";
 
 import "./index.scss";
-import Blogs from "./Page/Blog/Blogs";
 
 // import Home from "./Page/Home/Home";
 // import Blog from "./Page/Blog/Blog";
@@ -22,6 +21,7 @@ import Blogs from "./Page/Blog/Blogs";
 
 const Home = lazy(() => import("./Page/Home/Home"));
 const Blog = lazy(() => import("./Page/Blog/Blog"));
+const Blogs = lazy(() => import("./Page/Blog/Blogs"));
 const BlogSingle = lazy(() => import("./Components/BlogUpdate/BlogSingle"));
 const Single = lazy(() => import("./Page/Single/Single"));
 const Search = lazy(() => import("./Page/Search/Search"));
@@ -143,8 +143,8 @@ function App() {
                             <Route index element={<JobDetails />} />
                             <Route path="apply" element={<JobApplicationForm />} />
                         </Route> 
-                        <Route path="/blog" element={<Blog/>}/>
-                        <Route path="/blogs" element={<Blogs/>}/>
+                        {/* <Route path="/blogs" element={<Blog/>}/> */}
+                        <Route path="/blog" element={<Blogs/>}/>
                         <Route path="/blog/:slug" element={<BlogSingle />} />
                         <Route path="/search" >
                             <Route index element={<Search />} />

@@ -45,7 +45,7 @@ const MediaGroup = (props) => {
 
         <div className="media-group">
             <div className="row">
-                {/* {console.log(props)} */}
+                {console.log(props)}
                 {   
                     props.layout === 'tab' && 
                         <TabBlock groupData={groupData} template={props.template}/>

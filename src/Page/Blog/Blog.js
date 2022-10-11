@@ -3,8 +3,8 @@ import { Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import SingleBlogItems from "../../Components/BlogUpdate/SingleBlogItems";
 import Loading from "../../Components/Loading/Loading";
-import MainComponent from "../../Components/MainComponent/MainComponent";
 import Pagination from "../../Components/Pagination/Pagination";
+import Section from "../../Components/Section/Section";
 import SeoMeta from "../../Components/SeoMeta/SeoMeta";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
@@ -186,7 +186,8 @@ class Blog extends Component {
                 </section>           
                 {
                     pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-                        <MainComponent data={item} key={index} />                        
+                        // <MainComponent data={item} key={index} />  
+                        <Section data={item} key={index} />                       
                     ))
                 }
             </>

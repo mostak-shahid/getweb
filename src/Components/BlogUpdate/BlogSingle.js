@@ -97,7 +97,7 @@ const BlogSingle = (props) => {
                                 </div>
                                 <div className="BlogSingFeatheredImg">
                                     {/* <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" /> */}
-                                    <LazyImage className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" />
+                                    <LazyImage className='img-fluid img-blog-single' src={pageData.image} alt={pageData.title} width={[pageData?.featured_image?.image_attributes[1], 'px'].join('')} height={[pageData?.featured_image?.image_attributes[2], 'px'].join('')} />
                                 </div>
                             </div>
                         </div>

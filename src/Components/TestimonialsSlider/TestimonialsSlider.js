@@ -74,9 +74,10 @@ export default class MultipleItems extends Component {
 
     return (
       <div className="TestimonialsSlider">
+        {(testimonialData.length) ?
         <OwlCarousel className='owl-theme' {...settings}>
           {
-            (testimonialData.length) && 
+            
             testimonialData.map((items, index) => (
               <div className="item-wrapper singleFeedback isRadius16 p-30 bgClrDarkLight d-flex flex-column justify-content-between" key={items.id}>
                 <div className="reviewerContent">
@@ -106,7 +107,7 @@ export default class MultipleItems extends Component {
               </div>
             ))
           }
-        </OwlCarousel>
+        </OwlCarousel>:''}
       </div>
     );
   }

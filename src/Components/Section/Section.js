@@ -1,11 +1,11 @@
 import Button from "../Button/Button";
 import LazyImage from "../LazyImage";
-import MainComponent from '../MainComponent/MainComponent';
-import MediaGroup from './MediaGroup/MediaGroup';
+import MainComponent from "../MainComponent/MainComponent";
+import MediaGroup from "./MediaGroup/MediaGroup";
 import './Section.scss';
 const Section = (props) => {
 
-    //console.log(props.data);
+    // console.log(props.data);
     const {_mosacademy_page_group_content_width = "container-lg", _mosacademy_page_group_css='',_mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_description='', _mosacademy_page_group_button, _mosacademy_page_group_freature_image='', _mosacademy_page_group_background_image='', _mosacademy_page_group_components = '', _mosacademy_page_group_component_layout ='', _mosacademy_page_group_component_count_total=0, _mosacademy_page_group_component_count_col=0, _mosacademy_page_group_component_template, group_slug, group_id, _mosacademy_page_group_component_name, image_alt, _mosacademy_page_group_freature_image_attributes} = props.data;
 
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
@@ -35,8 +35,8 @@ const Section = (props) => {
     // console.log(props.data)
     return (
         _mosacademy_page_group_component_name ?
-        
-        <MainComponent data={props.data} /> :
+        <MainComponent data={props.data} /> 
+        :
         
         <section id={group_id} className={['section-wrapper', 'secPadding', 'section-js',group_slug, _mosacademy_page_group_css].join(' ')} style={props?._mosacademy_page_group_background_image && { backgroundImage: `url(${_mosacademy_page_group_background_image})` }}>
             <div className={_mosacademy_page_group_content_width}>
