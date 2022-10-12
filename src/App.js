@@ -20,7 +20,7 @@ import "./index.scss";
 // import NotFound from "./Page/NotFound/NotFound";
 
 const Home = lazy(() => import("./Page/Home/Home"));
-const Blog = lazy(() => import("./Page/Blog/Blog"));
+//const Blog = lazy(() => import("./Page/Blog/Blog"));
 const Blogs = lazy(() => import("./Page/Blog/Blogs"));
 const BlogSingle = lazy(() => import("./Components/BlogUpdate/BlogSingle"));
 const Single = lazy(() => import("./Page/Single/Single"));
@@ -120,8 +120,8 @@ function App() {
         {"ID": 1801, "post_name": "app-development"},
         {"ID": 1877, "post_name": "cloud-solutions"},
         {"ID": 1867, "post_name": "ecommerce-cms-development"},
-        //{"ID": 1903, "post_name": "product-design-service-category-page"},
-        {"ID": 1836, "post_name": "product-design-service-category-page"},
+        //{"ID": 1903, "post_name": "product-design-service"},
+        {"ID": 1836, "post_name": "product-design-service"},
         {"ID": 1884, "post_name": "web-applications"},
         {"ID": 1892, "post_name": "staff-augmentation"},
         {"ID": 1901, "post_name": "ideation-and-evaluation"},

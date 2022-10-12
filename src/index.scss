@@ -358,33 +358,6 @@ h1,
 }
 /* ==== custom classes ==== - END*/
 
-/* ==== slider arrow css */
-.slick-prev {
-  left: -60px !important;
-}
-.slick-next {
-  right: -60px !important;
-}
-.slick-prev,
-.slick-next {
-  width: 40px !important;
-  height: 40px !important;
-  transition: all 0.2s linear;
-  background-color: var(--clr-dark-light) !important;
-  border-radius: 50%;
-  &:hover {
-    background-color: var(--clr-green) !important;
-    &::before {
-      color: #121316 !important;
-    }
-  }
-}
-.slick-prev:before,
-.slick-next:before {
-  font-size: 20px !important;
-  transition: all 0.2s linear;
-}
-/* ==== slider arrow css - END */
 img {
   max-width: 100%;
   height: auto;
@@ -494,6 +467,37 @@ img {
     }
   }
 }
+
+ul.slick-dots {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  text-align: center;
+  position: relative;
+  li {
+    display: inline-block !important;
+    button {
+      &::before {
+        width: 10px;
+        height: 10px;
+        margin: 5px 7px;
+        border-radius: 100%;
+        background-color: #ffffff;
+        content: "";
+        opacity: 1;
+      }
+    }
+    &::before {
+      display: none !important;
+    }
+    &.slick-active {
+      button {
+        &::before {
+          background-color: var(--clr-green);
+        }
+      }
+    }
+  }
+}
 .owl-carousel {
   .owl-nav {
     margin-top: 0;
@@ -536,6 +540,7 @@ img {
   //.owl-theme .owl-dots .owl-dot.active span,
   //.owl-theme .owl-dots .owl-dot:hover span
 }
+
 .singleBlog {
   background: linear-gradient(180deg, #191a1d 0%, rgba(25, 26, 29, 0) 100%);
   border: 1px solid #202124;
@@ -547,6 +552,8 @@ img {
     overflow: hidden;
     img {
       transition: all 0.3s linear;
+      width: 100%;
+      height: auto;
     }
   }
   .readMore {
@@ -670,6 +677,7 @@ ul {
     max-height: 78px;
     overflow: hidden;
     @media (min-width: 576px) {
+      max-height: 85px;
     }
     @media (min-width: 992px) {
       max-height: 88px;

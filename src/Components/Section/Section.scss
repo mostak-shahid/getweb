@@ -239,4 +239,33 @@
       margin-bottom: -24px;
     }
   }
+  &.blogs {
+    .btn-wrapper {
+      margin-top: 20px;
+      .btn {
+        padding: 6px 12px;
+        border: 1px solid transparent;
+        background-color: transparent;
+        transition: all 0.2s linear;
+        color: #6b6e78;
+        .btn-arrow {
+          transition: all 0.15s ease-in-out;
+          margin-right: 0;
+          margin-left: 0;
+          width: 21px;
+          height: 21px;
+          background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6265 5.18896L17.9377 10.5002L12.6265 15.8115' stroke='%236B6E78' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.0625 10.5H17.7887' stroke='%236B6E78' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+        &:hover {
+          color: var(--clr-green) !important;
+          svg * {
+            stroke: var(--clr-green) !important;
+          }
+          .btn-arrow {
+            background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.6265 5.18896L17.9377 10.5002L12.6265 15.8115' stroke='%2300ffa3' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.0625 10.5H17.7887' stroke='%2300ffa3' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          }
+        }
+      }
+    }
+  }
 }

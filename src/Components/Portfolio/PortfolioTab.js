@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Modal } from "bootstrap";
 import { useEffect, useState } from "react";
-import OwlCarousel from "react-owl-carousel";
+import Slider from "react-slick";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import appreciate from "../../assets/images/appriciate.svg";
@@ -13,7 +13,9 @@ import Config from "../../Config.json";
 import PortfolioUnit from "../../Page/Portfolio/PortfolioUnit/PortfolioUnit";
 import LazyImage from "../LazyImage";
 import Pagination from "../Pagination/Pagination";
-
+// Import css files
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 const PortfolioTab = (props) => {
     const [projects, setProjects] = useState([]);
@@ -112,6 +114,15 @@ const PortfolioTab = (props) => {
     }, []);
 
     const settings = {
+      dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 2500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+      /*
         loop: true,
         margin: 30,
         nav: true,
@@ -121,6 +132,7 @@ const PortfolioTab = (props) => {
         smartSpeed: 2500,
         items: 1,
         autoHeight:true,
+        */
     };
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_title_text=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
@@ -183,7 +195,7 @@ const PortfolioTab = (props) => {
               <Modal.Body className="p-0">
                 {
                   projects.length ?
-                <OwlCarousel className="owl-theme" {...settings}>
+                <Slider className="portfolio-tab-slider" {...settings}>
                   {projects.map((item, index) => (
                     <div className="item" key={index} onClick={handleShow}>
                       <div className="modal-body-top d-flex align-items-center gap-3">
@@ -270,7 +282,7 @@ const PortfolioTab = (props) => {
                       </div>
                     </div>
                   ))}
-                </OwlCarousel>:''
+                </Slider>:''
                 }
               </Modal.Body>
             </Modal>

@@ -1,6 +1,4 @@
 import axios from "axios";
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { Component } from "react";
 import { Modal } from "react-bootstrap";
 import { toast, ToastContainer } from 'react-toastify';
@@ -17,8 +15,8 @@ import "./PortfolioSlider.scss";
 
 import Slider from "react-slick";
 // Import css files
-// import "slick-carousel/slick/slick-theme.css";
-// import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export default class MultipleRows extends Component {
 
@@ -105,24 +103,27 @@ export default class MultipleRows extends Component {
             autoplaySpeed: 4000,
             responsive: [
                 {
-                  breakpoint: 1024,
+                  breakpoint: 991,
                   settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
+                    dots: true,
                   }
                 },
                 {
-                  breakpoint: 600,
+                  breakpoint: 767,
                   settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
                   }
                 },
                 {
                   breakpoint: 480,
                   settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    dots: true,
                   }
                 }
             ]
@@ -156,7 +157,7 @@ export default class MultipleRows extends Component {
         return (
             <div className="slider-wrapper">
                 {(portfolioData.length) ?
-                <Slider className='owl-theme'  {...settings}>
+                <Slider className='portfolio-slider'  {...settings}>
                     {
                         
                         portfolioData.map((item, index) => (

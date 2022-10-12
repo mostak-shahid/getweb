@@ -3,9 +3,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import logo from '../../src/assets/images/loader-logo.svg';
 //import logo from '../../assets/images/loader-logo.svg';
 
-const handleConvertedImage = (url) => {  
-    console.log(url);
-}
+// const handleConvertedImage = (url) => {  
+//     console.log(url);
+// }
 const LazyImage = (props) => {
     return (
         <LazyLoadImage

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import OwlCarousel from 'react-owl-carousel';
 
-
+import Slider from "react-slick";
+// Import css files
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export default class SimpleSlider extends Component {
   render() {
@@ -14,7 +16,7 @@ export default class SimpleSlider extends Component {
     };
     return (
       <div>
-        <OwlCarousel {...settings}>
+        <Slider className='brand-slider' {...settings}>
           <div>
             <h3>1</h3>
           </div>
@@ -33,7 +35,7 @@ export default class SimpleSlider extends Component {
           <div>
             <h3>6</h3>
           </div>
-        </OwlCarousel>
+        </Slider>
       </div>
     );
   }

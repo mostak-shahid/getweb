@@ -1,12 +1,12 @@
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { Component } from "react";
-import OwlCarousel from 'react-owl-carousel';
 import Config from '../../Config.json';
 import LazyImage from '../LazyImage';
 import "./TestimonialsSlider.scss";
 
-
+import Slider from "react-slick";
+// Import css files
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export default class MultipleItems extends Component {
 
@@ -39,7 +39,16 @@ export default class MultipleItems extends Component {
         return <div>Didn't get data from API</div>;
     }
     const settings = {
-      loop: true,
+      dots: false,
+      arrows: false,
+      infinite: true,
+      speed: 2500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      centerPadding:'600px',
+      /*loop: true,
       margin: 30,
       nav: true,
       dots: false,
@@ -60,7 +69,7 @@ export default class MultipleItems extends Component {
           1200:{
               items:4,
           }
-      }
+      }*/
 
       /*dots: false,
       infinite: true,
@@ -75,9 +84,8 @@ export default class MultipleItems extends Component {
     return (
       <div className="TestimonialsSlider">
         {(testimonialData.length) ?
-        <OwlCarousel className='owl-theme' {...settings}>
-          {
-            
+        <Slider className='owl-theme' {...settings}>
+          {            
             testimonialData.map((items, index) => (
               <div className="item-wrapper singleFeedback isRadius16 p-30 bgClrDarkLight d-flex flex-column justify-content-between" key={items.id}>
                 <div className="reviewerContent">
@@ -107,7 +115,7 @@ export default class MultipleItems extends Component {
               </div>
             ))
           }
-        </OwlCarousel>:''}
+        </Slider>:''}
       </div>
     );
   }

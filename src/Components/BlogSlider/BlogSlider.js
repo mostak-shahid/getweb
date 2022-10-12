@@ -1,7 +1,5 @@
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+
 import React, { Component } from "react";
-import OwlCarousel from 'react-owl-carousel';
 // import Slider from "react-slick";
 // import "slick-carousel/slick/slick-theme.css";
 // import "slick-carousel/slick/slick.css";
@@ -10,7 +8,10 @@ import Config from '../../Config.json';
 import LazyImage from '../LazyImage';
 import "./BlogSlider.scss";
 
-
+import Slider from "react-slick";
+// Import css files
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 export default class MultipleItems extends Component {
     //Config.API_BASE + "data-list/post/0/0/6
@@ -42,7 +43,39 @@ export default class MultipleItems extends Component {
             return <div>Didn't get data from API</div>;
         }
         const settings = {
-            loop: true,
+            dots: false,
+            arrows: false,
+            infinite: true,
+            speed: 2500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            responsive: [
+                {
+                  breakpoint: 991,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    //arrows: true,
+                  }
+                },
+                {
+                  breakpoint: 767,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+            ]
+            /*loop: true,
             margin: 0,
             nav: true,
             dots: false,
@@ -60,15 +93,14 @@ export default class MultipleItems extends Component {
                 992:{
                     items:3,
                 }
-            }
+            }*/
         };
         const {postData} = this.state; 
         return (
             <div className="blogSlider">
                 {(postData.length)?
-                <OwlCarousel className='owl-theme' {...settings}>
-                    {
-                        
+                <Slider className='blog-slider' {...settings}>
+                    {                        
                         postData.map((item, index) => (
                             <div className="item-wrapper singleBlog isRadius16 d-flex flex-column justify-content-between" key={item.id}>
                                 <div className="content-part">
@@ -105,7 +137,7 @@ export default class MultipleItems extends Component {
                             </div>
                         ))
                     }
-                </OwlCarousel>:null}
+                </Slider>:''}
             </div>
         );
     }

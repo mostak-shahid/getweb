@@ -4,7 +4,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
-import OwlCarousel from "react-owl-carousel";
+import Slider from "react-slick";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import appreciate from "../../assets/images/appriciate.svg";
@@ -17,6 +17,9 @@ import Pagination from "../../Components/Pagination/Pagination";
 import Config from "../../Config.json";
 import "./Portfolio.scss";
 import PortfolioUnit from "./PortfolioUnit/PortfolioUnit";
+// Import css files
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 const PortfolioGroup = (props) => {
     const [categories, setCategories] = useState([]);
     const [projects, setProjects] = useState([]);
@@ -85,7 +88,17 @@ const PortfolioGroup = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = (index) => {
         setSettings({
-            loop: true,
+            
+      dots: false,
+      arrows: true,
+      infinite: true,
+      speed: 2500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      initialSlide: index
+            /*loop: true,
             margin: 0,
             nav: true,
             dots: false,
@@ -93,7 +106,7 @@ const PortfolioGroup = (props) => {
             autoplayHoverPause: true,
             smartSpeed: 2500,
             items: 1,
-            startPosition: index
+            startPosition: index*/
         });
         setShow(true);
     }
@@ -185,7 +198,7 @@ const PortfolioGroup = (props) => {
                 <Modal.Body className="p-0">
                     {/* <div className="portfolio-modal-close position-absolute top-0 end-0"><button className="btn btn-danger rounded-circle" onClick={handleClose}>x</button></div> */}
                     {projects.length?
-                    <OwlCarousel className="owl-theme" {...settings}>
+                    <Slider className="portfolio-group-slider" {...settings}>
                         {projects.map((item, index) => (
                         <div className="item" key={index}>
                             <div className="modal-body-top d-flex align-items-center gap-3">
@@ -272,7 +285,7 @@ const PortfolioGroup = (props) => {
                             </div>
                         </div>
                         ))}
-                    </OwlCarousel>:''}
+                    </Slider>:''}
                 </Modal.Body>
             </Modal>            
             <ToastContainer />

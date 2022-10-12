@@ -100,7 +100,7 @@ const Header = (props) => {
               ID: 290,
               title: "Product Design",
               class: ["menu-double-column"],
-              url: "/product-design-service-category-page", //software product design
+              url: "/product-design-service", //software product design
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-product-design.png",
               hover_image:
