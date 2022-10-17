@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../BlogUpdate/BlogSingle";
 import LazyImage from "../LazyImage";
 import "./SingleBlogItem.scss";
@@ -17,7 +17,6 @@ import "./SingleBlogItem.scss";
 const SingleBlogItems = (props) => {
     //console.log(props);
     
-    const navigate = useNavigate();
     const handleClick = (e) => { 
         //window.location.reload(false)
         //console.log(e.target.getAttribute('href'))   
