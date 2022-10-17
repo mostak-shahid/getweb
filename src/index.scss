@@ -642,6 +642,13 @@ ul {
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
 }
+.calendly-badge-widget {
+  .calendly-badge-content {
+    span {
+      display: none;
+    }
+  }
+}
 
 /*From Frahim vai*/
 #banner Content .bannerTitle {

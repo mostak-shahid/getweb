@@ -529,10 +529,11 @@ const Header = (props) => {
                         </button>
                         <div className={["collapse navbar-collapse", menuOpen && 'show'].join(' ')} id="navbarSupportedContent">
                         {Config.MAIN_MENU && <Navigation menuData={menuData} id={Config.MAIN_MENU} menuOpen={menuOpen} menuOpenToggle={(value) => this.setState({menuOpen:value})} />}
+                          
                         </div>
                     </div>                       
                 </div>
-                <div className="button-area d-none d-xl-block btn-wrapper">
+                <div className="button-area d-none d-xl-flex align-items-sm-center gap-2 btn-wrapper">
                     <NavLink className={["btn bgClrPink text-white position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} to={optionData['contact-request-link']}>
                         <span className="mr-8">Request a Quote</span>
                         <span className="btn-arrow"></span>

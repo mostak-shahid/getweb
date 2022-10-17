@@ -17,9 +17,11 @@
   .BlogSingFeatheredImg {
     border-radius: 8px;
     overflow: hidden;
+    max-height: 400px;
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
   }
   .author-image {
@@ -127,7 +129,7 @@
   .BlogSingleContentArea {
     .blogInnerContent {
       line-height: var(--26px);
-      color: #8d8f98;
+      color: #dddddd;
       margin-bottom: 60px;
       h1,
       h2,
@@ -137,16 +139,20 @@
       h6 {
         color: #ffffff;
         margin-top: 0;
-        margin-bottom: 15px;
-        &:not(:first-child) {
-          margin-top: 20px;
-          @media (min-width: 576px) {
-            margin-top: 30px;
-          }
-          @media (min-width: 992px) {
-            margin-top: 40px;
-          }
-        }
+        margin-bottom: 20px;
+        line-height: 1.2 !important;
+      }
+      h2,
+      .h2 {
+        font-size: 30px !important;
+      }
+      h3,
+      .h3 {
+        font-size: 26px !important;
+      }
+      h4,
+      .h4 {
+        font-size: 22px !important;
       }
       b {
         color: #fff;
@@ -156,10 +162,11 @@
         text-decoration: none;
       }
       p {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
       blockquote {
-        margin-top: 30px;
+        margin-top: 0;
+        margin-bottom: 20px;
         padding: 25px 28px;
         border-width: 2px;
         border-style: solid;
@@ -185,18 +192,15 @@
           }
         }
         @media (min-width: 576px) {
-          margin-top: 40px;
           padding: 30px 38px;
         }
         @media (min-width: 992px) {
-          margin-top: 60px;
           padding: 30px 60px;
         }
       }
       table {
         width: 100%;
         margin-bottom: 20px;
-        margin-top: 20px;
         thead {
           background-color: var(--clr-menu-light);
           border-radius: 4px;
@@ -215,6 +219,7 @@
           font-weight: 500;
           font-size: 14px;
           line-height: 22px;
+          border-bottom: 1px solid rgba(76, 77, 84, 0.5);
         }
         tbody {
           tr {
@@ -230,15 +235,6 @@
               }
             }
           }
-        }
-
-        @media (min-width: 576px) {
-          margin-top: 30px;
-          margin-bottom: 30px;
-        }
-        @media (min-width: 992px) {
-          margin-top: 40px;
-          margin-bottom: 40px;
         }
         @media (max-width: 575.98px) {
           thead {
@@ -278,6 +274,7 @@
         }
       }
       dl {
+        margin-bottom: 0;
         dt {
           font-weight: 700;
           font-size: 16px;
@@ -286,31 +283,61 @@
         }
         dd {
           padding-left: 15px;
-          padding-bottom: 30px;
+          padding-bottom: 20px;
           margin-bottom: 0;
         }
       }
       hr {
         background-color: #4c4d54;
         margin-bottom: 20px;
-        @media (min-width: 576px) {
-          margin-bottom: 30px;
-        }
-        @media (min-width: 992px) {
-          margin-bottom: 40px;
+        margin-top: 0;
+      }
+      figure {
+        margin-bottom: 20px;
+        figcaption {
+          margin-top: 5px;
         }
       }
-      img {
+      img,
+      figure {
         max-width: 100%;
         height: auto;
       }
-      & > *:last-child {
-        margin-bottom: 0;
+      ul {
+        margin-bottom: 20px !important;
       }
+      .content-count {
+        display: inline-block;
+        background-color: var(--clr-green);
+        color: var(--clr-theme-dark);
+        padding: 0 5px;
+      }
+      // & > *:last-child {
+      //   margin-bottom: 0;
+      // }
       @media (min-width: 576px) {
       }
       @media (min-width: 992px) {
         margin-bottom: 0;
+      }
+    }
+    .authorIntro {
+      padding: 30px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      .left-part {
+        flex: 0 0 150px;
+        text-align: center;
+        .author-image {
+          display: inline-block;
+        }
+      }
+      .right-part {
+        flex: 1;
+        margin-left: 15px;
+        padding-left: 15px;
+        border-left: 1px solid rgba(76, 77, 84, 0.5);
       }
     }
   }

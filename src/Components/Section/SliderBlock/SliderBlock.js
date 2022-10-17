@@ -70,12 +70,12 @@ const SliderBlock = (props) => {
                         {
                         props.components === 'testimonial'?
                             <Testimonial data={item} />:
-                            <SingleBlogItems data={item} />
+                            <SingleBlogItems data={item} newtab={props?.true && true} />
                         }                    
                     </div>
                 ))
             }
-            {console.log(props)}
+            {/* {console.log(props)} */}
             </Slider>
         </div>
     )
