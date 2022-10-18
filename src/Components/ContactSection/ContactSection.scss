@@ -1,3 +1,4 @@
+@import "../../mixing.scss";
 .contactDetails {
   padding-top: 11.5vw !important;
   padding-bottom: 60px;
@@ -17,5 +18,21 @@
     > *:last-child {
       margin-bottom: 0 !important;
     }
+  }
+}
+.contact-page-address {
+  .icon {
+    flex: 0 0 14px;
+  }
+  .info {
+    flex: 1;
+  }
+}
+.ContactSecIntro {
+  h1,
+  .h1,
+  h2,
+  .h2 {
+    @include fs48();
   }
 }

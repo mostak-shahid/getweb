@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import Moment from 'react-moment';
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import DefaultAuthor from '../../assets/images/blog-author-default.svg';
 import clock1 from "../../assets/images/clock1.svg";
+import comment1 from "../../assets/images/single-blog-comment.svg";
 import Config from "../../Config.json";
 import LazyImage from '../LazyImage';
 import Loading from '../Loading/Loading';
@@ -67,8 +68,6 @@ const BlogSingle = (props) => {
         <Loading cls="page-loader" />:            
         <>                
             <SeoMeta pageData={pageData}/>
-            {console.log(pageData)}
-            {console.log(loading)}
             <section className="BlogSingleWrapper secPadding mt-5">
                 <div className="container-lg">
                     <div className="blogFeathered">
@@ -76,24 +75,30 @@ const BlogSingle = (props) => {
                             <p className="blogSingleTag textClrGreen fs-15 fwSemiBold mb-20">{pageData?.taxonomy?.category[0].name}</p>
                             <h1 className="fs-48 fw-bold text-white mb-20">{pageData.title}</h1>
                             <div className="meta d-flex gap-4 align-items-center">
-                                <NavLink to={['/user', pageData?.author?.slug].join('/')} className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
+                                <span className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
                                     <div className="adminImg flex-shrink-0">
-                                        {/* <img className='author-image' src={pageData?.author?.image[22]} alt="Author Img" width="22" height="22" /> */}
                                         {
                                             pageData?.author?.image[22] ?
-                                                <LazyImage className='author-image' src={pageData?.author?.image[22]} alt={pageData?.author?.name} width="22" height="22" /> :
-                                                <LazyImage className='author-image' src={DefaultAuthor} alt={pageData?.author?.name} width="22" height="22" />                                        
+                                                <LazyImage className='author-image' src={pageData?.author?.image[22]} alt={[pageData?.author?.name, 'Image'].join('-')} width="22" height="22" /> :
+                                                <LazyImage className='author-image' src={DefaultAuthor} alt={[pageData?.author?.name, 'Image'].join('-')} width="22px" height="22px" />                                        
                                         }
                                     </div>
                                     <span className="AuthorName">{pageData?.author?.name}</span>
-                                </NavLink>
+                                </span>
                                 <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
                                     <div className="CalenderIcon flex-shrink-0">
-                                        {/* <img src={clock1} alt="Author Img" /> */}
-                                        <LazyImage src={clock1} alt="Author Img" /> 
+                                        <LazyImage src={clock1} alt="Calender Img" width="20px" height="20px" /> 
                                     </div>
                                     <span className="PostDate">
                                         <Moment format="MMM DD, YYYY">{pageData.date}</Moment>
+                                    </span>
+                                </span>
+                                <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
+                                    <div className="CalenderIcon flex-shrink-0">
+                                        <LazyImage src={comment1} alt="Comment Img" width="20px" height="20px" /> 
+                                    </div>
+                                    <span className="PostComment">
+                                        5 Comment/s
                                     </span>
                                 </span>
                             </div>
@@ -114,7 +119,7 @@ const BlogSingle = (props) => {
                                         <div className="left-part">
                                         {pageData?.author?.image[100]?
                                             <LazyImage className='author-image mb-1' src={pageData?.author?.image[100]} width="100" height="100" alt={[pageData?.author?.name, 'Image'].join('-')} />:
-                                            <LazyImage className='author-image mb-1' src={DefaultAuthor} alt={pageData?.author?.name} width="100" height="100" /> 
+                                            <LazyImage className='author-image mb-1' src={DefaultAuthor} width="100" height="100" alt={[pageData?.author?.name, 'Image'].join('-')} /> 
                                         }
                                             <div>
                                                 <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>

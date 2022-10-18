@@ -41,7 +41,8 @@
       .banner-desc,
       .banner-heading {
         & > * {
-          font-size: inherit;
+          font-size: inherit !important;
+          line-height: inherit !important;
         }
         & > p {
           &:last-child {

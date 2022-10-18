@@ -38,14 +38,14 @@ function ContactSection(props) {
                         }
                         {
                             _mosacademy_page_group_title_description &&
-                            <div className="secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
+                            <div className="ContactSecIntro secIntro" dangerouslySetInnerHTML={{__html:_mosacademy_page_group_title_description}}></div>
                         }
                         
                     </div>                    
                     <div className="getInTouch">
                         <div className="row isBgBorder pb-30 mb-30">
                             <div className="col-sm-6">
-                                <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
+                                <div className="contact-page-address singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
                                         <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
@@ -63,7 +63,7 @@ function ContactSection(props) {
                                 </div>
                             </div>
                             <div className="col-sm-6">
-                                <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
+                                <div className="contact-page-address singleInfo d-flex gap-3 gap-xl-4 align-items-center mb-30">
                                     <div className="icon">
                                         <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
@@ -76,7 +76,7 @@ function ContactSection(props) {
                                 </div>
                             </div>
                             <div className="col-lg-12">
-                                <div className="singleInfo d-flex gap-3 gap-xl-4 align-items-center">
+                                <div className="contact-page-address singleInfo d-flex gap-3 gap-xl-4 align-items-center">
                                     <div className="icon">
                                         <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>

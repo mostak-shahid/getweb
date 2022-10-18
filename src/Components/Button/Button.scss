@@ -51,7 +51,7 @@
 .btn {
   background-color: var(--clr-green);
   &:hover {
-    background-color: #4991ff;
+    background-color: var(--btn-hover-bg);;
     color: var(--clr-theme-dark);
   }
 }

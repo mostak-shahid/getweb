@@ -161,7 +161,7 @@ const JobApplicationForm = (props) => {
                         <div className="col-sm-12">
                             <div className="part-one">
                                 <div className="secIntro text-center">
-                                    <div dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_page_banner_title}}></div>
+                                    <div className="JobApplicationSecIntro fs-48 fw-normal" dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_page_banner_title}}></div>
                                     <p dangerouslySetInnerHTML={{__html:pageData?.meta?._mosacademy_page_banner_intro}}></p>
                                     <hr />
                                 </div>                                

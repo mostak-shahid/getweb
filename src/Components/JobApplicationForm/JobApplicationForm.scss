@@ -46,8 +46,8 @@
     .btn {
       &:hover,
       &:focus {
-        background-color: #00e190;
-        color: #121316;
+        background-color: var(--btn-hover-bg);
+        color: var(--clr-theme-dark);
         box-shadow: none !important;
       }
       &.btn-job-application {
@@ -81,5 +81,11 @@
     padding: 40px;
   }
   @media (min-width: 992px) {
+  }
+}
+.JobApplicationSecIntro {
+  > * {
+    font-size: inherit !important;
+    line-height: inherit !important;
   }
 }
