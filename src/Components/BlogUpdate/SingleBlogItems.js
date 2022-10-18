@@ -28,7 +28,7 @@ const SingleBlogItems = (props) => {
 
         const target = e.target.getAttribute('data-target')
         const location = document.querySelector(target).offsetTop
-        console.log(e.target.getAttribute('href'))  
+        //console.log(e.target.getAttribute('href'))  
         window.scrollTo({
             left: 0,
             top: location,
