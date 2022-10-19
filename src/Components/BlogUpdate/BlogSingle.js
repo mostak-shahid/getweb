@@ -1,8 +1,10 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Moment from 'react-moment';
 import { useParams } from "react-router-dom";
 import DefaultAuthor from '../../assets/images/blog-author-default.svg';
 import clock1 from "../../assets/images/clock1.svg";
+import DefaultAvatar from '../../assets/images/default-comment-avatar.png';
 import comment1 from "../../assets/images/single-blog-comment.svg";
 import Config from "../../Config.json";
 import LazyImage from '../LazyImage';
@@ -10,14 +12,17 @@ import Loading from '../Loading/Loading';
 import Section from '../Section/Section';
 import SeoMeta from '../SeoMeta/SeoMeta';
 import "./BlogSingle.scss";
+import CommentForm from './CommentForm';
 
 const BlogSingle = (props) => {
     const params = useParams();  
     //console.log(params);
     const [pageData,setPageData]=useState([]);
     const [blogPageData,setBlogPageData]=useState([]);
-    const [postsData,setPostsData]=useState([]);
+    const [commentsData,setCommentsData]=useState([]);
+    const [firstLevelCommentsData,setFirstLevelCommentsData]=useState([]);
     const [loading,setLoading]=useState(true);
+    //const [ip, setIP] = useState("");
     useEffect(()=>{
         setPageData([]);
         setLoading(true);
@@ -25,22 +30,57 @@ const BlogSingle = (props) => {
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setPageData(resp))//setting response to state posts
     },[params.slug]);
-    useEffect(()=>{
+    /*useEffect(()=>{
         const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setBlogPageData(resp))//setting response to state posts
-    },[]);
-    useEffect(()=>{
-        const url = Config.API_BASE + "data-list/post/0/0/3";;//api url
-        fetch(url).then(resp=>resp.json())//calling url by method GET
-        .then(resp=>setPostsData(resp))//setting response to state posts
-    },[]);
+    },[]);*/
+
+    /*const getIP = async () => {
+        //const res = await axios.get('https://checkip.amazonaws.com/')
+        //const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
+        await axios.get("https://api.ipify.org")
+        .then(function (response) {
+            setIP(response.data);
+            //toast('Success');
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log("Error: ", error);
+        });
+    };
+    useEffect(() => {
+        getIP();
+    }, []);*/
+
+    useEffect(()=>{        
+        //const ipRequest = 'https://api.ipify.org';//Config.API_BASE + "data-single/" + params.slug
+        const blogPageRequest = `${Config.API_BASE}data-single/${Config.BLOG_ID}`;//Config.API_BASE + "data-single/" + Config.BLOG_ID;
+        const commentsRequest = `https://getwebinc.com/api/wp-json/wp/v2/comments?post=${pageData?.id}`;//https://getwebinc.com/api/wp-json/wp/v2/comments?post=243;
+        const fetchData = async () => {
+            await axios.all([
+                //axios.get(ipRequest), 
+                axios.get(blogPageRequest), 
+                axios.get(commentsRequest)
+            ]).then(axios.spread((blogPageDataResponse, commentsDataResponse) => {  
+                //console.log(firstResponse.data,secondResponse.data);
+                //setIP(ipDataRequest.data);
+                setBlogPageData(blogPageDataResponse.data);
+                setCommentsData(commentsDataResponse.data);
+                setFirstLevelCommentsData(commentsData.filter(comment=>comment.parent === 0));
+            }))
+        }    
+        if (pageData?.id) { 
+            fetchData()
+            .catch(console.error);  
+        }      
+    },[params.slug,pageData.id,commentsData]);
     useEffect(() => {
         if (pageData.length !== 0) {
             setLoading(false);
         }
         //console.log(pageData);
-    }, [pageData, blogPageData, postsData]);
+    }, [pageData, blogPageData]);
     const blogUpdateComponentData = {
         "_mosacademy_page_group_sub_titles": ["Related blog"],
         "_mosacademy_page_group_title_description": "<h2>Read more on <strong>our blog</strong></h2><p>Check out the knowledge base collected and distilled by experienced professionals.</p><hr />",
@@ -62,6 +102,14 @@ const BlogSingle = (props) => {
         "group_id": "blogs-6",
         "group_slug": "blogs"    
     };
+    const childComments = (parent_id) => {
+        let child_comments = commentsData.filter(comment=>comment.parent === parent_id);
+        if (child_comments.length) {
+            return child_comments.length + ' comments';
+        } else {
+            return '0 comments'
+        }
+    }
     return (
         loading?
         // <div className="textClrGreen text-center loder-text d-none">loading...</div>
@@ -93,14 +141,17 @@ const BlogSingle = (props) => {
                                         <Moment format="MMM DD, YYYY">{pageData.date}</Moment>
                                     </span>
                                 </span>
+                            {
+                                commentsData.length ?
                                 <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
                                     <div className="CalenderIcon flex-shrink-0">
                                         <LazyImage src={comment1} alt="Comment Img" width="20px" height="20px" /> 
                                     </div>
                                     <span className="PostComment">
-                                        5 Comment/s
+                                        {commentsData.length} Comment/s
                                     </span>
-                                </span>
+                                </span>:''
+                            }
                             </div>
                             <div className="BlogSingFeatheredImg">
                                 {/* <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" /> */}
@@ -127,69 +178,38 @@ const BlogSingle = (props) => {
                                             </div>
                                         </div>
                                         <div className="right-part fs-14 fw-normal textClrGray" dangerouslySetInnerHTML={{__html:pageData?.author?.description}} />
-                                    </div>
-                                
+                                    </div>                                
+                                }
+                                {Config.ALLOW_COMMENT?
+                                    <div className="comments-wrapper bgClrSolitude isRadius12">
+                                    {
+                                        firstLevelCommentsData.length ?
+                                        <div id="comments" className="comments">
+                                            <div id="reply-title" className="comment-reply-title textClrThemeDark fs-24 fw-bold mb-10">{commentsData.length} Comment/s</div>
+                                            {
+                                            firstLevelCommentsData.map((item, index)=> (
+                                                <div className={['comment', 'comment-'+index, 'comment-id'+item.id].join(' ')} key={index}>
+                                                    <div className="comment-unit d-flex">
+                                                        <div className="comment-avavat">
+                                                            <LazyImage src={item.author_avatar_urls[96]?item.author_avatar_urls[96]:DefaultAvatar} width="96px" height="96px" alt={item.author_name}/>
+                                                        </div>
+                                                        <div className="comment-meta">
+                                                            <h6 className="comment-auth textClrGrayDeep fwBold mb-0" dangerouslySetInnerHTML={{__html:item.author_name}} />
+                                                            <div className="comment-time fs-12"><Moment format="MMMM DD, YYYY">{item.date}</Moment> at <Moment format="HH:MM a">{item.date}</Moment></div>
+                                                            <div className="comment-intro textClrGray" dangerouslySetInnerHTML={{__html:item.content.rendered}} />
+                                                        </div>
+                                                    </div>
+                                                    {/* {childComments(item.id)} */}
+                                                </div>
+                                            ))
+                                            }
+                                        </div>: 
+                                        ''
+                                    }
+                                        <CommentForm id={pageData?.id} />
+                                    </div>:''
                                 }
                             </div>
-                            {/* <div className="col-xl-4">
-                                <div className="SingleSidebar sticky-xl-top">
-                                    <p className="fs-16 fwSemiBold">Search</p>
-                                    <div className="searchInput pb-4">
-                                    <form onSubmit={handleSearchSubmit}>
-                                        <input className="form-control" name="search" type="text" onChange={onChange} placeholder="Search here" value={searchText}/>
-                                    </form>
-                                    </div>
-                                    <p className="fs-16 fwSemiBold mt-4">Recent Post</p>
-                                    {postsData.length && 
-                                        postsData.map((item, index) => (
-                                            <RecentPost data={item} key={index} />
-                                        ))
-                                    }
-
-                                    <div className="gradientBorder2 mt-5 mb-4"></div>
-                                    <div className="d-flex align-items-center gap-3 borderBottom pb-3">
-                                        <LazyImage  className='author-image' src={pageData?.author?.image[47]} width="47" height="47" alt={[pageData?.author?.name, 'Image'].join('-')} />
-                                        <div>
-                                            <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>
-                                            <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData?.author?.designation}</p>
-                                        </div>
-                                    </div>
-                                    <div className="fs-14 fw-normal textClrGray mt-3" dangerouslySetInnerHTML={{__html:pageData?.author?.description}} />
-                                    {
-                                        pageData?.author?.linkedin && 
-                                        <a href={pageData?.author?.linkedin} className="linkedinProfileLink mt-4" target="_blank" rel="noreferrer">
-                                            <LazyImage src={linkedinProfile} className="img-fluid" alt="" />
-                                            <span>Linkedin</span>
-                                        </a>
-                                    }
-                                    <ul className="socialLink m-0 p-0 list-unstyled d-flex align-items-center gap-3 bgClrBlack mt-4 rounded px-4 py-3">
-                                        <li>
-                                            <p className="mb-0 fs-14 fw-bold text-white pe-2">Share</p>
-                                        </li>
-                                        <li>
-                                            <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank" title="Share on Facebook" rel='noreferrer'>
-                                                <img src={facebook} alt="Facebook" />
-                                            </a> 
-                                            <FacebookShareButton url={window.location.href} quote={pageData.title} >
-                                                <LazyImage src={facebook} alt="Facebook" />
-                                            </FacebookShareButton>
-                                        </li>
-                                        <li>
-                                            <a href={`https://twitter.com/share?url=${window.location.href}&text=${pageData.title}`} target="_blank" title="Share on Twitetr" rel='noreferrer'>
-                                                <img src={twitterLink} alt="Twitter" />
-                                            </a> 
-                                            <TwitterShareButton title={pageData.title} url={window.location.href}>
-                                                <LazyImage src={twitterLink} alt="Twitter" />
-                                            </TwitterShareButton>
-                                        </li>
-                                        <li>
-                                            <LinkedinShareButton title={window.location.href} source={pageData.title}>
-                                                <LazyImage src={linkdin} alt="Linkdin" />
-                                            </LinkedinShareButton>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

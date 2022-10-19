@@ -1,16 +1,18 @@
 import "font-awesome/css/font-awesome.min.css";
 import React, { Component } from "react";
+import Modal from 'react-bootstrap/Modal';
 import { NavLink } from "react-router-dom";
 import Config from "../../Config.json";
+import Button from "../Button/Button";
 import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import "./FooterComponent.scss";
-
 //const FooterComponent = () => {
 export default class FooterComponent extends Component {
   state = {
     loading: true,
     optionData: null,
+    show:false
   };
 
   async componentDidMount() {
@@ -314,11 +316,14 @@ export default class FooterComponent extends Component {
               <div className="col-lg-4 wdfh text-center text-sm-start">
                 <div className="contacts">
                   <p className="textClrGray fs-14 fw-medium mb-2">
-                    Want to visit us?
+                  Want to discuss with us?
                   </p>
-                  <p className="fs-22 fwSemiBold text-white mb-0">
+                  <div className="btn-wrapper">
+                  <Button className="btn-pink" url="#" title="Book a call now"/> 
+                </div>
+                  {/* <p className="fs-22 fwSemiBold text-white mb-0">
                     {optionData?.contactAddress[0]}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -502,10 +507,17 @@ export default class FooterComponent extends Component {
             
                 <div className="d-flex justify-content-start position-relative">
                     {/* <a href="#root" className="back-to-top">Back to top</a> */}
-                    <NavLink className="back-to-top" to="#root" onClick={handleClick} data-target="#root">Back to top</NavLink>
+                    <span onClick={()=>this.setState({show:true})}>Back to top</span>
                 </div>
             
         </div> 
+        
+        <Modal className="calendly-modal" show={this.show} onHide={()=>this.setState({show:false})}>
+          <Modal.Body className="p-0">
+            <span className="calendly-modal-close" onClick={()=>this.setState({show:false})}>x</span>
+            <iframe className="w-100" src="https://calendly.com/getwebinc/discovery-call" title="Book a call now" />
+          </Modal.Body>
+        </Modal>
       </div>
     );
   }

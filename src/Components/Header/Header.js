@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Modal from 'react-bootstrap/Modal';
 import { NavLink } from "react-router-dom";
 import Config from "../../Config.json";
 import LazyImage from "../LazyImage";
@@ -8,6 +9,11 @@ const Header = (props) => {
     const [optionData,setOptionData]=useState([]);
     const [loading,setLoading]=useState(true);
     const [menuOpen,setMenuOpen]=useState(false);
+    
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     useEffect(()=>{
         const url=Config.API_BASE + "options/";//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
@@ -533,15 +539,20 @@ const Header = (props) => {
                         </div>
                     </div>                       
                 </div>
-                <div className="button-area d-none d-xl-flex align-items-sm-center gap-2 btn-wrapper">
-                    <NavLink className={["btn bgClrPink text-white position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} to={optionData['contact-request-link']}>
-                        <span className="mr-8">Request a Quote</span>
+                <div className="button-area d-none d-xl-flex align-items-sm-center btn-wrapper">
+                    <span className={["btn btn-pink position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} href="#" rel="noreferrer" onClick={handleShow}>
+                        <span className="mr-8">Book a call now</span>
                         <span className="btn-arrow"></span>
-                    </NavLink>
-
+                    </span>
                 </div>
             </div>
         </header>
+        <Modal className="calendly-modal" show={show} onHide={handleClose}>
+          <Modal.Body className="p-0">
+            <span className="calendly-modal-close" onClick={handleClose}>x</span>
+            <iframe className="w-100" src="https://calendly.com/getwebinc/discovery-call" title="Book a call now" />
+          </Modal.Body>
+        </Modal>
         </> 
     );
 };
