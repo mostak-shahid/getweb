@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Modal from 'react-bootstrap/Modal';
 import { NavLink } from "react-router-dom";
 import Config from "../../Config.json";
+import CalendlyModal from "../CalendlyModal/CalendlyModal";
 import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import './header.scss';
@@ -10,9 +10,7 @@ const Header = (props) => {
     const [loading,setLoading]=useState(true);
     const [menuOpen,setMenuOpen]=useState(false);
     
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    
 
     useEffect(()=>{
         const url=Config.API_BASE + "options/";//api url
@@ -42,6 +40,9 @@ const Header = (props) => {
     /*
     
     */
+
+    //const {show, setShow} = props
+    const [show,setShow]=useState(false);
     const menuAlter = () => {
         return setMenuOpen(!menuOpen)
     }
@@ -540,19 +541,20 @@ const Header = (props) => {
                     </div>                       
                 </div>
                 <div className="button-area d-none d-xl-flex align-items-sm-center btn-wrapper">
-                    <span className={["btn btn-pink position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} href="#" rel="noreferrer" onClick={handleShow}>
+                    <span className={["btn btn-pink position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14 d-none"].join(' ')} rel="noreferrer" onClick={()=>setShow(true)}>
                         <span className="mr-8">Book a call now</span>
                         <span className="btn-arrow"></span>
                     </span>
+                    {optionData['contact-request-link'] &&
+                    <a href={optionData['contact-request-link']} className={["btn btn-pink position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} rel="noreferrer" target="_blank">
+                        <span className="mr-8">Book a call now</span>
+                        <span className="btn-arrow"></span>
+                    </a>
+                    }
                 </div>
             </div>
         </header>
-        <Modal className="calendly-modal" show={show} onHide={handleClose}>
-          <Modal.Body className="p-0">
-            <span className="calendly-modal-close" onClick={handleClose}>x</span>
-            <iframe className="w-100" src="https://calendly.com/getwebinc/discovery-call" title="Book a call now" />
-          </Modal.Body>
-        </Modal>
+        <CalendlyModal show={show} setShow={setShow}/>
         </> 
     );
 };

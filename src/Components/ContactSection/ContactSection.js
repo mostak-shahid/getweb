@@ -110,8 +110,8 @@ function ContactSection(props) {
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">WhatsApp</h4>
-                                        <a href={(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][6].link_url} className="address textClrGray fs-14 fw-medium mb-0 text-decoration-none" target="_blank" rel="noreferrer">
-                                        {(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][6].title}
+                                        <a href={optionData['contact-social-whatapp']?.text_field_2?optionData['contact-social-whatapp']?.text_field_2:''} className="address textClrGray fs-14 fw-medium mb-0">                                                
+                                            {optionData['contact-social-whatapp']?.text_field_1?optionData['contact-social-whatapp']?.text_field_1:''}
                                         </a>
                                     </div>
                                 </div>
@@ -123,8 +123,8 @@ function ContactSection(props) {
                                     </div>
                                     <div className="info">
                                         <h4 className="country text-white fw-bold fs-14">Skype</h4>
-                                        <a href={(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].link_url} className="address textClrGray fs-14 fw-medium mb-0">                                                
-                                            {(typeof optionData['contact-social-links'] !== 'undefined') && optionData['contact-social-links'][5].title}
+                                        <a href={optionData['contact-social-skype']?.text_field_2?optionData['contact-social-skype']?.text_field_2:''} className="address textClrGray fs-14 fw-medium mb-0">                                                
+                                            {optionData['contact-social-skype']?.text_field_1?optionData['contact-social-skype']?.text_field_1:''}
                                         </a>
                                     </div>
                                 </div>

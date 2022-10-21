@@ -1,18 +1,23 @@
 import "font-awesome/css/font-awesome.min.css";
 import React, { Component } from "react";
-import Modal from 'react-bootstrap/Modal';
 import { NavLink } from "react-router-dom";
 import Config from "../../Config.json";
-import Button from "../Button/Button";
+import CalendlyModal from "../CalendlyModal/CalendlyModal";
 import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import "./FooterComponent.scss";
 //const FooterComponent = () => {
 export default class FooterComponent extends Component {
+  /*
+  
+    
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+  */
   state = {
     loading: true,
     optionData: null,
-    show:false
+    show:false,    
   };
 
   async componentDidMount() {
@@ -281,6 +286,9 @@ export default class FooterComponent extends Component {
           top: location,
       })
     }
+    const setShow = (modalShow) => {
+      this.setState({show:!modalShow})
+    }
     return (
       <div className="footer">
         <div className="contactUs isBgBorder pt-120">
@@ -319,7 +327,17 @@ export default class FooterComponent extends Component {
                   Want to discuss with us?
                   </p>
                   <div className="btn-wrapper">
-                  <Button className="btn-pink" url="#" title="Book a call now"/> 
+                  {/* <span className="btn-pink btn position-relative border-0 rounded-pill d-flex align-items-center justify-content-center" onClick={()=>this.setState({show:true})} title="Book a call now"> */}
+                  <span className="btn-pink btn position-relative border-0 rounded-pill d-flex align-items-center justify-content-center d-none" title="Book a call now" onClick={()=>this.setState({show:true})}>
+                    <span className="mr-8">Book a call now</span>
+                    <span className="btn-arrow"></span>
+                    </span> 
+                    {optionData['contact-request-link'] &&
+                    <a href={optionData['contact-request-link']} className={["btn-pink text-white btn position-relative border-0 rounded-pill d-flex align-items-center justify-content-center"].join(' ')} rel="noreferrer" target="_blank">
+                        <span className="mr-8">Book a call now</span>
+                        <span className="btn-arrow"></span>
+                    </a>
+                    }
                 </div>
                   {/* <p className="fs-22 fwSemiBold text-white mb-0">
                     {optionData?.contactAddress[0]}
@@ -471,25 +489,29 @@ export default class FooterComponent extends Component {
                 </div>
               </div>
               <div className="col-sm-4">
-                {optionData["contact-social-links"].length && (
+                {/* {console.log(optionData["contact-social"])} */}
+                {optionData["contact-social"].length && (
                   <div className="social">
                     <ul className="footer-social-list list-inline text-sm-end text-center p-0 mt-3 mb-0 m-sm-0">
-                      {optionData["contact-social-links"].map((item, index) => (
+                      {optionData["contact-social"].map((item, index) => (
                         <li className="list-inline-item" key={index}>
-                            {item.link_url.match(/facebook/gi) && (
-                              <a target="_blank" rel="noreferrer" href={item.link_url} className="facebook-icon"><span className="d-none">facebook</span></a>
+                            {item.match(/facebook/gi) && (
+                              <a target="_blank" rel="noreferrer" href={item} className="facebook-icon"><span className="d-none">facebook</span></a>
                             )}
-                            {item.link_url.match(/twitter/gi) && (
-                              <a target="_blank" rel="noreferrer" href={item.link_url} className="twitter-icon"><span className="d-none">twitter</span></a>
+                            {item.match(/twitter/gi) && (
+                              <a target="_blank" rel="noreferrer" href={item} className="twitter-icon"><span className="d-none">twitter</span></a>
                             )}
-                            {item.link_url.match(/dribbble/gi) && (
-                              <a target="_blank" rel="noreferrer" href={item.link_url} className="dribbble-icon"><span className="d-none">dribbble</span></a>
+                            {item.match(/instagram/gi) && (
+                              <a target="_blank" rel="noreferrer" href={item} className="instagram-icon"><span className="d-none">instagram</span></a>
                             )}
-                            {item.link_url.match(/behance/gi) && (
-                              <a target="_blank" rel="noreferrer" href={item.link_url} className="behance-icon"><span className="d-none">behance</span></a>
+                            {item.match(/dribbble/gi) && (
+                              <a target="_blank" rel="noreferrer" href={item} className="dribbble-icon"><span className="d-none">dribbble</span></a>
                             )}
-                            {item.link_url.match(/linkedin/gi) && (
-                              <a target="_blank" rel="noreferrer" href={item.link_url} className="linkedin-icon"><span className="d-none">linkedin</span></a>
+                            {item.match(/behance/gi) && (
+                              <a target="_blank" rel="noreferrer" href={item} className="behance-icon"><span className="d-none">behance</span></a>
+                            )}
+                            {item.match(/linkedin/gi) && (
+                              <a target="_blank" rel="noreferrer" href={item} className="linkedin-icon"><span className="d-none">linkedin</span></a>
                             )}
                         </li>
                       ))}
@@ -506,18 +528,12 @@ export default class FooterComponent extends Component {
         <div className="back-to-top-con">
             
                 <div className="d-flex justify-content-start position-relative">
-                    {/* <a href="#root" className="back-to-top">Back to top</a> */}
-                    <span onClick={()=>this.setState({show:true})}>Back to top</span>
+                    <a href="#root" className="back-to-top">Back to top</a>
                 </div>
             
         </div> 
         
-        <Modal className="calendly-modal" show={this.show} onHide={()=>this.setState({show:false})}>
-          <Modal.Body className="p-0">
-            <span className="calendly-modal-close" onClick={()=>this.setState({show:false})}>x</span>
-            <iframe className="w-100" src="https://calendly.com/getwebinc/discovery-call" title="Book a call now" />
-          </Modal.Body>
-        </Modal>
+        <CalendlyModal show={this.state.show} setShow={()=> setShow(this.state.show)}/>
       </div>
     );
   }

@@ -21,10 +21,10 @@
   --26px: 26px;
 }
 /* @import url(./assets/fonts/biennale-font.css); */
-@import url(./assets/fonts/biennale-font.css);
+// @import url(./assets/fonts/biennale-font.css);
 @import "./mixing.scss";
 body {
-  font-family: "Biennale" !important;
+  // font-family: "Biennale" !important;
   background-color: var(--clr-theme-dark) !important;
   color: #ffffff;
   @include fs16();
@@ -651,36 +651,7 @@ ul {
     }
   }
 }
-.calendly-modal {
-  iframe {
-    height: 1100px;
-  }
-  .calendly-modal-close {
-    cursor: pointer;
-    display: block;
-    line-height: 40px;
-    width: 40px;
-    text-align: center;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 9;
-    color: var(--clr-theme-dark);
-    background-color: var(--clr-green);
-    font-weight: 500;
-  }
-  @media (min-width: 1000px) {
-    .modal-dialog {
-      max-width: 1000px;
-      .modal-content {
-        border-style: none;
-        iframe {
-          height: 785px;
-        }
-      }
-    }
-  }
-}
+
 /*From Frahim vai*/
 #banner Content .bannerTitle {
   @media all and (max-width: 480px) {
@@ -767,3 +738,32 @@ ul {
   }
 }
 /*From Frahim vai*/
+
+
+// Side Bar CSS
+
+.disable-focus {
+  color: var(--clr-white) !important;
+  &:focus {
+    background: var(--clr-menu-light);
+    box-shadow: none;
+    // outline: 1px solid var(--clr-green) !important;
+  }
+}
+
+.file-border {
+  border: 1px dashed rgba(76, 77, 84, 0.5) !important;
+}
+
+.border-light {
+  border-left: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.full-contact-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100% !important;
+    height: 50px;
+ }

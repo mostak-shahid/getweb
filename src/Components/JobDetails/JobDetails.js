@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Config from "../../Config.json";
 import Button from "../Button/Button";
+import Loading from "../Loading/Loading";
 import Section from "../Section/Section";
 import SeoMeta from "../SeoMeta/SeoMeta";
 import JobDetailsBanner from "../SubPageBanner/JobDetailsBanner";
@@ -33,7 +34,8 @@ const JobDetails = () => {
 
     return (
         loading?
-        <div className="textClrGreen text-center loder-text d-none">loading...</div>:            
+        // <div className="textClrGreen text-center loder-text d-none">loading...</div>
+        <Loading cls="loading page-loader" />:            
         <>      
             <SeoMeta pageData={pageData}/>
             <div className="JobDetails">

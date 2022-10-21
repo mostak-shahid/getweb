@@ -7,7 +7,7 @@
     <meta name="googlebot" content="noindex" /> -->
 
     <script>
-      const header = document.querySelector(".main-header");
+      //const header = document.querySelector(".main-header");
       var lastScrollTop = 251;
       var scrolleffect = window.addEventListener(
         "scroll",
@@ -17,7 +17,7 @@
           const backToTop = document.querySelector(".back-to-top-con");
           var st = window.pageYOffset || document.documentElement.scrollTop;
           //const scrollTop = window.scrollY;
-          movingup = this.oldScroll > this.scrollY;
+          /*movingup = this.oldScroll > this.scrollY;
           this.oldScroll = this.scrollY;
           if (movingup) {
             header.classList.add("headroom--pinned");
@@ -33,10 +33,14 @@
                 "active-sticky-menu",
                 "headroom--pinned",
                 "headroom--unpinned"
-              );
+              );*/
           st > 100
-            ? backToTop.classList.add("make-visible")
-            : backToTop.classList.remove("make-visible");
+            ? (backToTop.classList.add("make-visible"),
+              header.classList.add("fixed-top-header"))
+            : (backToTop.classList.remove("make-visible"),
+              header.classList.remove("fixed-top-header"));
+
+          //header.classList.remove("fixed-top");
           // lastScrollTop = st <= 0 ? 0 : st;
           // console.log(st);
         },
@@ -65,6 +69,13 @@
       };
     </script> -->
     <!-- Calendly badge widget end -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" data-react-helmet="true" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/fonts/biennale-font.css" />
+    <style>
+      body {
+        font-family: "Biennale" !important;
+      }
+    </style>
   </head>
 
   <body>

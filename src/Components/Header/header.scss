@@ -499,12 +499,9 @@
       }
     }
 
-    .button-area {
-      a {
+    .btn-wrapper {
+      .btn {
         padding: 11px 28px;
-        .btn-arrow {
-          background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.627 5.18872L17.9382 10.5L12.627 15.8112' stroke='white' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.0625 10.5H17.7887' stroke='white' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-        }
       }
     }
 
@@ -571,6 +568,35 @@
     }
     & + .back-to-top-con {
       opacity: 1;
+    }
+  }
+  &.fixed-top-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--clr-dark-light);
+    z-index: 999;
+    .wrapper {
+      .menu-area {
+        .mos-menu-list {
+          & > li {
+            & > .menu-item-link {
+              padding-top: 15px;
+              padding-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      .wrapper {
+        .menu-area {
+          span.down-arrow {
+            margin-top: -32px;
+          }
+        }
+      }
     }
   }
 }

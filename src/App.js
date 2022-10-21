@@ -6,6 +6,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import FooterComponent from "./Components/Footer/FooterComponent";
 import Header from "./Components/Header/Header";
 import "./Components/Header/header.scss";
+import SideBar from "./Components/SideBar/SideBar";
+import SideButton from "./Components/SideButton/SideButton";
 
 import "./index.scss";
 
@@ -129,13 +131,26 @@ function App() {
         {"ID": 2054, "post_name": "quality-assurance"},
         {"ID": 1593, "post_name": "shopify"}
     ]
+
+
+    const [sideBarOpen, setSideBarOpen] = useState(false);
+
+    // For Modal 
+    const [show, setShow] = useState(false);
+
     return (
     /*loading ? 
     <Loading  cls="page-loader"/>
     :*/
-    <div className="App">
+    <div className={`overlay ${sideBarOpen && "active"}`}>
         {/* <Router basename="/getweb-react"> */}
-            <Header/>
+            <Header show={show} setShow={setShow}/>
+            <SideButton sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen} />
+            <SideBar
+                sideBarOpen={sideBarOpen}
+                setSideBarOpen={setSideBarOpen}
+                // sidebarRef={sidebarRef}
+            />
             <Suspense fallback={<div className="textClrGreen text-center loder-text d-none">loading...</div>}>         
                 <Routes> 
                         <Route exact path="/" element={<Home/>} />
@@ -159,6 +174,7 @@ function App() {
              </Suspense>
             <FooterComponent/>
         {/* </Router> */}
+
     </div>
     )
     

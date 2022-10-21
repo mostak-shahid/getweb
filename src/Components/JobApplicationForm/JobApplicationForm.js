@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import FileIcon from "../../assets/images/file.svg";
 import Config from "../../Config.json";
 import LazyImage from '../LazyImage';
+import Loading from '../Loading/Loading';
 import Section from '../Section/Section';
 import SeoMeta from '../SeoMeta/SeoMeta';
 import SuccessfulModal from '../SuccessfulModal/SuccessfulModal';
@@ -148,9 +149,9 @@ const JobApplicationForm = (props) => {
         // console.log(event.target.value);
     }
     return (
-        loading
-        ?<div className="textClrGreen text-center loder-text d-none">loading...</div>
-        :        
+        loading?
+        // <div className="textClrGreen text-center loder-text d-none">loading...</div>
+        <Loading cls="loading page-loader" />:         
         <>
             <SeoMeta pageData={pageData}/>
             {/* <JobDetailsBanner  title={pageData?.meta?._mosacademy_page_banner_title} content={pageData?.meta?._mosacademy_page_banner_intro}/> */}

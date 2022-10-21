@@ -1,62 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://getwebinc.com/</loc> </url>
-<url> <loc>https://getwebinc.com/</loc> </url>
-<url> <loc>https://getwebinc.com/about</loc> </url>
-<url> <loc>https://getwebinc.com/android-app-development</loc> </url>
-<url> <loc>https://getwebinc.com/appis</loc> </url>
-<url> <loc>https://getwebinc.com/back-end-developer</loc> </url>
-<url> <loc>https://getwebinc.com/blog</loc> </url>
-<url> <loc>https://getwebinc.com/branding</loc> </url>
-<url> <loc>https://getwebinc.com/careers</loc> </url>
-<url> <loc>https://getwebinc.com/contact</loc> </url>
-<url> <loc>https://getwebinc.com/cross-platform-mobile-development</loc> </url>
-<url> <loc>https://getwebinc.com/custom-application-development</loc> </url>
-<url> <loc>https://getwebinc.com/custom-web-apps</loc> </url>
-<url> <loc>https://getwebinc.com/front-end-developer</loc> </url>
-<url> <loc>https://getwebinc.com/front-end-developer-services</loc> </url>
-<url> <loc>https://getwebinc.com/full-stack-developer</loc> </url>
-<url> <loc>https://getwebinc.com/ios-app-development</loc> </url>
-<url> <loc>https://getwebinc.com/job-application-form</loc> </url>
-<url> <loc>https://getwebinc.com/lean-product-development</loc> </url>
-<url> <loc>https://getwebinc.com/mobile-app-developer</loc> </url>
-<url> <loc>https://getwebinc.com/our-process</loc> </url>
-<url> <loc>https://getwebinc.com/portfolios</loc> </url>
-<url> <loc>https://getwebinc.com/product-design</loc> </url>
-<url> <loc>https://getwebinc.com/product-design-sprint</loc> </url>
-<url> <loc>https://getwebinc.com/progressive-web-apps</loc> </url>
-<url> <loc>https://getwebinc.com/research-development</loc> </url>
-<url> <loc>https://getwebinc.com/saas-application-development</loc> </url>
-<url> <loc>https://getwebinc.com/scoping-session</loc> </url>
-<url> <loc>https://getwebinc.com/single-job-page</loc> </url>
-<url> <loc>https://getwebinc.com/ui-design</loc> </url>
-<url> <loc>https://getwebinc.com/ux-design</loc> </url>
-<url> <loc>https://getwebinc.com/ux-review</loc> </url>
-<url> <loc>https://getwebinc.com/ux-writing</loc> </url>
-<url> <loc>https://getwebinc.com/magento</loc> </url>
-<url> <loc>https://getwebinc.com/workshops</loc> </url>
-<url> <loc>https://getwebinc.com/wordpress</loc> </url>
-<url> <loc>https://getwebinc.com/e-commerce-app</loc> </url>
-<url> <loc>https://getwebinc.com/e-commerce-web</loc> </url>
-<url> <loc>https://getwebinc.com/aws</loc> </url>
-<url> <loc>https://getwebinc.com/azure</loc> </url>
-<url> <loc>https://getwebinc.com/google-cloud</loc> </url>
-<url> <loc>https://getwebinc.com/app-development</loc> </url>
-<url> <loc>https://getwebinc.com/cloud-solutions</loc> </url>
-<url> <loc>https://getwebinc.com/ecommerce-cms-development</loc> </url>
-<url> <loc>https://getwebinc.com/product-design-service-category-page</loc> </url>
-<url> <loc>https://getwebinc.com/web-applications</loc> </url>
-<url> <loc>https://getwebinc.com/staff-augmentation</loc> </url>
-<url> <loc>https://getwebinc.com/ideation-and-evaluation</loc> </url>
-<url> <loc>https://getwebinc.com/product-engineering</loc> </url>
-<url> <loc>https://getwebinc.com/quality-assurance</loc> </url>
-<url> <loc>https://getwebinc.com/blog/everything-about-ui-ux-design-development</loc> </url>
-<url> <loc>https://getwebinc.com/blog/how-to-become-a-wordpress-developer</loc> </url>
-<url> <loc>https://getwebinc.com/blog/how-to-become-a-shopify-developer</loc> </url>
-<url> <loc>https://getwebinc.com/blog/how-to-build-a-web-app</loc> </url>
-<url> <loc>https://getwebinc.com/blog/what-is-brand-discovery</loc> </url>
-<url> <loc>https://getwebinc.com/blog/what-does-a-ux-writer-do</loc> </url>
-<url> <loc>https://getwebinc.com/blog/what-is-a-software-development-kit</loc> </url>
-<url> <loc>https://getwebinc.com/blog/how-to-get-into-uiux-design</loc> </url>
-<url> <loc>https://getwebinc.com/blog/how-long-to-learn-front-end-development</loc> </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<sitemap>
+<loc>https://getwebinc.com/</loc>
+<lastmod>2022-10-19 10:04:32</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/how-long-to-learn-front-end-development</loc>
+<lastmod>2022-10-19 04:19:46</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/how-to-get-into-uiux-design</loc>
+<lastmod>2022-10-19 04:19:03</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/what-is-a-software-development-kit</loc>
+<lastmod>2022-10-19 04:18:16</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/what-does-a-ux-writer-do</loc>
+<lastmod>2022-10-19 04:18:40</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/contact</loc>
+<lastmod>2022-10-18 10:17:48</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/about</loc>
+<lastmod>2022-10-20 12:03:25</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/what-is-brand-discovery</loc>
+<lastmod>2022-10-19 04:15:00</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog</loc>
+<lastmod>2022-10-18 09:32:57</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/careers</loc>
+<lastmod>2022-10-18 09:33:55</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/apis</loc>
+<lastmod>2022-10-05 08:50:21</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/job-application-form</loc>
+<lastmod>2022-10-18 09:42:29</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/portfolios</loc>
+<lastmod>2022-10-18 09:46:18</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/single-job-page</loc>
+<lastmod>2022-10-13 11:50:38</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/our-process</loc>
+<lastmod>2022-10-18 09:45:50</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/workshops</loc>
+<lastmod>2022-10-18 09:57:45</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/product-design</loc>
+<lastmod>2022-10-18 09:46:51</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ux-design</loc>
+<lastmod>2022-10-18 09:55:15</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ux-writing</loc>
+<lastmod>2022-10-18 09:56:08</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ui-design</loc>
+<lastmod>2022-10-18 09:54:49</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/branding</loc>
+<lastmod>2022-10-18 09:33:25</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/product-design-sprint</loc>
+<lastmod>2022-10-18 09:47:54</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ux-review</loc>
+<lastmod>2022-10-18 09:55:41</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/research-development</loc>
+<lastmod>2022-10-18 09:50:18</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/scoping-session</loc>
+<lastmod>2022-10-18 09:51:48</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/android</loc>
+<lastmod>2022-10-18 09:27:51</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ios</loc>
+<lastmod>2022-10-18 09:41:59</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/mobile-development</loc>
+<lastmod>2022-10-18 09:35:47</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/front-end-development</loc>
+<lastmod>2022-10-18 09:39:10</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/custom-web-apps</loc>
+<lastmod>2022-10-18 09:36:50</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/progressive-web-apps</loc>
+<lastmod>2022-10-18 09:48:48</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/lean-product-development</loc>
+<lastmod>2022-10-18 09:44:19</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/saas-application-development</loc>
+<lastmod>2022-10-18 09:50:54</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/custom-application-development</loc>
+<lastmod>2022-10-18 09:36:19</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/back-end-development</loc>
+<lastmod>2022-10-18 09:32:26</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/mobile-app-developer</loc>
+<lastmod>2022-10-18 09:45:21</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/full-stack-developer</loc>
+<lastmod>2022-10-18 09:40:23</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/front-end-development-services</loc>
+<lastmod>2022-10-18 09:39:44</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/magento</loc>
+<lastmod>2022-10-18 09:44:53</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/wordpress</loc>
+<lastmod>2022-10-18 09:57:03</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/shopify</loc>
+<lastmod>2022-10-18 09:52:11</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/e-commerce-app</loc>
+<lastmod>2022-10-18 09:37:23</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/e-commerce-web</loc>
+<lastmod>2022-10-18 09:38:15</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/aws</loc>
+<lastmod>2022-10-18 09:28:50</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/azure</loc>
+<lastmod>2022-10-18 09:29:18</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/google-cloud-development</loc>
+<lastmod>2022-10-18 09:40:54</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/app-development-service-category-page</loc>
+<lastmod>2022-10-18 09:28:23</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/how-to-build-a-web-app</loc>
+<lastmod>2022-10-19 04:13:08</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/product-design-service-category-page</loc>
+<lastmod>2022-10-18 09:47:22</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ecommerce-cms-development-service-category-page</loc>
+<lastmod>2022-10-18 09:38:38</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/cloud-solutions-service-category-page</loc>
+<lastmod>2022-10-18 09:34:59</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/web-applications-service-category-page</loc>
+<lastmod>2022-10-18 09:56:35</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/staff-augmentation-service-category-page</loc>
+<lastmod>2022-10-18 09:54:21</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/ideation-and-evaluation-service-category-page</loc>
+<lastmod>2022-10-18 09:41:22</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/product-engineering-service-category-page</loc>
+<lastmod>2022-10-18 09:48:21</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/how-to-become-a-shopify-developer</loc>
+<lastmod>2022-10-19 04:12:14</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/how-to-become-a-wordpress-developer</loc>
+<lastmod>2022-10-20 05:57:33</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/quality-assurance</loc>
+<lastmod>2022-10-18 09:49:38</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/everything-about-ui-ux-design-development</loc>
+<lastmod>2022-10-20 08:21:12</lastmod>
+</sitemap>
+<sitemap>
+<loc>https://getwebinc.com/blog/hiring-a-front-end-designer-in-2023</loc>
+<lastmod>2022-10-20 07:55:38</lastmod>
+</sitemap>
+
+</sitemapindex>
