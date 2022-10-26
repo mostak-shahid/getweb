@@ -448,7 +448,7 @@
   }
 }
 .comments {
-  .comment-reply-title {
+  .all-comments-reply-title {
     &::after {
       content: "";
       width: 100px;
@@ -535,6 +535,16 @@
         padding: 0;
         background: transparent;
         border-style: none;
+      }
+    }
+    .comments-wrapper {
+      display: none;
+    }
+    .comment-meta {
+      &.open-comment-box {
+        & > .comments-wrapper {
+          display: block;
+        }
       }
     }
   }

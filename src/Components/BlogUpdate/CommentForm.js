@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Config from '../../Config.json';
 import './CommentForm.scss';
 
 const CommentForm = (props) => {
@@ -30,23 +31,27 @@ const CommentForm = (props) => {
     const onSubmit = async (data) => { 
         setFormPocessing(true);       
         const formData = new FormData();
-        console.log(formData);
-        reset();
-        /*formData.append('name',data.name);
-        formData.append('email',data.email);
-        formData.append('message',data.message);
+        formData.append('comment_author',data.comment_author);
+        formData.append('comment_author_email',data.comment_author_email);
+        formData.append('comment_author_url',data.comment_author_url);
+        formData.append('comment_author_IP',ip);
+        formData.append('comment_agent',navigator.userAgent);
+        formData.append('comment_post_ID',props.id);
+        formData.append('comment_parent',props.replyParent);
+        formData.append('comment_content',data.comment_content);
         try {
             setFormPocessing(true);
             //const rawResponse = await axios.post(Config.API_BASE + 'job-apply', JSON.stringify(data),{ 
-            const rawResponse = await axios.post(Config.API_BASE + 'contact-data', formData,{ 
+            const rawResponse = await axios.post(Config.API_BASE + 'comment-data', formData,{ 
                 headers: {
                     'content-type': 'multipart/form-data',
                     'Accept': 'application/json',
                     "Content-type": "application/json; charset=UTF-8",
+                    'Authorization': Config.Authorization
                 }
             })
             //const content = await rawResponse.json();
-            //console.log(rawResponse);
+            console.log(rawResponse);
             if(rawResponse.data.req.data.status){
                 toast.success('Thank you for submitting this query.');
                 reset();
@@ -56,12 +61,19 @@ const CommentForm = (props) => {
         } catch (error) {
             toast.error('Please try again.');
             //console.log(error);
-        }*/
+        }
         setFormPocessing(false);
     }
+    const toggleComment = useCallback((e) => {
+        //e.target.parentElement.classList.toggle('open-comment-below');
+        e.target.closest('.comment-meta').classList.toggle('open-comment-box');
+    }, []);
     return (
         <div className='comment-form form-validation'>
-            <div id="reply-title" className="comment-reply-title textClrThemeDark fs-30 fwBlack mb-10" dangerouslySetInnerHTML={{__html:props.title}} />
+            <div className='d-inline-flex align-items-center  mb-10'>
+                <div id="reply-title" className="comment-reply-title textClrThemeDark fs-30 fwBold" dangerouslySetInnerHTML={{__html:props.title}} />
+                {props?.cencle?<div className="cancel-reply textClrGray" onClick={toggleComment}>Cancel Reply</div>:''}
+            </div>
             <div className="comment-reply-intro">Your email address will not be published. Required fields are marked *</div>
             <ToastContainer />
             <form className="" onSubmit={handleSubmit(onSubmit)}>
@@ -69,37 +81,33 @@ const CommentForm = (props) => {
                     <div className="col-sm-4 mb-20">
                         <div className="contactField">
                             <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicName">Name *</label>
-                            <input placeholder="Enter your name" id="formBasicName" className="rounded-pill px-4 form-control" {...register("name", {required: true,pattern: /^[a-zA-Z-_'. ]*$/,})}/>
-                            {errors.name?.type === "required" && (<div className="text-danger mt-1">Name is required.</div>)}
-                            {errors.name?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid name.</div>)}
+                            <input placeholder="Enter your name" id="formBasicName" className="rounded-pill px-4 form-control" {...register("comment_author", {required: true,pattern: /^[a-zA-Z-_'. ]*$/,})}/>
+                            {errors.comment_author?.type === "required" && (<div className="text-danger mt-1">Name is required.</div>)}
+                            {errors.comment_author?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid name.</div>)}
                         </div>
                     </div>
                     <div className="col-sm-4 mb-20">
                         <div className="contactField">
                             <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicEmail">Email *</label>
-                            <input placeholder="Enter your email" id="formBasicEmail" className="rounded-pill px-4 form-control" {...register("email", {required: true,pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/,})}/>
-                            {errors.email?.type === "required" && (<div className="text-danger mt-1">Email is required.</div>)}
-                            {errors.email?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid email.</div>)}
+                            <input placeholder="Enter your email" id="formBasicEmail" className="rounded-pill px-4 form-control" {...register("comment_author_email", {required: true,pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/,})}/>
+                            {errors.comment_author_email?.type === "required" && (<div className="text-danger mt-1">Email is required.</div>)}
+                            {errors.comment_author_email?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid email.</div>)}
                         </div>
                     </div>
                     <div className="col-sm-4 mb-20">
                         <div className="contactField">
                             <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicWebsite">Website</label>
-                            <input placeholder="Enter your website" id="formBasicWebsite" className="rounded-pill px-4 form-control" {...register("website", {pattern: /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/,})}/>
-                            {errors.website?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid URL.</div>)}
+                            <input placeholder="Enter your website" id="formBasicWebsite" className="rounded-pill px-4 form-control" {...register("comment_author_url", {pattern: /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/,})}/>
+                            {errors.comment_author_url?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid URL.</div>)}
                         </div>
                     </div>
                     <div className="col-lg-12 mb-20">
                         <div className="contactField">
                             <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicMessage">Comment</label>
-                            <textarea placeholder="Type your comment here" id="formBasicMessage" className="isRadius16 p-3 form-control" {...register('message')}></textarea>
+                            <textarea placeholder="Type your comment here" id="formBasicMessage" className="isRadius16 p-3 form-control" {...register('comment_content')}></textarea>
                         </div>
                     </div>
                     <div className="sbm-btn text-center text-lg-start">
-                        <input {...register('comment_author_IP', { required: true})} type="hidden" value={ip} />
-                        <input {...register('comment_agent', { required: true})} type="hidden" value={navigator.userAgent} />
-                        <input {...register('comment_post_ID', { required: true})} type="hidden" value={props.id} />
-                        <input {...register('comment_parent', { required: true})} type="hidden" value={props.replyParent} />
                         <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn btn-contact" disabled={formProcessing}>{formProcessing? 'Submiting Comment...' : 'Submit Comment'}</button>
                     </div>
                     {/* {console.log(errors)} */}

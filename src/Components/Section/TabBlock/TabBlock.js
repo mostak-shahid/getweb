@@ -35,24 +35,28 @@ const TabBlock = (props) => {
         // e.target.parentElement.querySelector('.list-group-item.active').classList.remove("active")
         // e.target.classList.add("active")
         //const target = e.target.getAttribute('href')
-        const target = e.target.getAttribute('data-target')
+        const target = e.target.getAttribute('data-target');
+        const distance = e.target.getAttribute('data-distance')
+        //console.log(distance)
         //console.log(document.querySelector('#' + target))
         const location = document.querySelector('#' + target).offsetTop  
+        
         window.scrollTo({
             left: 0,
             //top: location - 64,
-            top: location + 100,
+            top: location - distance + 30,
+            
         })
         //setOffset(location)
     }
     return (
         <>
             <div className="col-lg-4 tab-anchor-list d-none d-lg-block">
-                <div className="list-group position-sticky top-0 start-0" >
+                <div className="list-group position-sticky start-0" >
                     <h4 className="fs-24">Contents</h4>
                     {props.groupData.map((item, index) => (                        
-                        <a onClick={handleClick} data-target={["list-item", rand, index].join('-')} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} key={index}>
-                            <span data-target={["list-item", rand, index].join('-')} dangerouslySetInnerHTML={{__html: item.title}}></span>
+                        <a onClick={handleClick} data-target={["list-item", rand, index].join('-')} data-distance={!index?120:0} href={["#list-item", rand, index].join('-')} className={["list-group-item list-group-item-action", !index?'active':''].join(' ')} key={index}>
+                            <span data-distance={!index?120:0} data-target={["list-item", rand, index].join('-')} dangerouslySetInnerHTML={{__html: item.title}}></span>
                         </a>
                     ))}
                 </div>

@@ -1,5 +1,23 @@
 .comment-form {
+  .comment-reply-title {
+    &::after {
+      content: "";
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        #00ffa3 0%,
+        rgba(0, 255, 163, 0.1) 100%
+      );
+      display: block;
+      margin-top: 5px;
+    }
+  }
   .comment-reply-intro {
     color: #6b6e78;
   }
+}
+.cancel-reply {
+  margin-left: 10px;
+  cursor: pointer;
 }
