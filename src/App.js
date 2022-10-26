@@ -78,7 +78,7 @@ function App() {
     const pages = [
         {"ID": 358, "post_name": "about"},
         {"ID": 878, "post_name": "android-app-development"},//android-app-development
-        {"ID": 447, "post_name": "appis"},
+        //{"ID": 447, "post_name": "appis"},
         {"ID": 1023, "post_name": "back-end-developer"},
         {"ID": 386, "post_name": "blog"},
         {"ID": 728, "post_name": "branding"},
@@ -87,12 +87,12 @@ function App() {
         {"ID": 924, "post_name": "cross-platform-mobile-development"},//Cross Platform Mobile Development
         {"ID": 1012, "post_name": "custom-application-development"},
         {"ID": 986, "post_name": "custom-web-apps"},
-        {"ID": 363, "post_name": "elementor-363"},
+        //{"ID": 363, "post_name": "elementor-363"},
         {"ID": 948, "post_name": "front-end-developer"},
         {"ID": 1043, "post_name": "front-end-development-services"},
         {"ID": 1032, "post_name": "full-stack-developer"},
         {"ID": 365, "post_name": "gutenberg"},
-        {"ID": 82, "post_name": "home"},
+        //{"ID": 82, "post_name": "home"},
         {"ID": 891, "post_name": "ios-app-development"},//iOS App Development
         {"ID": 464, "post_name": "job-application-form"},
         {"ID": 1006, "post_name": "lean-product-development"},
@@ -104,7 +104,7 @@ function App() {
         {"ID": 1002, "post_name": "progressive-web-apps"},
         {"ID": 812, "post_name": "research-development"},
         {"ID": 1009, "post_name": "saas-application-development"},
-        {"ID": 2, "post_name": "sample-page"},
+        //{"ID": 2, "post_name": "sample-page"},
         {"ID": 834, "post_name": "scoping-session"},
         {"ID": 496, "post_name": "single-job-page"},
         {"ID": 685, "post_name": "ui-design"},

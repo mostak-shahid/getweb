@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useTransition } from 'transition-hook';
 import SideBarForm from '../SideBarForm/SideBarForm';
 import SideBarInfo from '../SideBarInfo/SideBarInfo';

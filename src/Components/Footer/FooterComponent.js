@@ -277,15 +277,15 @@ export default class FooterComponent extends Component {
       },
     ];
     
-    const handleClick = (e) => {
-      e.preventDefault()
-      const target = e.target.getAttribute('data-target')
-      const location = document.querySelector(target).offsetTop  
-      window.scrollTo({
-          left: 0,
-          top: location,
-      })
-    }
+    // const handleClick = (e) => {
+    //   e.preventDefault()
+    //   const target = e.target.getAttribute('data-target')
+    //   const location = document.querySelector(target).offsetTop  
+    //   window.scrollTo({
+    //       left: 0,
+    //       top: location,
+    //   })
+    // }
     const setShow = (modalShow) => {
       this.setState({show:!modalShow})
     }

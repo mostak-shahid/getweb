@@ -80,7 +80,8 @@ const JobApplicationForm = (props) => {
                     headers: {
                         'content-type': 'multipart/form-data',
                         'Accept': 'application/json',
-                        "Content-type": "application/json; charset=UTF-8",
+                        "Content-type": "application/json; charset=UTF-8",                        
+                        'Authorization': Config.Authorization
                     }
                 })
                 //const content = await rawResponse.json();

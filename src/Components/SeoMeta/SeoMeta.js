@@ -54,8 +54,8 @@ const SeoMeta = ({pageData}) => {
             <meta property="og:description" content={pageData?.meta?.rank_math_description} />
         }        
         {
-            pageData?.image && 
-            <meta property="og:url" content={pageData?.image} />
+            pageData?.slug && 
+            <meta property="og:url" content={[Config.SITE_DOMAIN, 'blog',pageData?.slug].join('/')} />
         }
         <meta property="og:site_name" content={Config.SITE_TITLE}/>
         {
@@ -80,12 +80,11 @@ const SeoMeta = ({pageData}) => {
             pageData?.image && 
             <meta property="og:image:secure_url" content={pageData?.image} />
         }
-        {
-        pageData?.taxonomy?.category &&
-            pageData.taxonomy.category.map((item, index) => (
-                <meta key={index} property="og:image:alt" content={item.name} />
-            ))        
-        }
+        
+        <meta property="og:image:width" content={pageData?.featured_image?.image_attributes[1]} />
+        <meta property="og:image:height" content={pageData?.featured_image?.image_attributes[2]} />
+        <meta property="og:image:alt" content={pageData?.featured_image?.image_alt} />
+        
         <meta property="article:published_time" content={pageData?.date} />
         <meta property="article:modified_time" content={pageData?.modified_date} />
         <meta name="twitter:card" content="summary_large_image" />

@@ -644,6 +644,9 @@ ul {
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .calendly-badge-widget {
   .calendly-badge-content {
     span {
@@ -739,7 +742,6 @@ ul {
 }
 /*From Frahim vai*/
 
-
 // Side Bar CSS
 
 .disable-focus {
@@ -759,11 +761,11 @@ ul {
   border-left: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
-.full-contact-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 100% !important;
-    height: 50px;
- }
+.full-contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100% !important;
+  height: 50px;
+}

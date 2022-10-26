@@ -58,10 +58,11 @@ const FormValidation = (props) => {
                         'content-type': 'multipart/form-data',
                         'Accept': 'application/json',
                         "Content-type": "application/json; charset=UTF-8",
+                        'Authorization': Config.Authorization
                     }
                 })
                 //const content = await rawResponse.json();
-                //console.log(rawResponse);
+                console.log(rawResponse);
                 if(rawResponse.data.req.data.status){
                     toast.success('Thank you for submitting this query.');
                     reset();

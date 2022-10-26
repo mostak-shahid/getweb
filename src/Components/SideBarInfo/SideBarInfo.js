@@ -12,10 +12,10 @@ const SideBarInfo = ({ setStartProject }) => {
       .then(resp=>setOptionData(resp))//setting response to state posts
       //.then(setLoading(false));
   },[]); 
-  console.log(optionData);
+  //console.log(optionData);
   return (
     <div className="side-bar-info">
-      {console.log(optionData)}
+      {/* {console.log(optionData)} */}
       <h3 className="side-bar-title">What are you waiting for?</h3>
       <div className="contact-info">
         <h6>Let's talk</h6>
