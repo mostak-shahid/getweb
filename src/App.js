@@ -3,14 +3,14 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 
-import FooterComponent from "./Components/Footer/FooterComponent";
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import "./Components/Header/header.scss";
 import SideBar from "./Components/SideBar/SideBar";
 import SideButton from "./Components/SideButton/SideButton";
 
+import Config from './Config.json';
 import "./index.scss";
-
 // import Home from "./Page/Home/Home";
 // import Blog from "./Page/Blog/Blog";
 // import BlogSingle from "./Components/BlogUpdate/BlogSingle";
@@ -24,6 +24,7 @@ import "./index.scss";
 const Home = lazy(() => import("./Page/Home/Home"));
 //const Blog = lazy(() => import("./Page/Blog/Blog"));
 const Blogs = lazy(() => import("./Page/Blog/Blogs"));
+const CategorySingle = lazy(() => import("./Page/Blog/CategorySingle"));
 const BlogSingle = lazy(() => import("./Components/BlogUpdate/BlogSingle"));
 const Single = lazy(() => import("./Page/Single/Single"));
 const Search = lazy(() => import("./Page/Search/Search"));
@@ -37,6 +38,13 @@ function App() {
     //const [loading, setLoading] = useState(true);
     const [location, setLocation] = useState('');
     let {hash} = useLocation();
+    const [optionData,setOptionData]=useState([]);
+    useEffect(()=>{
+        const url=Config.API_BASE + "options";//api url
+        fetch(url).then(resp=>resp.json())//calling url by method GET
+        .then(resp=>setOptionData(resp))//setting response to state posts
+        //.then(setLoading(false));
+    },[]);
     /*useEffect(() => {
         async function fetchData() {
             await axios
@@ -144,12 +152,12 @@ function App() {
     :*/
     <div className={`overlay ${sideBarOpen && "active"}`}>
         {/* <Router basename="/getweb-react"> */}
-            <Header show={show} setShow={setShow}/>
+            <Header show={show} setShow={setShow} optionData={optionData}/>
             <SideButton sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen} />
             <SideBar
                 sideBarOpen={sideBarOpen}
                 setSideBarOpen={setSideBarOpen}
-                // sidebarRef={sidebarRef}
+                optionData={optionData}
             />
             <Suspense fallback={<div className="textClrGreen text-center loder-text d-none">loading...</div>}>         
                 <Routes> 
@@ -160,19 +168,20 @@ function App() {
                         </Route> 
                         {/* <Route path="/blogs" element={<Blog/>}/> */}
                         <Route path="/blog" element={<Blogs/>}/>
+                        <Route path="/category/:slug" element={<CategorySingle/>}/>
                         <Route path="/blog/:slug" element={<BlogSingle />} />
                         <Route path="/search" >
                             <Route index element={<Search />} />
                             <Route path=":keyword" element={<Search />} />
                         </Route>
                         {pages.map((item, index) => (
-                            <Route path={item.post_name} element={<Single id={item.ID}/>} key={index}/>
+                            <Route path={item.post_name} element={<Single id={item.ID} optionData={optionData}/>} key={index}/>
                         ))}
                         
                         <Route path="*" element={<NotFound/>}/>
                 </Routes>
              </Suspense>
-            <FooterComponent/>
+            <Footer optionData={optionData} />
         {/* </Router> */}
 
     </div>

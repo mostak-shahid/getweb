@@ -12,7 +12,7 @@ import './ContactSection.scss';
 function ContactSection(props) {
     const [optionData,setOptionData]=useState([]);
     useEffect(()=>{
-        const url=Config.API_BASE + "options/";//api url
+        const url=Config.API_BASE + "options";//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setOptionData(resp))//setting response to state posts
         //.then(setLoading(false));

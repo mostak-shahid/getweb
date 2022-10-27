@@ -6,18 +6,17 @@ import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import './header.scss';
 const Header = (props) => {
-    const [optionData,setOptionData]=useState([]);
+    //const [optionData,setOptionData]=useState([]);
     const [loading,setLoading]=useState(true);
     const [menuOpen,setMenuOpen]=useState(false);
-    
-    
+    const {optionData} = props;
 
-    useEffect(()=>{
-        const url=Config.API_BASE + "options/";//api url
-        fetch(url).then(resp=>resp.json())//calling url by method GET
-        .then(resp=>setOptionData(resp))//setting response to state posts
-        //.then(setLoading(false));
-    },[]);  
+    // useEffect(()=>{
+    //     const url=Config.API_BASE + "options";//api url
+    //     fetch(url).then(resp=>resp.json())//calling url by method GET
+    //     .then(resp=>setOptionData(resp))//setting response to state posts
+    //     //.then(setLoading(false));
+    // },[]);  
 
     useEffect(() => {
         if (optionData.length !== 0) {
@@ -527,7 +526,7 @@ const Header = (props) => {
         <header className='main-header'>
             <div className="wrapper d-flex justify-content-between align-items-center">
                 <div className="logo-area">
-                    <NavLink to="/" onClick={() => {setMenuOpen(false)}}><LazyImage src={optionData.logo.url} alt="Getweb Inc - logo" width="140px" height="42px" /></NavLink>
+                    <NavLink to="/" onClick={() => {setMenuOpen(false)}}><LazyImage src={props.optionData.logo.url} alt="Getweb Inc - logo" width="140px" height="42px" /></NavLink>
                 </div>
                 <div className="menu-area position-static position-xl-relative">
                     <div className="position-static position-xl-relative navbar navbar-expand-xl navbar-dark">
@@ -545,8 +544,8 @@ const Header = (props) => {
                         <span className="mr-8">Book a call now</span>
                         <span className="btn-arrow"></span>
                     </span>
-                    {optionData['contact-request-link'] &&
-                    <a href={optionData['contact-request-link']} className={["btn btn-pink position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} rel="noreferrer" target="_blank">
+                    {props.optionData['contact-request-link'] &&
+                    <a href={props.optionData['contact-request-link']} className={["btn btn-pink position-relative border-0 rounded-pill d-flex align-items-center justify-content-center fwSemiBold fs-14"].join(' ')} rel="noreferrer" target="_blank">
                         <span className="mr-8">Book a call now</span>
                         <span className="btn-arrow"></span>
                     </a>

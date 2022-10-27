@@ -70,14 +70,18 @@ const BlogSingle = (props) => {
                 //setIP(ipDataRequest.data);
                 setBlogPageData(blogPageDataResponse.data);
                 setCommentsData(commentsDataResponse.data);
-                setFirstLevelCommentsData(commentsData.filter(comment=>comment.parent === 0).slice(0,showCommentsCount));
+                
             }))
         }    
         if (pageData?.id) { 
             fetchData()
             .catch(console.error);  
         }      
-    },[params.slug,pageData.id,commentsData, showCommentsCount]);
+    },[pageData.id]);
+    
+    useEffect(() => {      
+        setFirstLevelCommentsData(commentsData.filter(comment=>comment.parent === 0).slice(0,showCommentsCount));
+    }, [commentsData,showCommentsCount]);
     useEffect(() => {
         if (pageData.length !== 0 || blogPageData.length !== 0) {
             setLoading(false);
@@ -111,16 +115,16 @@ const BlogSingle = (props) => {
             return (
                 child_comments.map((item, index)=> (
                     <div className={['comment', 'comment-'+index, 'comment-id'+item.id].join(' ')} key={index}>
-                        <div className="comment-unit d-flex">
+                        <div className="comment-unit d-sm-flex">
                             <div className="comment-avavat">
-                                <LazyImage className="img-comment-avavat" src={item.author_avatar_urls[96]?item.author_avatar_urls[96]:DefaultAvatar} width="60px" height="60px" alt={item.author_name}/>
+                                <LazyImage className="img-fluid img-comment-avavat rounded-circle" src={item.author_avatar_urls[96]?item.author_avatar_urls[96]:DefaultAvatar} width="60px" height="60px" alt={item.author_name}/>
                             </div>
                             <div className="comment-meta">
-                                <div className="d-flex justify-content-between align-items-center mb-0">
+                                <div className="d-sm-flex justify-content-between align-items-center mb-15">
                                     <h6 className="comment-auth" dangerouslySetInnerHTML={{__html:item.author_name}} />
                                     <div className="comment-time"><Moment format="DD MMMM, YYYY">{item.date}</Moment> at <Moment format="HH:MM a">{item.date}</Moment></div>
                                 </div>                                                
-                                <div className="comment-intro" dangerouslySetInnerHTML={{__html:item.content.rendered}} />
+                                <div className="comment-intro mb-20" dangerouslySetInnerHTML={{__html:item.content.rendered}} />
                                 <span className="reply" data-id={item.id} onClick={toggleComment}>Reply</span>
                                 <div className="comments-wrapper bgClrSolitude isRadius12">
                                 <CommentForm cencle={true} title={`Reply to ${item.author_name}`} id={pageData?.id} replyParent={item.id} />
@@ -151,7 +155,7 @@ const BlogSingle = (props) => {
                         <div className="BlogsSingleHeader">
                             <p className="blogSingleTag textClrGreen fs-15 fwSemiBold mb-20">{pageData?.taxonomy?.category[0].name}</p>
                             <h1 className="fs-48 fw-bold text-white mb-20">{pageData.title}</h1>
-                            <div className="meta d-flex gap-4 align-items-center">
+                            <div className="meta d-sm-flex gap-4 align-items-center">
                                 <span className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
                                     <div className="adminImg flex-shrink-0">
                                         {
@@ -220,11 +224,11 @@ const BlogSingle = (props) => {
                                         </div>
                                         <div className="right-part">
                                             <div className="contributor-title">VIP Contributor</div>
-                                            <div className="d-flex justify-content-start align-items-center mb-15">
+                                            <div className="d-sm-flex justify-content-start align-items-center mb-15">
                                                 <div className="fs-24 authoredBy"> <strong>{pageData?.author?.name}</strong></div>
                                                 <div className="authorDesignation"><div className="d-inline-block">{pageData?.author?.designation}</div></div>
                                             </div>
-                                            <div className="fs-14 fw-normal textClrGray authorDesc" dangerouslySetInnerHTML={{__html:pageData?.author?.description}} />
+                                            <div className="fs-6 fw-normal textClrGray authorDesc" dangerouslySetInnerHTML={{__html:pageData?.author?.description}} />
                                         </div>
                                         
                                     </div> 
@@ -252,16 +256,16 @@ const BlogSingle = (props) => {
                                 {
                                 firstLevelCommentsData.map((item, index)=> (
                                     <div className={['comment', 'comment-'+index, 'comment-id'+item.id].join(' ')} key={index}>
-                                        <div className="comment-unit d-flex">
+                                        <div className="comment-unit d-sm-flex">
                                             <div className="comment-avavat">
-                                                <LazyImage className="img-comment-avavat" src={item.author_avatar_urls[96]?item.author_avatar_urls[96]:DefaultAvatar} width="60px" height="60px" alt={item.author_name}/>
+                                                <LazyImage className="img-fluid img-comment-avavat rounded-circle" src={item.author_avatar_urls[96]?item.author_avatar_urls[96]:DefaultAvatar} width="60px" height="60px" alt={item.author_name}/>
                                             </div>
                                             <div className="comment-meta">
-                                                <div className="d-flex justify-content-between align-items-center mb-0">
+                                                <div className="d-sm-flex justify-content-between align-items-center mb-15">
                                                     <h6 className="comment-auth" dangerouslySetInnerHTML={{__html:item.author_name}} />
                                                     <div className="comment-time"><Moment format="DD MMMM, YYYY">{item.date}</Moment> at <Moment format="HH:MM a">{item.date}</Moment></div>
                                                 </div>                                                
-                                                <div className="comment-intro" dangerouslySetInnerHTML={{__html:item.content.rendered}} />
+                                                <div className="comment-intro mb-20" dangerouslySetInnerHTML={{__html:item.content.rendered}} />
                                                 <span className="reply" data-id={item.id} onClick={toggleComment}>Reply</span>
                                                 <div className="comments-wrapper bgClrSolitude isRadius12">
                                                 <CommentForm cencle={true} title={`Reply to ${item.author_name}`} id={pageData?.id} replyParent={item.id} />
@@ -276,13 +280,15 @@ const BlogSingle = (props) => {
                             ''
                         }
                         {
-                            loadMoreComment &&
+                            loadMoreComment && commentsData.filter(comment=>comment.parent === 0).length > 3 && 
                             <div className="d-inline-flex align-items-center cursor-pointer" onClick={()=>{setShowCommentsCount(commentsData.length); setLoadMoreComment(false)}}>
                                 <span className="view-all-comment">View All Comments</span>
                                 <span className="view-all-comment-icon"></span>
                             </div>
                         }
-                        
+                        {
+                            console.log(commentsData.length)
+                        }
                     </div>
                 </section>:''
             }

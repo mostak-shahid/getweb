@@ -57,7 +57,7 @@ const Single = (props) => {
                     
             {
                 pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-                    <Section data={item} key={index} />                    
+                    <Section data={item} key={index} optionData={props.optionData} />                    
                 ))
             }
         </>

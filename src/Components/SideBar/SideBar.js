@@ -4,7 +4,7 @@ import SideBarForm from '../SideBarForm/SideBarForm';
 import SideBarInfo from '../SideBarInfo/SideBarInfo';
 import './sideBar.scss';
 
-const SideBar = ({ sideBarOpen,setSideBarOpen }) => {
+const SideBar = ({ sideBarOpen,setSideBarOpen, optionData }) => {
 
   const [startProject, setStartProject] = useState(false);
 
@@ -13,7 +13,7 @@ const SideBar = ({ sideBarOpen,setSideBarOpen }) => {
   return (
     <div className={`side-bar ${sideBarOpen && "active"}`} >
       {!startProject ? (
-        <SideBarInfo setStartProject={setStartProject} />
+        <SideBarInfo setStartProject={setStartProject} optionData={optionData} />
       ) : (
         shouldMount && (
           <SideBarForm

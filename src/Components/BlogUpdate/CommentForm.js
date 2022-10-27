@@ -9,6 +9,7 @@ import './CommentForm.scss';
 const CommentForm = (props) => {
     const [formProcessing, setFormPocessing] = useState(false);
     const [ip, setIP] = useState("");
+    const [error, setError] = useState([]);
     //const [error, setError] = useState(false);
     useEffect(()=>{
         const url = 'https://api.ipify.org';
@@ -51,12 +52,13 @@ const CommentForm = (props) => {
                 }
             })
             //const content = await rawResponse.json();
-            console.log(rawResponse);
+            //console.log(rawResponse);
             if(rawResponse.data.req.data.status){
-                toast.success('Thank you for submitting this query.');
+                toast.success('Thank you for submitting your comment. Your comment is awaiting moderation.');
                 reset();
             } else {
                 toast.error('Please try again.');
+                setError(rawResponse.data.req.data.error);
             }
         } catch (error) {
             toast.error('Please try again.');
@@ -84,6 +86,7 @@ const CommentForm = (props) => {
                             <input placeholder="Enter your name" id="formBasicName" className="rounded-pill px-4 form-control" {...register("comment_author", {required: true,pattern: /^[a-zA-Z-_'. ]*$/,})}/>
                             {errors.comment_author?.type === "required" && (<div className="text-danger mt-1">Name is required.</div>)}
                             {errors.comment_author?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid name.</div>)}
+                            {error?.comment_author && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_author}} />)}
                         </div>
                     </div>
                     <div className="col-sm-4 mb-20">
@@ -92,6 +95,7 @@ const CommentForm = (props) => {
                             <input placeholder="Enter your email" id="formBasicEmail" className="rounded-pill px-4 form-control" {...register("comment_author_email", {required: true,pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/,})}/>
                             {errors.comment_author_email?.type === "required" && (<div className="text-danger mt-1">Email is required.</div>)}
                             {errors.comment_author_email?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid email.</div>)}
+                            {error?.comment_author_email && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_author_email}} />)}
                         </div>
                     </div>
                     <div className="col-sm-4 mb-20">
@@ -99,12 +103,17 @@ const CommentForm = (props) => {
                             <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicWebsite">Website</label>
                             <input placeholder="Enter your website" id="formBasicWebsite" className="rounded-pill px-4 form-control" {...register("comment_author_url", {pattern: /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(\/\S*)?$/,})}/>
                             {errors.comment_author_url?.type === "pattern" && (<div className="text-danger mt-1">Please enter a valid URL.</div>)}
+                            {error?.comment_author_url && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_author_url}} />)}
                         </div>
                     </div>
                     <div className="col-lg-12 mb-20">
                         <div className="contactField">
                             <label className="textClrThemeDark fs-13 fwSemiBold form-label" htmlFor="formBasicMessage">Comment</label>
                             <textarea placeholder="Type your comment here" id="formBasicMessage" className="isRadius16 p-3 form-control" {...register('comment_content')}></textarea>
+                            {error?.comment_content && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_content}} />)}
+                            {error?.comment_post_ID && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_post_ID}} />)}
+                            {error?.comment_parent && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_parent}} />)}
+                            {error?.comment_author_IP && (<div className="text-danger mt-1" dangerouslySetInnerHTML={{__html:error.comment_author_IP}} />)}
                         </div>
                     </div>
                     <div className="sbm-btn text-center text-lg-start">
