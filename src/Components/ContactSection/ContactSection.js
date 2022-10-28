@@ -4,26 +4,35 @@ import locationIcon from "../../assets/images/location-icon.svg";
 import skypeIcon from "../../assets/images/ms_skype.png";
 import phoneIcon from "../../assets/images/phone.svg";
 import whatappIcon from '../../assets/images/whatsapp.svg';
-import Config from "../../Config.json";
 import FormValidation from "../FormValidation/FormValidation";
 import LazyImage from "../LazyImage";
 import './ContactSection.scss';
 
 function ContactSection(props) {
-    const [optionData,setOptionData]=useState([]);
-    useEffect(()=>{
-        const url=Config.API_BASE + "options";//api url
-        fetch(url).then(resp=>resp.json())//calling url by method GET
-        .then(resp=>setOptionData(resp))//setting response to state posts
-        //.then(setLoading(false));
-    },[]);      
+    //const [optionData,setOptionData]=useState([]);
+    const [loading,setLoading]=useState(true);
+    const {optionData} = props;
+    // useEffect(()=>{
+    //     const url=Config.API_BASE + "options";//api url
+    //     fetch(url).then(resp=>resp.json())//calling url by method GET
+    //     .then(resp=>setOptionData(resp))//setting response to state posts
+    //     //.then(setLoading(false));
+    // },[]);      
     // console.log(loading);
     // console.log(optionData);
+    useEffect(() => {
+        if (optionData.length !== 0) {
+            setLoading(false);                                                                                    
+        }
+    }, [optionData]);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6':'col-sm-12';
         
-    return ( 
+    return (                
+        loading
+        ?<div cls="d-none"></div>
+        : 
         <div className="row">
             <div className={[widthClass, orderClass].join(' ')}>
                 <div className="part-one">   

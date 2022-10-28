@@ -517,8 +517,7 @@ const Header = (props) => {
           submenu: [],
         },
     };
-    return ( 
-        
+    return (         
         loading
         ?<div cls="d-none"></div>
         : 

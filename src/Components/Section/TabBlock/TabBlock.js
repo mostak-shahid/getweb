@@ -39,12 +39,12 @@ const TabBlock = (props) => {
         const distance = e.target.getAttribute('data-distance')
         //console.log(distance)
         //console.log(document.querySelector('#' + target))
-        const location = document.querySelector('#' + target).offsetTop  
+        const scrollToTop = document.querySelector('#' + target).offsetTop  
         
         window.scrollTo({
             left: 0,
             //top: location - 64,
-            top: location - distance + 30,
+            top: scrollToTop - distance + 30,
             
         })
         //setOffset(location)

@@ -40,7 +40,7 @@ const MainComponent = (props) => {
                 {(_mosacademy_page_group_component_name === 'TestimonialsComponent') && <TestimonialsComponent data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'BlogUpdateComponent') && <BlogUpdateComponent data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'ReadyToMoveComponent') && <ReadyToMoveComponent data={props.data} />}
-                {(_mosacademy_page_group_component_name === 'ContactSection') && <ContactSection data={props.data} />}
+                {(_mosacademy_page_group_component_name === 'ContactSection') && <ContactSection data={props.data} optionData={props.optionData} />}
                 {(_mosacademy_page_group_component_name === 'WhoWeAre') && <WhoWeAre data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'OurMission') && <OurMission data={props.data} />}
                 {(_mosacademy_page_group_component_name === 'OurValues') && <OurValues data={props.data} />}

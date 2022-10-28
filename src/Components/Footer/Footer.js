@@ -434,7 +434,7 @@ const Footer = (props) => {
             <div className="back-to-top-con make-visible">
                 <div className="d-flex justify-content-start position-relative"><a href="#root" className="back-to-top">Back to top</a></div>
             </div>
-            {console.log(optionData)}
+            {/*console.log(optionData)*/}
             <CalendlyModal show={show} setShow={setShow}/>
         </footer>
     )

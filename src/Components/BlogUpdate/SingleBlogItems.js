@@ -42,7 +42,7 @@ const SingleBlogItems = (props) => {
                     props?.data?.image &&
                     <div className="blogImage">
                         <NavLink to={['/blog',props?.data?.slug].join('/')} className="text-decoration-none" onClick={handleClick} data-target="#root">
-                            <LazyImage src={props?.data?.featured_image?.medium} alt={props.data.title} className="img-fluid w-100"  width="300px" height="172px" />
+                            <LazyImage src={props?.data?.featured_image['350']?props?.data?.featured_image['350']:props?.data?.image} alt={props.data.title} className="img-fluid w-100"  width="350px" height="200px" />
                         </NavLink>
                     </div>
                 }
