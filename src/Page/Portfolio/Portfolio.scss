@@ -321,3 +321,15 @@
     opacity: 0.9 !important;
   }
 }
+.portfolio-group-slider {
+  .slick-arrow {
+    position: fixed;
+    top: calc(100vh - 40px);
+    &.slick-prev {
+      left: 10%;
+    }
+    &.slick-next {
+      right: 10%;
+    }
+  }
+}

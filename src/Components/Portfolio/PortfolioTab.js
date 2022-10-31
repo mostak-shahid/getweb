@@ -122,6 +122,7 @@ const PortfolioTab = (props) => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 4000,
+        adaptiveHeight: true,
       /*
         loop: true,
         margin: 30,

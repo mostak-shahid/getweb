@@ -16,7 +16,7 @@ const Single = (props) => {
     },[props.id]);
     useEffect(()=>{
         const url = `${Config.API_BASE}data-single/${pageID}`;//api url`Welcome ${firstName}, ${lastName}!`
-        //console.log(url);
+        console.log(url);
         //fetch(url).then(resp=>resp.json())//calling url by method GET
         //.then(resp=>setPageData(resp))//setting response to state posts
         //.then(setLoading(false))

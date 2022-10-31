@@ -101,6 +101,7 @@ export default class MultipleRows extends Component {
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 4000,
+            adaptiveHeight: true,
             responsive: [
                 {
                   breakpoint: 991,

@@ -14,7 +14,7 @@ const JobDetails = () => {
     const [loading,setLoading]=useState(true);
     const params = useParams();
     useEffect(()=>{
-        const url = Config.API_BASE + "data-single/" + params.slug;//api url
+        const url = Config.API_BASE + "data-single/" + params.slug + "/job";//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setPageData(resp))//setting response to state posts
     },[params.slug]); 
@@ -36,7 +36,8 @@ const JobDetails = () => {
         loading?
         // <div className="textClrGreen text-center loder-text d-none">loading...</div>
         <Loading cls="loading page-loader" />:            
-        <>      
+        <>  
+        {console.log(pageData)}    
             <SeoMeta pageData={pageData}/>
             <div className="JobDetails">
                 <JobDetailsBanner title={pageData?.title} content={pageData?.excerpt}/>
@@ -59,6 +60,7 @@ const JobDetails = () => {
                                     </div>
                                     <div className="widget mb-30">
                                         <p className="jobCategory fs-6 textClrGrayDark fw-bold mb-10">Industry Category</p>
+
                                         <h4 className="category fw-medium fs-5 text-white mb-0" dangerouslySetInnerHTML={{__html:pageData.taxonomy?.job_category[0]?.name}} />
                                     </div>
                                     {

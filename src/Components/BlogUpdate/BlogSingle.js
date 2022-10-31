@@ -8,6 +8,7 @@ import clock1 from "../../assets/images/clock1.svg";
 import DefaultAvatar from "../../assets/images/default-comment-avatar.png";
 import comment1 from "../../assets/images/single-blog-comment.svg";
 import Config from "../../Config.json";
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 import LazyImage from "../LazyImage";
 import Loading from "../Loading/Loading";
 import Section from "../Section/Section";
@@ -29,7 +30,7 @@ const BlogSingle = (props) => {
   useEffect(() => {
     setPageData([]);
     setLoading(true);
-    const url = Config.API_BASE + "data-single/" + params.slug; //api url
+    const url = Config.API_BASE + "data-single/" + params.slug + '/post'; //api url
     fetch(url)
       .then((resp) => resp.json()) //calling url by method GET
       .then((resp) => setPageData(resp)); //setting response to state posts
@@ -224,7 +225,7 @@ const BlogSingle = (props) => {
   ) : (
     <>
       <SeoMeta pageData={pageData} />
-      <section className="BlogSingleWrapper secPadding mt-5 pb-0">
+      <section className="BlogSingleWrapper secPadding pb-0">
         <div className="container-lg">
           <div className="blogFeathered">
             <div className="BlogsSingleHeader">
@@ -310,6 +311,11 @@ const BlogSingle = (props) => {
           <div className="BlogSingleContentArea position-relative">
             <div className="row">
               <div className="col-xl-12">
+                {
+                  pageData?.meta?._mosacademy_blog_details_audio ?
+                  <AudioPlayer className="blog-audio-player mb-40" audio={pageData?.meta?._mosacademy_blog_details_audio} /> : ''
+                }
+                
                 {/* <button className="btn" onClick={playAudio}>
                   Play
                 </button> */}

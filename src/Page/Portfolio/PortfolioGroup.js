@@ -97,7 +97,8 @@ const PortfolioGroup = (props) => {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 4000,
-      initialSlide: index
+      initialSlide: index,
+      adaptiveHeight: true,
             /*loop: true,
             margin: 0,
             nav: true,
