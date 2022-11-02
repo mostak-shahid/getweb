@@ -59,15 +59,15 @@ function ContactSection(props) {
                                         <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
-                                        <h4 className="country text-white fw-bold fs-14">USA Office</h4>
-                                        <div className="address textClrGray fs-14 fw-medium mb-0">
                                             {
-                                                (typeof optionData.contactAddress !== 'undefined') && optionData?.contactAddress[2]
-                                                // optionData?.contactAddress.map((item, index) => (
-                                                //     <span key={index}>{item}</span>
-                                                // ))
+                                                (typeof optionData['contact-office-location'] !== 'undefined') && optionData['contact-office-location'][0] &&
+                                                <>
+                                                <h4 className="country text-white fw-bold fs-14">{optionData['contact-office-location'][0]['title']}</h4>
+                                                <div className="address textClrGray fs-14 fw-medium mb-0">
+                                                {optionData['contact-office-location'][0]['description']}
+                                                </div>
+                                                </>
                                             }
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,10 +77,15 @@ function ContactSection(props) {
                                         <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
-                                        <h4 className="country text-white fw-bold fs-14">Saudi Arabia Office</h4>
-                                        <div className="address textClrGray fs-14 fw-medium mb-0">
-                                            {(typeof optionData.contactAddress !== 'undefined') && optionData?.contactAddress[1]}
-                                        </div>
+                                    {
+                                                (typeof optionData['contact-office-location'] !== 'undefined') && optionData['contact-office-location'][1] &&
+                                                <>
+                                                <h4 className="country text-white fw-bold fs-14">{optionData['contact-office-location'][1]['title']}</h4>
+                                                <div className="address textClrGray fs-14 fw-medium mb-0">
+                                                {optionData['contact-office-location'][1]['description']}
+                                                </div>
+                                                </>
+                                            }
                                     </div>
                                 </div>
                             </div>
@@ -90,10 +95,15 @@ function ContactSection(props) {
                                         <LazyImage src={locationIcon} alt="lineShape" />
                                     </div>
                                     <div className="info">
-                                        <h4 className="country text-white fw-bold fs-14">Bangladesh</h4>
+                                    {
+                                        (typeof optionData['contact-office-location'] !== 'undefined') && optionData['contact-office-location'][2] &&
+                                        <>
+                                        <h4 className="country text-white fw-bold fs-14">{optionData['contact-office-location'][2]['title']}</h4>
                                         <div className="address textClrGray fs-14 fw-medium mb-0">
-                                        {(typeof optionData.contactAddress !== 'undefined') && optionData?.contactAddress[0]}
+                                        {optionData['contact-office-location'][2]['description']}
                                         </div>
+                                        </>
+                                    }
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +167,7 @@ function ContactSection(props) {
             </div>
             <div className={['tab-mobile-margin-top', widthClass].join(' ')}>
                 <div className="part-two"> 
-                <FormValidation title="Need a digital product or a custom solution? We’re all ears!" fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
+                <FormValidation title={typeof optionData['contact-form-title'] !== 'undefined' && optionData['contact-form-title'] ? optionData['contact-form-title']: ''} fields={['name', 'email', 'phone', 'interestedin','budget','message']}/>
                 </div>
             </div>
         </div>

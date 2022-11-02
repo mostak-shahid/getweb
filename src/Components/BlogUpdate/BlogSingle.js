@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import Moment from "react-moment";
-import { useParams } from "react-router-dom";
-import Arrow from "../../assets/images/arrow-top-hover.png";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import DefaultAuthor from "../../assets/images/blog-author-default.svg";
 import clock1 from "../../assets/images/clock1.svg";
 import DefaultAvatar from "../../assets/images/default-comment-avatar.png";
@@ -15,17 +14,25 @@ import Section from "../Section/Section";
 import SeoMeta from "../SeoMeta/SeoMeta";
 import "./BlogSingle.scss";
 import CommentForm from "./CommentForm";
+
+import SocialShare from "../SocialShare/SocialShare";
+import TableofContent from "../TableofContent/TableofContent";
+import TextReader from "../TextReader/TextReader";
+
+
 const BlogSingle = (props) => {
   const params = useParams();
   //console.log(params);
   const [pageData, setPageData] = useState([]);
   const [blogPageData, setBlogPageData] = useState([]);
   const [commentsData, setCommentsData] = useState([]);
+  //const [categoriesData, setCategoriesData] = useState([]);
   const [showCommentsCount, setShowCommentsCount] = useState(3);
   const [firstLevelCommentsData, setFirstLevelCommentsData] = useState([]);
   const [loadMoreComment, setLoadMoreComment] = useState(true);
-  const [tocShow, setTocShow] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState([]);
+  const navigate = useNavigate();
   //const [ip, setIP] = useState("");
   useEffect(() => {
     setPageData([]);
@@ -34,7 +41,7 @@ const BlogSingle = (props) => {
     fetch(url)
       .then((resp) => resp.json()) //calling url by method GET
       .then((resp) => setPageData(resp)); //setting response to state posts
-  }, [params.slug]);
+  }, [params]);
   /*useEffect(()=>{
         const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
@@ -59,22 +66,24 @@ const BlogSingle = (props) => {
     }, []);*/
 
   useEffect(() => {
-    //const ipRequest = 'https://api.ipify.org';//Config.API_BASE + "data-single/" + params.slug
-    const blogPageRequest = `${Config.API_BASE}data-single/${Config.BLOG_ID}`; //Config.API_BASE + "data-single/" + Config.BLOG_ID;
-    const commentsRequest = `https://getwebinc.com/api/wp-json/wp/v2/comments?post=${pageData?.id}`; //https://getwebinc.com/api/wp-json/wp/v2/comments?post=243;
+    const blogPageRequest = `${Config.API_BASE}data-single/${Config.BLOG_ID}`;
+    const commentsRequest = `https://getwebinc.com/api/wp-json/wp/v2/comments?post=${pageData?.id}`;
+    //const categoriesRequest = `${Config.API_BASE}data-taxonomies/category`;
     const fetchData = async () => {
       await axios
         .all([
           //axios.get(ipRequest),
           axios.get(blogPageRequest),
           axios.get(commentsRequest),
+          //axios.get(categoriesRequest),
         ])
         .then(
-          axios.spread((blogPageDataResponse, commentsDataResponse) => {
+          axios.spread((blogPageDataResponse, commentsDataResponse, categoriesDataResponse) => {
             //console.log(firstResponse.data,secondResponse.data);
             //setIP(ipDataRequest.data);
             setBlogPageData(blogPageDataResponse.data);
             setCommentsData(commentsDataResponse.data);
+            //setCategoriesData(categoriesDataResponse.data);
           })
         );
     };
@@ -91,15 +100,14 @@ const BlogSingle = (props) => {
     );
   }, [commentsData, showCommentsCount]);
   useEffect(() => {
-    if (pageData.length !== 0 || blogPageData.length !== 0) {
+    if (pageData.length !== 0 && blogPageData.length !== 0) {
       setLoading(false);
     }
     //console.log(pageData);
   }, [pageData, blogPageData]);
   const blogUpdateComponentData = {
-    _mosacademy_page_group_sub_titles: ["Related blog"],
-    _mosacademy_page_group_title_description:
-      "<h2>Read more on <strong>our blog</strong></h2><p>Check out the knowledge base collected and distilled by experienced professionals.</p><hr />",
+    _mosacademy_page_group_sub_titles: [typeof props?.optionData['single-blog-related-post-title'] !== 'undefined' && props?.optionData['single-blog-related-post-title'] ? props?.optionData['single-blog-related-post-title']: ''],
+    _mosacademy_page_group_title_description: typeof props?.optionData['single-blog-related-post-intro'] !== 'undefined' && props?.optionData['single-blog-related-post-intro'] ? props?.optionData['single-blog-related-post-intro']: '',
     _mosacademy_page_group_background_image_id: "",
     _mosacademy_page_group_background_image: false,
     _mosacademy_page_group_freature_image_id: "",
@@ -118,6 +126,7 @@ const BlogSingle = (props) => {
     group_id: "blogs-6",
     group_slug: "blogs",
   };
+  
   const childComments = (parent_id) => {
     let child_comments = commentsData.filter(
       (comment) => comment.parent === parent_id
@@ -153,7 +162,7 @@ const BlogSingle = (props) => {
                   dangerouslySetInnerHTML={{ __html: item.author_name }}
                 />
                 <div className="comment-time">
-                  <Moment format="DD MMMM, YYYY">{item.date}</Moment> at{" "}
+                  <Moment format="DD MMMM, YYYY">{item.date}</Moment> at
                   <Moment format="HH:MM a">{item.date}</Moment>
                 </div>
               </div>
@@ -214,11 +223,10 @@ const BlogSingle = (props) => {
       document.removeEventListener("touchstart", handler);
     };
   }, []);*/
-  const playAudio = () => {
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = pageData.modified_content;
-    window.speechSynthesis.speak(msg);
-  };
+  const handleSubmit = async (e) => {  
+    e.preventDefault();      
+    if (searchText) navigate('/search/' + searchText);
+}
   return loading ? (
     // <div className="textClrGreen text-center loder-text d-none">loading...</div>
     <Loading cls="page-loader" />
@@ -227,183 +235,218 @@ const BlogSingle = (props) => {
       <SeoMeta pageData={pageData} />
       <section className="BlogSingleWrapper secPadding pb-0">
         <div className="container-lg">
-          <div className="blogFeathered">
-            <div className="BlogsSingleHeader">
-              <p className="blogSingleTag textClrGreen fs-15 fwSemiBold mb-20">
-                {pageData?.taxonomy?.category[0].name}
-              </p>
-              <h1 className="fs-48 fw-bold text-white mb-20">
-                {pageData.title}
-              </h1>
-              <div className="meta d-sm-flex gap-4 align-items-center">
-                <span className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
-                  <div className="adminImg flex-shrink-0">
-                    {pageData?.author?.image[22] ? (
-                      <LazyImage
-                        className="author-image"
-                        src={pageData?.author?.image[22]}
-                        alt={[pageData?.author?.name, "Image"].join("-")}
-                        width="22"
-                        height="22"
-                      />
-                    ) : (
-                      <LazyImage
-                        className="author-image"
-                        src={DefaultAuthor}
-                        alt={[pageData?.author?.name, "Image"].join("-")}
-                        width="22px"
-                        height="22px"
-                      />
-                    )}
-                  </div>
-                  <span className="AuthorName">{pageData?.author?.name}</span>
-                </span>
-                <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
-                  <div className="CalenderIcon flex-shrink-0">
-                    <LazyImage
-                      src={clock1}
-                      alt="Calender Img"
-                      width="20px"
-                      height="20px"
-                    />
-                  </div>
-                  <span className="PostDate">
-                    <Moment format="MMM DD, YYYY">{pageData.date}</Moment>
-                  </span>
-                </span>
-                {commentsData.length ? (
-                  <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
-                    <div className="CalenderIcon flex-shrink-0">
-                      <LazyImage
-                        src={comment1}
-                        alt="Comment Img"
-                        width="20px"
-                        height="20px"
-                      />
-                    </div>
-                    <span className="PostComment">
-                      {commentsData.length} Comment/s
-                    </span>
-                  </span>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div className="BlogSingFeatheredImg">
-                {/* <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" /> */}
-                <LazyImage
-                  className="img-fluid img-blog-single"
-                  src={pageData.image}
-                  alt={pageData.title}
-                  width={[
-                    pageData?.featured_image?.image_attributes[1],
-                    "px",
-                  ].join("")}
-                  height={[
-                    pageData?.featured_image?.image_attributes[2],
-                    "px",
-                  ].join("")}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="BlogSingleContentArea position-relative">
-            <div className="row">
-              <div className="col-xl-12">
-                {
-                  pageData?.meta?._mosacademy_blog_details_audio ?
-                  <AudioPlayer className="blog-audio-player mb-40" audio={pageData?.meta?._mosacademy_blog_details_audio} /> : ''
-                }
-                
-                {/* <button className="btn" onClick={playAudio}>
-                  Play
-                </button> */}
-                <div className="blogTOC bgClrDark5">
-                  <div
-                    className="toc-title-wrap d-flex justify-content-between align-items-center cursor-pointer"
-                    onClick={() => setTocShow(!tocShow)}
-                  >
-                    <h4 className="toc-title mb-0">Table of Contents</h4>
-                    <button
-                      className={[
-                        "toc-toggle-btn",
-                        tocShow ? "open" : "close",
-                      ].join(" ")}
-                    >
-                      <img
-                        width="40px"
-                        height="40px"
-                        src={Arrow}
-                        alt="Table of Content"
-                      />
-                    </button>
-                  </div>
-                  <div
-                    className={["toc-wrap", tocShow ? "toc-open" : ""].join(
-                      " "
-                    )}
-                    dangerouslySetInnerHTML={{ __html: pageData.toc }}
-                  ></div>
-                </div>
-                <div
-                  className="blogInnerContent"
-                  dangerouslySetInnerHTML={{
-                    __html: pageData.modified_content,
-                  }}
-                />
-                {pageData?.author?.image[120] && pageData?.author?.description && (
-                  <>
-                    <hr className="whiteBorder" />
-
-                    <div className="authorIntro bgClrDarkLight">
-                      <div className="left-part">
-                        {pageData?.author?.image[120] ? (
+          <div className="row">
+            <div className="col-lg-8">
+              
+              <div className="blogFeathered">
+                <div className="BlogsSingleHeader">
+                  <p className="blogSingleTag textClrGreen fs-15 fwSemiBold mb-20">
+                    {pageData?.taxonomy?.category[0].name}
+                  </p>
+                  <h1 className="fs-48 fw-bold text-white mb-20">
+                    {pageData.title}
+                  </h1>
+                  <div className="meta d-sm-flex gap-4 align-items-center">
+                    <span className="single-blog-tags text-decoration-none text-white fs-14 fw-bold d-flex align-items-center">
+                      <div className="adminImg flex-shrink-0">
+                        {pageData?.author?.image[22] ? (
                           <LazyImage
-                            className="author-image mb-1"
-                            src={pageData?.author?.image[120]}
-                            width="120px"
-                            height="120px"
+                            className="author-image"
+                            src={pageData?.author?.image[22]}
                             alt={[pageData?.author?.name, "Image"].join("-")}
+                            width="22"
+                            height="22"
                           />
                         ) : (
                           <LazyImage
-                            className="author-image mb-1"
+                            className="author-image"
                             src={DefaultAuthor}
-                            width="120px"
-                            height="120px"
                             alt={[pageData?.author?.name, "Image"].join("-")}
+                            width="22px"
+                            height="22px"
                           />
                         )}
-                        {/* <div>
-                                                <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>
-                                                <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData?.author?.designation}</p>
-                                            </div> */}
                       </div>
-                      <div className="right-part">
-                        <div className="contributor-title">VIP Contributor</div>
-                        <div className="d-sm-flex justify-content-start align-items-center mb-15">
-                          <div className="fs-24 authoredBy">
-                            {" "}
-                            <strong>{pageData?.author?.name}</strong>
-                          </div>
-                          <div className="authorDesignation">
-                            <div className="d-inline-block">
-                              {pageData?.author?.designation}
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="fs-6 fw-normal textClrGray authorDesc"
-                          dangerouslySetInnerHTML={{
-                            __html: pageData?.author?.description,
-                          }}
+                      <span className="AuthorName">{pageData?.author?.name}</span>
+                    </span>
+                    <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
+                      <div className="CalenderIcon flex-shrink-0">
+                        <LazyImage
+                          src={clock1}
+                          alt="Calender Img"
+                          width="20px"
+                          height="20px"
                         />
                       </div>
-                    </div>
+                      <span className="PostDate">
+                        <Moment format="MMM DD, YYYY">{pageData.date}</Moment>
+                      </span>
+                    </span>
+                    {commentsData.length ? (
+                      <span className="single-blog-tags text-decoration-none textClrGray fs-14 fw-medium d-flex align-items-center">
+                        <div className="CalenderIcon flex-shrink-0">
+                          <LazyImage
+                            src={comment1}
+                            alt="Comment Img"
+                            width="20px"
+                            height="20px"
+                          />
+                        </div>
+                        <span className="PostComment">
+                          {commentsData.length} Comment/s
+                        </span>
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="BlogSingFeatheredImg">
+                    {/* <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" /> */}
+                    <LazyImage
+                      className="img-fluid img-blog-single"
+                      src={pageData.image}
+                      alt={pageData.title}
+                      width={[
+                        pageData?.featured_image?.image_attributes[1],
+                        "px",
+                      ].join("")}
+                      height={[
+                        pageData?.featured_image?.image_attributes[2],
+                        "px",
+                      ].join("")}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="BlogSingleContentArea position-relative">
+                <div className="row">
+                  <div className="col-xl-12">
+                    <TextReader content={props.modified_content} />
+                    {
+                      pageData?.meta?._mosacademy_blog_details_audio ?
+                      <AudioPlayer className="blog-audio-player mb-40" audio={pageData?.meta?._mosacademy_blog_details_audio} /> : ''
+                    }
+                    
+                    {/* <button className="btn" onClick={playAudio}>
+                      Play
+                    </button> */}
+                    
+                    <TableofContent data={pageData.tocArray} /> 
+                  
+                    <div
+                      className="blogInnerContent"
+                      dangerouslySetInnerHTML={{
+                        __html: pageData.modified_content,
+                      }}
+                    />
                     <hr className="whiteBorder" />
-                  </>
-                )}
+                    {pageData?.author?.image[120] && pageData?.author?.description && (
+                      <>
+                        <div className="authorIntro bgClrDarkLight">
+                          <div className="left-part">
+                            {pageData?.author?.image[120] ? (
+                              <LazyImage
+                                className="author-image mb-1"
+                                src={pageData?.author?.image[120]}
+                                width="120px"
+                                height="120px"
+                                alt={[pageData?.author?.name, "Image"].join("-")}
+                              />
+                            ) : (
+                              <LazyImage
+                                className="author-image mb-1"
+                                src={DefaultAuthor}
+                                width="120px"
+                                height="120px"
+                                alt={[pageData?.author?.name, "Image"].join("-")}
+                              />
+                            )}
+                            {/* <div>
+                                                    <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>
+                                                    <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData?.author?.designation}</p>
+                                                </div> */}
+                          </div>
+                          <div className="right-part">
+                            <div className="contributor-title">VIP Contributor</div>
+                            <div className="d-sm-flex justify-content-start align-items-center mb-15">
+                              <div className="fs-24 authoredBy">
+                                
+                                <strong>{pageData?.author?.name}</strong>
+                              </div>
+                              <div className="authorDesignation">
+                                <div className="d-inline-block">
+                                  {pageData?.author?.designation}
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              className="fs-6 fw-normal textClrGray authorDesc"
+                              dangerouslySetInnerHTML={{
+                                __html: pageData?.author?.description,
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <hr className="whiteBorder" />
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div className="col-lg-4">
+              <div className="blogSingle-sidebar pb-5 position-sticky">
+                <div className="widget">
+                  <div className="searchInput">
+                    <form  onSubmit={handleSubmit}>
+                        <div className="d-flex justify-content-xl-end">
+                            <input name="search" placeholder="Search" type="search" className="bg-transparent rounded-pill form-control"  onChange={(event) => setSearchText(event.target.value)} value={searchText}/>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+                <div className="widget">
+                  <span className="widget-title">Categories</span>
+                  <div className="widget-content">
+                    {/* {console.log(props)} */}
+                    {
+                    props.categoriesData.length ?
+                    <ul className="widget-category-list">
+                    {props.categoriesData.map((item, index)=>(
+                      parseInt(item.count)!==0?
+                      <li key={index}><NavLink to={['/category',item.slug].join('/')}><span className="title">{item.name}</span> <span className="count">({item.count})</span></NavLink></li>:''
+                    ))}
+                    </ul>: ''
+                    }
+                  </div>
+                </div>
+                <div className="widget d-none">                  
+                  {pageData?.author?.image[47] && pageData?.author?.description && !1 && 
+                      <div className="sidebar-author-wrap">
+                        <div className="sidebar-author d-flex  align-items-center">
+                          <div className="part-img">
+                            <LazyImage
+                              className="author-image"
+                              src={pageData?.author?.image[47]}
+                              width="47px"
+                              height="47px"
+                              alt={[pageData?.author?.name, "Image"].join("-")}
+                            />
+                          </div>
+                          <div className="part-content">
+                            <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>
+                            <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData?.author?.designation}</p>
+                          </div>
+                        </div>
+                        <div className="fs-6 fw-normal textClrGray authorDesc" dangerouslySetInnerHTML={{__html: pageData?.author?.description}}/>
+                      </div>
+                    }
+                </div>
+                <div className="widget">                  
+                  <SocialShare title={props.title}/>
+                </div>
               </div>
             </div>
           </div>
@@ -453,7 +496,7 @@ const BlogSingle = (props) => {
                             }}
                           />
                           <div className="comment-time">
-                            <Moment format="DD MMMM, YYYY">{item.date}</Moment>{" "}
+                            <Moment format="DD MMMM, YYYY">{item.date}</Moment>
                             at <Moment format="HH:MM a">{item.date}</Moment>
                           </div>
                         </div>

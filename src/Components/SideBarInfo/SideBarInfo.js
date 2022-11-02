@@ -15,7 +15,8 @@ const SideBarInfo = ({ setStartProject, optionData }) => {
   return (
     <div className="side-bar-info">
       {/* {console.log(optionData)} */}
-      <h3 className="side-bar-title">What are you waiting for?</h3>
+      {typeof optionData['contact-sidebar-title-2'] !== 'undefined' && optionData['contact-sidebar-title-2'] ? 
+      <h3 className="side-bar-title" dangerouslySetInnerHTML={{__html:optionData['contact-sidebar-title-2']}} /> : ''}
       <div className="contact-info">
         <h6>Let's talk</h6>
         <Divider />
@@ -385,7 +386,7 @@ const SideBarInfo = ({ setStartProject, optionData }) => {
               </linearGradient>
             </defs>
           </svg>
-          Schedule a call
+          {typeof optionData['contact-sidebar-button-title'] !== 'undefined' && optionData['contact-sidebar-button-title'] ? optionData['contact-sidebar-button-title'] : 'Schedule a call'}
         </span>
         <svg
           width="24"
@@ -505,7 +506,7 @@ const SideBarInfo = ({ setStartProject, optionData }) => {
               </linearGradient>
             </defs>
           </svg>
-          Start a project
+          {typeof optionData['contact-sidebar-button-title-2'] !== 'undefined' && optionData['contact-sidebar-button-title-2'] ? optionData['contact-sidebar-button-title-2'] : 'Start a project'}
         </span>
         <svg
           width="24"

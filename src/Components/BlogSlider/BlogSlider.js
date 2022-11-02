@@ -107,7 +107,7 @@ export default class MultipleItems extends Component {
                                 {
                                     item.image &&
                                     <div className="blogImage">
-                                        <Link to={['/blog',item.slug].join('/')} className=" text-decoration-none">
+                                        <Link to={['/blog',item.slug].join('/')} className=" text-decoration-none is_it?">
                                             {/* <img src={item.image} alt={item.title}/> */}
                                             <LazyImage src={item.featured_image.medium} alt={item.title} width="300px" height="172px" />
                                         </Link>

@@ -21,6 +21,7 @@ const SideBar = ({ sideBarOpen,setSideBarOpen, optionData }) => {
             sideBarOpen={sideBarOpen}
             startProject={startProject}
             stage={stage}
+            optionData={optionData}
           />
         )
       )}

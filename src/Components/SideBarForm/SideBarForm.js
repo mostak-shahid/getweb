@@ -3,7 +3,7 @@ import Divider from '../Divider/Divider';
 import FormValidation from '../FormValidation/FormValidation';
 import './sideBarForm.scss';
 
-const SideBarForm = ({ setStartProject, startProject, sideBarOpen, stage }) => {
+const SideBarForm = ({ setStartProject, startProject, sideBarOpen, stage, optionData }) => {
   return (
     <div
       className="side-bar-form"
@@ -29,12 +29,10 @@ const SideBarForm = ({ setStartProject, startProject, sideBarOpen, stage }) => {
         </svg>
         Back
       </button>
-
-      <h3 className="form-title">
-        Need a digital product or a custom solution? We’re all ears!
-      </h3>
-
-      <p>It usually takes us up to 6 hours to get back to you.</p>
+      {typeof optionData['contact-sidebar-title'] !== 'undefined' && optionData['contact-sidebar-title'] ? 
+      <h3 className="form-title" dangerouslySetInnerHTML={{__html:optionData['contact-sidebar-title']}} /> : ''}
+      {typeof optionData['contact-sidebar-intro'] !== 'undefined' && optionData['contact-sidebar-intro'] ? 
+      <p dangerouslySetInnerHTML={{__html:optionData['contact-sidebar-intro']}} /> : ''}
 
       <Divider />
       <div className="mb-10"></div>

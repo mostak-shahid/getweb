@@ -1,0 +1,34 @@
+.textReader {
+  background: #202124;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 30px;
+  margin-bottom: 40px;
+  .rs-container {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    button {
+      width: 30px;
+      line-height: 30px;
+      height: 30px;
+      text-align: center;
+      svg {
+        display: none;
+      }
+      &.rs-play {
+        content: "Play";
+      }
+      &.rs-stop {
+        content: "Stop";
+      }
+      &.rs-pause {
+        content: "Pause";
+      }
+      &.rs-resume {
+        content: "Resume";
+      }
+    }
+  }
+}

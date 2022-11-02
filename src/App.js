@@ -1,3 +1,4 @@
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -39,12 +40,34 @@ function App() {
     const [location, setLocation] = useState('');
     let {hash} = useLocation();
     const [optionData,setOptionData]=useState([]);
-    useEffect(()=>{
+    const [categoriesData, setCategoriesData] = useState([]);
+    useEffect(() => {
+        const optionsRequest = Config.API_BASE + "options";
+        const categoriesRequest = `${Config.API_BASE}data-taxonomies/category`;
+        const fetchData = async () => {
+          await axios
+            .all([
+              axios.get(optionsRequest),
+              axios.get(categoriesRequest),
+            ])
+            .then(
+              axios.spread((optionsDataResponse, categoriesDataResponse) => {
+                //console.log(firstResponse.data,secondResponse.data);
+                //setIP(ipDataRequest.data);
+                setOptionData(optionsDataResponse.data);
+                setCategoriesData(categoriesDataResponse.data);
+              })
+            );
+        };
+        fetchData().catch(console.error);        
+      }, []);
+
+   /* useEffect(()=>{
         const url=Config.API_BASE + "options";//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
         .then(resp=>setOptionData(resp))//setting response to state posts
         //.then(setLoading(false));
-    },[]);
+    },[]);*/
     /*useEffect(() => {
         async function fetchData() {
             await axios
@@ -169,7 +192,7 @@ function App() {
                         {/* <Route path="/blogs" element={<Blog/>}/> */}
                         <Route path="/blog" element={<Blogs/>}/>
                         <Route path="/category/:slug" element={<CategorySingle/>}/>
-                        <Route path="/blog/:slug" element={<BlogSingle />} />
+                        <Route path="/blog/:slug" element={<BlogSingle optionData={optionData} categoriesData={categoriesData} />} />
                         <Route path="/search" >
                             <Route index element={<Search />} />
                             <Route path=":keyword" element={<Search />} />
