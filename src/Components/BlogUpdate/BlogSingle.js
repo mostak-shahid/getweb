@@ -54,7 +54,7 @@ const BlogSingle = (props) => {
     fetch(url)
       .then((resp) => resp.json()) //calling url by method GET
       .then((resp) => setPageData(resp)); //setting response to state posts
-  }, [params]);
+  }, [params.slug]);
   /*useEffect(()=>{
         const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
         fetch(url).then(resp=>resp.json())//calling url by method GET
@@ -213,7 +213,7 @@ const BlogSingle = (props) => {
     e.preventDefault();      
     if (searchText) navigate('/search/' + searchText);
 }
-  console.log(loading)
+  //console.log(loading)
   return loading ? (
     // <div className="textClrGreen text-center loder-text d-none">loading...</div>
     <Loading cls="page-loader" />
