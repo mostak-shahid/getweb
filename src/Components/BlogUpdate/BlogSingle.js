@@ -21,6 +21,7 @@ import TextReader from "../TextReader/TextReader";
 
 
 const BlogSingle = (props) => {
+  //const UserContext = createContext();
   const params = useParams();
   //console.log(params);
   const [pageData, setPageData] = useState([]);
@@ -32,7 +33,19 @@ const BlogSingle = (props) => {
   const [loadMoreComment, setLoadMoreComment] = useState(true);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState([]);
+
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.speechSynthesis.cancel();
+    /*const audioLocalData = JSON.parse(localStorage.getItem('audioLocalData'));
+    //console.log(audioLocalData)
+    if (audioLocalData && audioLocalData.slug !== props.slug){
+        //window.speechSynthesis.cancel();
+    }
+    localStorage.setItem('audioLocalData', JSON.stringify({slug: props.slug}));
+    //document.querySelector(".rs-stop").click();*/
+  }, []);
   //const [ip, setIP] = useState("");
   useEffect(() => {
     setPageData([]);
@@ -195,38 +208,12 @@ const BlogSingle = (props) => {
     e.target.parentElement.classList.toggle("open-comment-box");
   }, []);
   //const [location, setLocation] = useState(0)
-  /*useEffect(() => {
-    const handler = (event) => {
-      if (event.path[0].localName === "a" && event.path[0].hash.match("#")) {
-        event.preventDefault();
-        // setTocShow(false);
-        let target = document.querySelector(event.path[0].hash);
-        //console.log(target);
-        let scrollToTop = target.offsetTop + 750;
-        //let scrollToTop = target.getBoundingClientRect().top;
-        //console.log(location);
-        // window.scrollTo({
-        //     left: 0,
-        //     top: location - 64,
-        //     top: location,
-        // })
-        window.scrollTo(0, scrollToTop);
-      }
-      //event.preventDefault();
-      //console.log(event.path)
-    };
-    document.addEventListener("click", handler);
-    document.addEventListener("touchstart", handler);
-    return () => {
-      // Cleanup the event listener
-      document.removeEventListener("click", handler);
-      document.removeEventListener("touchstart", handler);
-    };
-  }, []);*/
+
   const handleSubmit = async (e) => {  
     e.preventDefault();      
     if (searchText) navigate('/search/' + searchText);
 }
+  console.log(loading)
   return loading ? (
     // <div className="textClrGreen text-center loder-text d-none">loading...</div>
     <Loading cls="page-loader" />
@@ -243,7 +230,7 @@ const BlogSingle = (props) => {
                   <p className="blogSingleTag textClrGreen fs-15 fwSemiBold mb-20">
                     {pageData?.taxonomy?.category[0].name}
                   </p>
-                  <h1 className="fs-48 fw-bold text-white mb-20">
+                  <h1 className="fs-38 fw-bold text-white mb-20">
                     {pageData.title}
                   </h1>
                   <div className="meta d-sm-flex gap-4 align-items-center">
@@ -322,17 +309,20 @@ const BlogSingle = (props) => {
               <div className="BlogSingleContentArea position-relative">
                 <div className="row">
                   <div className="col-xl-12">
-                    <TextReader content={props.modified_content} />
                     {
-                      pageData?.meta?._mosacademy_blog_details_audio ?
-                      <AudioPlayer className="blog-audio-player mb-40" audio={pageData?.meta?._mosacademy_blog_details_audio} /> : ''
+                      pageData?.meta?._mosacademy_blog_details_audio_option === 'tts' ?
+                      <TextReader content={pageData.modified_content} instraction={typeof props?.optionData['single-blog-audio-instraction'] !== 'undefined' && props?.optionData['single-blog-audio-instraction'] ? props?.optionData['single-blog-audio-instraction']: 'Click play to listen to the blog'} />:''
+                    }
+                    {
+                      pageData?.meta?._mosacademy_blog_details_audio_option === 'ga' && pageData?.meta?._mosacademy_blog_details_audio ?
+                      <AudioPlayer className="blog-audio-player mb-40" audio={pageData.meta._mosacademy_blog_details_audio} instraction={typeof props?.optionData['single-blog-audio-instraction'] !== 'undefined' && props?.optionData['single-blog-audio-instraction'] ? props?.optionData['single-blog-audio-instraction']: 'Click play to listen to the blog'} /> : ''
                     }
                     
                     {/* <button className="btn" onClick={playAudio}>
                       Play
                     </button> */}
                     
-                    <TableofContent data={pageData.tocArray} /> 
+                    <TableofContent data={pageData.tocArray} title={typeof props?.optionData['single-blog-toc-title'] !== 'undefined' && props?.optionData['single-blog-toc-title'] ? props?.optionData['single-blog-toc-title']: 'Table of Contents'} /> 
                   
                     <div
                       className="blogInnerContent"

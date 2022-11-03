@@ -69,11 +69,12 @@ const AudioPlayer = (props) => {
                 <img src={PlayIcon} alt={PlayIcon} />
               </button>
             )}
-            {isPlaying ? (
+            {/* {isPlaying ? (
               <p>Click pause to stop listening</p>
             ) : (
               <p>Click play to listen to the blog</p>
-            )}
+            )} */}
+            {props.instraction}
           </div>
           <div className="speed-rate">
             <select onClick={(e) => onChangeSpeed(e.target.value)}>

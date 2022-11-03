@@ -57,7 +57,14 @@
     line-height: 40px !important;
   }
 }
-
+@mixin fs38 {
+  font-size: 28px !important;
+  line-height: 32px !important;
+  @media (min-width: 576px) {
+    font-size: 38px !important;
+    line-height: 44px !important;
+  }
+}
 @mixin fs48 {
   font-size: 30px !important;
   line-height: 40px !important;

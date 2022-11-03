@@ -57,7 +57,7 @@ const TableofContent = (props) => {
         props?.data && props.data.length ?
         <div  className="blogTOC bgClrDark5">
             <div className="toc-title-wrap d-flex justify-content-between align-items-center cursor-pointer" onClick={() => setTocShow(!tocShow)}>
-                <div className="toc-title">Table of Contents</div>
+                <div className="toc-title">{props.title}</div>
                 <button className={["toc-toggle-btn",tocShow ? "open" : "close"].join(" ")}>
                     <img width="40px" height="40px" src={Arrow} alt="Table of Content"/>
                 </button>

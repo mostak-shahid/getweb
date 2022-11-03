@@ -347,7 +347,7 @@ const Header = (props) => {
                   ID: 313,
                   title: "WordPress",
                   class: [""],
-                  url: "/wordPress",
+                  url: "/wordpress",
                   image: false,
                   hover_image: false,
                   submenu: [],
