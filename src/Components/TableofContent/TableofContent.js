@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 import Arrow from "../../assets/images/arrow-top-hover.png";
 const TableofContent = (props) => {   
     
-    const [tocShow, setTocShow] = useState(true);
+    const [tocShow, setTocShow] = useState(false);
     const childToc = (data) => {
         return (
             <ul>
