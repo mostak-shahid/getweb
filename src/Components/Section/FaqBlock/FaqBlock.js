@@ -10,14 +10,12 @@ const FaqBlock = (props) => {
         if (props.groupData.length !== 0) {
             setLoading(false);
         }
-        //console.log(pageData);
         const breakPoint = Math.ceil(props.groupData.length / props.noCol)
         var outputArr = []
         for (let i = 0; i < props.groupData.length; i+=breakPoint) {
             outputArr.push(props.groupData.slice(i, i+breakPoint));
         }        
         setGroupData(outputArr);
-        //console.log(groupData);
     }, [props.groupData, props.noCol]);
 
 
@@ -25,8 +23,6 @@ const FaqBlock = (props) => {
     return (
 
         <div className="faqList col-12 mb-4">
-            {/* {console.log('Main: ', props.noCol)} */}
-            {/* {console.log('Grouped: ', groupData)} */}
             <Accordion defaultActiveKey="0" flush className='mb--3'>
                 <div className="row">
                     {                                

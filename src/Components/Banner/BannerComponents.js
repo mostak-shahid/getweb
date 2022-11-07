@@ -10,35 +10,9 @@ export default class BannerComponents extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        //     loading: false,
-        //     pageData: "",
-        //     settingsData: "",
         };
     }
-    /*state = {
-        loading: true,
-        bannerData: null,
-    };
-    
-    async componentDidMount() {
-        const url = Config.API_BASE + "data-single/" + Config.HOME_BANNER_ID;
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({ 
-            bannerData: data, 
-            loading: false,
-        });
-        //console.log(this.state.bannerData);
-    }*/
     render() {
-        //console.log(this.props.pageData.meta)
-        // if (this.state.loading) {
-        //     return <Loading cls="loading page-loader" text="Banner Still Loading" />;
-        // }
-
-        // if (!this.state.bannerData) {
-        //     return <Loading cls="late-api-response page-loader" text="Banner Delay of API" />;
-        // }
         return (
             <section className="banner">
                 <div className="container-lg">

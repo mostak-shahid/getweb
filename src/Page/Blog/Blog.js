@@ -16,10 +16,8 @@ const withNavigateHook = (Component) => {
     }
 }
 class Blog extends Component {       
-    //const navigate = useNavigate(); 
     constructor(props) {
         super(props);
-        //console.log(props);
         this.state = {
             loading: true,
             postData: null,
@@ -40,12 +38,6 @@ class Blog extends Component {
     
 
     async componentDidMount() {
-
-        
-        // const settingsUrl = Config.API_BASE + "settings";
-        // const settingsResponse = await fetch(settingsUrl);
-        // const settingsData = await settingsResponse.json();
-
         const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/" + this.state.postPerPage;
         const responsePost = await fetch(urlPost);
         const postResponse = await responsePost.json();
@@ -55,7 +47,6 @@ class Blog extends Component {
         const postCountResponse = await responsePostCount.json();
 
         const urlPage = Config.API_BASE + "data-single/" + Config.BLOG_ID;
-        //const urlPage = Config.API_BASE + "data-single/" + settingsData.req.data.page_for_posts;
         const responsePage = await fetch(urlPage);
         const pageResponse = await responsePage.json();
 
@@ -63,7 +54,6 @@ class Blog extends Component {
         const responseCategories = await fetch(urlCategories);
         const categoriesResponse = await responseCategories.json();
         this.setState({
-            //postPerPage: settingsData.req.data.posts_per_page,
             postPerPage: Config.POST_PER_PAGE,
             postData: postResponse,
             postCountData: postCountResponse,
@@ -71,8 +61,6 @@ class Blog extends Component {
             categoriesData: categoriesResponse,
             loading: false,
         });
-        // console.log(this.state.postData);
-        // console.count();
     }
     async componentDidUpdate() {        
         const urlPost = Config.API_BASE + this.state.dataList +"/post/" + this.state.categoryId + "/" + this.state.startFrom + "/" + this.state.postPerPage;
@@ -97,14 +85,11 @@ class Blog extends Component {
         this.setState({value: event.target.value});
     }    
     handleSubmit(event) {
-        /*alert('A name was submitted: ' + this.state.value);*/
         event.preventDefault();
         this.props.navigation('/search/' + this.state.value);
     }
 
     render() {
-        
-        //console.log("Categories: ", this.state.categoriesData)
         if (this.state.loading) {
             return <Loading cls="page-loader" />;
         }
@@ -115,7 +100,6 @@ class Blog extends Component {
         return (
             <>
                 <SeoMeta pageData={pageData}/>
-            {/* {console.log(pageData.meta)} */}
             {
             !pageData?.meta?._mosacademy_banner_hide && 
             <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} featureImage={pageData?.meta?._mosacademy_page_banner_feature_image} alt={pageData?.meta?._mosacademy_page_banner_feature_image_alt} attributes={pageData?.meta?._mosacademy_page_banner_feature_image_attributes} btn2={pageData?.meta?._mosacademy_page_banner_button_2} />    
@@ -186,7 +170,6 @@ class Blog extends Component {
                 </section>           
                 {
                     pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-                        // <MainComponent data={item} key={index} />  
                         <Section data={item} key={index} />                       
                     ))
                 }

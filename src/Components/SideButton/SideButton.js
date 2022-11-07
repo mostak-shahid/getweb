@@ -11,13 +11,10 @@ const SideButton = ({ sideBarOpen, setSideBarOpen }) => {
       className={`side-btn ${sideBarOpen && "active"}`}
       onClick={() => setSideBarOpen(!sideBarOpen)}
     >
-      {/* <button className='side-toggle-btn'>Lets Talk</button> */}
       <button className="side-toggle-btn">
           {sideBarOpen ? (
-            // <img src={CloseIcon} alt={CloseIcon} width="89px" height="72px" />
             <LazyImage src={CloseIcon} alt={CloseIcon} width="89px" height="72px" />
           ) : (
-            // <img src={OpenBtn} alt={OpenBtn} width="79px" height="72px" />
             <LazyImage src={OpenBtn} alt={OpenBtn} width="89px" height="72px" />
           )}
       </button>

@@ -5,7 +5,6 @@ import "./SingleJobPost.scss";
 const SingleJobPost = (props) => {
     return (
         <div className="job-post-box">
-            {/* {console.log(props)} */}
             <div className="content-box">
                 <h4 dangerouslySetInnerHTML={{__html: props.data.title}} />
                 <div className="tag">

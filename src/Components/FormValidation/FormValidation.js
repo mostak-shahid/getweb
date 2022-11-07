@@ -89,34 +89,7 @@ const FormValidation = (props) => {
                 phone: 'Please re-check your phone number',
             });
         }
-        /*setFormPocessing(true);
-        try {
-            const rawResponse = await fetch(Config.API_BASE + 'contact-data/', {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    'Accept': 'application/json',
-                    "Content-type": "application/json; charset=UTF-8",
-                },
-            });
-            const content = await rawResponse.json();
-            //console.log(content);
-            if(content.req.data.status){
-                toast.success('Thank you for submitting this query.');
-                reset();
-            }
-        } catch (error) {
-            toast.error('Please try again.');
-            //console.log(error);
-            //setError("title", { type: "postAlreadyExists" }, { shouldFocus: true });
-        }
-        setFormPocessing(false);*/
     };   
-    
-    /*const onSubmit = (data) => {
-        console.log(data);
-        reset();
-    }*/
     const cv = watch("cv");  
     function handleChange(event) {
         var code=document.getElementById("formBasicContactNumberCode").value; 

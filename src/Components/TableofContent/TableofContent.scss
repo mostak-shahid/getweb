@@ -60,6 +60,9 @@
             > a {
               padding-top: 0 !important;
             }
+            .arrow {
+              margin-top: 0 !important;
+            }
           }
           &:first-child {
             &::after {
@@ -68,65 +71,8 @@
           }
         }
       }
-      /*
-        & > ul {
-          counter-reset: heading;
-          list-style: none;
-          & > li {
-            counter-reset: subheadingLVL2;
-            &::before {
-              content: counter(heading) ") ";
-              counter-increment: heading;
-            }
-            & > ul {
-              & > li {
-                counter-reset: subheadingLVL3;
-                &::before {
-                  content: counter(heading) "." counter(subheadingLVL2) ") ";
-                  counter-increment: subheadingLVL2;
-                }
-                & > ul {
-                  & > li {
-                    counter-reset: subheadingLVL4;
-                    &::before {
-                      content: counter(heading) "." counter(subheadingLVL2) "."
-                        counter(subheadingLVL3) ") ";
-                      counter-increment: subheadingLVL3;
-                    }
-                    & > ul {
-                      & > li {
-                        counter-reset: subheadingLVL5;
-                        &::before {
-                          content: counter(heading) "." counter(subheadingLVL2)
-                            "." counter(subheadingLVL3) "."
-                            counter(subheadingLVL4) ") ";
-                          counter-increment: subheadingLVL4;
-                        }
-                        & > ul {
-                          & > li {
-                            counter-reset: subheadingLVL6;
-                            &::before {
-                              content: counter(heading) "."
-                                counter(subheadingLVL2) "."
-                                counter(subheadingLVL3) "."
-                                counter(subheadingLVL4) "."
-                                counter(subheadingLVL5) ") ";
-                              counter-increment: subheadingLVL5;
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        */
       ul {
         li {
-          // margin-bottom: 20px;
           padding: 0;
           &:hover {
             &::before,
@@ -150,9 +96,6 @@
               rgba(255, 255, 255, 0.2) 48.44%,
               rgba(255, 255, 255, 0) 100%
             );
-          }
-          li {
-            // margin-bottom: 10px;
           }
           a {
             padding-top: 20px;
@@ -184,12 +127,10 @@
             }
           }
           ul {
-            // margin-top: 10px;
             display: none;
           }
           &.open-this-toc {
             & > ul {
-              // margin-top: 10px;
               display: block;
             }
             & > .arrow {
@@ -201,21 +142,6 @@
               }
             }
           }
-          /*
-            &::before {
-              font-weight: 500;
-              display: inline-block;
-              vertical-align: initial;
-              font-size: 14px;
-              line-height: 22px;
-              color: #8d8f98;
-              @media (min-width: 576px) {
-                font-size: 16px;
-                line-height: 26px;
-              }
-              @media (min-width: 992px) {
-              }
-            }*/
         }
       }
     }

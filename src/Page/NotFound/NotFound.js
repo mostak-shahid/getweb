@@ -4,14 +4,7 @@ import Button from '../../Components/Button/Button';
 import LazyImage from '../../Components/LazyImage';
 import '../../Components/SubPageBanner/SubPageBanner.scss';
 import './NotFound.scss';
-//import { Navigate } from 'react-router-dom'
 const NotFound = () => {
-  /*let navigate = useNavigate();
-  useEffect(() => {
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
-  }, [navigate]);*/
   return (
     <section className='notFound-banner text-center subPageBanner position-relative bgClrDarkLight'>
       <div className="container-lg">

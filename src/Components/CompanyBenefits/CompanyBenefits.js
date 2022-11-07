@@ -6,25 +6,21 @@ const CompanyBenefits = (props) => {
     const [sectionData,setSectionData]=useState([])
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
-        const url = Config.API_BASE + "data-list/block/28/0/6";//api url
-        fetch(url).then(resp=>resp.json())//calling url by method GET
-        .then(resp=>setSectionData(resp))//setting response to state posts
-        //.then(setLoading(false))
+        const url = Config.API_BASE + "data-list/block/28/0/6";
+        fetch(url).then(resp=>resp.json())
+        .then(resp=>setSectionData(resp))
     },[]);
     
     useEffect(() => {
         if (sectionData.length !== 0) {
             setLoading(false);
         }
-        //console.log(pageData);
     }, [sectionData]);
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';
     const widthClass = (_mosacademy_page_group_content_layout === 'con-left' || _mosacademy_page_group_content_layout === 'con-right') ? 'col-lg-6 mb-5 mb-lg-0':'col-sm-12'; 
-    //console.log(props)
     return (
         <div className="row">
-            {/* {console.log(props)} */}
             <div className={[widthClass, orderClass].join(' ')}>
                 <div className="sectionHeader text-center">
                     {

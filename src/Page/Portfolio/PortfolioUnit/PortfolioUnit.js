@@ -10,20 +10,12 @@ const PortfolioUnit = (props) => {
         <div className="unit-item">
             <div className="overLay"></div>
             {
-                props?.data?.image && 
-                // <img src={props?.data?.image} alt={props?.data?.title} />
-                <LazyImage src={props?.data?.image} alt={props?.data?.title} width={[props?.data?.featured_image?.image_attributes[1], 'px'].join('')} height={[props?.data?.featured_image?.image_attributes[2], 'px'].join('')} />
-                
+                props.imageSize === 'portfolio_home'?
+                <LazyImage src={props?.data?.featured_image['portfolio-home']} alt={props?.data?.title} width="613px" height="460px" /> :                
+                <LazyImage src={props?.data?.image} alt={props?.data?.title} width={[props?.data?.featured_image?.image_attributes[1], 'px'].join('')} height={[props?.data?.featured_image?.image_attributes[2], 'px'].join('')} />                
             }
             <div className="afterHover">
                 <div className="category">
-                {
-                        //console.log(item)
-                        // props?.data?.taxonomy?.project_tag && props?.data?.taxonomy?.project_tag.length &&
-                        // props?.data.taxonomy.project_tag.slice(0, 2).map((a, b) => (
-                        // <div className="name" key={b}>{a.name}</div>    
-                        // ))
-                }
                 </div>
                 <NavLink to="" className="goArrow position-absolute bottom-50 start-50" >
                     <img src={goArrow} alt="go icon" width="42px" height="42px" />

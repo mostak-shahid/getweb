@@ -2,39 +2,7 @@ import { NavLink } from "react-router-dom";
 import "../BlogUpdate/BlogSingle";
 import LazyImage from "../LazyImage";
 import "./SingleBlogItem.scss";
-/*const handleClick = (e) => {
-    //e.preventDefault()
-    // window.scrollTo(0, 0);
-    const target = e.target.getAttribute('data-target')
-    const location = document.querySelector(target).offsetTop
-    console.log(e.target.getAttribute('href'))  
-    window.scrollTo({
-        left: 0,
-        top: location,
-        behavior: 'smooth'
-    });
-}*/
 const SingleBlogItems = (props) => {
-    //console.log(props);
-    
-    /*const handleClick = (e) => { 
-        //window.location.reload(false)
-        //console.log(e.target.getAttribute('href'))   
-        // e.preventDefault();            
-        // if (e.target.getAttribute('href')) {
-        //     console.log(e.target.getAttribute('href')) 
-        //     navigate(e.target.getAttribute('href'));
-        // }
-
-        const target = e.target.getAttribute('data-target')
-        const location = document.querySelector(target).offsetTop
-        //console.log(e.target.getAttribute('href'))  
-        window.scrollTo({
-            left: 0,
-            top: location,
-            behavior: 'smooth'
-        });
-    }*/
     return (
         <div className="singleBlog isRadius16 d-flex flex-column justify-content-between">
             <div className="content-part">

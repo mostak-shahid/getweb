@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import SingleBlogItems from "../../Components/BlogUpdate/SingleBlogItems";
 import Loading from "../../Components/Loading/Loading";
-//import MainComponent from '../../Components/MainComponent/MainComponent';
 import Section from "../../Components/Section/Section";
 import SeoMeta from "../../Components/SeoMeta/SeoMeta";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
@@ -22,32 +21,9 @@ const CategorySingle = (props) => {
     useEffect(() => {
         setPageID(Config.BLOG_ID);
     },[]);
-    /*useEffect(()=>{
-        const url = `${Config.API_BASE}data-single/${pageID}`;
-        const fetchData = async () => {
-            await axios.get(url)
-            .then((response) => {
-                setPageData(response.data);
-            })
-        }      
-        fetchData()
-        .catch(console.error);
-    },[pageID]);
-    useEffect(()=>{
-        const url = `${Config.API_BASE}data-taxonomies/category`;
-        const fetchData = async () => {
-            await axios.get(url)
-            .then((response) => {
-                setCategories(response.data);
-            })
-        }      
-        fetchData()
-        .catch(console.error);
-    },[pageID]);*/
 
     useEffect(()=>{
         const firstrequest = `${Config.API_BASE}data-single/${pageID}`;
-        //bySlug=category&wordpress-development
         const secondrequest = `${Config.API_BASE}data-taxonomy/category/${params.slug}`;
         const fetchData = async () => {
             await axios.all([
@@ -55,7 +31,6 @@ const CategorySingle = (props) => {
                     axios.get(secondrequest)
                 ])
                 .then(axios.spread((firstResponse, secondResponse, thirdResponse) => {  
-                    //console.log(firstResponse.data,secondResponse.data);
                     setPageData(firstResponse.data);
                     setPosts(secondResponse.data);
             }))
@@ -63,19 +38,6 @@ const CategorySingle = (props) => {
         fetchData()
         .catch(console.error);        
     },[pageID,params.slug]);
-
-    // useEffect(()=>{
-    //     const url = `${Config.API_BASE}data-list/post/${category}/`;
-    //     const fetchData = async () => {
-    //         await axios.get(url)
-    //         .then((response) => {
-    //             setPosts(response.data);
-    //             //console.log(response.data.slice(startFrom, postCount));
-    //         })
-    //     }      
-    //     fetchData()
-    //     .catch(console.error);
-    // },[category]);
     
     useEffect(() => {
         if (pageData.length !== 0 && pageID !== 0) {
@@ -85,14 +47,6 @@ const CategorySingle = (props) => {
     useEffect(() => {      
         posts.length ? setShowPosts(posts.slice(startFrom, startFrom + postCount)) :  setShowPosts([])
     }, [posts,startFrom,postCount]);
-
-    /*const pagination = (posts, postCount) => {
-        let list = [];
-        for (let i = 1; i <= Math.ceil(posts.length / postCount); i++) {
-            list.push(<li className="page-item" key={i}><span className="page-link bg-transparent ">{i}</span></li>);
-        }
-        return list;
-    };*/
     const totalPage = Math.ceil(posts.length / postCount);
     const list = [];
     for (let i = 1; i <= totalPage; i++) {
@@ -113,7 +67,6 @@ const CategorySingle = (props) => {
         ?<Loading cls="page-loader" />
         :<>        
             <SeoMeta pageData={pageData}/>
-            {/* {console.log(pageData.meta)} */}
             {!pageData?.meta?._mosacademy_banner_hide && 
                 <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image} btn={pageData?.meta?._mosacademy_page_banner_button} btn2={pageData?.meta?._mosacademy_page_banner_button_2} featureImage={pageData?.meta?._mosacademy_page_banner_feature_image} alt={pageData?.meta?._mosacademy_page_banner_feature_image_alt} attributes={pageData?.meta?._mosacademy_page_banner_feature_image_attributes} />    
             }
@@ -173,10 +126,8 @@ const CategorySingle = (props) => {
                 </div>
                 }
             </section>  
-            {/* {console.log(pageData?.meta?._mosacademy_page_group_details_group)} */}
             {
-                pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-                    //<ChildComponent data={item} key={index} />                    
+                pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (            
                     <Section data={item} key={index} />                    
                 ))
             }

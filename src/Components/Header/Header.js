@@ -6,41 +6,15 @@ import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import './header.scss';
 const Header = (props) => {
-    //const [optionData,setOptionData]=useState([]);
     const [loading,setLoading]=useState(true);
     const [menuOpen,setMenuOpen]=useState(false);
-    const {optionData} = props;
-
-    // useEffect(()=>{
-    //     const url=Config.API_BASE + "options";//api url
-    //     fetch(url).then(resp=>resp.json())//calling url by method GET
-    //     .then(resp=>setOptionData(resp))//setting response to state posts
-    //     //.then(setLoading(false));
-    // },[]);  
+    const {optionData} = props; 
 
     useEffect(() => {
         if (optionData.length !== 0) {
             setLoading(false);                                                                                    
         }
     }, [optionData]);
-    // Sticky Menu Area
-    /*useEffect(() => {
-        window.addEventListener('scroll', isSticky);
-        return () => {
-            window.removeEventListener('scroll', isSticky);
-        };
-    });           
-    // Method that will fix header after a specific scrollable
-    const isSticky = (e) => {
-        const header = document.querySelector('.main-header');
-        const scrollTop = window.scrollY;
-        scrollTop >= 100 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
-    };*/
-    /*
-    
-    */
-
-    //const {show, setShow} = props
     const [show,setShow]=useState(false);
     const menuAlter = () => {
         return setMenuOpen(!menuOpen)
@@ -106,7 +80,7 @@ const Header = (props) => {
               ID: 290,
               title: "Product Design",
               class: ["menu-double-column"],
-              url: "/product-design-service", //software product design
+              url: "/product-design-service",
               image:
                 "https://getwebinc.com/api/wp-content/uploads/2022/05/menu-product-design.png",
               hover_image:

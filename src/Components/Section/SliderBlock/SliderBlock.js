@@ -2,12 +2,10 @@ import React from 'react';
 import Slider from "react-slick";
 import SingleBlogItems from '../../BlogUpdate/SingleBlogItems';
 import './SliderBlock.scss';
-// Import css files
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Testimonial from '../../Testimonials/Testimonial/Testimonial';
 const SliderBlock = (props) => {
-    //console.log(props);
     const settings = {
         dots: false,
         arrows: true,
@@ -41,25 +39,6 @@ const SliderBlock = (props) => {
                 }
             }
         ]
-        /*loop: true,
-        margin: 30,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        smartSpeed:2500,
-        responsive:{
-            0:{
-                items:props.noColsm,
-            },
-            600:{
-                items:props.noColmd,
-            },
-            1000:{
-                items:props.noCol,
-            }
-        }*/
     };
     return (
         
@@ -76,7 +55,6 @@ const SliderBlock = (props) => {
                     </div>
                 ))
             }
-            {/* {console.log(props)} */}
             </Slider>
         </div>
     )

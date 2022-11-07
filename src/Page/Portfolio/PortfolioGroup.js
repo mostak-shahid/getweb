@@ -1,12 +1,14 @@
 import "animate.css/animate.css";
 import axios from "axios";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+// import "owl.carousel/dist/assets/owl.carousel.css";
+// import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import Slider from "react-slick";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import appreciate from "../../assets/images/appriciate.svg";
 import companyLogo from "../../assets/images/companyLogo.svg";
 import companyRightLogo from "../../assets/images/getwebRightLogo.png";
@@ -17,16 +19,12 @@ import Pagination from "../../Components/Pagination/Pagination";
 import Config from "../../Config.json";
 import "./Portfolio.scss";
 import PortfolioUnit from "./PortfolioUnit/PortfolioUnit";
-// Import css files
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 const PortfolioGroup = (props) => {
     const [categories, setCategories] = useState([]);
     const [projects, setProjects] = useState([]);
     const [activeCatID, setActiveCatID] = useState(0);
     const [startFrom, setStartFrom] = useState(0);
     const [postCountData, setPostCountData] = useState(0);
-    //const [postPerPage, setPostPerPage] = useState(4);
     const [ip, setIP] = useState("");
     const [loading, setLoading] = useState(true);
     const [portfolioLoading, setPortfolioLoading] = useState(true);
@@ -48,7 +46,6 @@ const PortfolioGroup = (props) => {
         .get(Config.API_BASE + "data-taxonomies/project_category")
         .then(function (response) {
             setCategories(response.data);
-            //setActiveCatID(response.data[0].term_id);
         })
         .catch(function (error) {
             console.log("Error: ", error);
@@ -58,7 +55,6 @@ const PortfolioGroup = (props) => {
         setPortfolioLoading(true);
         async function fetchData() {
             var url = Config.API_BASE + "data-list/project/" + activeCatID + "/" + startFrom + "/" + postPerPage;
-            //console.log(url);
             await axios
             .get(url)
             .then(function (response) {
@@ -99,15 +95,6 @@ const PortfolioGroup = (props) => {
       autoplaySpeed: 4000,
       initialSlide: index,
       adaptiveHeight: true,
-            /*loop: true,
-            margin: 0,
-            nav: true,
-            dots: false,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            smartSpeed: 2500,
-            items: 1,
-            startPosition: index*/
         });
         setShow(true);
     }
@@ -120,15 +107,12 @@ const PortfolioGroup = (props) => {
         setStartFrom(start_From);
     };
     const getIP = async () => {
-        //const res = await axios.get('https://checkip.amazonaws.com/')
-        //const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
         await axios.get("https://api.ipify.org")
         .then(function (response) {
             setIP(response.data);
-            //console.log(response.data);
         })
         .catch(function (error) {
-            //toast.error(error);
+            toast.error(error);
         });
     };
     useEffect(() => {
@@ -136,8 +120,6 @@ const PortfolioGroup = (props) => {
     }, []);
 
     const likeFunctionality = async (id) => {
-        // console.log('IP: ', ip);
-        // console.log('ID: ', id);
         await axios.get(Config.API_BASE + "post-like/" + ip + "/" + id)
         .then(function (response) {
             console.log(response.data);
@@ -149,9 +131,8 @@ const PortfolioGroup = (props) => {
     }
 
     return loading?
-    <div className="textClrGreen text-center loder-text d-none">loading...</div>:   
+        <div className="textClrGreen text-center loder-text d-none">loading...</div>:   
         <div className="row">
-            {/* { console.log(projects) } */}
             <div className="col-12">
                 <div className="secIntro" dangerouslySetInnerHTML={{__html:props.data._mosacademy_page_group_title_description}} />
                 {categories.length && (
@@ -197,7 +178,6 @@ const PortfolioGroup = (props) => {
             >
                 <Modal.Header closeButton className="d-flex"></Modal.Header>
                 <Modal.Body className="p-0">
-                    {/* <div className="portfolio-modal-close position-absolute top-0 end-0"><button className="btn btn-danger rounded-circle" onClick={handleClose}>x</button></div> */}
                     {projects.length?
                     <Slider className="portfolio-group-slider" {...settings}>
                         {projects.map((item, index) => (

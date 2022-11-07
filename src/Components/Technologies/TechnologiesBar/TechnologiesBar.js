@@ -6,7 +6,6 @@ import Technology from './Technology/Technology';
 export default class TechnologiesBar extends Component {
     constructor(props) {
         super(props);
-        //console.log(props);
         this.state = {
             loading: true,
             technologiesData: null,
@@ -20,7 +19,6 @@ export default class TechnologiesBar extends Component {
             technologiesData: data, 
             loading: false,
         });
-        //console.log(this.props.data.term_id);
     }
 
     render() {
@@ -33,7 +31,6 @@ export default class TechnologiesBar extends Component {
         if (!this.state.technologiesData) {
             return <div>Didn't get data from API</div>;
         }
-        //console.log(technologiesData);
         return (
             <div className={['singleTechnology','p-2', slug].join(' ')}>
                 <div className="row align-items-center">
@@ -44,7 +41,6 @@ export default class TechnologiesBar extends Component {
                     </div>
                     <div className="col-xl-9">
                         <div className="singleTechLogo d-flex align-items-center flex-wrap">
-                        {/* <div className="singleTechLogo d-flex align-items-center justify-content-between flex-wrap"> */}
                             {
                                 (technologiesData.length)?
                                 technologiesData.map((logo, index) => (

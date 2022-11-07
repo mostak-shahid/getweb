@@ -3,20 +3,13 @@ import Speech from 'react-speech';
 import './TextReader.scss';
 const TextReader = (props) => {
     const [speedRate, setSpeedRate] = useState(1);
-
-    //console.log(location);
-    //console.log(isPLaying)
     useEffect(() => {
         const handler = (event) => {  
-            // console.count(); 
-            //console.log(event.path[0].className);
             var playBtn = document.querySelector(".rs-play");
             var stopBtn = document.querySelector(".rs-stop");
             var pauseBtn = document.querySelector(".rs-pause");
             var resumeBtn = document.querySelector(".rs-resume");
             var speedRate = document.querySelector(".speed-rate-selector");
-            //rs-play, rs-stop, rs-pause, rs-resume
-            //.match("ain")
             if(event.path[0].className.match('rs-play')) {
                 console.log('Play button pressed');
                 playBtn.classList.add("d-none");
@@ -50,7 +43,6 @@ const TextReader = (props) => {
         document.addEventListener("click", handler);
         document.addEventListener("touchstart", handler);
         return () => {
-            // Cleanup the event listener
             document.removeEventListener("click", handler);
             document.removeEventListener("touchstart", handler);
         };
@@ -58,14 +50,11 @@ const TextReader = (props) => {
     return (
         <div className="textReader d-flex justify-content-between align-items-center">
             <div className="left-part d-flex justify-content-start align-items-center">
-                {/* {console.log(props.slug)} */}
                 <Speech
                     text={props?.content}
                     stop={true} 
                     pause={true} 
                     resume={true} 
-                    // textAsButton={true}    
-                    // displayText="Hello"
                     pitch="1"
                     rate={speedRate}
                     volume="1"

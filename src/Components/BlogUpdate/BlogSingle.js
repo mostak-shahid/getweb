@@ -38,65 +38,29 @@ const BlogSingle = (props) => {
   
   useEffect(() => {
     window.speechSynthesis.cancel();
-    /*const audioLocalData = JSON.parse(localStorage.getItem('audioLocalData'));
-    //console.log(audioLocalData)
-    if (audioLocalData && audioLocalData.slug !== props.slug){
-        //window.speechSynthesis.cancel();
-    }
-    localStorage.setItem('audioLocalData', JSON.stringify({slug: props.slug}));
-    //document.querySelector(".rs-stop").click();*/
   }, []);
-  //const [ip, setIP] = useState("");
   useEffect(() => {
     setPageData([]);
     setLoading(true);
-    const url = Config.API_BASE + "data-single/" + params.slug + '/post'; //api url
+    const url = Config.API_BASE + "data-single/" + params.slug + '/post';
     fetch(url)
-      .then((resp) => resp.json()) //calling url by method GET
-      .then((resp) => setPageData(resp)); //setting response to state posts
+      .then((resp) => resp.json())
+      .then((resp) => setPageData(resp));
   }, [params.slug]);
-  /*useEffect(()=>{
-        const url = Config.API_BASE + "data-single/" + Config.BLOG_ID;//api url
-        fetch(url).then(resp=>resp.json())//calling url by method GET
-        .then(resp=>setBlogPageData(resp))//setting response to state posts
-    },[]);*/
-
-  /*const getIP = async () => {
-        //const res = await axios.get('https://checkip.amazonaws.com/')
-        //const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
-        await axios.get("https://api.ipify.org")
-        .then(function (response) {
-            setIP(response.data);
-            //toast('Success');
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log("Error: ", error);
-        });
-    };
-    useEffect(() => {
-        getIP();
-    }, []);*/
 
   useEffect(() => {
     const blogPageRequest = `${Config.API_BASE}data-single/${Config.BLOG_ID}`;
     const commentsRequest = `https://getwebinc.com/api/wp-json/wp/v2/comments?post=${pageData?.id}`;
-    //const categoriesRequest = `${Config.API_BASE}data-taxonomies/category`;
     const fetchData = async () => {
       await axios
         .all([
-          //axios.get(ipRequest),
           axios.get(blogPageRequest),
           axios.get(commentsRequest),
-          //axios.get(categoriesRequest),
         ])
         .then(
           axios.spread((blogPageDataResponse, commentsDataResponse, categoriesDataResponse) => {
-            //console.log(firstResponse.data,secondResponse.data);
-            //setIP(ipDataRequest.data);
             setBlogPageData(blogPageDataResponse.data);
             setCommentsData(commentsDataResponse.data);
-            //setCategoriesData(categoriesDataResponse.data);
           })
         );
     };
@@ -116,7 +80,6 @@ const BlogSingle = (props) => {
     if (pageData.length !== 0 && blogPageData.length !== 0) {
       setLoading(false);
     }
-    //console.log(pageData);
   }, [pageData, blogPageData]);
   const blogUpdateComponentData = {
     _mosacademy_page_group_sub_titles: [typeof props?.optionData['single-blog-related-post-title'] !== 'undefined' && props?.optionData['single-blog-related-post-title'] ? props?.optionData['single-blog-related-post-title']: ''],
@@ -207,15 +170,12 @@ const BlogSingle = (props) => {
     //e.target.parentElement.classList.toggle('open-comment-below');
     e.target.parentElement.classList.toggle("open-comment-box");
   }, []);
-  //const [location, setLocation] = useState(0)
 
   const handleSubmit = async (e) => {  
     e.preventDefault();      
     if (searchText) navigate('/search/' + searchText);
 }
-  //console.log(loading)
   return loading ? (
-    // <div className="textClrGreen text-center loder-text d-none">loading...</div>
     <Loading cls="page-loader" />
   ) : (
     <>
@@ -288,7 +248,6 @@ const BlogSingle = (props) => {
                     )}
                   </div>
                   <div className="BlogSingFeatheredImg">
-                    {/* <img className='img-fluid img-blog-single' src={pageData.image} alt="FeatheredImg" /> */}
                     <LazyImage
                       className="img-fluid img-blog-single"
                       src={pageData.image}
@@ -316,12 +275,7 @@ const BlogSingle = (props) => {
                     {
                       pageData?.meta?._mosacademy_blog_details_audio_option === 'ga' && pageData?.meta?._mosacademy_blog_details_audio ?
                       <AudioPlayer className="blog-audio-player mb-40" audio={pageData.meta._mosacademy_blog_details_audio} instraction={typeof props?.optionData['single-blog-audio-instraction'] !== 'undefined' && props?.optionData['single-blog-audio-instraction'] ? props?.optionData['single-blog-audio-instraction']: 'Click play to listen to the blog'} /> : ''
-                    }
-                    
-                    {/* <button className="btn" onClick={playAudio}>
-                      Play
-                    </button> */}
-                    
+                    }                    
                     <TableofContent data={pageData.tocArray} title={typeof props?.optionData['single-blog-toc-title'] !== 'undefined' && props?.optionData['single-blog-toc-title'] ? props?.optionData['single-blog-toc-title']: 'Table of Contents'} /> 
                   
                     <div
@@ -352,10 +306,6 @@ const BlogSingle = (props) => {
                                 alt={[pageData?.author?.name, "Image"].join("-")}
                               />
                             )}
-                            {/* <div>
-                                                    <h5 className="fs-6 fwSemiBlod text-white mb-1">{pageData?.author?.name}</h5>
-                                                    <p className="mb-0 fs-12 textClrGray fwSemiBlod">{pageData?.author?.designation}</p>
-                                                </div> */}
                           </div>
                           <div className="right-part">
                             <div className="contributor-title">VIP Contributor</div>
@@ -400,7 +350,6 @@ const BlogSingle = (props) => {
                 <div className="widget">
                   <span className="widget-title">Categories</span>
                   <div className="widget-content">
-                    {/* {console.log(props)} */}
                     {
                     props.categoriesData.length ?
                     <ul className="widget-category-list">
@@ -547,7 +496,6 @@ const BlogSingle = (props) => {
       ) : (
         ""
       )}
-      {/* <MainComponent data={blogUpdateComponentData} /> */}
       <Section data={blogUpdateComponentData} newtab={true} />
       {blogPageData?.meta?._mosacademy_page_group_details_group.map(
         (item, index) => (

@@ -397,7 +397,6 @@ const Footer = (props) => {
                                 </div>
                             </div>
                             <div className="col-sm-4">
-                                {/* {console.log(optionData["contact-social"])} */}
                                 {optionData["contact-social"].length && (
                                 <div className="social">
                                     <ul className="footer-social-list list-inline text-sm-end text-center p-0 mt-3 mb-0 m-sm-0">
@@ -434,7 +433,6 @@ const Footer = (props) => {
             <div className="back-to-top-con make-visible">
                 <div className="d-flex justify-content-start position-relative"><a href="#root" className="back-to-top">Back to top</a></div>
             </div>
-            {/*console.log(optionData)*/}
             <CalendlyModal show={show} setShow={setShow}/>
         </footer>
     )

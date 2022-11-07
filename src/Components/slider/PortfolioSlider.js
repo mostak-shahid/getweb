@@ -14,7 +14,6 @@ import LazyImage from "../LazyImage";
 import "./PortfolioSlider.scss";
 
 import Slider from "react-slick";
-// Import css files
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
@@ -22,7 +21,6 @@ export default class MultipleRows extends Component {
 
     constructor(props) {
         super(props);
-        //console.log(props);
         this.state = {
             loading: true,
             portfolioData: null,
@@ -38,7 +36,6 @@ export default class MultipleRows extends Component {
     
     
     async componentDidMount() {
-        //https://getwebinc.com/api/wp-json/mos-getweb-api/v1/data-list/project/141/0
         const url = Config.API_BASE + "data-list/project/141/0/12";
         const response = await fetch(url);
         const portfolioResponse = await response.json();
@@ -54,11 +51,8 @@ export default class MultipleRows extends Component {
         this.setState({ 
             portfolioDataRaw: portfolioResponse,
             portfolioData: portfolioDataArr,
-            //ip:ip,
             loading: false,
         });
-        //console.log(newArr);
-        //console.log(this.state.portfolioData);
     } 
     likeFunctionality(id) {
         fetch(Config.API_BASE + "post-like/" + this.state.ip + "/" + id)
@@ -74,7 +68,6 @@ export default class MultipleRows extends Component {
         });        
     }
     handleClick(index = 0) {
-        //console.log(index);
         if(index){
             this.setState(prevState => ({
                 modalData : this.state.portfolioDataRaw.find(item => item.id === index)
@@ -128,33 +121,11 @@ export default class MultipleRows extends Component {
                   }
                 }
             ]
-            /*loop: true,
-            //center: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            smartSpeed:2500,
-            responsive:{
-                0:{
-                    items:1,
-                },
-                600:{
-                    items:2,
-                },
-                1000:{
-                    items:3,
-                }
-            }*/
         };
         
       
         const {portfolioData, modalData} = this.state;        
         const {_mosacademy_page_banner_button} = this.props.data;
-        // console.log('Raw: ', this.state.portfolioDataRaw);
-        // console.log('Formated: ', this.state.portfolioData);
         return (
             <div className="slider-wrapper">
                 {(portfolioData.length) ?
@@ -165,7 +136,7 @@ export default class MultipleRows extends Component {
                             <div className={["item item-wrapper", "item-" + index ].join(' ')} key={index}>
                                 {
                                     item.map((a,b) => (
-                                <div className={["p-7", "portfolio-item", "portfolio-item-" + a.id].join(' ')} key={b} onClick={this.handleClick.bind(this, a.id)}><PortfolioUnit data={a}/></div>
+                                <div className={["p-7", "portfolio-item", "portfolio-item-" + a.id].join(' ')} key={b} onClick={this.handleClick.bind(this, a.id)}><PortfolioUnit data={a} imageSize="portfolio_home"/></div>
                                     ))
                                 }
                             </div>

@@ -17,20 +17,14 @@ const MediaGroup = (props) => {
 
 
     useEffect(() => {
-        // declare the async data fetching function
         const fetchData = async () => {
             let url = Config.API_BASE + 'data-list/'+type+'/'+taxonomy+'/0/' + props.count_total;
-            //console.log(url);
-            // get the data from the api
             await axios.get(url)
             .then((response) => {
                 setGroupData(response.data);
-                // console.log(response.data);
             })
         }      
-        // call the function
         fetchData()
-        // make sure to catch any error
         .catch(console.error);
       }, [type, taxonomy, props.count_total])    
 
@@ -45,7 +39,6 @@ const MediaGroup = (props) => {
 
         <div className="media-group">
             <div className="row">
-                {/* {console.log(props)} */}
                 {   
                     props.layout === 'tab' && 
                         <TabBlock groupData={groupData} template={props.template}/>

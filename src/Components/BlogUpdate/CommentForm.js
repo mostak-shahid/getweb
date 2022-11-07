@@ -119,7 +119,6 @@ const CommentForm = (props) => {
                     <div className="sbm-btn text-center text-lg-start">
                         <button type="submit" className="bgClrGreen w-auto h-42 textClrThemeDark fs-14 fwSemiBold border-0 py-2 px-4 rounded-pill btn btn-contact" disabled={formProcessing}>{formProcessing? 'Submiting Comment...' : 'Submit Comment'}</button>
                     </div>
-                    {/* {console.log(errors)} */}
                 </div>
             </form>
         </div>

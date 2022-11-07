@@ -160,20 +160,14 @@
         z-index: 3;
         box-sizing: border-box;
       }
-
-      /* Indicator while dragging - chrome and safari */
       &:active {
         &::-webkit-slider-thumb {
           transform: scale(1.2);
-          // background: purple;
         }
       }
-
-      /* Indicator while dragging - Firefox */
       &:active {
         &::-moz-range-thumb {
           transform: scale(1.2);
-          // background: purple;
         }
       }
     }

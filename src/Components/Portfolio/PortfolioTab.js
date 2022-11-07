@@ -96,12 +96,9 @@ const PortfolioTab = (props) => {
     }
 
     const getIP = async () => {
-        //const res = await axios.get('https://checkip.amazonaws.com/')
-        //const res = await axios.get('https://geolocation-db.com/json/8dd79c70-0801-11ec-a29f-e381a788c2c0')
         await axios.get("https://api.ipify.org")
         .then(function (response) {
             setIP(response.data);
-            //toast('Success');
             console.log(response.data);
         })
         .catch(function (error) {
@@ -123,17 +120,6 @@ const PortfolioTab = (props) => {
         autoplay: true,
         autoplaySpeed: 4000,
         adaptiveHeight: true,
-      /*
-        loop: true,
-        margin: 30,
-        nav: true,
-        dots: false,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        smartSpeed: 2500,
-        items: 1,
-        autoHeight:true,
-        */
     };
     const { _mosacademy_page_group_content_layout = "con-top", _mosacademy_page_group_title_text=''} = props.data;
     const orderClass = (_mosacademy_page_group_content_layout === 'con-bottom' || _mosacademy_page_group_content_layout === 'con-right') ? 'order-lg-last':'';

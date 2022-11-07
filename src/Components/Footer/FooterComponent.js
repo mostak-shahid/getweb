@@ -6,14 +6,7 @@ import CalendlyModal from "../CalendlyModal/CalendlyModal";
 import LazyImage from "../LazyImage";
 import Navigation from "../Navigation/Navigation";
 import "./FooterComponent.scss";
-//const FooterComponent = () => {
 export default class FooterComponent extends Component {
-  /*
-  
-    
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-  */
   state = {
     loading: true,
     optionData: null,
@@ -29,7 +22,6 @@ export default class FooterComponent extends Component {
       optionData: data,
       loading: false,
     });
-    //console.log(this.state.optionData.logo.url);
   }
 
   render() {
@@ -40,9 +32,7 @@ export default class FooterComponent extends Component {
     if (!this.state.optionData) {
       return <div>Didn't get data from API</div>;
     }
-    //const CANONICAL = Config.SITE_DOMAIN;
     const { optionData } = this.state;
-    //console.log(optionData['sections-footer-gallery']);
     const menu1 = [
       {
         ID: 252,
@@ -276,16 +266,6 @@ export default class FooterComponent extends Component {
         submenu: [],
       },
     ];
-    
-    // const handleClick = (e) => {
-    //   e.preventDefault()
-    //   const target = e.target.getAttribute('data-target')
-    //   const location = document.querySelector(target).offsetTop  
-    //   window.scrollTo({
-    //       left: 0,
-    //       top: location,
-    //   })
-    // }
     const setShow = (modalShow) => {
       this.setState({show:!modalShow})
     }
@@ -327,7 +307,6 @@ export default class FooterComponent extends Component {
                   Want to discuss with us?
                   </p>
                   <div className="btn-wrapper">
-                  {/* <span className="btn-pink btn position-relative border-0 rounded-pill d-flex align-items-center justify-content-center" onClick={()=>this.setState({show:true})} title="Book a call now"> */}
                   <span className="btn-pink btn position-relative border-0 rounded-pill d-flex align-items-center justify-content-center d-none" title="Book a call now" onClick={()=>this.setState({show:true})}>
                     <span className="mr-8">Book a call now</span>
                     <span className="btn-arrow"></span>
@@ -339,9 +318,6 @@ export default class FooterComponent extends Component {
                     </a>
                     }
                 </div>
-                  {/* <p className="fs-22 fwSemiBold text-white mb-0">
-                    {optionData?.contactAddress[0]}
-                  </p> */}
                 </div>
               </div>
             </div>
@@ -489,7 +465,6 @@ export default class FooterComponent extends Component {
                 </div>
               </div>
               <div className="col-sm-4">
-                {/* {console.log(optionData["contact-social"])} */}
                 {optionData["contact-social"].length && (
                   <div className="social">
                     <ul className="footer-social-list list-inline text-sm-end text-center p-0 mt-3 mb-0 m-sm-0">

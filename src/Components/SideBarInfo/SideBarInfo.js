@@ -3,18 +3,8 @@ import Divider from '../Divider/Divider';
 import './sideBarInfo.scss';
 
 const SideBarInfo = ({ setStartProject, optionData }) => {
-  
-  //const [optionData,setOptionData]=useState([]);
-  // useEffect(()=>{
-  //     const url=Config.API_BASE + "options";//api url
-  //     fetch(url).then(resp=>resp.json())//calling url by method GET
-  //     .then(resp=>setOptionData(resp))//setting response to state posts
-  //     //.then(setLoading(false));
-  // },[]); 
-  //console.log(optionData);
   return (
     <div className="side-bar-info">
-      {/* {console.log(optionData)} */}
       {typeof optionData['contact-sidebar-title-2'] !== 'undefined' && optionData['contact-sidebar-title-2'] ? 
       <h3 className="side-bar-title" dangerouslySetInnerHTML={{__html:optionData['contact-sidebar-title-2']}} /> : ''}
       <div className="contact-info">

@@ -4,7 +4,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import MainComponent from "../../Components/MainComponent/MainComponent";
+import Section from "../../Components/Section/Section";
 import SubPageBanner from "../../Components/SubPageBanner/SubPageBanner";
 import Config from "../../Config.json";
 import "./Portfolio.scss";
@@ -34,8 +34,8 @@ const Portfolio = () => {
     <>
         <SubPageBanner tagline={pageData?.meta?._mosacademy_page_banner_tagline} title={pageData?.meta?._mosacademy_page_banner_title} intro={pageData?.meta?._mosacademy_page_banner_intro} bgImg={pageData?.meta?._mosacademy_page_banner_image}  btn={pageData?.meta?._mosacademy_page_banner_button} />         
         {
-          pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => (
-            <MainComponent data={item} key={index} />                        
+          pageData?.meta?._mosacademy_page_group_details_group.map((item, index) => ( 
+            <Section data={item} key={index} />                       
           ))
         }
   <ToastContainer />

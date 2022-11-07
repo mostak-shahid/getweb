@@ -111,15 +111,9 @@ const JobApplicationForm = (props) => {
             });
         }
     };   
-    
-    /*const onSubmit = (data) => {
-        console.log(data);
-        reset();
-    }*/
     const cv = watch("cv");
     function handleChange(event) {
         var code=document.getElementById("formBasicContactNumberCode").value; 
-        //var phone=event.target.value;
         var phone=document.getElementById("formBasicContactNumber").value; ;
         var isValidNumberForRegion = true;
         if (!phone.length){           
@@ -146,16 +140,12 @@ const JobApplicationForm = (props) => {
                 phone: 'Please re-check your phone number',
             });
         }
-        // console.log(code);
-        // console.log(event.target.value);
     }
     return (
         loading?
-        // <div className="textClrGreen text-center loder-text d-none">loading...</div>
         <Loading cls="loading page-loader" />:         
         <>
             <SeoMeta pageData={pageData}/>
-            {/* <JobDetailsBanner  title={pageData?.meta?._mosacademy_page_banner_title} content={pageData?.meta?._mosacademy_page_banner_intro}/> */}
             <section className="section-wrapper JobApplicationForm secPadding">
                 <div className="container-lg">
                     
@@ -418,10 +408,8 @@ const JobApplicationForm = (props) => {
                                                     <option value="ZM" data-countrycode="260">ZM (+260)</option>
                                                     <option value="ZW" data-countrycode="263">ZW (+263)</option>
                                                 </select>
-                                                {/* <input id="formBasicContactNumber" type="text" className="rounded-0 border-0 border-start px-3 form-control" placeholder="Please enter your number" {...register('phone')}/> */}
                                                 <input placeholder="Please enter your number" type="text" id="formBasicContactNumber" className="rounded-0 border-0 border-start px-3 form-control" {...register('phone', {onChange: handleChange})}/>
                                             </div>   
-                                            {/* {phoneNumber.phone}                              */}
                                             {error?.phone && <div className='text-danger mt-1'>{error.phone}</div>}
                                         </div>
                                         </div>

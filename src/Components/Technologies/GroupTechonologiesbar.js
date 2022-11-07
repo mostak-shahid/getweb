@@ -9,13 +9,11 @@ const GroupTechonologiesbar = (props) => {
     const tags = (props.data?._mosacademy_page_group_component_data)?props.data?._mosacademy_page_group_component_data:0;
 
     useEffect(() => {
-        // console.log(props.data);
         async function fetchData() {
             await axios
             .get(Config.API_BASE + "data-taxonomies/technology_catagory/" + tags)
             .then(function (response) {
                 setTechnologiesData(response.data);
-                //console.log(response)
             });
         }
         fetchData();
@@ -53,7 +51,6 @@ const GroupTechonologiesbar = (props) => {
                                  
                              
                         <div className="singleTechnologyBar mb-4">
-                            {/* { console.log(technologiesData)} */}
                             {
                                 (technologiesData.length) && 
                                 technologiesData.map((item, index) => ( 

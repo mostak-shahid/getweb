@@ -2,39 +2,25 @@ import { Component } from "react";
 import Config from '../../Config.json';
 import LazyImage from "../LazyImage";
 import './OurFocusIndustriesComponent.scss';
-
-
-//const OurFocusIndustriesComponent = () => {
 export default class OurFocusIndustriesComponent extends Component { 
     constructor(props) {
         super(props);
-        //console.log(props);
         this.state = {
             loading: true,
             industryDataOne: null,
             industryDataTwo: null,
         };
-    }
-    
-    
+    }   
     async componentDidMount() {
         const url1 = Config.API_BASE + "data-list/industry/0/0/12";
         const response1 = await fetch(url1);
         const data1 = await response1.json();
-        
-        // const url2 = Config.API_BASE + "data-list/industry/0/6/6";
-        // const response2 = await fetch(url2);
-        // const data2 = await response2.json();
         this.setState({ 
             industryDataOne: data1, 
-            //industryDataTwo: data2, 
             loading: false,
         });
-        //console.log(this.state.servicesItems);
-    }
-    
+    }    
     render() {
-        //const {_mosacademy_page_group_sub_titles = '', _mosacademy_page_group_title_text='', _mosacademy_page_group_title_description=''} = this.props.data;
         const {industryDataOne} = this.state;
         if (this.state.loading) {
             return <div className="textClrGreen text-center d-none">loading...</div>;
@@ -84,9 +70,6 @@ export default class OurFocusIndustriesComponent extends Component {
                                         </div>                             
                                     ))
                                 }
-                                {/* <div className="industries-border industries-border-1"></div>
-                                <div className="industries-border industries-border-2"></div>
-                                <div className="industries-border industries-border-3"></div> */}
                             </div>
                         </div>
 
