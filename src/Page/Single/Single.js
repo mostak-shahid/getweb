@@ -15,7 +15,7 @@ const Single = (props) => {
     },[props.id]);
     useEffect(()=>{
         const url = `${Config.API_BASE}data-single/${pageID}`;
-        console.log(url);
+        //console.log(url);
         const fetchData = async () => {
             await axios.get(url)
             .then((response) => {

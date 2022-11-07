@@ -4,8 +4,7 @@ import { Accordion } from "react-bootstrap";
 import "./FaqBlock.scss";
 const FaqBlock = (props) => {
     const [groupData,setGroupData]=useState([]);
-    const [loading,setLoading]=useState(true);
-    
+    const [loading,setLoading]=useState(true);    
     useEffect(() => {
         if (props.groupData.length !== 0) {
             setLoading(false);
@@ -16,19 +15,14 @@ const FaqBlock = (props) => {
             outputArr.push(props.groupData.slice(i, i+breakPoint));
         }        
         setGroupData(outputArr);
-    }, [props.groupData, props.noCol]);
-
-
-    
+    }, [props.groupData, props.noCol]);    
     return (
-
         <div className="faqList col-12 mb-4">
             <Accordion defaultActiveKey="0" flush className='mb--3'>
                 <div className="row">
                     {                                
-                        loading
-                        ?<div className="textClrGreen text-center d-none">loading...</div>
-                        :                                
+                        loading ?
+                        <div className="textClrGreen text-center d-none">loading...</div> :                                
                         groupData.map((item, index) => (
                             <div className="col-xl-6" key={index}>
                                 {
@@ -40,9 +34,8 @@ const FaqBlock = (props) => {
                                     ))
                                 }
                             </div>
-                        ))}
-                            
-                    
+                        ))
+                    }
                 </div>
             </Accordion>
         </div>
