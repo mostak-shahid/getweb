@@ -98,7 +98,7 @@ function App() {
         {"ID": 653, "post_name": "ux-writing"},
         {"ID": 1564, "post_name": "magento"},
         {"ID": 569, "post_name": "workshops"},
-        {"ID": 1590, "post_name": "wordpress"},
+        {"ID": 1590, "post_name": "wordpress-2"},
         {"ID": 1595, "post_name": "e-commerce-app"},
         {"ID": 1597, "post_name": "e-commerce-web"},
         {"ID": 1599, "post_name": "aws"},

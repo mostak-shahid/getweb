@@ -89,12 +89,12 @@ export default class MultipleRows extends Component {
             dots: false,
             arrows: false,
             infinite: true,
-            speed: 2500,
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 4000,
             adaptiveHeight: true,
+            speed: 2500,
             responsive: [
                 {
                   breakpoint: 991,
